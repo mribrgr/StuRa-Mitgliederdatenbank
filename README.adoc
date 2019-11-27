@@ -1,3 +1,5 @@
 # StuRa-Mitgliederdatenbank
 
+include::docs/task.adoc
+
 Vorschlag: branching strategy: https://nvie.com/posts/a-successful-git-branching-model/
