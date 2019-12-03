@@ -5,3 +5,5 @@ link:docs/task.adoc[Aufgabenstellung]
 Vorschlag: link:https://nvie.com/posts/a-successful-git-branching-model[a successful git branching model]
 
 link:https://www2.htw-dresden.de/~anke/openup/index.htm[OpenUP Dokumentation]
+
+link:https://sg.sim4seed.org/users/password/new[Passwort zurücksetzen Sim4SEEd]
