@@ -2,4 +2,4 @@
 :toc:
 
 //Das Wir später das Hauptelement zum Navigieren
-include::files/my_projektplan.adoc[]
+include::files/my_projektplan.adoc[leveloffset=+1]
