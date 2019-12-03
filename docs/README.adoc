@@ -1,0 +1,5 @@
+= Stura Mitgliederdatenbank
+:toc:
+
+//Das Wir später das Hauptelement zum Navigieren
+include::files/my_projektplan.adoc[]

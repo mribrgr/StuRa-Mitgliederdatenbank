@@ -1,0 +1,17 @@
+= Projektplan STURA_Mitgliederdatenbank
+Lukas Hirsch <s79199@htw-dresden.de>;
+:toc: 
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+
+== Einführung
+//Briefly describe the content of the project plan.
+
+== Projektorganisation
+=== Team Mitglieder
+[%header, format="csv", separator=";"]
+|===
+include::team.csv[]
+|===
+
