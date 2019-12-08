@@ -1,6 +1,6 @@
 # StuRa-Mitgliederdatenbank
 
-link:docs/task.adoc[Aufgabenstellung]
+link:docs/orga/task.adoc[Aufgabenstellung]
 
 Vorschlag: link:https://nvie.com/posts/a-successful-git-branching-model[a successful git branching model]
 
