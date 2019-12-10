@@ -2,10 +2,10 @@
 :toc:
 
 ## 03.12.2019, 17:00Uhr
-link:https://pentapad.c3d2.de/p/StuRa_Mitgliederdatenbank_Sitzung_1[]
+link:meetings/meeting1.adoc[1. Treffen]
 
 ## 10.12.2019, 15:15Uhr
-link:https://pentapad.c3d2.de/p/StuRa_Mitgliederdatenbank_Fragen_Stakeholder_1[]
+link:meetings/meeting2.adoc[2. Treffen]
 
 * Sitzung mit Stakeholder
 
