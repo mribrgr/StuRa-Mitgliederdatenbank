@@ -1,17 +1,26 @@
-= Vision
+= Vision StuRa Mitgliederdatenbank
 Lukas Hirsch <s79199@htw-dresden.de>
+Theresa Schüttig <s79136@htw-dresden.de>
+:toc:
+:toc-title: Inhaltsverzeichnis
+:sectnums:
 0.1, 13.12.2019 
 
 
 == Einführung
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten der Mitgliederdatenbank für den StuRa zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie die Mitgliederdatenbank diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
+Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
+Dieses Visions-Dokument bezieht sich auf die StuRa-Mitgliederdatenbank, das vom in dieser link:../documentation.pdf[Datei] aufgelisteten Team entwickelt wird. Das System wird es Mitgliedern der Referate Verwaltung und Präsidium sowie Mitarbeitern des StuRas erlauben, Daten von Mitgliedern des StuRas über eine Webanwendung zu verwalten, um Informationen zu Mitgliedern, Ämtern und Wahlen zu speichern und einzusehen, einen Arbeitsleitfaden für die interne Verwaltung sowie eine Checkliste zu generieren. Im Idealfall sollte die Anwendung auch das https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[hier] veröffentlichte Organigramm erzeugen können. 
 
 === Definitionen, Akronyme und Abkürzungen
+siehe link:my_glossary.adoc[Glossar]
 
 === Referenzen
+link:[Aufgabenstellung]
 
 == Positionierung
 === Fachliche Motivation
