@@ -1,4 +1,4 @@
-= Vision -Projektthema-
+= Vision
 Lukas Hirsch <s79199@htw-dresden.de>
 0.1, 13.12.2019 
 
