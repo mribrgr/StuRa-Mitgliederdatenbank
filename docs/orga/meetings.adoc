@@ -9,4 +9,9 @@ link:meetings/meeting2.adoc[2. Treffen]
 
 * Sitzung mit Stakeholder
 
+## 13.12.2019,  12:40Uhr
+link:https://pentapad.c3d2.de/p/StuRa_Mitgliederdatenbank_Fragen_Stakeholder_2[]
+
+* Sitzung mit Stakeholder
+
 ## ...
