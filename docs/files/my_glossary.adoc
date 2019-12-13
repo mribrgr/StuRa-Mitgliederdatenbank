@@ -20,7 +20,7 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Abkürzung|	Bedeutung|	Erläuterung
 |AE|Aufwandsentschädigung|Bei besonders hohem Zeitaufwand als Vergütung
 |UP|Unified Process|Vorgehensmodell für die Softwareentwicklung
-|Plom|--|Website des STURA
+|Plone|--|Website des STURA
 |xx|xx|xx|
 |===
 
