@@ -1,0 +1,35 @@
+= Glossar
+Lukas Hirsch <s79199@htw-dresden.de>
+0.1, 13.12.2019 
+
+== Einführung
+In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. 
+Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
+
+== Begriffe
+[%header]
+|===
+|Begriff|	Definition und Erläuterung|	Synonyme
+|xx|xx|xx
+|===
+		
+
+== Abkürzungen und Akronyme
+[%header]
+|===
+|Abkürzung|	Bedeutung|	Erläuterung
+|AE|Aufwandsentschädigung|Bei besonders hohem Zeitaufwand als Vergütung
+|UP|Unified Process|Vorgehensmodell für die Softwareentwicklung
+|Plom|--|Website des STURA
+|xx|xx|xx|
+|===
+
+== Verzeichnis der Datenstrukturen
+[%header]
+|===
+|Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
+|Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
+|xx|xx|xx|xx|xx
+|===
+
+
