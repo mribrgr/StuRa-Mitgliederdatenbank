@@ -1,0 +1,21 @@
+= Vision -Projektthema-
+Lukas Hirsch <s79199@htw-dresden.de>
+0.1, 13.12.2019 
+
+
+== Einführung
+
+=== Zweck
+
+=== Gültigkeitsbereich (Scope)
+
+=== Definitionen, Akronyme und Abkürzungen
+
+=== Referenzen
+
+== Positionierung
+=== Fachliche Motivation
+
+=== Problem Statement
+
+=== ...
