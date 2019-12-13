@@ -1,5 +1,16 @@
 = Stura Mitgliederdatenbank
 :toc:
 
+
 //Das Wir später das Hauptelement zum Navigieren
+
+
+
+
+
+//Projektplan
 include::files/my_projektplan.adoc[leveloffset=+1]
+
+
+//Glossary
+include::files/my_glossary.adoc[leveloffset=+1]
