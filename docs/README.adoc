@@ -6,12 +6,12 @@
 
 
 //Vision
-include::files/my_vision.adoc[leveloffset=+1]
+include::files/vision.adoc[leveloffset=+1]
 
 
 //Projektplan
-include::files/my_projektplan.adoc[leveloffset=+1]
+include::files/projektplan.adoc[leveloffset=+1]
 
 
 //Glossary
-include::files/my_glossary.adoc[leveloffset=+1]
+include::files/glossary.adoc[leveloffset=+1]
