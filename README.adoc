@@ -8,4 +8,4 @@ link:https://www2.htw-dresden.de/~anke/openup/index.htm[OpenUP Dokumentation]
 
 link:https://sg.sim4seed.org/users/password/new[Passwort zurücksetzen Sim4SEEd]
 
-link:https://stura.htw-dresden.de/stura/ref/verwaltung/mitglieder/mitgliederdatenbank[Derzeitige Mitgliederdatenbank]
+link:https://stura.htw-dresden.de/stura/ref/verwaltung/mitglieder/mitgliederdatenbank[Derzeitige Mitgliederdatenbank (man muss angemeldet sein)]
