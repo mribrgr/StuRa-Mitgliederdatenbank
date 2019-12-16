@@ -36,10 +36,12 @@ Beispiele:
 Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (hier Verweis einfügen).
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
-[%header, cols="3,1,1,1,2,1,1,1,1"]
+[%header, cols="3,1,1,1,2,1,1,1"]
 |===
-|Aufgabe bzw. Beschreibung	|Priorität  	|Schätzung der Größe (Punkte)	|Status|	Referenzen	|geplante Iteration| Zugewiesen (Name) |	Gearbeite Stunden | Schätzung der verbleibenden Stunden
-| x | x | x | x | x | x | x | x | x 
+|Aufgabe bzw. Beschreibung	|Priorität  	|Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) |	Gearbeite Stunden | Schätzung der verbleibenden Stunden
+| Essence Navigator | niedrig | 2 | ausstehend | x | Jill3, Helene3e | 0 | 1 
+| Use Cases definieren | hoch | 3 | in Arbeit | link:vision.adoc[Vision] | alle | 0 | 3
+| Use Cases ausarbeiten | mittel | 8 | ausstehend | x | alle | 0 | 8
 |===
 								
 								
