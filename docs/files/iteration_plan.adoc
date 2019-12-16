@@ -13,9 +13,9 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 |===
 |Meilenstein
 |Datum
-|Beginn der Iteration |
+|Beginn der Iteration |02.12.2019
 |...|
-|Ende der Iteration	|
+|Ende der Iteration	|20.12.2019
 |===
 	
 
