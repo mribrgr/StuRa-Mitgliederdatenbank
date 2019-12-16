@@ -10,7 +10,7 @@ include::files/vision.adoc[leveloffset=+1]
 
 
 //Projektplan
-include::files/projektplan.adoc[leveloffset=+1]
+include::files/project_plan.adoc[leveloffset=+1]
 
 
 //Glossary
