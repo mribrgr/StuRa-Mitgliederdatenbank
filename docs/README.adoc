@@ -1,17 +1,39 @@
 = Stura Mitgliederdatenbank
 :toc:
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+// Das Wir später das Hauptelement zum Navigieren
 
 
-//Das Wir später das Hauptelement zum Navigieren
-
-
-//Vision
+= Technische Spezifikation
+// Vision
 include::files/vision.adoc[leveloffset=+1]
 
+// Use Case Model
+include::files/usecase_model.adoc[leveloffset=+1]
 
-//Projektplan
+// Supplementary Specification
+
+// Glossary
+include::files/glossary.adoc[leveloffset=+1]
+
+
+= Projektdokumentation
+// Projektplan
 include::files/project_plan.adoc[leveloffset=+1]
 
+// Risikoliste
+include::files/risk_list.adoc[leveloffset=+1]
 
-//Glossary
-include::files/glossary.adoc[leveloffset=+1]
+// Iteration Plan
+include::files/iteration_1_plan.adoc[leveloffset=+1]
+
+= Entwurfsdokumenttion
+// Architektur-Notizbuch
+
+// Test Cases
+
+// Design
+
+= Dokumentation EssenceNAvigator
+image::img/essenceNavigator/2019-12-16.PNG[]
