@@ -1,4 +1,4 @@
-= Projektplan STURA_Mitgliederdatenbank
+= Projektplan StuRa_Mitgliederdatenbank
 Lukas Hirsch <s79199@htw-dresden.de>;
 
 == Einführung
