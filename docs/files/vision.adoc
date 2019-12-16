@@ -1,10 +1,6 @@
 = Vision StuRa Mitgliederdatenbank
 Lukas Hirsch <s79199@htw-dresden.de>
 Theresa Schüttig <s79136@htw-dresden.de>
-:toc:
-:toc-title: Inhaltsverzeichnis
-:sectnums:
-0.1, 13.12.2019 
 
 
 == Einführung
@@ -20,11 +16,82 @@ Dieses Visions-Dokument bezieht sich auf die StuRa-Mitgliederdatenbank, das vom 
 siehe link:my_glossary.adoc[Glossar]
 
 === Referenzen
-link:[Aufgabenstellung]
+link:../orga/task.adoc[Aufgabenstellung]
 
 == Positionierung
+
 === Fachliche Motivation
+Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Die StuRa-Mitgliederdatenbank soll die Verwaltung von Mitgliedern im StuRa erleichtern und übersichtlicher gestalten, indem Mitglieder über eine benutzerfreundliche Website eingesehen, bearbeitet und hinzugefügt werden können. Zudem soll über eine Historie ersichtlich sein, wann in der Datenbank von wem welche Änderungen vorgenommen wurden. Für die interne Verwaltung soll das Programm eine Checkliste mit Aufgaben (z.B. zum Mailverteiler hinzufügen, Zugang zum Schlüsselgang einrichten, etc.) erstellen können. Des Weiteren sollen die Software in der Lage sein, Anwesenheitslisten sowie das Organigramm zu generieren.
 
 === Problem Statement
 
-=== ...
+|===
+|Das Problem |	[Die Excel-Tabelle ist unübersichtlich und die Bearbeitung erfordert zu viel Aufwand]
+|betrifft |	[die interne Verwaltung]
+|die Auswirkung davon ist |	[zu viel unnötiger Arbeitsaufwand]
+|eine erfolgreiche Lösung wäre |	[Über eine Webseite könnte das Bearbeiten nur über das Aufüllen von ein paar Textfeldern ermöglicht werden]
+|===
+
+|===
+|Das Problem |	[Es ist nicht möglich, herauszufinden, von wem bestimmte Änderungen vorgenommen wurden]
+|betrifft |	[die interne Verwaltung]
+|die Auswirkung davon ist |	[Zickenkrieg?, Wiederherstellen korrekter Daten]
+|eine erfolgreiche Lösung wäre |	[das Erstellen einer Historie]
+|===
+
+|===
+|Das Problem |	[Das Erteilen von Zugängerechten ist unorganisiert]
+|betrifft |	[die interne Verwaltung, StuRa-Mitglieder]
+|die Auswirkung davon ist |	[die Verwaltung hat einen schlechten Überblick über noch zu erteilende Zugängge und StuRa-Mitglieder müssenauf Zugänge länger warten als nötig, ]
+|eine erfolgreiche Lösung wäre |	[das Erstellen eines Arbeitsleitfadens für die interne Verwaltung]
+|===
+
+
+=== Positionierung des Produkts 
+//Ein Positionierung des Produkts beschreibt das Einsatzziel der Anwendung und die Bedeutung das Projekts an alle beteiligten Mitarbeiter.
+
+//Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
+
+|===
+|Für|	[Referat Verwaltung (StuRa)]
+|der / die|	[das Verwalten der Mitlglieder deutlich erleichtert wird]
+|Das Produkt / die Lösung ist eine | [Webanwedung zur Mitgliederverwaltung]
+|Die / Das	|[das Verwalten übersichtlicher gestaltet und eine Historie speichert]
+|Im Gegensatz zu	|[Excel-Tabelle]
+|Unser Produkt|	[zeigt nur abgefragte Daten an und ermöglicht das Hinzufügen und Bearbeiten in kürzerer Zeit]
+|===
+
+
+==	Stakeholder Beschreibungen
+===	Zusammenfassung der Stakeholder 
+
+[%header]
+|===
+|Name|	Beschreibung	| Verantwortlichkeiten
+|[Verwaltung des StuRas]	|[selbsterklärend]	|[Eintragen von Mitgliedern, Dokumentieren von Wahlen, Einrichten von Zugängen]
+|===
+
+[%header]
+|===
+|Name|	Beschreibung	| Verantwortlichkeiten
+|[Präsidium]	|[Das Präsidium ist zuständig für Sitzungen des StuRas]	|[Dokumentieren von Anwesenheit]
+|===
+
+[%header]
+|===
+|Name|	Beschreibung	| Verantwortlichkeiten
+|[Mitglieder des StuRas]	|[???]	|[???]
+|===
+
+=== Benutzerumgebung
+Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
+
+//Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
+. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
+. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+* Derzeit eingesetze Anwendung: Excel
+
+Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
+
+* link:https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[Organigramm]
