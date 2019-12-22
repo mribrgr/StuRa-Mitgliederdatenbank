@@ -1,9 +1,9 @@
 = Glossar
 Lukas Hirsch <s79199@htw-dresden.de>
-0.1, 13.12.2019 
+0.1.1, 22.12.2019 
 
 == Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. 
+In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der StuRa-Mitgliederdatenbank definiert. 
 Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
 == Begriffe
