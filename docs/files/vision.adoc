@@ -13,7 +13,7 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System 
 Dieses Visions-Dokument bezieht sich auf die StuRa-Mitgliederdatenbank, das vom in dieser link:../documentation.pdf[Datei] aufgelisteten Team entwickelt wird. Das System wird es Mitgliedern der Referate Verwaltung und Präsidium sowie Mitarbeitern des StuRas erlauben, Daten von Mitgliedern des StuRas über eine Webanwendung zu verwalten, um Informationen zu Mitgliedern, Ämtern und Wahlen zu speichern und einzusehen, einen Arbeitsleitfaden für die interne Verwaltung sowie eine Checkliste zu generieren. Im Idealfall sollte die Anwendung auch das https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[hier] veröffentlichte Organigramm erzeugen können. 
 
 === Definitionen, Akronyme und Abkürzungen
-siehe link:my_glossary.adoc[Glossar]
+siehe link:glossary.adoc[Glossar]
 
 === Referenzen
 link:../orga/task.adoc[Aufgabenstellung]
