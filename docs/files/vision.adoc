@@ -26,24 +26,24 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 === Problem Statement
 
 |===
-|Das Problem |	[Die Excel-Tabelle ist unübersichtlich und die Bearbeitung erfordert zu viel Aufwand]
-|betrifft |	[die interne Verwaltung]
-|die Auswirkung davon ist |	[zu viel unnötiger Arbeitsaufwand]
-|eine erfolgreiche Lösung wäre |	[Über eine Webseite könnte das Bearbeiten nur über das Aufüllen von ein paar Textfeldern ermöglicht werden]
+|Das Problem |	Die Excel-Tabelle ist unübersichtlich und die Bearbeitung erfordert zu viel Aufwand
+|betrifft |	die interne Verwaltung
+|die Auswirkung davon ist |	zu viel unnötiger Arbeitsaufwand
+|eine erfolgreiche Lösung wäre |	Über eine Webseite könnte das Bearbeiten nur über das Aufüllen von ein paar Textfeldern ermöglicht werden
 |===
 
 |===
-|Das Problem |	[Es ist nicht möglich, herauszufinden, von wem bestimmte Änderungen vorgenommen wurden]
-|betrifft |	[die interne Verwaltung]
-|die Auswirkung davon ist |	[Zickenkrieg?, Wiederherstellen korrekter Daten]
-|eine erfolgreiche Lösung wäre |	[das Erstellen einer Historie]
+|Das Problem |	Es ist nicht möglich, herauszufinden, von wem bestimmte Änderungen vorgenommen wurden
+|betrifft |	die interne Verwaltung
+|die Auswirkung davon ist |	Verantwortliche für inkorrekte Änderungen können nicht ausfindig gemacht werden und Wiederherstellen korrekter Daten kann sich schwierig gestalten
+|eine erfolgreiche Lösung wäre |	das Erstellen einer Historie
 |===
 
 |===
-|Das Problem |	[Das Erteilen von Zugängerechten ist unorganisiert]
-|betrifft |	[die interne Verwaltung, StuRa-Mitglieder]
-|die Auswirkung davon ist |	[die Verwaltung hat einen schlechten Überblick über noch zu erteilende Zugängge und StuRa-Mitglieder müssenauf Zugänge länger warten als nötig, ]
-|eine erfolgreiche Lösung wäre |	[das Erstellen eines Arbeitsleitfadens für die interne Verwaltung]
+|Das Problem |	Das Erteilen von Zugängerechten ist unorganisiert
+|betrifft |	die interne Verwaltung, StuRa-Mitglieder
+|die Auswirkung davon ist |	die Verwaltung hat einen schlechten Überblick über noch zu erteilende Zugängge und StuRa-Mitglieder müssenauf Zugänge länger warten als nötig
+|eine erfolgreiche Lösung wäre |	das Erstellen eines Arbeitsleitfadens für die interne Verwaltung
 |===
 
 
