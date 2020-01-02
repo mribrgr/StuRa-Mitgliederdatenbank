@@ -6,6 +6,8 @@ Lukas Hirsch <s79199@htw-dresden.de>
 //include::usecases/template_usecase_spec.adoc[]
 include::usecases/mitglieder_verwalten.adoc[Mitglieder verwalten]
 
-include::usecases/historie_einsehen.adoc[Historie einsehen]
+include::usecases/aemter_verwalten.adoc[Ämter verwalten]
 
-include::usecases/arbeitsleitfaden_arbeiten.adoc[Arbeitsleitfaden abarbeiten]
+include::usecases/arbeitsleitfaden_abarbeiten.adoc[Arbeitsleitfaden abarbeiten]
+
+include::usecases/historie_einsehen.adoc[Historie einsehen]
