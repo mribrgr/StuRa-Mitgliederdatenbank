@@ -3,23 +3,34 @@
 
 
 ===	Kurzbeschreibung
-Als Mitglied der internen Verwaltung des StuRas +
-möchte ich Mitglieder hinzufügen, bearbeiten und entfernen können.
+Mitglieder der internen Verwaltung des StuRas +
+sollen Mitglieder hinzufügen, bearbeiten und entfernen können.
 
 ===	Kurzbeschreibung der Akteure
-==== <Akteur 1 Name>
+==== Interne Verwaltung des StuRas
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-<Vorbedingung 1>
+. Das StuRa-Mitglied ist eingeloggt und verfügt über die benötigten Berechtigungen.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. 	…
-. <Standardablauf Schritt n>
+==== Mitglied hinzufügen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein neues Mitglied anlegen möchte.
+. Alle benötigten Daten (Name, Vorname, Legislatur) werden angegeben
+. Die Daten werden bestätigt.
+. Der Use Case ist abgeschlossen.
+
+==== Mitglied bearbeiten
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied bearbeiten möchte.
+. Der Nutzer kann bestehende Daten einsehen und verändern (Namen oder Legislatur bearbeiten, Legislatur hinzufügen)
+. Die veränderten Daten werden bestätigt
+. Der Use Case ist abgeschlossen.
+
+==== Mitglied löschen
+Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied löschen möchte.
+. Der Löschvorgang wird bestätigt.
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
@@ -46,7 +57,14 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-==== <Nachbedingung 1>
+==== Hinzugefügtes Mitglied
+Das neue Mitglied befindet sich nun in der Mitgliedertabelle der Datenbank. Der Nutzer, vom das Erstellen ausging, sowie das Erstelldatum werden in der Historie verzeichnet.
+
+==== Bearbeitetes Mitglied
+Die Attribute in der Mitgliedertabelle wurden aktualisiert und der Ursprungszustand, der Nutzer, von dem die Bearbeitung ausging, sowie das Bearbeitungsdatum der Historie hinzugefügt.
+
+=== Gelöschtes Mitglied
+Das Mitglied wurde aus der Mitgliedertabelle entfernt. Alle Daten des Mitglieds befinden sich in der Historie.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
