@@ -18,13 +18,13 @@ sollen Mitglieder hinzufügen, bearbeiten und entfernen können.
 
 ==== Mitglied hinzufügen
 . Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein neues Mitglied anlegen möchte.
-. Alle benötigten Daten (Name, Vorname, Legislatur) werden angegeben
+. Alle benötigten Daten (Name, Vorname, Wahl, Legislatur) werden angegeben
 . Die Daten werden bestätigt.
 . Der Use Case ist abgeschlossen.
 
 ==== Mitglied bearbeiten
 . Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied bearbeiten möchte.
-. Der Nutzer kann bestehende Daten einsehen und verändern (Namen oder Legislatur bearbeiten, Legislatur hinzufügen)
+. Der Nutzer kann bestehende Daten einsehen und verändern (Namen oder Legislatur bearbeiten, Legislatur und Wahl hinzufügen)
 . Die veränderten Daten werden bestätigt
 . Der Use Case ist abgeschlossen.
 
