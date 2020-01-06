@@ -5,19 +5,30 @@ Als Mitglied der internen Verwaltung des StuRas +
 möchte ich Ämter hinzufügen, bearbeiten und entfernen können.
 
 ===	Kurzbeschreibung der Akteure
-==== <Akteur 1 Name>
+==== Interne Verwaltung
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-<Vorbedingung 1>
+Mitglied der internen Verwaltung ist eingeloggt
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. 	…
-. <Standardablauf Schritt n>
+==== Amt hinzufügen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt hinzufügen möchte
+. Eingabe der Daten
+. Bestätigung
+. Der Use Case ist abgeschlossen.
+
+==== Amt bearbeiten
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt beawrbeiten möchte
+. Eingabe der Daten
+. Bestätigung
+. Der Use Case ist abgeschlossen.
+
+==== Amt löschen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt löschen möchte
+. Bestätigung der Löschung
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
@@ -44,7 +55,8 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-==== <Nachbedingung 1>
+==== Veränderung der Daten in der Datenbank
+Die Daten werden in der Datenbank aktualisiert.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
