@@ -35,5 +35,5 @@ include::files/iteration_1_plan.adoc[leveloffset=+1]
 
 // Design
 
-= Dokumentation EssenceNAvigator
-image::img/essenceNavigator/2019-12-16.PNG[]
+= Dokumentation Essence Navigator
+image::img/essenceNavigator/2020-01-05.jpg[]
