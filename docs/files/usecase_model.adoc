@@ -8,6 +8,9 @@ include::usecases/mitglieder_verwalten.adoc[Mitglieder verwalten]
 
 include::usecases/aemter_verwalten.adoc[Ämter verwalten]
 
+include::usecases/nutzer_verwalten.adoc[Nutzer verwalten]
+
 include::usecases/arbeitsleitfaden_abarbeiten.adoc[Arbeitsleitfaden abarbeiten]
 
 include::usecases/historie_einsehen.adoc[Historie einsehen]
+
