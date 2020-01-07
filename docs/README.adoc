@@ -13,6 +13,7 @@ include::files/vision.adoc[leveloffset=+1]
 include::files/usecase_model.adoc[leveloffset=+1]
 
 // Supplementary Specification
+include::files/systemwide_regs.adoc[leveloffset=+1]
 
 // Glossary
 include::files/glossary.adoc[leveloffset=+1]
@@ -30,10 +31,12 @@ include::files/iteration_1_plan.adoc[leveloffset=+1]
 
 = Entwurfsdokumenttion
 // Architektur-Notizbuch
+include::files/archit_notebook.adoc[leveloffset=+1]
 
 // Test Cases
 
 // Design
 
 = Dokumentation Essence Navigator
+image::img/essenceNavigator/2019-12-16.PNG[]
 image::img/essenceNavigator/2020-01-05.jpg[]
