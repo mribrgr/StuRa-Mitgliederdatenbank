@@ -1,42 +1,95 @@
-= <Project Name> System-Wide Requirements Specification
+= Stura-Mitgliederdatenbank System-Wide Requirements Specification
 
 == Einführung
-In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema> spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
+In diesem Dokument werden die systemweiten Anforderungen für das Projekt Stura-Mitgliederdatenbank spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
 
 * Systemweite funktionale Anforderungen (F),
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie 
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [hier ggf. Verweis einfügen]
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. +
+link:usecase_model.adoc[[Use-Cases\]]
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
+Authentifizierung:
+
+* Daten müssen vor Unbefugten geschützt werden
+
+Zeitsteuerung:
+
+* Die Datenbank muss in regelmäßigen Abständen (Jeden Monat?) gesichert werden
+* Alte Sicherungen Löschen (Welche?)
+
+Auditierung:
+
+* Es soll ein Änderungslog geführt werden (Datum-Nutzer-Änderung)
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
  
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
+*Sprache:* 
+    deutsch/englisch +
+*Datumsformat:* 
+    dd.mm.yyyy +
+*Währungen:* 
+    Euro
+
+Sehr einfaches Erlernen und schnelle Bedinung.
 
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
+*Verfügbarkeit:*  
+    Verfügbar soll die Software solange sein, wie der Server im StuRa läuft. Das Programm soll Wartungsfrei laufen, bzw vom Endnutzer gewartet werden können im laufendem Betrieb. +
+*Wiederherstellbarkeit:*
+    Das Programm soll bei totalausfall zum letzten Backup hergestellt werden können (in ca 24h?)  
 
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
+*Antwortzeiten:* 
+    infinity (bei bloßer Betrachtung) +
+*Durchsatz:* 
+    0 +
+*Kapazität:* 
+    Mehrbenutzerbetrieb muss gewährleistet sein. 
+    -> Serialisierung für die Datenbankarbeit.
+
 
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
+*Anpassbarkeit:*
+    Es soll bei freier KApazität eine API für den
+    export eines Organigrammes erstellt werden. +
+*Kompatibilität:*
+    Mit allen BEtriebssystemen -> Browseranwendung.
+    Es muss einbindbar in den Plone sein. +
+*Konfigurierbarkeit:*
+    Die zugrundeliegende Datenbank soll frei gewählt werden (MySQL, MSSQL, SQLite, ...) +
+*Wartbarkeit:*
+    Wie schon genannt sollen einfache Administrative Aufgaben vom Benutzer übernommen werden.
 
 == Zusätzliche Anforderungen
-=== Einschränkungen
+=== Einschränkungen (Constraints)
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Ressourcenbegrenzungen
-* zu nutzende Komponenten / Bibliotheken / Frameworks
-* Vorgaben für die Programmiersprache
-* zu unterstützende Plattformen / Betriebssysteme
-* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+//* Ressourcenbegrenzungen
+//* zu nutzende Komponenten / Bibliotheken / Frameworks
+//* Vorgaben für die Programmiersprache
+//* zu unterstützende Plattformen / Betriebssysteme
+//* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+*Implementierung:*
+    Python (Django),
+    SQLite +
+*Plattform:* 
+    Platform unabhängig -> Browseraplikation +
+*Ressourcenbegrenzungen:* 
+    Möglichst geringer Energieverbrauch, 
+    Speicherplatz (so viel wie im Container vorhanden), 
+    Möglichst wenig Traffic
 
-=== Organisatorische Randbedingungen
+
+=== Organisatorische Randbedingungen 
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 * Anforderungen an Betrieb, Management und Wartung der Anwendung
 * zu beachtende Standards, Normen und Regeln
