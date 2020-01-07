@@ -64,7 +64,7 @@ Das neue Mitglied befindet sich nun in der Mitgliedertabelle der Datenbank. Der 
 Die Attribute in der Mitgliedertabelle wurden aktualisiert und der Ursprungszustand, der Nutzer, von dem die Bearbeitung ausging, sowie das Bearbeitungsdatum der Historie hinzugefügt.
 
 === Gelöschtes Mitglied
-Das Mitglied wurde aus der Mitgliedertabelle entfernt. Alle Daten des Mitglieds befinden sich in der Historie.
+Das Mitglied wurde aus der Mitgliedertabelle entfernt. Alle personenbezogenen Daten des Mitglieds können nicht mehr wiederhergestellt werden.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
