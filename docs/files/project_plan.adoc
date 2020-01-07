@@ -10,7 +10,7 @@ Lukas Hirsch <s79199@htw-dresden.de>;
 === Team Mitglieder
 [%header, format="csv", separator=";"]
 |===
-include::team.csv[]
+include::csv/team.csv[]
 |===
 
 == Praktiken und Bewertung 

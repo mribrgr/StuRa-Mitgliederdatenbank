@@ -27,7 +27,7 @@ include::files/project_plan.adoc[leveloffset=+1]
 include::files/risk_list.adoc[leveloffset=+1]
 
 // Iteration Plan
-include::files/iteration_1_plan.adoc[leveloffset=+1]
+include::files/iteration-plans/iteration_1_plan.adoc[leveloffset=+1]
 
 = Entwurfsdokumenttion
 // Architektur-Notizbuch
