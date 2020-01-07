@@ -1,9 +1,9 @@
-Name; Vorname; Primärrolle; Sekundärrolle
-Berger; Mauritius; Project Manager; Developer Backup
-Urbons; Lucie Jill; Analyst; ---
-Uhlig; Helene; Analyst; ---
-Cremer; Jonathan Vincent; Architect; Developer Backup
-Schüttig; Theresa; Developer; Tester Backup
-Hempel; Benjamin; Developer; ---
-Hirsch; Lukas; Tester; Technical Writer
-Holland; Stefan; Deployment Eng.; Analyst Backup
+Name, Vorname, Primärrolle, Sekundärrolle
+Berger, Mauritius, Project Manager, Developer Backup
+Urbons, Lucie Jill, Analyst, ---
+Uhlig, Helene, Analyst, ---
+Cremer, Jonathan Vincent, Architect, Developer Backup
+Schüttig, Theresa, Developer, Tester Backup
+Hempel, Benjamin, Developer, ---
+Hirsch, Lukas, Tester, Technical Writer
+Holland, Stefan, Deployment Eng., Analyst Backup
