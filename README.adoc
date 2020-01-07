@@ -9,3 +9,8 @@ link:https://www2.htw-dresden.de/~anke/openup/index.htm[OpenUP Dokumentation]
 link:https://sg.sim4seed.org/users/password/new[Passwort zurücksetzen Sim4SEEd]
 
 link:https://stura.htw-dresden.de/stura/ref/verwaltung/mitglieder/mitgliederdatenbank[Derzeitige Mitgliederdatenbank (man muss angemeldet sein)]
+
+
+## Tips vom Coach
+  - in einem gespräch Klarstellen was wir machen und die Akzeptanz des stakeholders holen
+  - Sonntag vor dem Treffen wenn Feedback gebraucht wird document senden
