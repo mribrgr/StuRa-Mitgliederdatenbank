@@ -16,6 +16,12 @@ link:meetings/meeting3.adoc[3. Treffen]
 
 ## 17.12.2019,  17:00Uhr
 
+## 07.01.2020 Nach der Stunde
+    mit Herr Ringel 
+
+## 08.01.2020,  17:00 Uhr
+    * mit den 2 Stakeholdern
+    link:meetings/meeting6.adoc[6. Treffen]
 
 
 ## ...
