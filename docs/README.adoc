@@ -28,6 +28,8 @@ include::files/risk_list.adoc[leveloffset=+1]
 
 // Iteration Plan
 include::files/iteration-plans/iteration_1_plan.adoc[leveloffset=+1]
+include::files/iteration-plans/iteration_2_plan.adoc[leveloffset=+1]
+include::files/iteration-plans/iteration_3_plan.adoc[leveloffset=+1]
 
 = Entwurfsdokumenttion
 // Architektur-Notizbuch
@@ -36,6 +38,13 @@ include::files/archit_notebook.adoc[leveloffset=+1]
 // Test Cases
 
 // Design
+== Wireframes
+image::img/Wireframes/loginWireframe/loginWireframe.png[]
+image::img/Wireframes/menueWireframe/menueWireframe.png[]
+image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
+image::img/Wireframes/historieWireframe/historieAnsehen-Initial.png[]
+image::img/Wireframes/historieWireframe/historieAnsehen-Eintragsdetails.png[]
+
 
 = Dokumentation Essence Navigator
 image::img/essenceNavigator/2019-12-16.PNG[]
