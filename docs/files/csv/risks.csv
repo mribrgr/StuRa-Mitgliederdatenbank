@@ -1,1 +1,1 @@
-type;priority;chance;priority*chance
+type,priority,chance,priority*chance

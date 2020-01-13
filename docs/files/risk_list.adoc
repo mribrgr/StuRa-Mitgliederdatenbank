@@ -15,7 +15,7 @@ In diesem Dokument sind die wesentlichen Risiken des Projekts aufgeführt. Dabei
 
 Die Risiken sind in folgender Tabelle dargestellt. Das Datum des Dokuments oben gibt an, wann die Risikoliste zuletzt aktualisiert wurde.
 
-[%header, format="csv", separator=";"]
+[%header, format="csv", separator=","]
 |===
 include::csv/risks.csv[]
 |===
