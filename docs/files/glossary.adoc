@@ -1,18 +1,21 @@
 = Glossar
 Lukas Hirsch <s79199@htw-dresden.de>
-0.1.1, 22.12.2019 
+0.1.1, 22.12.2019
 
 == Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der StuRa-Mitgliederdatenbank definiert. 
+In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der StuRa-Mitgliederdatenbank definiert.
 Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
 == Begriffe
 [%header]
 |===
 |Begriff|	Definition und Erläuterung|	Synonyme
-|xx|xx|xx
+|Systemnutzer | Eine Person, die auf das Mitgliederdatenbank-System Zugriff hat. | Nutzer, Benutzer
+|Administrator | Eine Person mit Vollzugriff auf das System, welche sich um die Verwaltung desselbigen kümmert. | Admin
+|Filterkriterium | Ein Begriff, nach welchem die vorhandenen Datensätze "ausgesiebt" werden |
+|Sicherheitsabfrage | Vom Nutzer wird für bestimmte Operationen eine zusätzliche Bestätigung dieser angefordert. |
 |===
-		
+
 
 == Abkürzungen und Akronyme
 [%header]
@@ -31,5 +34,3 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
 |xx|xx|xx|xx|xx
 |===
-
-
