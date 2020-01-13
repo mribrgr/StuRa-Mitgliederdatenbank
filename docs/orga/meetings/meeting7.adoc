@@ -21,6 +21,8 @@ Sonst wird einfach MIT Lizens hinzugefügt.
 
 Test Cases in eigener Rubrik, oder zum bestimmten Usecase?
 
+Github Issues durchgehen, die müssen abnehmen
+
 ### Offenes 
 
 ### Probleme
