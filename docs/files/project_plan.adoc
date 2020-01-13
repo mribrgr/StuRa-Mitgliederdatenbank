@@ -52,7 +52,7 @@ include::csv/team.csv[]
 
 |===
 
-== Deployment
+// == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
 == Erkenntnisse (Lessons learned)
