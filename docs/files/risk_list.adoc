@@ -17,5 +17,5 @@ Die Risiken sind in folgender Tabelle dargestellt. Das Datum des Dokuments oben 
 
 [%header, format="csv", separator=";"]
 |===
-include::risks.csv[]
+include::csv/risks.csv[]
 |===
