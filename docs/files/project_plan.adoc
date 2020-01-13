@@ -27,7 +27,7 @@ include::csv/team.csv[]
 |Scheduled start or milestone
 |Target velocity
 
-|Iteration 1
+|link:iteration-plans/iteration_1_plan.adoc[Iteration 1]
 |
 * Aufgabe verstanden
 * Einschätzen ob es sinvoll und machbar ist
@@ -35,13 +35,13 @@ include::csv/team.csv[]
 |01.12.2019 - 20.12.2020
 | --
 
-|Iteration 2
+|link:iteration-plans/iteration_2_plan.adoc[Iteration 2]
 |	
 * Lösungsweg ausarbeiten (anfangen)
 |	06.01.2020 - 17.01.2020
 |	--
 
-|Iteration 3
+|link:iteration-plans/iteration_3_plan.adoc[Iteration 3]
 |	
 * Lösungsweg ausarbeiten (beenden)
 * LCA
