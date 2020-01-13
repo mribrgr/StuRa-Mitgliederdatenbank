@@ -14,7 +14,7 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 |Meilenstein
 |Datum
 |Beginn der Iteration |06.01.2020
-|...|
+|Fertigstellen der Aufgaben|-
 |Ende der Iteration	|17.01.2020
 |===
 	
