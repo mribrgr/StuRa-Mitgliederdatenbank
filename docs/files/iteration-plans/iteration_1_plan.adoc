@@ -51,7 +51,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 [%header, cols="2,1,3"]
 |===
 |Problem	| Status |	Notizen
-|x	| x |	x
+|"Weihnachtspause"|- |Die Zeit um Weihnachten bzw. Neujahr hindert etwas das Projekt, da in der Zeit keine Treffen stattfinden und die Produktivität sinkt.
 |===
 		
 
