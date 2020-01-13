@@ -23,5 +23,10 @@ link:meetings/meeting3.adoc[3. Treffen]
     * mit den 2 Stakeholdern
     link:meetings/meeting6.adoc[6. Treffen]
 
+## 14.01.2020   ab 15:30 Uhr
+    * zuerst Treffen mit Herr Ringel
+    * Später Treffen mit allen um die Iteration2 Auszuwerten
+    link:meetings/meeting7.adoc[7. Treffen]
+
 
 ## ...

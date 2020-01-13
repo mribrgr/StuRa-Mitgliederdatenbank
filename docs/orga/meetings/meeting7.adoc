@@ -1,0 +1,24 @@
+# Treffen 7
+:toc:
+
+// mit Herr Ringel
+## Mit Herr Ringel
+
+
+
+
+
+// Privater Teil
+## Privat
+
+### Fragen
+Kennt sich jemand mit Lizensen aus?, gibt es unterschiede?
+Sonst wird einfach MIT Lizens hinzugefügt.
+
+Test Cases in eigener Rubrik, oder zum bestimmten Usecase?
+
+### Offenes 
+
+### Probleme
+
+### Verbesserungsvorschläge/Wünsche für die nächste Iteration
