@@ -39,9 +39,9 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 [%header, cols="3,1,1,1,2,1,1,1"]
 |===
 |Aufgabe bzw. Beschreibung	|Priorität  	|Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) |	Gearbeite Stunden | Schätzung der verbleibenden Stunden
-| Essence Navigator | niedrig | 2 | ausstehend | x | Jill3, Helene3e | 1 | 1 
-| Use Cases definieren | hoch | 3 | in Arbeit | link:vision.adoc[Vision] | alle | 0 | 3
-| Use Cases ausarbeiten | mittel | 8 | ausstehend | x | alle | 0 | 8
+| Essence Navigator | niedrig | 2 | fertig | x | Jill3, Helene3e | 1 | 1 
+| Use Cases definieren | hoch | 3 | fertig | link:vision.adoc[Vision] | alle | 3 | 3
+| Use Cases ausarbeiten | mittel | 8 | fertig | x | alle | 8 | 8
 |===
 								
 								
@@ -69,21 +69,23 @@ Beispiele:
 
 [header%, cols="1,3"]
 |===
-|Assessment Ziel	| Das kann die gesamte Iteration oder eine spezifische Komponente sein
-|Assessment Datum | ...	
-|Teilnehmer	| ...
-|Projektstatus	| Zum Beispiel ausgedrückt als rot, gelb oder grün.
+|Assessment Ziel	| Iteration 1 fertigstellen
+|Assessment Datum | 20.12.2019
+|Teilnehmer	| alle
+|Projektstatus	| gelb
 |===
 
 * Beurteilung im Vergleich zu den Zielen
 //Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
+Es wurden alle Ziele errreicht.
 
 * Geplante vs. erledigte Aufgaben
 //Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
+Es kamen keine Aufgaben hinzu und es wurden alle geplanten Aufgaben bearbeitet.
 
-* Beurteilung im Vergleich zu den Bewertungskriterien
+// * Beurteilung im Vergleich zu den Bewertungskriterien
 //Document whether you met the evaluation criteria as specified in the Iteration Plan. 
 //Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
 
-* Andere Belange und Abweichungen
+// * Andere Belange und Abweichungen
 //Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
