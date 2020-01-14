@@ -1,1 +1,2 @@
-type,priority,chance,priority*chance
+type,priority (0-10),chance (0-10),priority*chance (0-100)
+Ausfall durch Krankheit,7,6,42
