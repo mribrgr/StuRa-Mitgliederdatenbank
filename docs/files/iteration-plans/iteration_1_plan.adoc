@@ -42,6 +42,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Essence Navigator | niedrig | 2 | fertig | link:../../img/essenceNavigator[Essence Navigator Bilder] | Jill3, Helene3e | 1 | 1 
 | Use Cases definieren | hoch | 3 | fertig | link:vision.adoc[Vision] | alle | 3 | 3
 | Use Cases ausarbeiten | mittel | 8 | fertig | x | alle | 8 | 8
+| Iteration 2 Plan ausarbeiten | hoch | 3 | fertig | x | 3 | 3
 |===
 								
 								
