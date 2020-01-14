@@ -42,6 +42,7 @@ include::files/archit_notebook.adoc[leveloffset=+1]
 image::img/Wireframes/loginWireframe/loginWireframe.png[]
 image::img/Wireframes/menueWireframe/menueWireframe.png[]
 image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
+image::img/Wireframes/aemterWireframe/Aemter1.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Initial.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Eintragsdetails.png[]
 
