@@ -14,6 +14,8 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Administrator | Eine Person mit Vollzugriff auf das System, welche sich um die Verwaltung desselbigen kümmert. | Admin
 |Filterkriterium | Ein Begriff, nach welchem die vorhandenen Datensätze "ausgesiebt" werden |
 |Sicherheitsabfrage | Vom Nutzer wird für bestimmte Operationen eine zusätzliche Bestätigung dieser angefordert. |
+|Wahl | |
+|Legislatur | |
 |===
 
 
