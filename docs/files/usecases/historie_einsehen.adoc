@@ -56,3 +56,6 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 ==== Unterteilung in Seiten (Pagination)
 * Damit nicht immer die gesamte Historie geladen werden muss, sollten zunächst nur die letzten n Einträge angezeigt werden.
 * Mittels einer Pagination (Menü zum Wechseln von Seiten) kann der Nutzer auch ältere Einträge sehen, die nur bei Bedarf geladen werden.
+
+=== Historie Einsehen
+image::img/activityDiagrams/historieEinsehen/activityDiagram.png[]

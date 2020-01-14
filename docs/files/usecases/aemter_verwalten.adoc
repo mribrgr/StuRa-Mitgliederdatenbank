@@ -63,3 +63,12 @@ Gelöschte Ämter befinden sich weiterhin in der Datenbank, werden in der Webanw
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 . Beim Löschen eines Amtes hat eine zusätzliche Sicherheitsabfrage zu erfolgen.
+
+=== Amt Hinzufügen
+image::img/activityDiagrams/aemterVerwalten/amtHinzufuegen.png[]
+
+=== Amt Löschen
+image::img/activityDiagrams/aemterVerwalten/amtLoeschen.png[]
+
+=== Amt Bearbeiten
+image::img/activityDiagrams/aemterVerwalten/amtBearbeiten.png[]

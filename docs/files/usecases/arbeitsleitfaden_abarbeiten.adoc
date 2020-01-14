@@ -9,13 +9,13 @@ Mitglieder der internen Verwaltung sind für die Abarbeitung der Checkliste vera
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-Das Mitglied der internen Verwaltung ist eingeloggt und ihm liegt eine Liste mit Mitgliedern vor. Es kann nach Mitgliedern filtern, deren Checkliste noch nicht abgearbeitet wurde.
+Das Mitglied der internen Verwaltung ist eingeloggt.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn der Nutzer auswählt, dass er die Checkliste für ein Mitglied bearbeiten möchte.
-. Der Nutzer kann Aufgaben kennzeichnen, die er abgearbeitet hat und Kennzeichnungen wieder entfernen.
+. Der Use Case beginnt, wenn der Nutzer auswählt, dass er die Checkliste abarbeiten möchte.
+. Der Nutzer kann Aufgaben kennzeichnen, die er abgearbeitet hat.
 . Der Nutzer bestätigt die aktualisierte Checkliste.
 . Der Use Case ist abgeschlossen.
 
