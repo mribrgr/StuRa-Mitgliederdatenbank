@@ -43,7 +43,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Wireframes definieren | hoch | 3 | in Arbeit | link:../../img/Wireframes[Wireframes] | alle | 3 | 3
 | Wireframes ausarbeiten | mittel | 8 | in Arbeit | link:../../img/Wireframes[Wireframes] | alle | 3 | 8
 | Architecture notebook | mittel | 3 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | 1 | 3
-| Iteration 3 Plan ausarbeiten | hoch | 8 | in Arbeit | x | mribrgr | 0 | 3
+| Iteration 3 Plan ausarbeiten | hoch | 3 | in Arbeit | x | mribrgr | 0 | 3
 |===
 								
 								
