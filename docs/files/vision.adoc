@@ -70,7 +70,7 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 |Name|	Beschreibung	| Verantwortlichkeiten
 |Verwaltung des StuRas	|selbsterklärend	|Eintragen von Mitgliedern, Dokumentieren von Wahlen, Einrichten von Zugängen
 |Präsidium	|Das Präsidium ist zuständig für Sitzungen des StuRas	|Dokumentieren von Anwesenheit
-|Mitglieder des StuRas	| Personen, die im StuRa einem bestimmten Amt Mitglied sind	| Lesen von Daten anderer Mitglieder
+|Mitglieder des StuRas	| Personen, die im StuRa einem bestimmten Amt Mitglied sind	| Lesen von Daten aller Mitglieder
 |===
 
 === Benutzerumgebung
