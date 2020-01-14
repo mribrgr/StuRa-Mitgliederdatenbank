@@ -10,10 +10,15 @@ Stakeholder der das ganze Projekt unterschreibt.
     Sophia Von Asow
 
 
-
-
 ### Fragen
 Wie sieht das Abgabeformat aus? 1 Dokument aber wie ist die Reihenfolge orientierung an folie(bis jetzt)
+
+    in Vorlesung fragen
+
+
+### Tips
+Ist Iterationsplan
+Soll essenceNAvigator
 
 
 
@@ -33,6 +38,8 @@ Github Issues durchgehen, die müssen abnehmen
 Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch
 
 Branch MenüWireframe kann gelöscht werden
+
+Stefano -> Quality Management, Arbeitsorganisation
 
 ### Probleme
 
