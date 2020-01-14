@@ -4,10 +4,16 @@
 // mit Herr Ringel
 ## Mit Herr Ringel
 
+### Offenes vom Letzten mal
+Stakeholder der das ganze Projekt unterschreibt.
+
+    Sophia Von Asow
+
+
+
+
 ### Fragen
-Wie sieht das Abgabeformat aus? 
-    1 Dokument aber wie ist die Reihenfolge?
-    orientierung an folie(bis jetzt)
+Wie sieht das Abgabeformat aus? 1 Dokument aber wie ist die Reihenfolge orientierung an folie(bis jetzt)
 
 
 
@@ -24,6 +30,9 @@ Test Cases in eigener Rubrik, oder zum bestimmten Usecase?
 Github Issues durchgehen, die müssen abnehmen
 
 ### Offenes 
+Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch
+
+Branch MenüWireframe kann gelöscht werden
 
 ### Probleme
 
