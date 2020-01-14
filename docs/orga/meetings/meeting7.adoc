@@ -46,6 +46,19 @@ Ist Iterationsplan, Soll essenceNAvigator
 
 Glossar wortliste führen
 
+### nächste Woche
+* nicht funktionale Anforderungen (Stefan Iter2)
+* Glosar (Wings)
+* Wireframes überarbeiten (Wings)
+* Wireframe neue Mitglieder (Theresa)
+* Aktivitätsdiagramme
+** nutzer verwalten ()
+** mitglieder verwalten (Benjamin?)
+* risk List (Mauritius in Iter 2)
+* Iterationspläne fertig (Mauritius in Iter 2)
+* Testcases (Lukas)
+* Klassendiagram (Vincent)
+
 ### Probleme
 
 ### Verbesserungsvorschläge/Wünsche für die nächste Iteration
