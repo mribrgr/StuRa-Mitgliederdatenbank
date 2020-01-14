@@ -44,6 +44,10 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Wireframes ausarbeiten | mittel | 8 | in Arbeit | link:../../img/Wireframes[Wireframes] | alle | 3 | 8
 | Architecture notebook | mittel | 3 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | 1 | 3
 | Iteration 3 Plan ausarbeiten | hoch | 3 | in Arbeit | x | mribrgr | 0 | 3
+| Glossar fuellen | mittel | 2 | ausstehend | x | Jill3, Helene3e | 0 | 2
+| Aktivitaetsdiagramme erstellen | mittel | 3 | in Arbeit | x | thrs79136 | 0 | 3
+| Nichtfunktionale Anforderungen | mittel | 3 | ausstehend | x | Stefano-96 | 0 | 3
+| Risk list | niedrig | 2 | in Arbeit | x | mribrgr | 0 | 2
 |===
 								
 								
