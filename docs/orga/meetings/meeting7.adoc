@@ -17,8 +17,7 @@ Wie sieht das Abgabeformat aus? 1 Dokument aber wie ist die Reihenfolge orientie
 
 
 ### Tips
-Ist Iterationsplan
-Soll essenceNAvigator
+Ist Iterationsplan, Soll essenceNAvigator
 
 
 
@@ -39,7 +38,13 @@ Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch
 
 Branch MenüWireframe kann gelöscht werden
 
-Stefano -> Quality Management, Arbeitsorganisation
+Stefano -> Quality Management, Arbeitsorganisation kritisch
+
+4 Augen prinzip
+
+Ist Iterationsplan, Soll essenceNAvigator
+
+Glossar wortliste führen
 
 ### Probleme
 
