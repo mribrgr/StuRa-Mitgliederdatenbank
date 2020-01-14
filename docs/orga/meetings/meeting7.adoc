@@ -31,16 +31,16 @@ Sonst wird einfach MIT Lizens hinzugefügt.
 
 Test Cases in eigener Rubrik, oder zum bestimmten Usecase?
 
-Github Issues durchgehen, die müssen abnehmen
+Github Issues durchgehen, die müssen abnehmen (ok)
 
 ### Offenes 
-Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch
+Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch (ok)
 
-Branch MenüWireframe kann gelöscht werden
+Branch MenüWireframe kann gelöscht werden  (ok)
 
 Stefano -> Quality Management, Arbeitsorganisation kritisch
 
-4 Augen prinzip
+4 Augen prinzip (ok)
 
 Ist Iterationsplan, Soll essenceNAvigator
 
