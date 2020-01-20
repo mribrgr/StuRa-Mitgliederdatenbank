@@ -14,8 +14,19 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Administrator | Eine Person mit Vollzugriff auf das System, welche sich um die Verwaltung desselbigen kümmert. | Admin
 |Filterkriterium | Ein Begriff, nach welchem die vorhandenen Datensätze "ausgesiebt" werden |
 |Sicherheitsabfrage | Vom Nutzer wird für bestimmte Operationen eine zusätzliche Bestätigung dieser angefordert. |
-|Wahl | |
-|Legislatur | |
+|Wahl | Vorgang, bei dem StuRa-Mitglieder ein Mitglied für ein Amt wählen |
+|Legislatur | Zeitraum, in dem ein Mitglied ein bestimmtes Amt besetzt hat |
+|Exekutives Amt | Ämter der Referate, Sprecher, Präsidium, Ausschuss, Beauftragte |
+|Exekutives Mitglied | Mitglied, das in ein exekutives Amt berufen wurde, höher gestellt als exekutive Mitglieder |
+|Legislatives Mitglied | Mitglied, das von der Studentenschaft gewählt wurde |
+|Beratendes Mitglied | |
+|Sprecher | Vertreter der Stundentenschaft bei verschiedenen Veranstaltungen|
+|Präsidium | Verantwortliche für StuRa-Sitzungen (Vorbereitung, Vorsitz, Nachbereitung)|
+|Beauftragte |  Instrumente für die Beobachtung und zur Intervention zu speziellen wichtigen Belangen, die vom StuRa selbst festgelegt werden|
+|Ausschuss | |
+|Checkliste |Liste mit allen Aufgaben für die interne Verwaltung des StuRas bezüglich der Mitgliederverwaltung|
+|Organigramm |Übersicht aller Ämter und Besetzungen |
+
 |===
 
 
