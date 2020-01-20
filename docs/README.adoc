@@ -44,8 +44,8 @@ image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
 image::img/Wireframes/aemterWireframe/Aemter1.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Initial.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Eintragsdetails.png[]
-image::img/Wireframes/historieWireframe/nutzerInitial.png[]
-image::img/Wireframes/historieWireframe/nutzerHinzufuegen.png[]
+image::img/Wireframes/nutzerWireframe/nutzerInitial.png[]
+image::img/Wireframes/nutzerWireframe/nutzerHinzufuegen.png[]
 
 = Dokumentation Essence Navigator
 image::img/essenceNavigator/2019-12-16.PNG[]
