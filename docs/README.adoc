@@ -40,12 +40,12 @@ include::files/archit_notebook.adoc[leveloffset=+1]
 // Design
 == Wireframes
 image::img/Wireframes/loginWireframe/loginWireframe.png[]
-image::img/Wireframes/menueWireframe/menueWireframe.png[]
 image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
 image::img/Wireframes/aemterWireframe/Aemter1.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Initial.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Eintragsdetails.png[]
-
+image::img/Wireframes/historieWireframe/nutzerInitial.png[]
+image::img/Wireframes/historieWireframe/nutzerHinzufuegen.png[]
 
 = Dokumentation Essence Navigator
 image::img/essenceNavigator/2019-12-16.PNG[]
