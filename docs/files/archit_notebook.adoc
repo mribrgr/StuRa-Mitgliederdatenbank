@@ -88,4 +88,4 @@ image::../Klassendiagramm/KlassendiagrammEntwurf.png[]
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
 
-include::../aemter_verwalten.adoc
+include::../aemter_verwalten.adoc[]
