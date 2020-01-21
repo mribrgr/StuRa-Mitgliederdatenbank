@@ -24,57 +24,45 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 
 Beispiele:
 
-* Beheben der Usability-Probleme, die von Abteilung X berichtet wurden
-* Ausliefern der Hauptszenarios, die die Integration mit System Y zeigen
-* 
-* Present a technical demonstration (demo).
+* Wireframes ausarbeiten
+* Ausgearbeitete Wireframes Stackholdern vorführen
 
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
 
-Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (hier Verweis einfügen).
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues[Link zur Work Items List]).
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 [%header, cols="3,1,1,1,2,1,1,1"]
 |===
 |Aufgabe bzw. Beschreibung	|Priorität  	|Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) |	Gearbeite Stunden | Schätzung der verbleibenden Stunden
-| Essence Navigator | niedrig | 2 | ausstehend | link:../../img/essenceNavigator[Essence Navigator Bilder] | Jill3, Helene3e | 0 | 1 
+| Essence Navigator | niedrig | 2 | fertig | link:../../img/essenceNavigator[Essence Navigator Bilder] | Jill3, Helene3e | 1 | 1 
 | Wireframes definieren | hoch | 3 | fertig | link:../../img/Wireframes[Wireframes] | alle | 3 | 3
-| Wireframes ausarbeiten | mittel | 8 | in Arbeit | link:../../img/Wireframes[Wireframes] | alle | 3 | 8
-| Architecture notebook | mittel | 3 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | 1 | 3
-| Iteration 3 Plan ausarbeiten | hoch | 3 | in Arbeit | x | mribrgr | 0 | 3
-| Glossar fuellen | mittel | 2 | ausstehend | x | Jill3, Helene3e | 0 | 2
-| Aktivitaetsdiagramme erstellen | mittel | 3 | in Arbeit | x | thrs79136 | 0 | 3
-| Nichtfunktionale Anforderungen | mittel | 3 | ausstehend | x | Stefano-96 | 0 | 3
-| Risk list | niedrig | 2 | in Arbeit | x | mribrgr | 0 | 2
+| Wireframes ausarbeiten | mittel | 8 | in Arbeit | link:../../img/Wireframes[Wireframes], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/11[Issue #11] | alle | 3 | 8
+| Architecture notebook | mittel | 5 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | ? | 5
+| Iteration 3 Plan ausarbeiten | hoch | 3 | in Arbeit | link:iteration_3_plan.adoc[Iteration 3 Plan] | mribrgr | 0 | 3
+| Glossar fuellen | mittel | 2 | ausstehend | link:../glossary.adoc[Glossar] | Jill3, Helene3e, Unterstützung von thrs79136 | 0.5 | 2
+| Aktivitaetsdiagramme erstellen | mittel | 3 | fertig | link:../../img/activityDiagrams[Aktivitätsdiagramme] | thrs79136 | 3 | 3
+| Nichtfunktionale Anforderungen | mittel | 3 | fertig | x | Stefano-96 | 3 | 3
+| Risiko Liste | niedrig | 2 | fertig | link:../risk_list.adoc[Risiko Liste] | mribrgr | 2 | 2
 |===
 								
 								
-== Probleme (optional)
-//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
-
-[%header, cols="2,1,3"]
-|===
-|Problem	| Status |	Notizen
-|x	| x |	x
-|===
-		
-
 == Bewertungskriterien
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
 Beispiele:
 
-* Essence Navigator Bilder wurden erstellt oder nicht
+* Essence Navigator Bilder wurden erstellt
 * Wireframes erhalten positive Rückmeldung vom Stackholder
-
+* Aufgaben Abschlossen ja/nein
 
 == Assessment
 //In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommunziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage,die eigene Arbeitsweise ("Way of Working") zu verbessern.
 
 [header%, cols="1,3"]
 |===
-|Assessment Ziel	| Iteration 2 fertigstellen
+|Assessment Ziel	| Alle Aufgaben der Iteration 2 fertigstellen
 |Assessment Datum | 17.01.2020
 |Teilnehmer	| alle
 |Projektstatus	| grün
@@ -82,13 +70,22 @@ Beispiele:
 
 * Beurteilung im Vergleich zu den Zielen
 //Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
+** Ziel wurde größtenteils erreicht, wenige Aufgaben werden in Iteration 3 übernommen
 
 * Geplante vs. erledigte Aufgaben
-//Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
+//Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden
+** Es wurden fast alle Aufgaben gelöst bis auf:
+*** Architecture notebook
+*** Glossar füllen
 
 * Beurteilung im Vergleich zu den Bewertungskriterien
 //Document whether you met the evaluation criteria as specified in the Iteration Plan. 
 //Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
+** Bilder wurden 100%ig erstellt und hochgeladen
+** Wireframes wurden ausgearbeitet und haben auch Zustimmung von Stakeholdern bekommen
+** Alle Aufgaben bis auf die o.g. wurden erfüllt
 
 * Andere Belange und Abweichungen
 //Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
+** link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/blob/develop/docs/orga/Stakeholdertreffen/1701%20-%20Wireframes%20besprechen[Treffen mit Stakeholdern]
+** Couch gab als Tipp, dass die Qualität überprüft werden muss, Project Manager und Deployment setzen sich mal zusammen
