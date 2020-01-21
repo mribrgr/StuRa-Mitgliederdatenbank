@@ -44,7 +44,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Iteration 3 Plan ausarbeiten | hoch | 3 | in Arbeit | link:iteration_3_plan.adoc[Iteration 3 Plan] | mribrgr | 0 | 3
 | Glossar fuellen | mittel | 2 | ausstehend | link:../glossary.adoc[Glossar] | Jill3, Helene3e, Unterstützung von thrs79136 | 0.5 | 2
 | Aktivitaetsdiagramme erstellen | mittel | 3 | fertig | link:../../img/activityDiagrams[Aktivitätsdiagramme] | thrs79136 | 3 | 3
-| Nichtfunktionale Anforderungen | mittel | 3 | fertig | x | Stefano-96 | 3 | 3
+| Nichtfunktionale Anforderungen | mittel | 3 | in Arbeit | x | Stefano-96 | 1.5 | 3
 | Risiko Liste | niedrig | 2 | fertig | link:../risk_list.adoc[Risiko Liste] | mribrgr | 2 | 2
 |===
 								
@@ -74,9 +74,10 @@ Beispiele:
 
 * Geplante vs. erledigte Aufgaben
 //Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden
-** Es wurden fast alle Aufgaben gelöst bis auf:
+** Es wurden fast alle Aufgaben gelöst bis auf: (Diese sind jedoch in Arbeit)
 *** Architecture notebook
 *** Glossar füllen
+*** Nichtfunktionale Anforderungen
 
 * Beurteilung im Vergleich zu den Bewertungskriterien
 //Document whether you met the evaluation criteria as specified in the Iteration Plan. 
