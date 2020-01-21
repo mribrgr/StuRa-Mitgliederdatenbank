@@ -45,6 +45,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Architecture notebook | mittel | 5 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | ? | 5
 | Nichtfunktionale Anforderungen | mittel | 3 | in Arbeit | x | Stefano-96 | 1.5 | 3
 | Projektplan abgabefertig machen | hoch | 2 | in Arbeit | tba | mribrgr | 1 | 2
+| Test Cases ausarbeiten | hoch | 3 | in Arbeit | tba | Yoshinonxkun | 0 | 5
 
 // neue Aufgaben
 | Abgabe vorbereiten | hoch | 2 | in Arbeit | tba | Yoshinonxkun | 0 | 3
