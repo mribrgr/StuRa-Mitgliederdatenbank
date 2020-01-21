@@ -26,7 +26,8 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Ausschuss | |
 |Checkliste |Liste mit allen Aufgaben für die interne Verwaltung des StuRas bezüglich der Mitgliederverwaltung|
 |Organigramm |Übersicht aller Ämter und Besetzungen |
-
+|Plenum|xx|xx
+|Referat|xx|xx
 |===
 
 
