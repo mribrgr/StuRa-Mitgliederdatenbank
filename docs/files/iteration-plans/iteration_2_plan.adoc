@@ -46,6 +46,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Aktivitaetsdiagramme erstellen | mittel | 3 | fertig | link:../../img/activityDiagrams[Aktivitätsdiagramme] | thrs79136 | 3 | 3
 | Nichtfunktionale Anforderungen | mittel | 3 | in Arbeit | x | Stefano-96 | 1.5 | 3
 | Risiko Liste | niedrig | 2 | fertig | link:../risk_list.adoc[Risiko Liste] | mribrgr | 2 | 2
+| Klassendiagramme anlegen | mittel | 3 in Arbeit | link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/21[Issue #21] | creerm | ? | 5
 |===
 								
 								
