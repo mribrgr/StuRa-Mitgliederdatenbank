@@ -89,3 +89,6 @@ image::../Klassendiagramm/KlassendiagrammEntwurf.png[]
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
 
 include::usecases/aemter_verwalten.adoc[]
+include::usecases/mitglieder_verwalten.adoc[]
+include::usecases/historie_einsehen.adoc[]
+include::usecases/nutzer_verwalten.adoc[]
