@@ -33,22 +33,25 @@ include::csv/team.csv[]
 * Einschätzen ob es sinvoll und machbar ist
 * LCO
 |01.12.2019 - 20.12.2020
-| --
+| -
 
 |link:iteration-plans/iteration_2_plan.adoc[Iteration 2]
 |	
 * Lösungsweg ausarbeiten (anfangen)
 |	06.01.2020 - 17.01.2020
-|	--
+| -
 
 |link:iteration-plans/iteration_3_plan.adoc[Iteration 3]
 |	
 * Lösungsweg ausarbeiten (beenden)
 * LCA
 |	20.01.2020 - 31.01.2020
-|	--
+| -
 
-|Wintersemester Ende | -- | -- | --
+|Wintersemester Ende 
+| - 
+| - 
+| -
 
 |===
 
