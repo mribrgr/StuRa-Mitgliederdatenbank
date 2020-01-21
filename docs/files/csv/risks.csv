@@ -2,3 +2,4 @@ type,priority (0-10),chance (0-10),priority*chance (0-100)
 Ausfall durch Krankheit oder andere wichtige Gruende,7,6,42
 Dauerhafter Ausfall,10,1,10
 Zeitmangel durch Pruefungsvorbereitung,5,9,45
+Stakeholder sind unzufrieden,9,5,45
