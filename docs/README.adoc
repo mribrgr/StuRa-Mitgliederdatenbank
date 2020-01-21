@@ -56,9 +56,6 @@ include::files/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
 // Risikoliste
 include::files/risk_list.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
-// Iteration 1
-include::files/iteration-plans/iteration_1_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
 // Iteration 2
 include::files/iteration-plans/iteration_2_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
