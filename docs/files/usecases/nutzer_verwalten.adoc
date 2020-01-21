@@ -26,13 +26,6 @@ Eines oder mehrere Mitglieder der internen Verwaltung sind für die Administrati
 . end while
 . Der Use Case ist abgeschlossen.
 
-=== Alternative Abläufe
-//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
-
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
@@ -51,13 +44,6 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 . Der Admin wählt einen bestehenden Eintrag in der Systemnutzer-Liste aus.
 . Der Admin wählt aus, dass er diesen Systemnutzer löschen möchte.
 . Der Admin bestätigt die Sicherheitsabfrage und es wird ihm/ihr die aktualisierte Systemnutzer-Liste angezeigt.
-
-=== Wesentliche Szenarios
-//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
 
 ===	Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.

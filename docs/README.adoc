@@ -39,7 +39,7 @@ include::files/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
 include::files/usecase_model.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // System-wide Requirements
-include::files/systemwide_regs.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::files/systemwide_reqs.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Glossar
 include::files/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]

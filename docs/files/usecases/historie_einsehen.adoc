@@ -7,7 +7,7 @@ möchte ich die Historie aller Änderungen einsehen können.
 ===	Kurzbeschreibung der Akteure
 
 ==== Interne Verwaltung
-. Die Mitglieder der internen Verwaltung sind für die Richtigkeit und Vollständigkeit der Daten in der Mitgliederdatenbank verantwortlich.
+Die Mitglieder der internen Verwaltung sind für die Richtigkeit und Vollständigkeit der Daten in der Mitgliederdatenbank verantwortlich.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -25,13 +25,6 @@ möchte ich die Historie aller Änderungen einsehen können.
 . end while
 . Der Use Case ist abgeschlossen.
 
-=== Alternative Abläufe
-//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
-
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
@@ -40,22 +33,9 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 . Der Akteur gibt die entsprechenden Filterkriterien ein und teilt dem System mit, dass es alle Einträge basierend auf diesen Kriterien auflisten soll.
 . Das System listet die letzten n Einträge der Historie auf, die den Filterkriterien entsprechen.
 
-=== Wesentliche Szenarios
-//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. 	…
-. <Szenario 1, Schritt n>
-
-===	Nachbedingungen
-//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-==== <Nachbedingung 1>
-
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 ==== Unterteilung in Seiten (Pagination)
 * Damit nicht immer die gesamte Historie geladen werden muss, sollten zunächst nur die letzten n Einträge angezeigt werden.
 * Mittels einer Pagination (Menü zum Wechseln von Seiten) kann der Nutzer auch ältere Einträge sehen, die nur bei Bedarf geladen werden.
 
-=== Historie Einsehen
-image::img/activityDiagrams/historieEinsehen/activityDiagram.png[]
