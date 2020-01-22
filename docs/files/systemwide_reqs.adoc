@@ -99,6 +99,6 @@ Auditierung:
 * zu beachtende Standards, Normen und Regeln
 
 === Rechtliche Anforderungen
-//Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
+//Angaben ergänzen, nicht relevante Unterpunkte streichen oder  auskommentieren
 * Lizensierung der Anwendung (Open Source)
 * Datenschutz (mit dem Austritt eines Mitglieds müssen alle Daten dieser Person entfernt werden)
