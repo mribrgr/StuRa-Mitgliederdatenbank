@@ -59,5 +59,7 @@ include::csv/team.csv[]
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
 == Erkenntnisse (Lessons learned)
-* Anwendung des Vier-Augen-Prinzips ist sinnvoll, um die Korrektheit und Vollständigkeit der Dokumente zu sichern
+* Das Anwendung des Vier-Augen-Prinzip (d.h. jedes Dokument wird von einem anderen Team-Mitglied überprüft) ist sinnvoll, um die Korrektheit und Vollständigkeit der Dokumente zu sichern.
+* Stagnationen des Fortschritts sind vor allem darauf zurückzuführen, dass Stakeholder nicht sofort zum Gespräch zu Verfügung stehen können oder darauf, dass Aufgaben im Team nicht rechtzeitig erledigt werden.
+* Als hilfreich hat sich herausgestellt, Aufgaben in Teilaufgaben aufzuteilen und diese jeweils einer Person zuzuordnen.
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.

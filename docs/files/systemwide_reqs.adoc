@@ -29,22 +29,26 @@ Auditierung:
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
  
 === Benutzbarkeit (Usability)
-//Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreunlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
+//Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
 *Sprache:* 
-    deutsch/englisch +
+    Deutsch +
 *Datumsformat:* 
     dd.mm.yyyy +
 *Währungen:* 
     Euro
 
-Sehr einfaches Erlernen und schnelle Bedinung.
+*Benutzerfreundlichkeit*
+
+* Sehr einfaches Erlernen und schnelle Bedienung.
+* Daten können nach mehreren Kriterien gefiltert werden
+* Das System sollte den Nutzer bei ungültigen Eingaben anleiten, wie diese auszusehen haben
 
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
 *Verfügbarkeit:*  
-    Verfügbar soll die Software solange sein, wie der Server im StuRa läuft. Das Programm soll Wartungsfrei laufen, bzw vom Endnutzer gewartet werden können im laufendem Betrieb. +
+    Die Software ist grundsätzlich verfügbar, solange auch der Server des StuRas diese Bedingung erfüllt. Das Programm soll Wartungsfrei laufen, bzw vom Endnutzer gewartet werden können im laufendem Betrieb. +
 *Wiederherstellbarkeit:*
-    Das Programm soll bei totalausfall zum letzten Backup hergestellt werden können (in ca 24h?)  
+    Das Programm soll bei Totalausfall zum letzten Backup hergestellt werden können (in ca 24h?)  
 
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
@@ -52,23 +56,24 @@ Sehr einfaches Erlernen und schnelle Bedinung.
     infinity (bei bloßer Betrachtung) +
 *Durchsatz:* 
     0 +
-*Kapazität:* 
-    Mehrbenutzerbetrieb muss gewährleistet sein. 
-    -> Serialisierung für die Datenbankarbeit.
+*Kapazität:* +
+
+* Mehrbenutzerbetrieb muss gewährleistet sein. 
+-> Serialisierung für die Datenbankarbeit +
 
 
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
 *Anpassbarkeit:*
-    Es soll bei freier KApazität eine API für den
-    export eines Organigrammes erstellt werden. +
+    Es soll bei freier Kapazität eine API für den
+    Export eines Organigrammes erstellt werden. +
 *Kompatibilität:*
-    Mit allen BEtriebssystemen -> Browseranwendung.
+    Mit allen Betriebssystemen -> Browseranwendung.
     Es muss einbindbar in den Plone sein. +
 *Konfigurierbarkeit:*
     Die zugrundeliegende Datenbank soll frei gewählt werden (MySQL, MSSQL, SQLite, ...) +
 *Wartbarkeit:*
-    Wie schon genannt sollen einfache Administrative Aufgaben vom Benutzer übernommen werden.
+    Einfache Administrative Aufgaben werden vom Benutzer übernommen.
 
 == Zusätzliche Anforderungen
 === Einschränkungen (Constraints)
@@ -82,20 +87,18 @@ Sehr einfaches Erlernen und schnelle Bedinung.
     Python (Django),
     SQLite +
 *Plattform:* 
-    Platform unabhängig -> Browseraplikation +
+    Plattformunabhängig -> Browserapplikation +
 *Ressourcenbegrenzungen:* 
     Möglichst geringer Energieverbrauch, 
     Speicherplatz (so viel wie im Container vorhanden), 
     Möglichst wenig Traffic
 
-
 === Organisatorische Randbedingungen 
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 * Anforderungen an Betrieb, Management und Wartung der Anwendung
 * zu beachtende Standards, Normen und Regeln
-* 
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Lizensierung der Anwendung
-* Datenschutz
+* Lizensierung der Anwendung (Open Source)
+* Datenschutz (mit dem Austritt eines Mitglieds müssen alle Daten dieser Person entfernt werden)
