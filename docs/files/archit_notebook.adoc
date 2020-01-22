@@ -1,4 +1,4 @@
-= Architecture Notebook <Projektthema>
+= Architecture Notebook StuRa-Mitgliederdatenbank
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 0.1, 01.11.2019 
 :toc: 
@@ -20,20 +20,20 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
 * Plattformunabhängigkeit
-* Nutzung von überall durch webserverzugriff
+* Nutzung von überall durch Webserverzugriff
 * Unterschiedliche Benutzergruppen mit unterschiedlichen Rechten
 * einfache Architektur
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
-* (wenige Nutzer) ohne Informatikerausbildung oder ähnlichem
+* (wenige Nutzer) ohne Informatikerausbildung oder Ähnlichem
 * Stura Server vorhanden
 * LXC Container wird bereitgestellt
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 * Nutzung freier Lizensen
-* Sicherung und Widerherstellung von Systemzuständen gewährleisten (zeitlich automatisiert)
+* Sicherung und Wiederherstellung von Systemzuständen gewährleisten (zeitlich automatisiert)
 * Nutzungsrechtesystem -> Benutzerklassen
 
 == Entscheidungen, Nebenbedingungen und Begründungen 
@@ -46,7 +46,7 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 	* einfach zu implementieren und zu verstehen
 	* Projektumfang eher klein -> SQL Lite reicht aus
 . Django als Webframework, da ..
-	* SQL Lite ist standard
+	* SQL Lite ist Standard
 	* in Python geschrieben - > leichte Anbindung
 	* populär -> Communityunterstützung, viele Entwickler können daran 	weiterarbeiten
 
@@ -67,7 +67,7 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
 . Datenhaltung in einer relationalen Datenbank
-. Objektorierntierte Programmierung
+. Objektorientierte Programmierung
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
