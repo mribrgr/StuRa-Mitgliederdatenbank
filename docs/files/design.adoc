@@ -1,8 +1,6 @@
 = Wireframes
 image::img/Wireframes/loginWireframe/loginWireframe.png[]
 
-image::img/Wireframes/menueWireframe/menueWireframe.png[]
-
 image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
 
 image::img/Wireframes/nutzerWireframe/nutzerInitial.png[]

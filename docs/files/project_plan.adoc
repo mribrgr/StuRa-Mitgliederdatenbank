@@ -59,4 +59,5 @@ include::csv/team.csv[]
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
 == Erkenntnisse (Lessons learned)
+* Anwendung des Vier-Augen-Prinzips ist sinnvoll, um die Korrektheit und Vollständigkeit der Dokumente zu sichern
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
