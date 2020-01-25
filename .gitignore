@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 # Visual Paradigm Backups
-*.vpp.bak_*
+*.vpp.*
