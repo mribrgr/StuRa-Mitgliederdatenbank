@@ -1,0 +1,21 @@
+## 001 - Mehrbenutzerstress:
+### Description:
+//[Describe the logical condition that the Test Case evaluates. Include the expected result.]
+Das Programm sollte mehrere Benutzer gleichzeitig zulassen, ohne das es Konflikte gibt oder 
+das Programm komplett abschmiert.
+
+Das erwartete Ergebniss ist, das das Programm nach dem Test noch stabiel läuft und 
+kein Datenverlust erfolgt ist.
+
+### Pre-conditions:
+// [List conditions that must be true before this Test Case can start.]
+Mehrere Nutzer sollten angemeldet sein.
+
+### Post-conditions:
+// [List conditions that should be true when this Test Case ends.]
+Es sollten immernoch alle Nutzer angemeldet sein.
+Es sollten keine Datenkonflickte auf der Datenbank sein.
+Das Änderungslog sollte volständig sein.
+
+### Data required:
+// [Identify the type of data required for this Test Case.]

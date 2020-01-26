@@ -1,1 +1,16 @@
-= Test-Cases
+= StuRa-Mitgliederdatenbank Test-Cases
+
+//# <project> Test Cases: <optional: use-case name>
+//[The Test Case ID should be unique. In addition, the name of each Test Case should reflect the intent of the test case, ideally expressed as a Boolean condition.]
+
+
+// [Identify the type of data required for this Test Case.]
+// Einfügen aller Testcases per Include
+//include::usecases/....adoc[Mitglieder verwalten]
+
+include::testcases/001-mehrbenutzerstress.adoc[]
+
+= StuRa-Mitgliederdatenbank Test-Cases: Mitglieder Verwalten
+include::testcases/002-einneuesmitglied.adoc[]
+include::testcases/003-einmitgliedlöschen.adoc[]
+include::testcases/004-einmitgliedändern.adoc[]
