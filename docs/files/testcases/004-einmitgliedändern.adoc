@@ -1,4 +1,4 @@
-## 003 - Ein Mitglied löschen:
+## 004 - Ein Mitglied ändern:
 ### Description:
 //[Describe the logical condition that the Test Case evaluates. Include the expected result.]
 In dem Programm soll ein Datensatz in der Mitgliederliste geändert werden.
