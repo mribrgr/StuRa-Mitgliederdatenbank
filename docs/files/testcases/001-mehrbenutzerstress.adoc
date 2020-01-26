@@ -17,5 +17,3 @@ Es sollten immernoch alle Nutzer angemeldet sein.
 Es sollten keine Datenkonflickte auf der Datenbank sein.
 Das Änderungslog sollte volständig sein.
 
-### Data required:
-// [Identify the type of data required for this Test Case.]

@@ -17,3 +17,4 @@ Die Änderung wird im Änderungslog gespeichert.
 ### Data required:
 // [Identify the type of data required for this Test Case.]
 Mitgliederdaten
+
