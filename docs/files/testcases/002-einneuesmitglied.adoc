@@ -1,11 +1,12 @@
 ## 002 - Ein neues Mitglied:
 ### Description:
 //[Describe the logical condition that the Test Case evaluates. Include the expected result.]
-Dem Programm soll einen neues Mitglied hinzugefügt werden.
+Dem Programm soll ein neues Mitglied hinzugefügt werden.
 
 ### Pre-conditions:
 // [List conditions that must be true before this Test Case can start.]
 Ein Nutzer ist angemeldet.
+// Es muss ein Admin sein
 Das Mitglied ist noch nicht vorhanden.
 
 ### Post-conditions:
