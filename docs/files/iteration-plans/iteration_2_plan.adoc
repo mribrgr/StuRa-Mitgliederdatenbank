@@ -56,7 +56,7 @@ Beispiele:
 
 * Essence Navigator Bilder wurden erstellt
 * Wireframes erhalten positive Rückmeldung vom Stackholder
-* Aufgaben Abschlossen ja/nein
+* Aufgaben abgeschlossen ja/nein
 
 == Assessment
 //In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommunziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage,die eigene Arbeitsweise ("Way of Working") zu verbessern.
