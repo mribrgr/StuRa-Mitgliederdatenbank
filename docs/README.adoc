@@ -84,6 +84,12 @@ include::files/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
 include::files/design.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 
+= Essence Navigator
+image::img/essenceNavigator/2019-12-16.PNG[]
+image::img/essenceNavigator/2020-01-05.jpg[]
+== neuste:
+image::img/essenceNavigator/2020-01-20.jpg[]
+
 // ---------------------------------------------
 // Vorlage Belegabgabe
 // Vorlagen für die Abgabe der Belegarbeiten in SE I
