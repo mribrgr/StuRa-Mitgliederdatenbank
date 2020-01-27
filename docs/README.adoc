@@ -1,5 +1,5 @@
 // --- 1. Projektthema -------------------------
-= SE I - Belegabgabe: <Projektthema>
+= SE I - Belegabgabe: StuRa-Mitgliederdatenbank
 // --- 2. Teammitglieder -----------------------
 Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
@@ -53,7 +53,7 @@ image::klassendiagramm/KlassendiagrammEntwurf.png[]
 
 = Projektdokumentation
 * Projektplan
-* Risikolisteth/to/
+* Risikoliste
 * Iteration Plan (für zwei ausgewählte Iterationen)
 
 // Projektplan

@@ -63,3 +63,5 @@ Eines oder mehrere Mitglieder der internen Verwaltung sind für die Administrati
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 . Gespeicherte Anmeldedaten, insbesondere Passwörter, sollten niemals im Klartext in der Nutzerdatenbank vorliegen und es sollte niemals mit Klartextdaten gearbeitet werden.
 . Vor dem Löschen eines Systemnutzers hat eine Sicherheitsabfrage zu erfolgen.
+
+

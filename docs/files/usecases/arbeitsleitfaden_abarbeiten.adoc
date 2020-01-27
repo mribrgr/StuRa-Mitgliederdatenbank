@@ -35,3 +35,4 @@ Das Mitglied der internen Verwaltung ist eingeloggt.
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 ==== Gespeicherte Checkliste
 . die gespeicherte Checkliste wurde in der Datenbank aufgenommen
+

@@ -48,3 +48,4 @@ Das Mitglied wurde aus der Mitgliedertabelle entfernt. Alle personenbezogenen Da
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 . Beim Löschen eines Mitglieds hat eine zusätzliche Sicherheitsabfrage zu erfolgen.
+
