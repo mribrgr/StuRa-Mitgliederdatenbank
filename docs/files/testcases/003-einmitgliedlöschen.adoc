@@ -1,4 +1,5 @@
 ## 003 - Ein Mitglied löschen:
+// Heißt nicht Nutzer löschen!
 ### Description:
 //[Describe the logical condition that the Test Case evaluates. Include the expected result.]
 Aus dem Programm soll ein Mitglied gelöscht werden.
@@ -10,7 +11,7 @@ Es gibt mindestens ein Mitglied.
 
 ### Post-conditions:
 // [List conditions that should be true when this Test Case ends.]
-Das Mitglied wurde erfolgreich aus Datenbank gelöscht.
+Das Mitglied wurde erfolgreich aus der Datenbank gelöscht.
 Das Mitglied taucht nicht mehr in der Mitgliederliste auf.
 Die Änderung wurde im Änderungslog gespeichert.
 
