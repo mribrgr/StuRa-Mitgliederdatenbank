@@ -3,7 +3,7 @@
 // --- 2. Teammitglieder -----------------------
 Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-00. Januar 2020
+31. Januar 2020
 // ---------------------------------------------
 :doctype: book
 :toc:
@@ -27,10 +27,11 @@ Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.d
 // --- 4. include Pfade anpassen ---------------
 
 = Technische Spezifikation
-• Vision
-• Use Case Model
-• System-wide Requirements
-• Glossar
+* Vision
+* Use Case Model
+* System-wide Requirements
+* Glossar
+* Domänenmodell
 
 // Vision
 include::files/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
@@ -44,11 +45,15 @@ include::files/systemwide_reqs.adoc[lines=1..1;4..-1,leveloffset=+1]
 // Glossar
 include::files/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
+// Domänenmodell
+// TODO:
+//include::files/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
 
 = Projektdokumentation
-• Projektplan
-• Risikolisteth/to/
-• Iteration Plan (für zwei ausgewählte Iterationen)
+* Projektplan
+* Risikolisteth/to/
+* Iteration Plan (für zwei ausgewählte Iterationen)
 
 // Projektplan
 include::files/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
@@ -64,9 +69,9 @@ include::files/iteration-plans/iteration_3_plan.adoc[lines=1..1;4..-1,leveloffse
 <<<
 
 = Entwurfsdokumentation
-• Architektur-Notizbuch
-• Test Cases
-• Design
+* Architektur-Notizbuch
+* Test Cases
+* Design
 
 // Architektur-Notizbuch
 include::files/archit_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
