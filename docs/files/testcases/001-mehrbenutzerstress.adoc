@@ -1,10 +1,10 @@
 ## 001 - Mehrbenutzerstress:
 ### Description:
 //[Describe the logical condition that the Test Case evaluates. Include the expected result.]
-Das Programm sollte mehrere Benutzer gleichzeitig zulassen, ohne das es Konflikte gibt oder 
+Das Programm sollte mehrere Benutzer gleichzeitig zulassen ohne, dass es Konflikte gibt oder 
 das Programm komplett abschmiert.
 
-Das erwartete Ergebniss ist, das das Programm nach dem Test noch stabiel läuft und 
+Das erwartete Ergebnis ist, dass das Programm nach dem Test noch stabil läuft und 
 kein Datenverlust erfolgt ist.
 
 ### Pre-conditions:
