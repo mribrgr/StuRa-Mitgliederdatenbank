@@ -68,8 +68,12 @@ include::csv/team.csv[]
 
 |===
 
-// == Deployment
-//Outline the strategy for deploying the software (and its updates) into the production environment.
+== Deployment
+-Administratoren festlegen und aktiv in das Projekt mit einbeziehen -> Support Faehigkeit aufbauen +
+-Treffen mit allen noetigen Personen zur klaerung saemtlicher technischer Details/Besonderheiten,geplante Entwickungsstadien +
+-Termine der wichtigen Phasen vereinbaren wie Testphase,Load testing,Release(Releaseplanung)... + 
+-reibungsloser Rollout +
+
 
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
