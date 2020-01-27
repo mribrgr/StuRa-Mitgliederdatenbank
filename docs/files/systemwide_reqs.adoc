@@ -91,7 +91,14 @@ Auditierung:
 *Ressourcenbegrenzungen:* 
     Möglichst geringer Energieverbrauch, 
     Speicherplatz (so viel wie im Container vorhanden), 
-    Möglichst wenig Traffic
+    Möglichst wenig Traffic +
+*Legal:*
+    strikte Einhaltung des Datenschutzes +
+       
+=== Interface Requirements
+*Look & Feel:*
+     angelehnt an das bekannte Stura/Htw-Design +
+
 
 === Organisatorische Randbedingungen 
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
