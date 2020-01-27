@@ -47,7 +47,8 @@ include::files/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Domänenmodell
 // TODO:
-//include::files/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
+== Domänenmodell
+image::klassendiagramm/KlassendiagrammEntwurf.png[]
 <<<
 
 = Projektdokumentation
