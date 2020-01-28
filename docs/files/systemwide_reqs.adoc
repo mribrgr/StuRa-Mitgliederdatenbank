@@ -18,8 +18,8 @@ Authentifizierung:
 
 Zeitsteuerung:
 
-* Die Datenbank muss in regelmäßigen Abständen (Jeden Monat?) gesichert werden
-* Alte Sicherungen Löschen (Welche?)
+* Die Datenbank muss in regelmäßigen Abständen (Jeden Monat) gesichert werden
+* Alte Sicherungen Löschen (Die älter sind als 12 Monate)
 
 Auditierung:
 
