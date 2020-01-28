@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: StuRa-Mitgliederdatenbank
 // --- 2. Teammitglieder -----------------------
-Theresa Schüttig <s79136@htw-dresden.de>; Lucie Jill Urbons <luciejill.urbons@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Mauritius Berger <s79149@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
+Theresa Schüttig <s79136@htw-dresden.de>; Lucie Jill Urbons <luciejill.urbons@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Benjamin Hempel <s79132@htw-dresden.de>; Mauritius Berger <s79149@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
 31. Januar 2020
 // ---------------------------------------------
