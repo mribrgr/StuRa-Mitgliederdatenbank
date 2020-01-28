@@ -69,10 +69,10 @@ include::csv/team.csv[]
 |===
 
 == Deployment
--Administratoren festlegen und aktiv in das Projekt mit einbeziehen -> Support Faehigkeit aufbauen +
--Treffen mit allen noetigen Personen zur klaerung saemtlicher technischer Details/Besonderheiten,geplante Entwickungsstadien +
--Termine der wichtigen Phasen vereinbaren wie Testphase,Load testing,Release(Releaseplanung)... + 
--reibungsloser Rollout +
+* Administratoren festlegen und aktiv in das Projekt mit einbeziehen -> Support Faehigkeit aufbauen
+* Treffen mit allen noetigen Personen zur klaerung saemtlicher technischer Details/Besonderheiten,geplante Entwickungsstadien
+* Termine der wichtigen Phasen vereinbaren wie Testphase,Load testing,Release(Releaseplanung)...
+* reibungsloser Rollout
 
 
 == Erkenntnisse (Lessons learned)
