@@ -15,4 +15,4 @@ link:https://github.com/htwdd-se/VorlageBelegabgabe[Abgabeformat]
 ### Infos zum Datenmodell
 
 * link:https://stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[Organigramm] - Enthält (eigentlich alle) Infos zu den abzubildenden Referaten und Ämtern
-* link:https://wiki.stura.htw-dresden.de/index.php/Diskussion:Mitgliederdatenbank[Diskussion Mitgliederdatenbank] - Enthält einen möglichen, bereits vom StuRa ausgearbeiteten Ansatz zur Strukturierung der Daten
+* link:https://wiki.stura.htw-dresden.de/index.php/Diskussion:Mitgliederdatenbank[Diskussion Mitgliederdatenbank] - Enthält einen möglichen, bereits vom StuRa ausgearbeiteten Ansatz zur Strukturierung der Date
