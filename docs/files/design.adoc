@@ -1,14 +1,15 @@
 = Wireframes
 image::img/Wireframes/loginWireframe/loginWireframe.png[]
 
-image::img/Wireframes/mitgliederWireframe/mitgliederWireframe.png[]
+image::img/Wireframes/MitgliederWireframe/MitgliederWireframe.png[]
+image::img/Wireframes/MitgliederWireframe/MitgliederWireframe2.png[]
 
 image::img/Wireframes/nutzerWireframe/nutzerInitial.png[]
 image::img/Wireframes/nutzerWireframe/nutzerHinzufuegen.png[]
 
-image::img/Wireframes/aemterWireframe/Aemter1.png[]
+image::img/Wireframes/AemterWireframe/AemterWireframe.png[]
 
-image::img/Wireframes/checklisteWireframe/Checkliste1.png[]
+image::img/Wireframes/checklisteWireframe/ChecklisteWireframe.png[]
 
-image::img/Wireframes/historieWireframe/historieAnsehen-Initial.png[]
+image::img/Wireframes/historieWireframe/HistorieWireframe.png[]
 image::img/Wireframes/historieWireframe/historieAnsehen-Eintragsdetails.png[]
