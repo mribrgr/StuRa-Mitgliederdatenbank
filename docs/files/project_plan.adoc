@@ -66,6 +66,32 @@ include::csv/team.csv[]
 | - 
 | -
 
+|Sommersemester Beginn 
+| - 
+| - 
+| -
+
+|link:iteration-plans/iteration_4_plan.adoc[Iteration 4]
+| -
+| 16.03.2020 - 29.03.2020
+| -
+
+
+|link:iteration-plans/iteration_5_plan.adoc[Iteration 5]
+| -
+| 30.03.2020 - 12.04.2020
+| -
+
+|link:iteration-plans/iteration_6_plan.adoc[Iteration 6]
+| -
+| 13.04.2020 - 26.04.2020
+| -
+
+|link:iteration-plans/iteration_7_plan.adoc[Iteration 7]
+| -
+| 27.04.2020 - 10.05.2020
+| -
+
 |===
 
 == Deployment
