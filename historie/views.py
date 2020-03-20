@@ -3,5 +3,6 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def main_screen(request):
-    return HttpResponse("This is the historie screen")
+def list(request):
+    return render(request=request,
+                  template_name="historie/list.html")
