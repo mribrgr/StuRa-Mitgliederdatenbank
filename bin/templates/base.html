@@ -5,10 +5,52 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Global style sheet-->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
 </head>
+
 <body>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey lighten-2">
+                <div class="container">
+                    <a href="#" class="brand-logo">
+                        {% load static %}
+                        <img src="{% static "logo.png" %}" height="64px" />
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/mitglieder">Mitglieder</a></li>
+                        <li><a href="/aemter">Ämter</a></li>
+                        <li><a href="/checklisten">Checklisten</a></li>
+                        <li><a href="/nutzer">Nutzer</a></li>
+                        <li><a href="/historie">Historie</a></li>
+                        <li><a href="/logout"><i class="material-icons">exit_to_app</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="footer-copyright grey lighten-2">
+        <div class="container black-text">
+          © 2020 StuRa HTW Dresden
+          <a class="black-text right" href="https://stura.htw-dresden.de/impressum">Datenschutz/Impressum</a>
+        </div>
+      </div>
+    </footer>
 </body>
