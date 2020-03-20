@@ -19,13 +19,15 @@
       <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper grey lighten-2">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
                 <div class="container">
-                    <a href="#" class="brand-logo">
+                    <a href="#" class="brand-logo black-text" style="white-space: nowrap">
                         {% load static %}
-                        <img src="{% static "logo.png" %}" height="64px" />
-                    </a>
-                    <a class="brand-logo center">
-                      - Mitgliederverwaltung
+                        <img src="{% static "logo.png" %}" height="48px" align="left" class="hide-on-small-only"/>
+                        <img src="{% static "logo.png" %}" height="40px" align="left" class="hide-on-med-and-up"/>
+                        <br />
+                        <span class="hide-on-small-only" style="font-size: 15px; position: absolute; top: 16px; left: 9px">Mitgliederverwaltung</span>
+                        <span class="hide-on-med-and-up" style="font-size: 13px; position: absolute; top: 14px; left: 6px">Mitgliederverwaltung</span>
                     </a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/mitglieder">Mitglieder</a></li>
@@ -37,8 +39,16 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>    
       </div>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/mitglieder"><i class="material-icons">people</i>Mitglieder</a></li>
+        <li><a href="/aemter"><i class="material-icons">work</i>Ämter</a></li>
+        <li><a href="/checklisten"><i class="material-icons">done_all</i>Checklisten</a></li>
+        <li><a href="/nutzer"><i class="material-icons">lock</i>Nutzer</a></li>
+        <li><a href="/historie"><i class="material-icons">assignment</i>Historie</a></li>
+        <li><a href="/logout"><i class="material-icons">exit_to_app</i>Abmelden</a></li>
+      </ul>
     </header>
 
     <main>
@@ -56,4 +66,12 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var options;
+          var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
 </body>
