@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def main_screen(request):
-    return HttpResponse("This is the nutzer screen")
+    return HttpResponse("This is the checklisten screen")
