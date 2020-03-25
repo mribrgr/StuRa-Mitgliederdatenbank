@@ -1,0 +1,43 @@
+{% for entry in data %}
+    <div id="modal-{{entry.nickname}}" class="modal">
+        <div class="modal-content">
+            <h4>{{entry.vorname}}</h4>
+            <p>Nickname: {{entry.nickname}}</p>
+            <p>Amt: {{entry.amt}}</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
+        </div>
+    </div>
+
+    <tr class="mitglied">
+        <td>
+            <!-- Checkbox -->
+            <label for="chk-{{entry.nickname}}">
+                <input type="checkbox" id="chk-{{entry.nickname}}"/>
+                <span>{{entry.vorname}}</span>
+            </label>
+        </td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.nickname}}</td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.amt}}</td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.funktion}}</td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.email}}</td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.telefonnummer}}</td>
+        <td class="mitglied-{{entry.nickname}}">{{entry.website}}</td>
+    </tr>
+
+    <script>
+        var elem_{{entry.nickname}} = document.getElementById('modal-{{entry.nickname}}');
+        var instance_{{entry.nickname}} = M.Modal.init(elem_{{entry.nickname}}, {dismissible: false});
+        var elements = document.getElementsByClassName('mitglied-{{entry.nickname}}');
+        for(var i=0; i<elements.length; i++)
+        {
+            (elements)[i].addEventListener("click", function(){
+                //alert(this.innerHTML);
+                //alert(i);
+                instance_{{entry.nickname}}.open();
+            });
+        }
+    </script>
+{% endfor %}
+
