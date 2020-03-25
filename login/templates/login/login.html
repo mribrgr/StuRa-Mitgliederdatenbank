@@ -1,71 +1,20 @@
-<head>
-    {% load static %}
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+{% extends 'base.html' %}
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Material Design Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!--Global style sheet-->
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
-</head>
-
-<body>
-    <header>
-      <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper grey lighten-2">
-                <div class="container">
-                    <a href="#" class="brand-logo black-text" style="white-space: nowrap">
-                        {% load static %}
-                        <img src="{% static "logo.png" %}" height="48px" align="left" class="hide-on-small-only"/>
-                        <img src="{% static "logo.png" %}" height="40px" align="left" class="hide-on-med-and-up"/>
-                        <br />
-                        <span class="hide-on-small-only" style="font-size: 15px; position: absolute; top: 16px; left: 9px">Mitgliederverwaltung</span>
-                        <span class="hide-on-med-and-up" style="font-size: 13px; position: absolute; top: 14px; left: 6px">Mitgliederverwaltung</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-        <div class="container" style="width: 35%; padding-top: 10%;">
-            <div class="row m-b-none">
-              <form method="post">
-                <div class="input-field">
-                  <input class="validate" type="email">
-                  <label for="user">Nutzername</label>
-                </div>
-                <div class="input-field">
-                  <input class="validate" type="password">
-                  <label for="password">Password</label>
-                </div>
-                <a href="mitglieder/" class="waves-effect waves-light btn">Login</a>
-              </form>
-            </div>
-          </div>
-    </main>
-
-    <footer class="page-footer">
-      <div class="footer-copyright grey lighten-2">
-        <div class="container black-text">
-          © 2020 StuRa HTW Dresden
-          <a class="black-text right" href="https://stura.htw-dresden.de/impressum">Datenschutz/Impressum</a>
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col s12"><h3>Anmelden</h3></div>
+      <form class="col s12 m9 l8" method="post">
+        <div class="input-field">
+          <input id="username" class="validate" type="text">
+          <label for="username">Benutzername</label>
         </div>
-      </div>
-    </footer>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          var elems = document.querySelectorAll('.sidenav');
-          var options;
-          var instances = M.Sidenav.init(elems, options);
-      });
-    </script>
-</body>
+        <div class="input-field">
+          <input id="password" class="validate" type="password">
+          <label for="password">Passwort</label>
+        </div>
+        <a href="mitglieder/" class="waves-effect waves-light btn amber black-text">Anmelden</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}
