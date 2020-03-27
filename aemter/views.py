@@ -1,9 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-<<<<<<< HEAD
 from django.http import HttpResponse
 
-=======
->>>>>>> 66f8b0e986d92a6d433330d2c87f621a47840374
 
 # Create your views here.
 def main_screen(request):
