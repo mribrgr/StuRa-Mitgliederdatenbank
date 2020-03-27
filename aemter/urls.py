@@ -8,6 +8,6 @@ from django.conf.urls.static import static
 app_name = 'login'  # here for namespacing of urls.
 
 urlpatterns = [
-    path("", views.main_screen, name="homepage"),
+    path("", views.main_screen, name="homepage"), 
 ] 
 

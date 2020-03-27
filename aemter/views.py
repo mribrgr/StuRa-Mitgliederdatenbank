@@ -1,6 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-import random
-
 
 # Create your views here.
 def main_screen(request):
