@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'checklisten/materialize.css' %}">
+    <!--<script src="{% static 'aemter/main_screen.js' %}"></script>-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklisten</title>
+  </head>
+  <body>
+    <div class="row">
+        {% for mitglied in mitglieder %}
+        <div class="col s2">
+          <div class="card medium brown">
+            <div class="card-content white-text">
+              <span class="card-title">{{mitglied.name}}</span>
+                <form action="#">
+                  {% for aufgabe in mitglied.aufgaben %}
+                   <p>
+                       <label>
+                           <input type="checkbox" />
+                           <span class="white-text">{{aufgabe.name}}</span>
+                       </label>
+                   </p>
+                  {% endfor %}
+                </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+                
+
+  </body>
+</html>
