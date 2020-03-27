@@ -6,23 +6,23 @@
         <div class="row">
             <div class="col s12">
                 <!-- Serch Entry -->
-                <div class="input-field inline">
+                <div class="input-field inline" style="margin-top: 27px">
                     <input class="validate" type="text" id="search">
-                    <label for="search">...</label>
+                    <label for="search">Suchen...</label>
                 </div>
 
                 <!-- Search Button -->
-                <a class="waves-effect waves-light btn">Suche</a>
-                
-                <!-- left: 40%; -->
-                <span style="padding-left: 33%; position: relative;">
-                    <!-- Mitglied entfernen -->
-                    <a class="waves-effect waves-light btn">entfernen</a>
-                    
-                    <!-- Mitglied Hinzufügen -->
-                    <a class="waves-effect waves-light btn">hinzufügen</a>
-                </span>
-        
+                <a class="btn-floating waves-effect waves-light amber">
+                  <i class="material-icons black-text">search</i>
+                </a>
+                <div class="right hide-on-med-and-down" style="margin-top: 29px">
+                  <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
+                  <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+                </div>
+                <div class="right hide-on-large-only" style="margin-top: 29px">
+                  <a class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">add</i></a>
+                  <a class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -41,14 +41,14 @@
                   <th>Website</th>
               </tr>
             </thead>
-    
+
             <tbody>
-                {% include 'mitglieder/row.html' %}          
+                {% include 'mitglieder/row.html' %}
             </tbody>
           </table>
     </div>
 
-    
+
     <style>
         tr:hover {
             cursor:pointer;
