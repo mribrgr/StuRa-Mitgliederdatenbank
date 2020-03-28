@@ -46,7 +46,7 @@ def main_screen(request):
     m2.vorname = "Florian"
     m2.strasse = "Straße der Jugend"
     m2.plz = "01561"
-    m.ort = "Ebersbach"
+    m2.ort = "Ebersbach"
     m2.telfestnetz = "0352084822"
     m2.telmobil = "01515555555"
     m2.email = "sxxxxx@htw-dresden.com"
@@ -61,7 +61,7 @@ def main_screen(request):
     m3.vorname = "Max"
     m3.strasse = "Musterstraße"
     m3.plz = "01561"
-    m.ort = "Musterstadt"
+    m3.ort = "Musterstadt"
     m3.telfestnetz = "0000000000"
     m3.telmobil = "0151000000"
     m3.email = "s00000@htw-dresden.com"
@@ -76,7 +76,7 @@ def main_screen(request):
     m4.vorname = "Maxi"
     m4.strasse = "Musterstraße"
     m4.plz = "01561"
-    m.ort = "Musterstadt"
+    m4.ort = "Musterstadt"
     m4.telfestnetz = "111111111"
     m4.telmobil = "0151111111"
     m4.email = "s11111@htw-dresden.com"
@@ -91,7 +91,7 @@ def main_screen(request):
     m5.vorname = "Tobias"
     m5.strasse = "Feldweg"
     m5.plz = "01111"
-    m.ort = "Dresden"
+    m5.ort = "Dresden"
     m5.telfestnetz = "0348484857"
     m5.telmobil = "01515151515"
     m5.email = "Tobias.Müller@htw-dresden.com"
@@ -101,4 +101,3 @@ def main_screen(request):
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
                   context = {"data":my_list})
-                  
