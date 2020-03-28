@@ -1,19 +1,22 @@
 {% for entry in data %}
     <div id="modal-{{entry.mitid}}" class="modal">
         <div class="modal-content">
-            <h2>{{entry.nachname}}, {{entry.vorname}}</h2>
+            <h3>{{entry.nachname}}, {{entry.vorname}}</h3>
             <div>
-                <p>MitID: {{entry.mitid}}</p>
-                <p>JabberID: {{entry.jabberid}}</p>
-                <p>Amt: {{entry.amt}}</p>
-                <p>Funktion: {{entry.funktion}}</p>
-                <h5>Anschrift:</h5>
-                <p style="padding-left: 5%;">{{entry.strasse}}</p>
-                <p style="padding-left: 5%;">{{entry.plz}} {{entry.ort}}</p>
-                <h5>Erreichbar unter:</h5>
-                <p style="padding-left: 5%;">Festnetz: {{entry.telfestnetz}}</p>
-                <p style="padding-left: 5%;">Mobil: {{entry.telmobil}}</p>
-                <p style="padding-left: 5%;">Email: {{entry.email}}</p>
+                <br />
+                <p><b>Mitglieds-ID:</b> {{entry.mitid}}</p>
+                <p><b>Amt:</b> {{entry.amt}}</p>
+                <p><b>Funktion:</b> {{entry.funktion}}</p>
+                <br />
+                <h5>Anschrift</h5>
+                <p>{{entry.strasse}}</p>
+                <p>{{entry.plz}} {{entry.ort}}</p>
+                <br />
+                <h5>Kontaktdaten</h5>
+                <p><b>Telefon (Festnetz):</b> {{entry.telfestnetz}}</p>
+                <p><b>Telefon (mobil):</b> {{entry.telmobil}}</p>
+                <p><b>E-Mail:</b> {{entry.email}}</p>
+                <p><b>Jabber-ID:</b> {{entry.jabberid}}</p>
             </div>
         </div>
         <div class="modal-footer">
