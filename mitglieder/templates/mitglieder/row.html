@@ -1,9 +1,20 @@
 {% for entry in data %}
-    <div id="modal-{{entry.nickname}}" class="modal">
+    <div id="modal-{{entry.mitid}}" class="modal">
         <div class="modal-content">
-            <h4>{{entry.vorname}}</h4>
-            <p>Nickname: {{entry.nickname}}</p>
-            <p>Amt: {{entry.amt}}</p>
+            <h2>{{entry.nachname}} {{entry.vorname}}</h2>
+            <div>
+                <p>MitID: {{entry.mitid}}</p>
+                <p>JabberID: {{entry.jabberid}}</p>
+                <p>Amt: {{entry.amt}}</p>
+                <p>Funktion: {{entry.funktion}}</p>
+                <h5>Anschrift:</h5>
+                <p style="padding-left: 5%;">{{entry.strasse}}</p>
+                <p style="padding-left: 5%;">{{entry.plz}} {{entry.ort}}</p>
+                <h5>Erreichbar unter:</h5>
+                <p style="padding-left: 5%;">Festnetz: {{entry.telfestnetz}}</p>
+                <p style="padding-left: 5%;">Mobil: {{entry.telmobil}}</p>
+                <p style="padding-left: 5%;">Email: {{entry.email}}</p>
+            </div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
@@ -13,29 +24,27 @@
     <tr class="mitglied">
         <td>
             <!-- Checkbox -->
-            <label for="chk-{{entry.nickname}}">
-                <input type="checkbox" id="chk-{{entry.nickname}}"/>
-                <span>{{entry.vorname}}</span>
+            <label for="chk-{{entry.mitid}}">
+                <input type="checkbox" id="chk-{{entry.mitid}}"/>
+                <span>{{entry.nachname}} {{entry.vorname}}</span>
             </label>
         </td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.nickname}}</td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.amt}}</td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.funktion}}</td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.email}}</td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.telefonnummer}}</td>
-        <td class="mitglied-{{entry.nickname}}">{{entry.website}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.amt}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.funktion}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.email}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.telmobil}}</td>
     </tr>
 
     <script>
-        var elem_{{entry.nickname}} = document.getElementById('modal-{{entry.nickname}}');
-        var instance_{{entry.nickname}} = M.Modal.init(elem_{{entry.nickname}}, {dismissible: false});
-        var elements = document.getElementsByClassName('mitglied-{{entry.nickname}}');
+        var elem_{{entry.mitid}} = document.getElementById('modal-{{entry.mitid}}');
+        var instance_{{entry.mitid}} = M.Modal.init(elem_{{entry.mitid}}, {dismissible: false});
+        var elements = document.getElementsByClassName('mitglied-{{entry.mitid}}');
         for(var i=0; i<elements.length; i++)
         {
             (elements)[i].addEventListener("click", function(){
                 //alert(this.innerHTML);
                 //alert(i);
-                instance_{{entry.nickname}}.open();
+                instance_{{entry.mitid}}.open();
             });
         }
     </script>
