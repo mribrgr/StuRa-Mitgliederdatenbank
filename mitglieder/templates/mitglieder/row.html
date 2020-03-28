@@ -1,0 +1,55 @@
+{% for entry in data %}
+    <div id="modal-{{entry.mitid}}" class="modal">
+        <div class="modal-content">
+            <h3>{{entry.nachname}}, {{entry.vorname}}</h3>
+            <div>
+                <br />
+                <p><b>Mitglieds-ID:</b> {{entry.mitid}}</p>
+                <p><b>Amt:</b> {{entry.amt}}</p>
+                <p><b>Funktion:</b> {{entry.funktion}}</p>
+                <br />
+                <h5>Anschrift</h5>
+                <p>{{entry.strasse}}</p>
+                <p>{{entry.plz}} {{entry.ort}}</p>
+                <br />
+                <h5>Kontaktdaten</h5>
+                <p><b>Telefon (Festnetz):</b> {{entry.telfestnetz}}</p>
+                <p><b>Telefon (mobil):</b> {{entry.telmobil}}</p>
+                <p><b>E-Mail:</b> {{entry.email}}</p>
+                <p><b>Jabber-ID:</b> {{entry.jabberid}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
+        </div>
+    </div>
+
+    <tr class="mitglied">
+        <td>
+            <!-- Checkbox -->
+            <label for="chk-{{entry.mitid}}">
+                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.mitid}}"/>
+                <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
+            </label>
+        </td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.nachname}}, {{entry.vorname}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.amt}}</td>
+        <td class="mitglied-{{entry.mitid}}">{{entry.funktion}}</td>
+        <td class="mitglied-{{entry.mitid}} hide-on-small-only">{{entry.email}}</td>
+        <td class="mitglied-{{entry.mitid}} hide-on-med-and-down">{{entry.telmobil}}</td>
+    </tr>
+
+    <script>
+        var elem_{{entry.mitid}} = document.getElementById('modal-{{entry.mitid}}');
+        var instance_{{entry.mitid}} = M.Modal.init(elem_{{entry.mitid}}, {dismissible: true});
+        var elements = document.getElementsByClassName('mitglied-{{entry.mitid}}');
+        for(var i=0; i<elements.length; i++)
+        {
+            (elements)[i].addEventListener("click", function(){
+                //alert(this.innerHTML);
+                //alert(i);
+                instance_{{entry.mitid}}.open();
+            });
+        }
+    </script>
+{% endfor %}

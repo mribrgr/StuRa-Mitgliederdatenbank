@@ -5,6 +5,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <!-- Material Design Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,7 +22,7 @@
             <div class="nav-wrapper grey lighten-2">
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
                 <div class="container">
-                    <a href="#" class="brand-logo black-text" style="white-space: nowrap">
+                    <a class="brand-logo black-text" style="white-space: nowrap">
                         {% load static %}
                         <img src="{% static "logo.png" %}" height="48px" align="left" class="hide-on-small-only"/>
                         <img src="{% static "logo.png" %}" height="40px" align="left" class="hide-on-med-and-up"/>
