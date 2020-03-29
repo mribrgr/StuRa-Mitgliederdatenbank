@@ -16,3 +16,37 @@ main {
   margin-top: 20px;
   padding-top: 0px !important;
 }
+
+/* label color */
+ .input-field label {
+   color: #000 !important;
+ }
+ /* label focus color */
+ .input-field input]:focus + label {
+   color: #000 !important;
+ }
+ /* label underline focus color */
+ .input-field input:focus {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+
+ /* valid color */
+ .input-field input.valid {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+ /* invalid color */
+ .input-field input.invalid {
+   border-bottom: 1px solid #ffc107 !important;
+   box-shadow: 0 1px 0 0 #ffc107 !important;
+ }
+ /* icon prefix focus color */
+ .input-field .prefix.active {
+   color: #000 !important;
+ }
+
+.checkbox-amber[type="checkbox"]:checked + span:not(.lever):after {
+  border: 2px solid #ffc107;
+  background-color: #ffc107;
+}
