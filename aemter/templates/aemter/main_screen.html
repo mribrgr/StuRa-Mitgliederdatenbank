@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div>
+  <div class="row">
+    <div class="col s12">
+      <ul class="collapsible">
+        {% for referat in referate_set %}
+        <li>
+          <div class="collapsible-header">{{referat.name}}</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
   <div class="row">
     <div class="col s8 offset-s1">
       {% for amt in aemter_set %}
@@ -33,3 +49,20 @@
     </div>
   </div>
 {% endblock %}
+
+<script>
+var coll = document.getElementsByClassName("collapsible-header");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+} 
+</script>

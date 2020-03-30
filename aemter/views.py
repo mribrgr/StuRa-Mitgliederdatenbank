@@ -5,8 +5,8 @@ from django.http import HttpResponse
 # Create your views here.
 def main_screen(request):
     context = {
-        'aemter_set': [{
-            'name': 'Verwaltung',
+        'referate_set': [{
+            'name': 'Referat1',
             'leitung': 'Mary Waves',
             'stellvertretung': 'Captain Beefart',
             'mitglieder': [
@@ -15,7 +15,7 @@ def main_screen(request):
                 {'name': 'Bill Newton'}
                 ]
             }, 
-            {'name': 'Kultur',
+            {'name': 'Referat2',
             'leitung': 'Karel Heavy',
             'stellvertretung': 'Gerald Trost',
             'mitglieder': [
@@ -24,7 +24,7 @@ def main_screen(request):
                 {'name': 'Atomfried Müller'}
                 ]
             },
-            {'name': 'Personal',
+            {'name': 'Referat3',
             'leitung': 'Dave Mustaine',
             'stellvertretung': 'Ozzy Osbourne',
             'mitglieder': [
