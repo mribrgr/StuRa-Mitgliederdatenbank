@@ -28,8 +28,9 @@
               </tbody>
             </table>
             <ul class="collapsible">
-            {% for bereich in referat.bereiche_set %}
-                <div class="collapsible-header  grey lighten-2">{{bereich.name}}</div>
+              {% for bereich in referat.bereiche_set %}
+              <li>
+                <div class="collapsible-header grey lighten-2">{{bereich.name}}</div>
                 <div class="collapsible-body">
                   <table>
                     <thead></thead>
@@ -45,20 +46,21 @@
                       <tr class="last-row">
                         <td>Weitere Mitglieder</td>
                         <td>
-                          {% for mitglied in bereich.weitere_mitglieder %}
-                            <span class="mitglied" id="{{mitglied.mitid}}">{{mitglied.name}}</span><br>
-                          {% endfor %}
+                        {% for mitglied in bereich.weitere_mitglieder %}
+                          <span class="mitglied" id="{{mitglied.mitid}}">{{mitglied.name}}</span><br>
+                        {% endfor %}
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                </div>          
-            {% endfor %}
-            </ul>
-          </span>
-        </div>
-      </li>
-      {% endfor %}
+                </div>
+              {% endfor %}
+            </li>
+          </ul>
+        </span>
+      </div>
+    </li>
+    {% endfor %}
     </ul>
   </div>
 </div>
@@ -66,11 +68,10 @@
 
 
 <style>
-
-  table{
+  table {
     table-layout: fixed;
   }
-  td{
+  td {
     vertical-align: top;
   }
 
@@ -80,23 +81,11 @@
 </style>
 
 <script>
-
-// add event listeners for collapsible
-var coll = document.getElementsByClassName("collapsible-header");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var options;
+    var instances = M.Collapsible.init(elems, options);
   });
-} 
-
 </script>
 
 {% endblock %}
