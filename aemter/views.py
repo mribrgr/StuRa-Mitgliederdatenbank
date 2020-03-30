@@ -1,18 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
-
 # Create your views here.
 def main_screen(request):
     context = {
         'referate_set': [{
-            'leitung': 'Varchar Toll',
-            'stellvertretung': 'Marie Johanna',
+            'leitung': {
+                'name': 'Varchar Toll',
+            },
+            'stellvertretung': {'name': 'Marie Johanna'},
             'name': 'Referat 1',
             'bereiche_set': [{
                     'name': 'Bereich 1',
-                    'leitung': 'Mary Waves',
-                    'stellvertretung': 'Captain Beefart',
+                    'leitung': {'name':'Mary Waves'},
+                    'stellvertretung': {'name':'Captain Beefart'},
                     'weitere_mitglieder': [
                     {'name': 'Bart Glover'},
                     {'name': 'Lemmy Kilmister'},
@@ -21,8 +22,8 @@ def main_screen(request):
                 },
                 {
                     'name': 'Bereich 2',
-                    'leitung': 'Mary Waves',
-                    'stellvertretung': 'Captain Feebart',
+                    'leitung': {'name': 'Mary Waves'},
+                    'stellvertretung': {'name': 'Captain Feebart'},
                     'weitere_mitglieder': [
                     {'name': 'Bart Lover'},
                     {'name': 'Lemmy Ilmister'},
@@ -34,14 +35,12 @@ def main_screen(request):
 
         {
             'name': 'Referat 2',
-            'leitung': 'Klaus Kleber',
-            'stellvertretung': 'Jehns Spahn',
+            'leitung': {'name':'Klaus Kleber'},
+            'stellvertretung': {'name': 'Jehns Spahn'},
             'bereiche_set': [{
-                    'leitung': 'Abbath Doom Occulta',
-                    'stellvertretung': 'Johnny Thunder',
                     'name': 'Bereich 1',
-                    'leitung': 'Karel Heavy',
-                    'stellvertretung': 'Gerald Trost',
+                    'leitung': {'name':'Abbath Doom Occulta'},
+                    'stellvertretung': {'name':'Johnny Thunder'},
                     'weitere_mitglieder': [
                     {'name': 'Alexendre Hebert'},
                     {'name': 'Benjamin Mitchner'},
@@ -53,12 +52,12 @@ def main_screen(request):
 
         {
             'name': 'Referat 3',
-            'leitung': 'Alexi Laiho',
-            'stellvertretung': 'Konrad Adenauer',
+            'leitung': {'name':'Alexi Laiho'},
+            'stellvertretung': {'name': 'Konrad Adenauer'},
             'bereiche_set': [{
                     'name': 'Bereich 1',
-                    'leitung': 'Dave Mustaine',
-                    'stellvertretung': 'Ozzy Osbourne',
+                    'leitung': {'name':'Dave Mustaine'},
+                    'stellvertretung': {'name':'Ozzy Osbourne'},
                     'weitere_mitglieder': [
                         {'name': 'Chuck Norris'},
                         {'name': 'Tony Stark'},
@@ -68,6 +67,16 @@ def main_screen(request):
         },
         ]
     }
+    i=0
+    for referat in context['referate_set']:
+        referat['leitung']['mitid'] = i = i+1
+        referat['stellvertretung']['mitid'] = i = i+1
+        for bereich in referat['bereiche_set']:
+            bereich['leitung']['mitid'] = i = i+1
+            bereich['stellvertretung']['mitid'] = i = i+1
+            for mitglied in bereich['weitere_mitglieder']:
+                mitglied['mitid'] = i = i+1
+
 
     return render(request, 'aemter/main_screen.html', context)
 

@@ -18,10 +18,12 @@
             <table>
               <tbody>
                 <tr>
-                  <td witdth="100px">Referatsleitung</td><td><a href="/mitglieder">{{referat.leitung}}</a></td>
+                  <td witdth="100px">Referatsleitung</td>
+                  <td><span class="mitglied" id="{{referat.leitung.mitid}}">{{referat.leitung.name}}</span></td>
                 </tr>
                 <tr class="last-row">
-                  <td>Stellvertretende Referatsleitung</td><td><a href="/mitglieder">{{referat.stellvertretung}}</a></td>
+                  <td>Stellvertretende Referatsleitung</td>
+                  <td><span class="mitglied" id="{{bereich.stellvertretung.mitid}}">{{referat.stellvertretung.name}}</span></td>
                 </tr>
               </tbody>
             </table>
@@ -33,16 +35,18 @@
                     <thead></thead>
                     <tbody>
                       <tr>
-                        <td>Bereichsleitung</td><td><a href="/mitglieder">{{bereich.leitung}}</a></td>
+                        <td>Bereichsleitung</td>
+                        <td><span class="mitglied" id="{{bereich.leitung.mitid}}">{{bereich.leitung.name}}</span></td>
                       </tr>
                       <tr>
-                        <td>Stellvertretende Bereichsleitung</td><td><a href="/mitglieder">{{bereich.stellvertretung}}</a></td>
+                        <td>Stellvertretende Bereichsleitung</td>
+                        <td><span class="mitglied" id="{{bereich.stellvertretung.mitid}}">{{bereich.stellvertretung.name}}</span></td>
                       </tr>
                       <tr class="last-row">
                         <td>Weitere Mitglieder</td>
                         <td>
                           {% for mitglied in bereich.weitere_mitglieder %}
-                            <a href="/mitglieder">{{mitglied.name}}</a><br>
+                            <span class="mitglied" id="{{mitglied.mitid}}">{{mitglied.name}}</span><br>
                           {% endfor %}
                         </td>
                       </tr>
@@ -59,7 +63,10 @@
   </div>
 </div>
 
+
+
 <style>
+
   table{
     table-layout: fixed;
   }
@@ -73,6 +80,8 @@
 </style>
 
 <script>
+
+// add event listeners for collapsible
 var coll = document.getElementsByClassName("collapsible-header");
 var i;
 
@@ -87,6 +96,7 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 } 
+
 </script>
 
 {% endblock %}
