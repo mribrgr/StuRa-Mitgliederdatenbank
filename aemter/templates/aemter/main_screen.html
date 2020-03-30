@@ -2,53 +2,75 @@
 
 {% block content %}
 
-<div>
-  <div class="row">
-    <div class="col s12">
-      <ul class="collapsible">
-        {% for referat in referate_set %}
-        <li>
-          <div class="collapsible-header">{{referat.name}}</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
+
+
+<div class="row">
+  <div class="col s12">
+    <h3>Ämter</h3>
+  </div>
+  <div class="col s12">
+    <ul class="collapsible">
+      {% for referat in referate_set %}
+      <li>
+        <div class="collapsible-header grey lighten-2">{{referat.name}}</div>
+        <div class="collapsible-body">
+          <span>
+            <table>
+              <tbody>
+                <tr>
+                  <td witdth="100px">Referatsleitung</td><td><a href="/mitglieder">{{referat.leitung}}</a></td>
+                </tr>
+                <tr class="last-row">
+                  <td>Stellvertretende Referatsleitung</td><td><a href="/mitglieder">{{referat.stellvertretung}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="collapsible">
+            {% for bereich in referat.bereiche_set %}
+                <div class="collapsible-header  grey lighten-2">{{bereich.name}}</div>
+                <div class="collapsible-body">
+                  <table>
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td>Bereichsleitung</td><td><a href="/mitglieder">{{bereich.leitung}}</a></td>
+                      </tr>
+                      <tr>
+                        <td>Stellvertretende Bereichsleitung</td><td><a href="/mitglieder">{{bereich.stellvertretung}}</a></td>
+                      </tr>
+                      <tr class="last-row">
+                        <td>Weitere Mitglieder</td>
+                        <td>
+                          {% for mitglied in bereich.weitere_mitglieder %}
+                            <a href="/mitglieder">{{mitglied.name}}</a><br>
+                          {% endfor %}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>          
+            {% endfor %}
+            </ul>
+          </span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col s8 offset-s1">
-      {% for amt in aemter_set %}
-        <!--class="collapsible body"-->
-        <table class="bordered striped">
-          <thead>
-            <th colspan="2">{{amt.name}}</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Leitung</td>
-              <td><a href="/mitglieder">{{amt.leitung}}</a></td>
-            </tr>
-            <tr>
-              <td>Stellvertretung</td>
-              <td><a href="/mitglieder">{{amt.stellvertretung}}</a></td>
-            </tr>
-            <tr>
-              <td>Mitglieder</td>
-              <td>
-                {% for mitglied in amt.mitglieder %}
-                  <a href="/mitglieder">{{mitglied.name}}</a><br>
-                {% endfor %}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-      {% endfor %}
-    </div>
-  </div>
-{% endblock %}
+<style>
+  table{
+    table-layout: fixed;
+  }
+  td{
+    vertical-align: top;
+  }
+
+  tr.last-row{
+    border-bottom: 0px;
+  }
+</style>
 
 <script>
 var coll = document.getElementsByClassName("collapsible-header");
@@ -66,3 +88,5 @@ for (i = 0; i < coll.length; i++) {
   });
 } 
 </script>
+
+{% endblock %}
