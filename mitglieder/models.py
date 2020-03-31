@@ -12,4 +12,7 @@ class Mitglied(models.Model):
     tel_mobil = models.CharField(max_length=15, null=True)
     mail_privat = models.CharField(max_length=50, null=True)
     jabber_id = models.CharField(max_length=50, null=True)
-    amt = models.ForeignKey(Amt, on_delete=models.SET_NULL, null=True)
+
+class MitgliedAmt(models.Model):
+    mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
+    amt = models.ForeignKey(Amt, on_delete=models.CASCADE, null=False)
