@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div>
+  <div class="row">
+    <div  class="col s12">
+      
+      <h3>Mitglied {% if mitglied %}bearbeiten{% else %}erstellen{% endif %}</h3>
+    <!-- Name & Vorname-->
+    </div >
+    <div class="row">
+      <div class="input-field col s12 m3">
+        <input id="first_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
+          <label for="first_name">Vorname</label>
+      </div>
+      <div class="input-field col s12 m3">
+        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="last_name">Nachname</label>
+      </div>
+    </div>
+    <!--Aemter-->
+      <div class="row">
+        <div class="col s12">
+        <h5>Ämter</h5>
+        </div>
+      </div>
+      {% if mitglied.aemter %}
+        {% for amt in mitglied.aemter %}
+          {% include 'mitglieder/aemter.html' %}
+        {% endfor %}
+      {% else %}
+        {% include 'mitglieder/aemter.html' %}
+      {% endif %}
+    
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <input id="email" type="text" class="validate" {% if mitglied %}value="{{mitglied.email}}"{% endif %}>
+        <label for="email">E-Mail</label>
+      </div>
+    </div>
+    <!-- Adresse -->
+    <div class="row">
+      <div class="input-field col s8 m4">
+        <input id="strasse" type="text" class="validate" {% if mitglied %}value="{{mitglied.strasse}}"{% endif %}>
+        <label for="strasse">Straße</label>
+      </div>
+      <div class="input-field col s4 m2">
+        <input id="hausnr" type="text" class="validate" {% if mitglied %}value="{{mitglied.hausnr}}"{% endif %}>
+        <label for="hausnr">Hausnummer</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 m2">
+        <input id="plz" type="text" class="validate" {% if mitglied %}value="{{mitglied.plz}}"{% endif %}>
+        <label for="plz">Postleitzahl</label>
+      </div>
+      <div class="input-field col s8 m4">
+        <input id="ort" type="text" class="validate" {% if mitglied %}value="{{mitglied.ort}}"{% endif %}>
+        <label for="ort">Ort</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <input id="telefon_festnetz" type="text" class="validate" {% if mitglied %}value="{{mitglied.telfestnetz}}"{% endif %}>
+        <label for="telefon_festnetz">Telefon (Festnetz)</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <input id="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.telmobil}}"{% endif %}>
+        <label for="telefon_mobil">Telefon (mobil)</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <input id="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.jabberid}}"{% endif %}>
+        <label for="telefon_mobil">Jabber-ID</label>
+      </div>
+    </div>
+    <!-- buttons -->
+    <div class="row">
+        <a href="/mitglieder" class="space waves-effect waves-light btn-large amber black-text offset-s1"><i class="material-icons left">save</i>Speichern</a>
+        
+        <a href="/mitglieder" class="waves-effect waves-light btn-large amber black-text offset-s1"><i class="material-icons left">undo</i>Abbrechen</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  a.space{
+    margin-right:20px;
+  }
+</style>
+
+<script>
+  // event listeners for select
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var options;
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+  var tag = document.createElement("p");
+  var text = document.createTextNode("Tutorix is the best e-learning platform");
+   tag.appendChild(text);
+   var element = document.getElementById("aemter");
+   element.appendChild(tag);
+  
+</script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="input-field col s12 m3">
+      <select>
+        <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
+        {% for referat in referate_set %}
+        <option value="{{forloop.counter}}">{{referat.name}}</option>
+        {% endfor %}
+      </select>
+      <label>Referat</label>
+    </div>
+    <div class="input-field col s12 m3">
+      <select>
+        <option value="{{amt.bereich}}" disabled selected>Bereich auswählen</option>
+        {% for bereich in bereiche_set %}
+        <option value="{{forloop.counter}}">{{bereich.name}}</option>
+        {% endfor %}
+      </select>
+      <label>Bereich</label>
+    </div>
+    <div class="input-field col s12 m3">
+      <input value="{{amt.funktion}}" id="funktion" type="text" class="validate" {% if mitglied %}value="{{amt.funktion}}"{% endif %}>
+      <label for="funktion">Funktion</label>
+    </div>
+    <div class="input-field col s12 m3">
+        <input value="{{amt.funktion}}" id="andere_funktion" type="text" class="validate" {% if mitglied %}value="{{amt.funktion}}"{% endif %}>
+      <label for="funktion">Funktion</label>
+    </div>
+  </div>
+  <!-- Button(s) -->
+  <div class="row">
+    {% if forloop.last or mitglied.aemter is None %}
+    <a href="/mitglieder/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
+    {% endif %}
+    <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+  </div>

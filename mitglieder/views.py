@@ -10,6 +10,7 @@ class Mitglied:
         self.nachname = ""
         self.vorname = ""
         self.strasse = ""
+        self.hausnr = ""
         self.plz = ""
         self.ort = ""
         self.telfestnetz = ""
@@ -101,3 +102,62 @@ def main_screen(request):
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
                   context = {"data":my_list})
+
+def mitglied_erstellen(request):
+    context = {
+        'referate_set': [
+            {'name': 'Qualitaetsmanagement'},
+            {'name': 'Kultur'},
+            {'name': 'Finanzen'}
+        ],
+        'bereiche_set': [
+            {'name': 'Bereich 1'},
+            {'name': 'Bereich 2'}
+        ]
+    }
+    return render(request=request,
+                  template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+                  context=context)
+
+def mitglied_bearbeiten(request):
+    m5 = Mitglied()
+    m5.mitid = 104
+    m5.aemter = [
+        {
+            'referat': 'Kultur',
+            'bereich': None,
+            'funktion': 'Referatsleitung'
+        },
+        {
+            'referat': 'Finanzen',
+            'bereich': 'Haushalt',
+            'funktion': 'Stellvertretende Bereichsleitung'
+        }
+    ]
+    
+    m5.nachname = "Müller"
+    m5.vorname = "Tobias"
+    m5.strasse = "Feldweg"
+    m5.hausnr = "666"
+    m5.plz = "01111"
+    m5.ort = "Dresden"
+    m5.telfestnetz = "0348484857"
+    m5.telmobil = "01515151515"
+    m5.email = "Tobias.Müller@htw-dresden.com"
+    m5.jabberid = 115
+
+    context = {
+        'referate_set': [
+            {'name': 'Qualitaetsmanagement'},
+            {'name': 'Kultur'},
+            {'name': 'Finanzen'}
+        ],
+        'bereiche_set': [
+            {'name': 'Haushalt'},
+            {'name': 'Anderer Bereich'}
+        ],
+        'mitglied': m5
+    }
+    return render(request=request,
+                  template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+                  context = context)
