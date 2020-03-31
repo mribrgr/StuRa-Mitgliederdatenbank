@@ -1,12 +1,15 @@
 from django.db import models
 
+from aemter.models import Amt
+
 class Mitglied(models.Model):
-    name = models.CharField(max_length=50)
-    vorname = models.CharField(max_length=50)
-    strasse = models.CharField(max_length=50)
-    plz = models.CharField(max_length=5)
-    ort = models.CharField(max_length=50)
-    tel_festnetz = models.CharField(max_length=15)
-    tel_mobil = models.CharField(max_length=15)
-    mail_privat = models.CharField(max_length=50)
-    jabber_id = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=False)
+    vorname = models.CharField(max_length=50, null=False)
+    strasse = models.CharField(max_length=50, null=False)
+    plz = models.CharField(max_length=5, null=False)
+    ort = models.CharField(max_length=50, null=False)
+    tel_festnetz = models.CharField(max_length=15, null=True)
+    tel_mobil = models.CharField(max_length=15, null=True)
+    mail_privat = models.CharField(max_length=50, null=True)
+    jabber_id = models.CharField(max_length=50, null=True)
+    amt = models.ForeignKey(Amt, on_delete=models.SET_NULL, null=True)
