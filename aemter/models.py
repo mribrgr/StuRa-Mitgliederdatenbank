@@ -5,6 +5,7 @@ class Referat(models.Model):
 
 class Unterbereich(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
+    referat = models.ForeignKey(Referat, on_delete=models.CASCADE, null=False)
 
 class Amt(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)

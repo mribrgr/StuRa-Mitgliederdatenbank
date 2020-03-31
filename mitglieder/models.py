@@ -5,9 +5,10 @@ from aemter.models import Amt
 class Mitglied(models.Model):
     name = models.CharField(max_length=50, null=False)
     vorname = models.CharField(max_length=50, null=False)
-    strasse = models.CharField(max_length=50, null=False)
-    plz = models.CharField(max_length=5, null=False)
-    ort = models.CharField(max_length=50, null=False)
+    strasse = models.CharField(max_length=50, null=True)
+    hausnr = models.IntegerField(null=True)
+    plz = models.CharField(max_length=5, null=True)
+    ort = models.CharField(max_length=50, null=True)
     tel_festnetz = models.CharField(max_length=15, null=True)
     tel_mobil = models.CharField(max_length=15, null=True)
     mail_privat = models.CharField(max_length=50, null=True)
