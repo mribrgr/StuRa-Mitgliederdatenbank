@@ -10,7 +10,7 @@
     </div>
     <div class="input-field col s12 m3">
       <select>
-        <option value="{{amt.bereich}}" disabled selected>Bereich auswählen</option>
+        <option disabled selected>Bereich auswählen</option>
         {% for bereich in bereiche_set %}
         <option value="{{forloop.counter}}">{{bereich.name}}</option>
         {% endfor %}
@@ -18,12 +18,13 @@
       <label>Bereich</label>
     </div>
     <div class="input-field col s12 m3">
-      <input value="{{amt.funktion}}" id="funktion" type="text" class="validate" {% if mitglied %}value="{{amt.funktion}}"{% endif %}>
-      <label for="funktion">Funktion</label>
-    </div>
-    <div class="input-field col s12 m3">
-        <input value="{{amt.funktion}}" id="andere_funktion" type="text" class="validate" {% if mitglied %}value="{{amt.funktion}}"{% endif %}>
-      <label for="funktion">Funktion</label>
+      <select>
+        <option disabled selected>Amt auswählen</option>
+        {% for amt in aemter_set %}
+        <option value="{{forloop.counter}}">{{amt.name}}</option>
+        {% endfor %}
+      </select>
+      <label>Amt</label>
     </div>
   </div>
   <!-- Button(s) -->

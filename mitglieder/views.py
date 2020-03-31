@@ -111,9 +111,14 @@ def mitglied_erstellen(request):
             {'name': 'Finanzen'}
         ],
         'bereiche_set': [
+            {'name': 'Keiner'},
             {'name': 'Bereich 1'},
             {'name': 'Bereich 2'}
-        ]
+        ],
+        'aemter_set': [
+            {'name': 'Leitung'},
+            {'name': 'Stellvertretung'}
+        ],
     }
     return render(request=request,
                   template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
@@ -153,8 +158,13 @@ def mitglied_bearbeiten(request):
             {'name': 'Finanzen'}
         ],
         'bereiche_set': [
+            {'name': 'Keiner'},
             {'name': 'Haushalt'},
             {'name': 'Anderer Bereich'}
+        ],
+        'aemter_set': [
+            {'name': 'Leitung'},
+            {'name': 'Stellvertretung'}
         ],
         'mitglied': m5
     }
