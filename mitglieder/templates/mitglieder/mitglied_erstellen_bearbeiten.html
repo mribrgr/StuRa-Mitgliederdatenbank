@@ -20,6 +20,12 @@
         <label for="last_name">Nachname</label>
       </div>
     </div>
+    <div class="row">
+      <div class="input-field col s12 m3">
+        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="last_name">Nickname</label>
+      </div>
+    </div>
     <!--Aemter-->
       <div class="row">
         <div class="col s12">
@@ -34,12 +40,13 @@
         {% include 'mitglieder/aemter.html' %}
       {% endif %}
     
-    <div class="row">
-      <div class="input-field col s12 m6">
-        <input id="email" type="text" class="validate" {% if mitglied %}value="{{mitglied.email}}"{% endif %}>
-        <label for="email">E-Mail</label>
-      </div>
-    </div>
+      {% if mitglied.emails %}
+        {% for email in mitglied.emails %}
+          {% include 'mitglieder/email.html' %}
+        {% endfor %}
+      {% else %}
+        {% include 'mitglieder/email.html' %}
+      {% endif %}
     <!-- Adresse -->
     <div class="row">
       <div class="input-field col s9 m4">

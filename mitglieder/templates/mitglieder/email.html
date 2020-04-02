@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="input-field col s12 m6">
+      <input id="email" type="text" class="validate" {% if mitglied %}value="{{email}}"{% endif %}>
+      <label for="email">E-Mail</label>
+    </div>
+</div>
+<!-- Button(s) -->
+<div class="row">
+    {% if forloop.last or mitglied.emails is None %}
+    <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>E-Mail hinzufügen</a>
+    {% endif %}
+    <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+</div>

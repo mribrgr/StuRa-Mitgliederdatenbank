@@ -148,7 +148,10 @@ def mitglied_bearbeiten(request):
     m5.ort = "Dresden"
     m5.telfestnetz = "0348484857"
     m5.telmobil = "01515151515"
-    m5.email = "Tobias.Müller@htw-dresden.com"
+    m5.emails = [
+        "Tobias.Müller@htw-dresden.com",
+        's79188@htw-dresden.de'
+    ]
     m5.jabberid = 115
 
     context = {
