@@ -103,7 +103,7 @@ def main_screen(request):
     m5.email = "Tobias.Müller@htw-dresden.com"
     m5.jabberid = 115
     my_list.append(m5)
-    
+
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
                   context = {"data":my_list})
@@ -144,7 +144,7 @@ def mitglied_bearbeiten(request):
             'funktion': 'Stellvertretende Bereichsleitung'
         }
     ]
-    
+
     m5.nachname = "Müller"
     m5.vorname = "Tobias"
     m5.strasse = "Feldweg"
