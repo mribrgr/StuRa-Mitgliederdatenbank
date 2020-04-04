@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="input-field col s12 m3">
+    <div class="input-field col s10 m8 l4">
       <select>
         <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
         {% for referat in referate_set %}
@@ -8,7 +8,7 @@
       </select>
       <label>Referat</label>
     </div>
-    <div class="input-field col s12 m3">
+    <div class="input-field col s10 m8 l4">
       <select>
         <option disabled selected>Bereich auswählen</option>
         {% for bereich in bereiche_set %}
@@ -17,20 +17,31 @@
       </select>
       <label>Bereich</label>
     </div>
-    <div class="input-field col s12 m3">
+
+    <div class="col s2 hide-on-large-only" style="padding-top: 16px">
+      <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+    </div>
+
+    <div class="input-field col s10 m8 l3">
       <select>
         <option disabled selected>Amt auswählen</option>
         {% for amt in aemter_set %}
-        <option value="{{forloop.counter}}">{{amt.name}}</option>
+        <option class="black-text" value="{{forloop.counter}}">{{amt.name}}</option>
         {% endfor %}
       </select>
       <label>Amt</label>
     </div>
+
+    <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">
+      <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+    </div>
+
   </div>
   <!-- Button(s) -->
   <div class="row">
-    {% if forloop.last or mitglied.aemter is None %}
-    <a href="/mitglieder/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
-    {% endif %}
-    <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+    <div class="col s12">
+      {% if forloop.last or mitglied.aemter is None %}
+      <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
+      {% endif %}
+    </div>
   </div>
