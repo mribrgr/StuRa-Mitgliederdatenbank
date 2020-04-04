@@ -50,3 +50,7 @@ main {
   border: 2px solid #ffc107;
   background-color: #ffc107;
 }
+
+.dropdown-content li > span {
+  color: #000;
+}

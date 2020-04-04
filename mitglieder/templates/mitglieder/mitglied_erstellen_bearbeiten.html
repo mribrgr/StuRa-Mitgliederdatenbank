@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div>
+  <div class="row">
+    <div  class="col s12">
+      <h3>Mitglied {% if mitglied %}bearbeiten{% else %}erstellen{% endif %}</h3>
+      <br />
+    </div>
+
+    <!-- Name & Vorname-->
+    <div class="row">
+      <div class="input-field col s12 m4 l3">
+        <input id="first_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
+          <label for="first_name">Vorname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="last_name">Nachname</label>
+      </div>
+      <div class="input-field col s12 m4 l3">
+        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="last_name">Nickname</label>
+      </div>
+    </div>
+
+    <!--Aemter-->
+    <div class="row">
+      <div class="col s12">
+        <h5>Ämter</h5>
+        <br />
+        {% if mitglied.aemter %}
+          {% for amt in mitglied.aemter %}
+            {% include 'mitglieder/aemter.html' %}
+          {% endfor %}
+        {% else %}
+          {% include 'mitglieder/aemter.html' %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!--Emails-->
+    <div class="row">
+      <div class="col s12">
+        <h5>E-Mail-Adressen</h5>
+        <br />
+        {% if mitglied.emails %}
+          {% for email in mitglied.emails %}
+            {% include 'mitglieder/email.html' %}
+          {% endfor %}
+        {% else %}
+          {% include 'mitglieder/email.html' %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Adresse -->
+    <div class="row">
+      <div class="col s12">
+        <h5>Anschrift und Kontaktdaten</h5>
+        <br />
+      </div>
+      <div class="input-field col s9 m5 l4">
+        <input id="strasse" type="text" class="validate" {% if mitglied %}value="{{mitglied.strasse}}"{% endif %}>
+        <label for="strasse">Straße</label>
+      </div>
+      <div class="input-field col s3 m3 l2">
+        <input id="hausnr" type="text" class="validate" {% if mitglied %}value="{{mitglied.hausnr}}"{% endif %}>
+        <label for="hausnr">Hausnr.</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4 m3 l2">
+        <input id="plz" type="text" class="validate" {% if mitglied %}value="{{mitglied.plz}}"{% endif %}>
+        <label for="plz">Postleitzahl</label>
+      </div>
+      <div class="input-field col s8 m5 l4">
+        <input id="ort" type="text" class="validate" {% if mitglied %}value="{{mitglied.ort}}"{% endif %}>
+        <label for="ort">Ort</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m8 l6">
+        <input id="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.telmobil}}"{% endif %}>
+        <label for="telefon_mobil">Telefon (mobil)</label>
+      </div>
+    </div>
+    <!-- buttons -->
+    <div class="row">
+        <div class="col s12">
+          <a href="/mitglieder" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
+          <a href="/mitglieder" class="waves-effect waves-light btn-large grey lighten-2 black-text">Abbrechen</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  a.space{
+    margin-right:20px;
+  }
+</style>
+
+<script>
+  // event listeners for select
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var options;
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+  var tag = document.createElement("p");
+  var text = document.createTextNode("Tutorix is the best e-learning platform");
+   tag.appendChild(text);
+   var element = document.getElementById("aemter");
+   element.appendChild(tag);
+
+</script>
+
+{% endblock %}
