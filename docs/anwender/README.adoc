@@ -1,0 +1,23 @@
+// --- 1. Projektthema -------------------------
+= SE I - Belegabgabe: StuRa-Mitgliederdatenbank - Dokumentation
+// --- 2. Teammitglieder -----------------------
+Theresa Schüttig <s79136@htw-dresden.de>; Benjamin Hempel <s79132@htw-dresden.de>; Mauritius Berger <s79149@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
+// --- 3. Abgabedatum --------------------------
+31. Januar 2020
+// ---------------------------------------------
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-label: 
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:nofooter:
