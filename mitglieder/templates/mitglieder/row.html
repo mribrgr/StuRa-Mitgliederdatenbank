@@ -28,6 +28,7 @@
     </div>
 
     <tr class="mitglied">
+        {% if request.user.is_superuser %}
         <td>
             <!-- Checkbox -->
             <label for="chk-{{entry.mitid}}">
@@ -35,12 +36,15 @@
                 <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
             </label>
         </td>
+        {% endif %}
         <td class="mitglied-{{entry.mitid}}">{{entry.nachname}}, {{entry.vorname}}</td>
         <td class="mitglied-{{entry.mitid}}">
             {% for amt in entry.aemter %}{{amt}}<br>{% endfor %}</td>
         <td class="mitglied-{{entry.mitid}} hide-on-small-only">{{entry.email}}</td>
         <td class="mitglied-{{entry.mitid}} hide-on-med-and-down">{{entry.telmobil}}</td>
+        {% if request.user.is_superuser %}
         <td><a href="/mitglieder/bearbeiten"><i class="material-icons black-text">create</i></a></td>
+        {% endif %}
     </tr>
 
     <script>

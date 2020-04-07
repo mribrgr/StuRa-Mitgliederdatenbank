@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 class Mitglied:
     def __init__(self):
@@ -21,6 +21,9 @@ class Mitglied:
 
 # Create your views here.
 def main_screen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
 
     my_list = []
     m = Mitglied()
@@ -109,6 +112,14 @@ def main_screen(request):
                   context = {"data":my_list})
 
 def mitglied_erstellen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+
+    if not request.user.is_superuser:
+        messages.error(request, "Du musst Admin sein, um diese Seite aufrufen zu können.")
+        return redirect("/mitglieder")
+
     context = {
         'referate_set': [
             {'name': 'Qualitaetsmanagement'},
@@ -130,6 +141,14 @@ def mitglied_erstellen(request):
                   context=context)
 
 def mitglied_bearbeiten(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+
+    if not request.user.is_superuser:
+        messages.error(request, "Du musst Admin sein, um diese Seite aufrufen zu können.")
+        return redirect("/mitglieder")
+
     m5 = Mitglied()
     m5.mitid = 104
     m5.aemter = [

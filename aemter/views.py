@@ -1,8 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 # Create your views here.
 def main_screen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+
     context = {
         'referate_set': [{
             'leitung': {
@@ -79,8 +83,3 @@ def main_screen(request):
 
 
     return render(request, 'aemter/main_screen.html', context)
-
-
-
-
-    
