@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from django import forms
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -28,3 +28,8 @@ def main_screen(request):
     return render(request=request,
                   template_name="login/login.html",
                   context={"form":form})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Bis zum nächsten Mal!")
+    return redirect("/")
