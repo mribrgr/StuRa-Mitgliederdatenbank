@@ -8,6 +8,9 @@ from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def main_screen(request):
+    if request.user.is_authenticated:
+        return redirect("/mitglieder")
+
     if request.method == "POST":
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
