@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from .models import Mitglied, MitgliedAmt
 
-class Mitglied:
+class CMitglied:
     def __init__(self):
         # super().__init__()
         self.mitid = ""
@@ -22,87 +23,10 @@ class Mitglied:
 # Create your views here.
 def main_screen(request):
 
-    my_list = []
-    m = Mitglied()
-
-    m.mitid = 100
-    m.aemter = ["Wichtig", "Unwichtig"]
-    m.funktion = "Tester"
-    m.nachname = "Hirsch"
-    m.vorname = "Lukas"
-    m.strasse = "Straße der Jugend"
-    m.hausnr = 21
-    m.plz = "01561"
-    m.ort = "Ebersbach"
-    m.telfestnetz = "0352084822"
-    m.telmobil = "01515444444"
-    m.email = "s79199@htw-dresden.com"
-    m.jabberid = 111
-    my_list.append(m)
-
-    m2 = Mitglied()
-    m2.mitid = 101
-    m2.aemter = ["Wichtig"]
-    m2.funktion = "Tester"
-    m2.nachname = "Hirsch"
-    m2.vorname = "Florian"
-    m2.strasse = "Straße der Jugend"
-    m2.hausnr = 18
-    m2.plz = "01561"
-    m2.ort = "Ebersbach"
-    m2.telfestnetz = "0352084822"
-    m2.telmobil = "01515555555"
-    m2.email = "sxxxxx@htw-dresden.com"
-    m2.jabberid = 112
-    my_list.append(m2)
-
-    m3 = Mitglied()
-    m3.mitid = 102
-    m3.aemter = ["Wichtig"]
-    m3.funktion = "Tester"
-    m3.nachname = "Mustermann"
-    m3.vorname = "Max"
-    m3.strasse = "Musterstraße"
-    m3.hausnr = 1349
-    m3.plz = "01561"
-    m3.ort = "Musterstadt"
-    m3.telfestnetz = "0000000000"
-    m3.telmobil = "0151000000"
-    m3.email = "s00000@htw-dresden.com"
-    m3.jabberid = 113
-    my_list.append(m3)
-
-    m4 = Mitglied()
-    m4.mitid = 103
-    m4.aemter = ["Wichtig"]
-    m4.funktion = "Tester"
-    m4.nachname = "Musterfrau"
-    m4.vorname = "Maxi"
-    m4.strasse = "Musterstraße"
-    m4.hausnr = 184
-    m4.plz = "01561"
-    m4.ort = "Musterstadt"
-    m4.telfestnetz = "111111111"
-    m4.telmobil = "0151111111"
-    m4.email = "s11111@htw-dresden.com"
-    m4.jabberid = 114
-    my_list.append(m4)
-
-    m5 = Mitglied()
-    m5.mitid = 104
-    m5.aemter = ["Wichtig"]
-    m5.funktion = "Tester"
-    m5.nachname = "Müller"
-    m5.vorname = "Tobias"
-    m5.strasse = "Feldweg"
-    m5.hausnr = 444
-    m5.plz = "01111"
-    m5.ort = "Dresden"
-    m5.telfestnetz = "0348484857"
-    m5.telmobil = "01515151515"
-    m5.email = "Tobias.Müller@htw-dresden.com"
-    m5.jabberid = 115
-    my_list.append(m5)
+    my_list = Mitglied.objects.order_by('name')
+    for mitglied in my_list:
+        print(mitglied.tel_mobil)
+        print(mitglied.vorname)
 
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
@@ -136,12 +60,15 @@ def mitglied_bearbeiten(request):
         {
             'referat': 'Kultur',
             'bereich': None,
-            'funktion': 'Referatsleitung'
+            'funktion': 'Referatsleitung',
+            'beginn': '01.01.2020',
+            'ende': '02.01.2020'
         },
         {
             'referat': 'Finanzen',
             'bereich': 'Haushalt',
-            'funktion': 'Stellvertretende Bereichsleitung'
+            'funktion': 'Stellvertretende Bereichsleitung',
+            'beginn': '06.06.2006'
         }
     ]
 

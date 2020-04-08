@@ -17,6 +17,8 @@
       </select>
       <label>Bereich</label>
     </div>
+    
+    
 
     <div class="col s2 hide-on-large-only" style="padding-top: 16px">
       <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
@@ -31,11 +33,31 @@
       </select>
       <label>Amt</label>
     </div>
+    
 
     <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">
       <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
-
+    <div class="hide-on-med-and-down">
+      <div class="input-field col l2">
+        <input id="first_name" type="text" class="validate" {% if amt.beginn %}value="{{amt.beginn}}"{% endif %}>
+          <label for="first_name">Beginn Kandidatur</label>
+      </div>
+      <div class="input-field col l2">
+        <input id="first_name" type="text" class="validate" {% if amt.ende %}value="{{amt.ende}}"{% endif %}>
+          <label for="first_name">Ende Kandidatur</label>
+      </div>
+    </div>
+  </div>
+  <div class="row hide-on-large-only">
+    <div class="input-field col m4">
+      <input id="first_name" type="text" class="validate" {% if amt.beginn %}value="{{amt.beginn}}"{% endif %}>
+        <label for="first_name">Beginn Kandidatur</label>
+    </div>
+    <div class="input-field col m4">
+      <input id="first_name" type="text" class="validate" {% if amt.ende %}value="{{amt.ende}}"{% endif %}>
+        <label for="first_name">Ende Kandidatur</label>
+    </div>
   </div>
   <!-- Button(s) -->
   <div class="row">
