@@ -1,43 +1,31 @@
-<div class="row">
+<div id="amt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" class="row">
     <div class="input-field col s10 m8 l4">
-      <select>
+      <!-- Referat -->
+      <select data-url="{% url 'mitglieder:bereiche_laden' %}" name="selectreferat" id="selectreferat">
         <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
-        {% for referat in referate_set %}
-        <option value="{{forloop.counter}}">{{referat.name}}</option>
+        {% for referat in referate %}
+        <option value="{{referat}}">{{referat}}</option>
         {% endfor %}
       </select>
       <label>Referat</label>
     </div>
-    <div class="input-field col s10 m8 l4">
-      <select>
-        <option disabled selected>Bereich auswählen</option>
-        {% for bereich in bereiche_set %}
-        <option value="{{forloop.counter}}">{{bereich.name}}</option>
-        {% endfor %}
-      </select>
-      <label>Bereich</label>
-    </div>
-    
-    
+      <!-- Bereich -->
+      <div id="div_selectbereich"></div>
 
+    <!-- Loeschbutton klein -->
     <div class="col s2 hide-on-large-only" style="padding-top: 16px">
-      <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="delbtns{{forloop.counter}}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
 
-    <div class="input-field col s10 m8 l3">
-      <select>
-        <option disabled selected>Amt auswählen</option>
-        {% for amt in aemter_set %}
-        <option class="black-text" value="{{forloop.counter}}">{{amt.name}}</option>
-        {% endfor %}
-      </select>
-      <label>Amt</label>
-    </div>
+    <!-- Amt -->
+    <div id="div_selectamt"></div>
     
-
+    <!-- Loeschbutton groß -->
     <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">
-      <a class="waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="delbtnl{{forloop.counter}}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
+  </div>
+    <div class="row">
     <div class="hide-on-med-and-down">
       <div class="input-field col l2">
         <input id="first_name" type="text" class="validate" {% if amt.beginn %}value="{{amt.beginn}}"{% endif %}>
@@ -59,11 +47,6 @@
         <label for="first_name">Ende Kandidatur</label>
     </div>
   </div>
-  <!-- Button(s) -->
-  <div class="row">
-    <div class="col s12">
-      {% if forloop.last or mitglied.aemter is None %}
-      <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
-      {% endif %}
-    </div>
-  </div>
+
+
+</script>

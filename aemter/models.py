@@ -4,10 +4,16 @@ class Referat(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     def __str__(self):
         return self.bezeichnung
+    def __unicode__(self):
+        return u'%s' % self.bezeichnung
 
 class Unterbereich(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     referat = models.ForeignKey(Referat, on_delete=models.CASCADE, null=False)
+    def __str__(self):
+        return self.bezeichnung + " (Referat " + self.referat.__str__() + ")"
+    def __unicode__(self):
+        return u'%s' % self.bezeichnung
 
 class Amt(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)

@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.views import generic
 from .models import Mitglied, MitgliedAmt
+from aemter.models import Amt, Referat, Unterbereich
+import simplejson
 
 class CMitglied:
     def __init__(self):
@@ -19,41 +23,52 @@ class CMitglied:
         self.email = ""
         self.jabberid = ""
 
+aemternum = 0
 
 # Create your views here.
 def main_screen(request):
 
     my_list = Mitglied.objects.order_by('name')
-    for mitglied in my_list:
-        print(mitglied.tel_mobil)
-        print(mitglied.vorname)
-
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
                   context = {"data":my_list})
 
-def mitglied_erstellen(request):
-    context = {
-        'referate_set': [
-            {'name': 'Qualitaetsmanagement'},
-            {'name': 'Kultur'},
-            {'name': 'Finanzen'}
-        ],
-        'bereiche_set': [
-            {'name': 'Keiner'},
-            {'name': 'Bereich 1'},
-            {'name': 'Bereich 2'}
-        ],
-        'aemter_set': [
-            {'name': 'Leitung'},
-            {'name': 'Stellvertretung'}
-        ],
-    }
+def mitgliedErstellenView(request):
+    global aemternum
+    aemternum = 1
+    referate = Referat.objects.order_by('bezeichnung')
     return render(request=request,
-                  template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-                  context=context)
+                template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+                context={'referate':referate, 'amtid': aemternum})
 
-def mitglied_bearbeiten(request):
+def bereiche_laden(request):
+    referat_bez = request.GET.get('referat')
+    bereiche = Referat.objects.get(bezeichnung=referat_bez).unterbereich_set.all()
+    return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche})
+
+def aemter_laden(request):
+    bereich_bez = request.GET.get('bereich')
+    print(type(bereich_bez))
+    if bereich_bez == "Keiner":
+        referat_bez = request.GET.get('referat')
+        aemter = Referat.objects.get(bezeichnung=referat_bez).amt_set.all()
+        aemter = aemter.filter(unterbereich__isnull=True)
+    else:
+        print("Bereich: " + bereich_bez)
+        aemter = Unterbereich.objects.get(bezeichnung=bereich_bez).amt_set.all()
+    return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter})
+
+def aemter_html_laden(request):
+    global aemternum
+    aemternum += 1
+    referate = Referat.objects.order_by('bezeichnung')
+    return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
+
+def erstellen(request):
+    print("Mitglied wurde erstellt")
+    return HttpResponseRedirect(reverse('mitglieder:homepage'))
+
+def mitgliedBearbeitenView(request):
     m5 = Mitglied()
     m5.mitid = 104
     m5.aemter = [

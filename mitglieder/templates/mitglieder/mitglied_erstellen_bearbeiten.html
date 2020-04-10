@@ -31,6 +31,7 @@
       <div class="col s12">
         <h5>Ämter</h5>
         <br />
+        <div id="div_aemter">
         {% if mitglied.aemter %}
           {% for amt in mitglied.aemter %}
             {% include 'mitglieder/aemter.html' %}
@@ -38,6 +39,11 @@
         {% else %}
           {% include 'mitglieder/aemter.html' %}
         {% endif %}
+      </div>
+        <!-- Button (weiteres Amt hinzufuegen) -->
+          <div class="col s12">
+            <a id="addAmt" data-url="{% url 'mitglieder:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
+          </div>
       </div>
     </div>
 
@@ -90,7 +96,7 @@
     <!-- buttons -->
     <div class="row">
         <div class="col s12">
-          <a href="/mitglieder" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
+            <a href="{% url 'mitglieder:erstellen' %}" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
           <a href="/mitglieder" class="waves-effect waves-light btn-large grey lighten-2 black-text">Abbrechen</a>
         </div>
     </div>
@@ -104,19 +110,83 @@
 </style>
 
 <script>
-  // event listeners for select
-  document.addEventListener('DOMContentLoaded', function() {
+  var referat_bez;
+  $(document).ready(function(){
+    // Selects initialisieren
+    initSelect();
+
+    // Amt hinzufuegen
+    $("#addAmt").click(function(){
+      var url = $("#addAmt").attr("data-url");
+      $.ajax({
+        url: url,
+        success: function(data){
+          $("#div_aemter").append(data);
+          initSelect();
+        }
+      });
+    });
+
+    // Amt loeschen Button
+    $("a.delbtn").click(function(){
+      alert("Amt wird geloescht");
+    });
+
+    // Event Listener fuer Veraenderung des Referat Selects
+    $('select[name=selectreferat]').change(function(event){
+
+        referat_bez = $(this).val();
+        var url = $("#selectreferat").attr("data-url");
+        $.ajax({
+            url: url,
+            data: {
+            referat: referat_bez
+            },
+            success: function(data){
+              $("#div_selectbereich").html(data);
+              $("#div_selectamt").empty();
+              initSelect();
+              // Listener fuer Select Bereich (zeigt Select Amt an)
+              $('select[name=selectbereich]').change(function(){
+                  bereich_bez = $(this).val();
+                  var url = $("#selectbereich").attr("data-url");
+                  $.ajax({
+                      url: url,
+                      data: {
+                      bereich: bereich_bez,
+                      referat: referat_bez,
+                      },
+                      success: function(data){
+                        $("#div_selectamt").html(data);
+                        initSelect();
+                      }
+                  });
+                  return false;
+              })
+            }
+        });
+        return false;
+    })
+    
+
+    // Triggern eines change Events, falls nach erneutem Laden noch
+    // Referat ausgewaehlt ist, um Bereiche anzuzeigen
+    if ($('#selectreferat').val()){
+      $('#selectreferat').trigger("change");
+      
+    }
+  });
+
+   $(document).ready(function(){
+   // $('select').formSelect();
+    
+});
+
+  function initSelect(){
     var elems = document.querySelectorAll('select');
     var options;
     var instances = M.FormSelect.init(elems, options);
-  });
-
-  var tag = document.createElement("p");
-  var text = document.createTextNode("Tutorix is the best e-learning platform");
-   tag.appendChild(text);
-   var element = document.getElementById("aemter");
-   element.appendChild(tag);
-
+  }
 </script>
 
 {% endblock %}
