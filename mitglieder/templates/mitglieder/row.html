@@ -2,7 +2,7 @@
     <!-- Modal -->
     <div id="modal-{{entry.id}}" class="modal">
         <div class="modal-content">
-            <h3>{{entry.name}}, {{entry.vorname}}</h3>
+            <h3>{{entry.vorname}} {% if entry.spitzname %}"{{entry.spitzname}}"{% endif %} {{entry.name}}</h3>
             <div>
                 <br />
                 <p><b>Mitglieds-ID:</b> {{entry.id}}</p>

@@ -20,11 +20,11 @@
               </a>
               <div class="right hide-on-med-and-down" style="margin-top: 29px">
                 <a href="/mitglieder/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
-                <a id="delbtnl" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+                <a id="delbtnl" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder disabled waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
               </div>
               <div class="right hide-on-large-only" style="margin-top: 29px">
                 <a href="/mitglieder/erstellen" class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">add</i></a>
-                <a id="delbtns" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
+                <a id="delbtns" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder disabled btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
               </div>
           </div>
         </div>
@@ -61,9 +61,27 @@
     </style>
 
     <script>
+      var selectedcheckboxes_num = 0;
+
       $(document).ready(function(){
+        $('input[type=checkbox').click(function(){
+          if (this.checked){
+            selectedcheckboxes_num++;
+            if (selectedcheckboxes_num==1){
+              $("#delbtnl").removeClass("disabled");
+              $("#delbtns").removeClass("disabled");
+            }
+          } else{
+            selectedcheckboxes_num--;
+            if (selectedcheckboxes_num==0){
+              $("#delbtnl").addClass("disabled");
+              $("#delbtns").addClass("disabled");
+            }
+          }
+        });
+
+        // Mitglied(er) loeschen
         $('.delmitglieder').click(function(){
-          alert("Mitglieder loeschen");
           var url = $("#"+this.id).attr('data-url');
           var mitgliederids = [];
           $('input[type=checkbox]').each(function () {
@@ -73,7 +91,6 @@
               mitgliederids.push(mitgliedid); 
             }
           });
-          alert(mitgliederids);
           $.ajax({
             type: 'POST',
             url: url,
