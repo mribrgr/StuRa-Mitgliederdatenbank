@@ -24,4 +24,4 @@ class MitgliedMail(models.Model):
     mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
     email = models.CharField(max_length=50, null=False)
     def __str__(self):
-        return self.email
+        return self.email + " " + self.mitglied.__str__()

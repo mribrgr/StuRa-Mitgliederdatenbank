@@ -1,28 +1,29 @@
-<div id="amt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" class="row">
+<div id="amt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" >
+<div class="row">
     <div class="input-field col s10 m8 l4">
       <!-- Referat -->
-      <select data-url="{% url 'mitglieder:bereiche_laden' %}" name="selectreferat" id="selectreferat">
+      <select name="selectreferat{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" data-url="{% url 'mitglieder:bereiche_laden' %}" id="selectreferat{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
         <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
         {% for referat in referate %}
-        <option value="{{referat}}">{{referat}}</option>
+        <option value="{{referat.id}}">{{referat}}</option>
         {% endfor %}
       </select>
       <label>Referat</label>
     </div>
       <!-- Bereich -->
-      <div id="div_selectbereich"></div>
+      <div id="div_selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}"></div>
 
     <!-- Loeschbutton klein -->
     <div class="col s2 hide-on-large-only" style="padding-top: 16px">
-      <a  id="delbtns{{forloop.counter}}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="amtdelbtns{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" data-url="{% url 'mitglieder:amt_loeschen' %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
 
     <!-- Amt -->
-    <div id="div_selectamt"></div>
+    <div id="div_selectamt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}"></div>
     
-    <!-- Loeschbutton groß -->
+    <!-- Loeschbutton klein -->
     <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">
-      <a  id="delbtnl{{forloop.counter}}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="amtdelbtnl{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" data-url="{% url 'mitglieder:amt_loeschen' %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
   </div>
     <div class="row">
@@ -47,6 +48,4 @@
         <label for="first_name">Ende Kandidatur</label>
     </div>
   </div>
-
-
-</script>
+</div>

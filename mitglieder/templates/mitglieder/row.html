@@ -40,13 +40,15 @@
     </div>
 
     <!-- Zeile -->
-    <tr class="mitglied">
+    <tr id="tr{{entry.id}}" class="mitglied">
         <td>
             <!-- Checkbox -->
+            <form method="post">{% csrf_token %}
             <label for="chk-{{entry.id}}">
                 <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
                 <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
             </label>
+            </form>
         </td>
         <td class="mitglied-{{entry.id}}">{{entry.name}}, {{entry.vorname}}</td>
         <td class="mitglied-{{entry.id}}">

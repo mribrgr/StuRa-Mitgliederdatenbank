@@ -20,11 +20,11 @@
               </a>
               <div class="right hide-on-med-and-down" style="margin-top: 29px">
                 <a href="/mitglieder/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
-                <a class="waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
+                <a id="delbtnl" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
               </div>
               <div class="right hide-on-large-only" style="margin-top: 29px">
                 <a href="/mitglieder/erstellen" class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">add</i></a>
-                <a class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
+                <a id="delbtns" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
               </div>
           </div>
         </div>
@@ -59,4 +59,33 @@
             cursor:pointer;
         }
     </style>
+
+    <script>
+      $(document).ready(function(){
+        $('.delmitglieder').click(function(){
+          alert("Mitglieder loeschen");
+          var url = $("#"+this.id).attr('data-url');
+          var mitgliederids = [];
+          $('input[type=checkbox]').each(function () {
+            if (this.checked){
+              var mitgliedid = this.id.substr(4);
+              $("#tr" + mitgliedid).remove();
+              mitgliederids.push(mitgliedid); 
+            }
+          });
+          alert(mitgliederids);
+          $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+              mitglieder:JSON.stringify(mitgliederids),
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function(data){
+              // Meldung, dass Mitglieder erfolgreich geloescht wurden
+            }
+          });
+        });
+      });
+    </script>
 {% endblock %}

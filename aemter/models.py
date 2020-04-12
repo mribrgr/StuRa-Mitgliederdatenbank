@@ -21,7 +21,10 @@ class Amt(models.Model):
     referat = models.ForeignKey(Referat, on_delete=models.CASCADE, null=False)
     unterbereich = models.ForeignKey(Unterbereich, on_delete=models.CASCADE, null=True)
     def __str__(self):
-        return self.bezeichnung + " " + self.referat.__str__()
+        if self.unterbereich is None:  
+            return self.bezeichnung + " " + self.referat.__str__()
+        else:
+            return self.bezeichnung + ' ' + self.unterbereich.__str__()
 
 class Recht(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
