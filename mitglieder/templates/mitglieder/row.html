@@ -73,24 +73,8 @@
             {% endif %}
         </td>
         <td class="mitglied-{{entry.id}} hide-on-med-and-down">
-            {% if entry.tel_mobil %}
-                {{entry.tel_mobil}}
-            {% else %}-{% endif %}
+            {{entry.tel_mobil|default:'-'}}
         </td>
-        <td><a href="/mitglieder/bearbeiten"><i class="material-icons black-text">create</i></a></td>
+        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td>
     </tr>
-
-    <script>
-        var elem_{{entry.id}} = document.getElementById('modal-{{entry.id}}');
-        var instance_{{entry.id}} = M.Modal.init(elem_{{entry.id}}, {dismissible: true});
-        var elements = document.getElementsByClassName('mitglied-{{entry.id}}');
-        for(var i=0; i<elements.length; i++)
-        {
-            (elements)[i].addEventListener("click", function(){
-                //alert(this.innerHTML);
-                //alert(i);
-                instance_{{entry.id}}.open();
-            });
-        }
-    </script>
 {% endfor %}

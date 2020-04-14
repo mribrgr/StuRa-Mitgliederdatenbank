@@ -5,13 +5,17 @@
       <select name="selectreferat{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" data-url="{% url 'mitglieder:bereiche_laden' %}" id="selectreferat{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
         <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
         {% for referat in referate %}
-        <option value="{{referat.id}}">{{referat}}</option>
+        <option value="{{referat.id}}" {% if referat.id == amt.referat.id %}selected="selected"{% endif %}>{{referat}}</option>
         {% endfor %}
       </select>
       <label>Referat</label>
     </div>
       <!-- Bereich -->
-      <div id="div_selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}"></div>
+      <div id="div_selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
+        {% if amt %}
+          {% include 'mitglieder/bereich_dropdown_list_options.html' %}
+        {% endif %}
+      </div>
 
     <!-- Loeschbutton klein -->
     <div class="col s2 hide-on-large-only" style="padding-top: 16px">
@@ -19,7 +23,11 @@
     </div>
 
     <!-- Amt -->
-    <div id="div_selectamt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}"></div>
+    <div id="div_selectamt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
+      {% if amt %}
+        {% include 'mitglieder/amt_dropdown_list_options.html' %}
+      {% endif %}
+    </div>
     
     <!-- Loeschbutton klein -->
     <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">

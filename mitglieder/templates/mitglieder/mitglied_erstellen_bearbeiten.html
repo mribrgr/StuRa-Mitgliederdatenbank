@@ -18,11 +18,11 @@
           <label for="vorname">Vorname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <input name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.name}}"{% endif %}>
         <label for="nachname">Nachname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input name="spitzname" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <input name="spitzname" type="text" class="validate" {% if mitglied.spitzname %}value="{{mitglied.spitzname}}"{% endif %}>
         <label for="spitzname">Nickname</label>
       </div>
     </div>
@@ -33,9 +33,11 @@
         <h5>Ämter</h5>
         <br />
         <div id="div_aemter">
-        {% if mitglied.aemter %}
-          {% for amt in mitglied.aemter %}
+        {% if mitglied.mitgliedamt_set.all %}
+          {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
+          {% with mitgliedamt.amt as amt %}
             {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
           {% endfor %}
         {% else %}
           {% include 'mitglieder/aemter.html' %}
@@ -54,8 +56,8 @@
         <h5>E-Mail-Adressen</h5>
         <br />
         <div id="div_emails">
-        {% if mitglied.emails %}
-          {% for email in mitglied.emails %}
+        {% if mitglied %}
+          {% for email in mitglied.mitgliedmail_set.all %}
             {% include 'mitglieder/email.html' %}
           {% endfor %}
         {% else %}
@@ -80,27 +82,27 @@
         <br />
       </div>
       <div class="input-field col s9 m5 l4">
-        <input name="strasse" type="text" class="validate" {% if mitglied %}value="{{mitglied.strasse}}"{% endif %}>
+        <input name="strasse" type="text" class="validate" {% if mitglied.strasse %}value="{{mitglied.strasse}}"{% endif %}>
         <label for="strasse">Straße</label>
       </div>
       <div class="input-field col s3 m3 l2">
-        <input name="hausnr" type="text" class="validate" {% if mitglied %}value="{{mitglied.hausnr}}"{% endif %}>
+        <input name="hausnr" type="text" class="validate" {% if mitglied.hausnr %}value="{{mitglied.hausnr}}"{% endif %}>
         <label for="hausnr">Hausnr.</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4 m3 l2">
-        <input name="plz" type="text" class="validate" {% if mitglied %}value="{{mitglied.plz}}"{% endif %}>
+        <input name="plz" type="text" class="validate" {% if mitglied.plz %}value="{{mitglied.plz}}"{% endif %}>
         <label for="plz">Postleitzahl</label>
       </div>
       <div class="input-field col s8 m5 l4">
-        <input name="ort" type="text" class="validate" {% if mitglied %}value="{{mitglied.ort}}"{% endif %}>
+        <input name="ort" type="text" class="validate" {% if mitglied.ort %}value="{{mitglied.ort}}"{% endif %}>
         <label for="ort">Ort</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m8 l6">
-        <input name="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.telmobil}}"{% endif %}>
+        <input name="telefon_mobil" type="text" class="validate" {% if mitglied.tel_mobil %}value="{{mitglied.tel_mobil}}"{% endif %}>
         <label for="telefon_mobil">Telefon (mobil)</label>
       </div>
     </div>
@@ -245,7 +247,6 @@
 
   function addRmEmailEventListener(buttonid){
     $("#" + buttonid).click(function(event){
-      alert("email wird geloescht");
       var url = $("#" + this.id).attr("data-url");
       emailid = this.id.substr(11);
       $("#div_email" + emailid).remove();
