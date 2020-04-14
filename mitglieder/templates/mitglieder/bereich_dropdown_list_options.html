@@ -1,0 +1,12 @@
+<div class="input-field col s10 m8 l4">
+    <select data-url="{% url 'mitglieder:aemter_laden' %}" name="selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" id="selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
+        <option disabled selected>Bereich auswählen</option>
+        <option type="hidden" value="-1">Keiner</option>
+        {% if bereiche %}
+        {% for bereich in bereiche %}
+        <option value="{{bereich.id}}">{{bereich.bezeichnung}}</option>
+        {% endfor %}
+        {% endif %}
+    </select>
+    <label>Bereich</label>
+</div>

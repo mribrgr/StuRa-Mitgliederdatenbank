@@ -2,7 +2,8 @@
 
 {% block content %}
 
-
+<form id="mitgliedForm" action="{% url 'mitglieder:erstellen' %}" method="post">
+{% csrf_token %}
 <div>
   <div class="row">
     <div  class="col s12">
@@ -13,16 +14,16 @@
     <!-- Name & Vorname-->
     <div class="row">
       <div class="input-field col s12 m4 l3">
-        <input id="first_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
-          <label for="first_name">Vorname</label>
+        <input name="vorname" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
+          <label for="vorname">Vorname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
-        <label for="last_name">Nachname</label>
+        <input name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="nachname">Nachname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input id="last_name" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
-        <label for="last_name">Nickname</label>
+        <input name="spitzname" type="text" class="validate" {% if mitglied %}value="{{mitglied.nachname}}"{% endif %}>
+        <label for="spitzname">Nickname</label>
       </div>
     </div>
 
@@ -31,6 +32,7 @@
       <div class="col s12">
         <h5>Ämter</h5>
         <br />
+        <div id="div_aemter">
         {% if mitglied.aemter %}
           {% for amt in mitglied.aemter %}
             {% include 'mitglieder/aemter.html' %}
@@ -39,13 +41,19 @@
           {% include 'mitglieder/aemter.html' %}
         {% endif %}
       </div>
+        <!-- Button (weiteres Amt hinzufuegen) -->
+          <div class="col s12">
+            <a id="addAmt" data-url="{% url 'mitglieder:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
+          </div>
+      </div>
     </div>
 
-    <!--Emails-->
+    <!--E-Mails-->
     <div class="row">
       <div class="col s12">
         <h5>E-Mail-Adressen</h5>
         <br />
+        <div id="div_emails">
         {% if mitglied.emails %}
           {% for email in mitglied.emails %}
             {% include 'mitglieder/email.html' %}
@@ -53,6 +61,15 @@
         {% else %}
           {% include 'mitglieder/email.html' %}
         {% endif %}
+      </div>
+        <!-- Button - E-Mail hinzufuegen -->
+        <div class="row">
+          <div class="col s12">
+            {% if forloop.last or mitglied.emails is None %}
+              <a id="addEmailBtn" data-url="{% url 'mitglieder:email_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>E-Mail hinzufügen</a>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </div>
 
@@ -63,39 +80,40 @@
         <br />
       </div>
       <div class="input-field col s9 m5 l4">
-        <input id="strasse" type="text" class="validate" {% if mitglied %}value="{{mitglied.strasse}}"{% endif %}>
+        <input name="strasse" type="text" class="validate" {% if mitglied %}value="{{mitglied.strasse}}"{% endif %}>
         <label for="strasse">Straße</label>
       </div>
       <div class="input-field col s3 m3 l2">
-        <input id="hausnr" type="text" class="validate" {% if mitglied %}value="{{mitglied.hausnr}}"{% endif %}>
+        <input name="hausnr" type="text" class="validate" {% if mitglied %}value="{{mitglied.hausnr}}"{% endif %}>
         <label for="hausnr">Hausnr.</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4 m3 l2">
-        <input id="plz" type="text" class="validate" {% if mitglied %}value="{{mitglied.plz}}"{% endif %}>
+        <input name="plz" type="text" class="validate" {% if mitglied %}value="{{mitglied.plz}}"{% endif %}>
         <label for="plz">Postleitzahl</label>
       </div>
       <div class="input-field col s8 m5 l4">
-        <input id="ort" type="text" class="validate" {% if mitglied %}value="{{mitglied.ort}}"{% endif %}>
+        <input name="ort" type="text" class="validate" {% if mitglied %}value="{{mitglied.ort}}"{% endif %}>
         <label for="ort">Ort</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m8 l6">
-        <input id="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.telmobil}}"{% endif %}>
+        <input name="telefon_mobil" type="text" class="validate" {% if mitglied %}value="{{mitglied.telmobil}}"{% endif %}>
         <label for="telefon_mobil">Telefon (mobil)</label>
       </div>
     </div>
-    <!-- buttons -->
+    <!-- Buttons: Hinzufuegen, Abbrechen -->
     <div class="row">
         <div class="col s12">
-          <a href="/mitglieder" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
+          <a onclick="$('#mitgliedForm').submit();" class="space waves-effect waves-light btn-large amber black-text"><i class="material-icons left">save</i>Speichern</a>
           <a href="/mitglieder" class="waves-effect waves-light btn-large grey lighten-2 black-text">Abbrechen</a>
         </div>
     </div>
   </div>
 </div>
+</form>
 
 <style>
   a.space{
@@ -104,19 +122,155 @@
 </style>
 
 <script>
-  // event listeners for select
-  document.addEventListener('DOMContentLoaded', function() {
+  var referat_bez;
+  var amt_num = 1;
+  var email_num = 1;
+  $(document).ready(function(){
+    // Selects initialisieren
+    initSelect();
+    addReferatEventListener();
+
+    // Amt hinzufuegen
+    $("#addAmt").click(function(){
+      amt_num++;
+      var url = $("#addAmt").attr("data-url");
+      $.ajax({
+        url: url,
+        success: function(data){
+          $("#div_aemter").append(data);
+          initSelect();
+          addReferatEventListener();
+          addRmAmtEventListener("amtdelbtns" + amt_num);
+          addRmAmtEventListener("amtdelbtnl" + amt_num);
+        }
+      });
+    });
+
+    // Amt loeschen 
+    addRmAmtEventListener("amtdelbtns1");
+    addRmAmtEventListener("amtdelbtnl1");
+
+    // E-Mail hinzufuegen
+    $("#addEmailBtn").click(function(){
+      var url = $("#addEmailBtn").attr("data-url");
+      $.ajax({
+        url: url,
+        success: function(data){
+          $("#div_emails").append(data);
+          email_num++;
+          addRmEmailEventListener("emaildelbtn" + email_num);
+        }
+      });
+    });
+
+    // E-Mail loeschen
+    addRmEmailEventListener("emaildelbtn1");
+    
+
+    // Triggern eines change Events, falls nach erneutem Laden noch
+    // Referat ausgewaehlt ist, um Bereiche anzuzeigen
+    if ($('#selectreferat').val()){
+      $('#selectreferat').trigger("change");
+      
+    }
+  });
+
+  function addReferatEventListener(){
+    // Event Listener fuer Veraenderung des Referat Selects
+    $('select[name^=selectreferat]').change(function(event){
+        referat_id = $(this).val();
+        var url = $('#' + event.target.id).attr("data-url");
+        var num = event.target.id.substr(13);
+
+        $.ajax({
+            url: url,
+            data: {
+            referat: referat_id,
+            amtnum: num,
+            },
+            success: function(data){
+              $("#div_selectbereich" + num).html(data);
+              $("#div_selectamt" + num).empty();
+              initSelect();
+              // Listener fuer Select Bereich (zeigt Select Amt an)
+              $('select[name^=selectbereich]').change(function(event){
+                  bereich_id = $(this).val();
+                  var url = $("#" + event.target.id).attr("data-url");
+                  var num = event.target.id.substr(13);
+                  $.ajax({
+                      url: url,
+                      data: {
+                      bereich: bereich_id,
+                      referat: referat_id,
+                      amtnum: num,
+                      },
+                      success: function(data){
+                        $("#div_selectamt" + num).html(data);
+                        initSelect();
+                      }
+                  });
+                  return false;
+              })
+            }
+        });
+        return false;
+    })
+  }
+
+  function addRmAmtEventListener(buttonid){
+    // Amt loeschen Button
+    $("#" + buttonid).click(function(){
+      var url = $("#" + this.id).attr("data-url");
+      amtid = this.id.substr(10);
+      $("#amt" + amtid).remove();
+      var ids = ["amt", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl"];
+      for (var i=parseInt(amtid)+1; i<=amt_num; i++){
+        // Dekrementieren der ID-Nummer, die eine hoehere Nummer als das geloeschte Element haben
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+      }
+
+      amt_num--;
+
+      $.ajax({
+          url: url,
+      });
+    });
+    
+  }
+
+  function addRmEmailEventListener(buttonid){
+    $("#" + buttonid).click(function(event){
+      alert("email wird geloescht");
+      var url = $("#" + this.id).attr("data-url");
+      emailid = this.id.substr(11);
+      $("#div_email" + emailid).remove();
+      var ids = ["div_email", "email", "emaildelbtn"];
+      for (var i=parseInt(emailid)+1; i<=email_num; i++){
+        ids.forEach(function(item){
+          var oldid = item + i.toString();
+          var newid = item + (i-1).toString();
+          $('#' + oldid).attr("name", newid);
+          $("#" + oldid).attr("id", newid);
+        });
+      }
+      email_num--;
+
+      $.ajax({
+          url: url,
+      });
+    });
+  }
+
+  function initSelect(){
     var elems = document.querySelectorAll('select');
     var options;
     var instances = M.FormSelect.init(elems, options);
-  });
-
-  var tag = document.createElement("p");
-  var text = document.createTextNode("Tutorix is the best e-learning platform");
-   tag.appendChild(text);
-   var element = document.getElementById("aemter");
-   element.appendChild(tag);
-
+  }
 </script>
 
 {% endblock %}
