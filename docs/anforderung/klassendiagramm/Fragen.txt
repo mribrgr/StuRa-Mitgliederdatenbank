@@ -1,0 +1,2 @@
+Inwiefern unterscheiden sich die Mitgliedsgruppen? -> spezielle Attribute / Checklisten
+Checklisten nicht als Templates in der Datenbank halten, sondern nur als Abfrage?

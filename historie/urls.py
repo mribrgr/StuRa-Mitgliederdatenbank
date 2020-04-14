@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 
-app_name = 'login'  # here for namespacing of urls.
+app_name = 'historie'  # here for namespacing of urls.
 
 urlpatterns = [
     path("", views.list, name="list"),

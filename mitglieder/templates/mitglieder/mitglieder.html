@@ -18,6 +18,7 @@
               <a class="btn-floating waves-effect waves-light amber">
                 <i class="material-icons black-text">search</i>
               </a>
+              {% if request.user.is_superuser %}
               <div class="right hide-on-med-and-down" style="margin-top: 29px">
                 <a href="/mitglieder/erstellen" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Hinzufügen</a>
                 <a id="delbtnl" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder disabled waves-effect waves-light btn amber black-text"><i class="material-icons left">delete</i>Entfernen</a>
@@ -26,6 +27,7 @@
                 <a href="/mitglieder/erstellen" class="btn-floating waves-effect waves-light amber"><i class="material-icons black-text">add</i></a>
                 <a id="delbtns" data-url="{% url 'mitglieder:mitglieder_loeschen' %}" class="delmitglieder disabled btn-floating waves-effect waves-light amber"><i class="material-icons black-text">delete</i></a>
               </div>
+              {% endif %}
           </div>
         </div>
     </div>
@@ -37,11 +39,16 @@
           <table class="highlight">
             <thead>
               <tr>
+                {% if request.user.is_superuser %}
                 <th></th>
+                {% endif %}
                 <th>Name</th>
                 <th>Ämter</th>
                 <th class="hide-on-small-only">E-Mails</th>
                 <th class="hide-on-med-and-down">Telefon</th>
+                {% if request.user.is_superuser %}
+                <th></th>
+                {% endif %}
               </tr>
             </thead>
 

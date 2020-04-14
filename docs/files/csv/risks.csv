@@ -1,8 +1,0 @@
-type,priority (0-10),chance (0-10),priority*chance (0-100)
-Ausfall durch Krankheit oder andere wichtige Gruende,7,6,42
-Dauerhafter Ausfall,10,1,10
-Zeitmangel durch Pruefungsvorbereitung,5,9,45
-Stakeholder sind unzufrieden,8,5,40
-Github ist offline (kurzfristig),8,2,16
-Github wird komplett offline genommen (langfristig),10,1,10
-Kein Treffen mehr möglich,10,9,100

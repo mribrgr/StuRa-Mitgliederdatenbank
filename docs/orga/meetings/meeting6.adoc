@@ -1,6 +1,0 @@
-UI: ok -> Grafiken sind gewünscht zum nächsten Treffen
-
-    Filtern in Amtsübersicht/Mitglieder nach Organen -> erstellen von Anwesenheitslisten (mit Button)
-    Filtern in Änderungshistorie zu welcher Person etwas geändert werden soll.
-    Sprache deutsch.
-    

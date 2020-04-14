@@ -1,0 +1,30 @@
+= Use-Case Model StuRa-Mitgliederdatenbank
+Lukas Hirsch <s79199@htw-dresden.de>
+
+//Fügen Sie nachfolgend eine Liste aller Use-Cases per Include ein.
+//Dafür sollten Sie pro Use-Case eine Datei anlegen, die auf dem usecase_spec.adoc Template basiert.
+//include::usecases/template_usecase_spec.adoc[]
+include::usecases/mitglieder_verwalten.adoc[Mitglieder verwalten]
+=== Activity Diagramm
+image::img/activityDiagrams/mitgliederVerwalten/mitgliederVerwalten.png[]
+
+include::usecases/aemter_verwalten.adoc[Ämter verwalten]
+=== Activity Diagramm
+image::img/activityDiagrams/aemterVerwalten/amtHinzufuegen.png[]
+image::img/activityDiagrams/aemterVerwalten/amtLoeschen.png[]
+image::img/activityDiagrams/aemterVerwalten/amtBearbeiten.png[]
+
+
+include::usecases/nutzer_verwalten.adoc[Nutzer verwalten]
+=== Activity Diagramm
+image::img/activityDiagrams/nutzerVerwalten/nutzerVerwalten.jpg[]
+
+include::usecases/arbeitsleitfaden_abarbeiten.adoc[Arbeitsleitfaden abarbeiten]
+=== Activity Diagramm
+image::img/activityDiagrams/checklisteAbarbeiten/checklisteAbarbeiten.png[]
+
+include::usecases/historie_einsehen.adoc[Historie einsehen]
+=== Activity Diagramm
+image::img/activityDiagrams/historieEinsehen/activityDiagram.png[]
+
+
