@@ -3,6 +3,11 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 import time, _thread
 
+"""
+    Mit Namespace auf den link
+    "{% url 'mitglieder:mitglieder_loeschen' %}"
+"""
+
 class TestMultiuser(StaticLiveServerTestCase):
 
     # befor every test funktion
