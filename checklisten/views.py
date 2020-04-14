@@ -1,9 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 # Create your views here.
 def main_screen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+
     context = {
         'mitglieder': [{
                 'name': 'Angela Merkel',

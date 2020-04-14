@@ -14,19 +14,22 @@
             {% for aufgabe in mitglied.aufgaben %}
              <p>
                  <label>
-                     <input type="checkbox" class="filled-in checkbox-amber" />
+                     <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} />
                      <span class="black-text">{{aufgabe.name}}</span>
                  </label>
              </p>
             {% endfor %}
           </form>
       </div>
+      {% if request.user.is_superuser %}
       <div class="card-action">
         <a href="#" class="black-text"><i class="material-icons">delete</i></a>
       </div>
+      {% endif %}
     </div>
   </div>
   {% endfor %}
+  {% if request.user.is_superuser %}
   <div class="col l4 m6 s12">
     <a href="#">
       <div class="card medium grey lighten-2 valign-wrapper">
@@ -36,5 +39,6 @@
       </div>
     </a>
   </div>
+  {% endif %}
 </div>
 {% endblock %}
