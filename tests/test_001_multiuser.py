@@ -43,5 +43,6 @@ class TestMultiuser(StaticLiveServerTestCase):
                 print('Login Button not found')
                 pass
 
+        time.sleep(20)
         self.assertEquals(1, 1)
         pass
