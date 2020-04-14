@@ -122,7 +122,7 @@ def mitglieder_loeschen(request):
     return HttpResponse()
 
 def mitgliedErstellenView(request):
-  if not request.user.is_authenticated:
+    if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
 
@@ -132,6 +132,11 @@ def mitgliedErstellenView(request):
     global aemternum, emailnum
     aemternum = emailnum = 1
     referate = Referat.objects.order_by('bezeichnung')
+
+    return render(request=request,
+        template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+        context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
+        
 """
 def mitglied_erstellen(request):
     if not request.user.is_authenticated:
@@ -159,9 +164,7 @@ def mitglied_erstellen(request):
         ],
     }
 """
-    return render(request=request,
-                template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-                context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
+    
 
 def bereiche_laden(request):
     global aemternum
