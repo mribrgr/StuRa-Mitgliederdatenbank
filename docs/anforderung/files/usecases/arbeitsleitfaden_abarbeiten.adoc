@@ -1,0 +1,38 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Use-Case: Arbeitsleitfaden abarbeiten
+===	Kurzbeschreibung
+Nach Aufnahme eines neuen Mitglieds im StuRa müssen bestimmte Aufgaben (Emailverteiler, Schlüsselkasten, Zugangsschließsystem, Berechtigung Website/Dateiverwaltung/Aufgabenverwaltung, notwendige Unterschriften) abgearbeitet werden.
+
+===	Kurzbeschreibung der Akteure
+==== Interne Verwaltung
+Mitglieder der internen Verwaltung sind für die Abarbeitung der Checkliste verantwortlich
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+Das Mitglied der internen Verwaltung ist eingeloggt.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+. Der Use Case beginnt, wenn der Nutzer auswählt, dass er die Checkliste abarbeiten möchte.
+. Der Nutzer kann Aufgaben kennzeichnen, die er abgearbeitet hat.
+. Der Nutzer bestätigt die aktualisierte Checkliste.
+. Der Use Case ist abgeschlossen.
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+==== StuRa-Mitglied M1 wurde dem E-Mail-Verteiler hinzugefügt
+. Das Mitglied der internen Verwaltung wählt aus, dass es die Checkliste von M1 bearbeiten will
+. Es bestätigt Verteilung zum E-Mail-Verteiler
+. Die Veränderung wird bestätigt
+
+==== Falsche Angaben bei Schließsystem von StuRa-Mitglied M2 mit abgearbeiteter Checkliste
+. Das Mitglied der internen Verwaltung wählt aus, dass es die Checkliste von M2 bearbeiten will
+. Es kennzeichnet die Berechtigung für das Zugangsschließsystem als nicht abgearbeitet
+. Die Veränderung wird bestätigt
+
+===	Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== Gespeicherte Checkliste
+. die gespeicherte Checkliste wurde in der Datenbank aufgenommen
+

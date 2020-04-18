@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
@@ -30,6 +31,7 @@ class CMitglied:
 aemternum = 0
 emailnum = 0
 
+# Create your views here.
 def main_screen(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
@@ -51,7 +53,6 @@ def mitglieder_loeschen(request):
     print(mitgliederids)
     for mitgliedid in mitgliederids:
         Mitglied.objects.get(pk=mitgliedid).delete()
-
     return HttpResponse()
 
 def mitgliedErstellenView(request):
@@ -61,9 +62,39 @@ def mitgliedErstellenView(request):
     global aemternum, emailnum
     aemternum = emailnum = 1
     referate = Referat.objects.order_by('bezeichnung')
+
     return render(request=request,
-                template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-                context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
+        template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+        context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
+        
+"""
+def mitglied_erstellen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+
+    if not request.user.is_superuser:
+        messages.error(request, "Du musst Admin sein, um diese Seite aufrufen zu können.")
+        return redirect("/mitglieder")
+
+    context = {
+        'referate_set': [
+            {'name': 'Qualitaetsmanagement'},
+            {'name': 'Kultur'},
+            {'name': 'Finanzen'}
+        ],
+        'bereiche_set': [
+            {'name': 'Keiner'},
+            {'name': 'Bereich 1'},
+            {'name': 'Bereich 2'}
+        ],
+        'aemter_set': [
+            {'name': 'Leitung'},
+            {'name': 'Stellvertretung'}
+        ],
+    }
+"""
+    
 
 def bereiche_laden(request):
     global aemternum
