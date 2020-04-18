@@ -5,6 +5,8 @@ from django.views import generic
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Amt, Referat, Unterbereich
 import simplejson, json
+# string splitting
+import re
 from django.template import RequestContext
 
 class CMitglied:
@@ -29,21 +31,33 @@ aemternum = 0
 emailnum = 0
 
 def main_screen(request):
-
-    my_list = Mitglied.objects.order_by('name')
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+    my_list = Mitglied.objects.order_by('vorname', 'name')
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
                   context = {"data":my_list})
 
+def mitglied_laden(request):
+    mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
+    print(mitglied_id)
+    mitglied = Mitglied.objects.get(pk=mitglied_id)
+    return render(request, 'mitglieder/modal.html', {'mitglied': mitglied})
+
 def mitglieder_loeschen(request):
     mitgliederids = request.POST.get('mitglieder')
     mitgliederids = json.loads(mitgliederids)
+    print(mitgliederids)
     for mitgliedid in mitgliederids:
         Mitglied.objects.get(pk=mitgliedid).delete()
 
     return HttpResponse()
 
 def mitgliedErstellenView(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
     global aemternum, emailnum
     aemternum = emailnum = 1
     referate = Referat.objects.order_by('bezeichnung')
@@ -120,6 +134,9 @@ def erstellen(request):
         return HttpResponseRedirect('/mitglieder/erstellen')
 
 def mitgliedBearbeitenView(request, mitglied_id):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
     global aemternum, emailnum
     
     mitglied = Mitglied.objects.get(pk=mitglied_id)
@@ -168,3 +185,14 @@ def speichern(request):
             mitgliedmail.save()
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
 
+def suchen(request, search_string):
+    # split ", " or " "
+    search_tokens = re.split(', | ', search_string)
+    my_list = Mitglied.objects.none()
+    for token in search_tokens:
+        my_list = (my_list | Mitglied.objects.filter(name__icontains=token)).distinct()
+        my_list = (my_list | Mitglied.objects.filter(vorname__icontains=token)).distinct()
+    print(my_list)
+    return render(request=request,
+                  template_name="mitglieder/mitglieder.html",
+                  context = {"data":my_list})

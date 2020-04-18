@@ -1,46 +1,8 @@
 {% for entry in data %}
-    <!-- Modal -->
-    <div id="modal-{{entry.id}}" class="modal">
-        <div class="modal-content">
-            <h3>{{entry.vorname}} {% if entry.spitzname %}"{{entry.spitzname}}"{% endif %} {{entry.name}}</h3>
-            <div>
-                <br />
-                <p><b>Mitglieds-ID:</b> {{entry.id}}</p>
-                <p><b>Ämter:</b>
-                    {% if entry.mitgliedamt_set.all %}
-                        <ul>
-                            {% for amt in entry.mitgliedamt_set.all %}
-                                <li>{{amt.amt}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}-
-                    {% endif %}
-                </p>
-                <br />
-                {% if entry.strasse or entry.hausnr or entry.plz or entry.ort %}
-                <h5>Anschrift</h5>
-                <p>{% if entry.strasse %}{{entry.strasse}}{% endif %} {% if entry.hausnr %}{{entry.hausnr}}{% endif %}</p>
-                <p>{% if entry.plz %}{{entry.plz}}{% endif %} {% if entry.ort %}{{entry.ort}}{% endif %}</p>
-                <br />
-                {% endif %}
-                <h5>Kontaktdaten</h5>
-                {% if entry.tel_mobil %}<p><b>Telefon:</b> {{entry.tel_mobil}}</p>{% endif %}
-                <p><b>E-Mails:</b>
-                    <ul>
-                    {% for mail in entry.mitgliedmail_set.all %}
-                    <li>{{mail.email}}</li>
-                    {% endfor %}
-                    </ul>
-                </p>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
-        </div>
-    </div>
+    
 
     <!-- Zeile -->
-    <tr id="tr{{entry.id}}" class="mitglied">
+    <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
         <td>
             <!-- Checkbox -->
             <form method="post">{% csrf_token %}
@@ -50,7 +12,7 @@
             </label>
             </form>
         </td>
-        <td class="mitglied-{{entry.id}}">{{entry.name}}, {{entry.vorname}}</td>
+        <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
         <td class="mitglied-{{entry.id}}">
             {% if entry.mitgliedamt_set.all %}
             <ul>

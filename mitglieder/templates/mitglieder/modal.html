@@ -1,0 +1,36 @@
+<div class="modal-content">
+    <h3>{{mitglied.vorname}} {% if mitglied.spitzname %}"{{mitglied.spitzname}}"{% endif %} {{mitglied.name}}</h3>
+    <div>
+        <br />
+        <p><b>Mitglieds-ID:</b> {{mitglied.id}}</p>
+        <p><b>Ämter:</b>
+            {% if mitglied.mitgliedamt_set.all %}
+                <ul>
+                    {% for amt in mitglied.mitgliedamt_set.all %}
+                        <li>{{amt.amt}}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}-
+            {% endif %}
+        </p>
+        <br />
+        {% if mitglied.strasse or mitglied.hausnr or mitglied.plz or mitglied.ort %}
+        <h5>Anschrift</h5>
+        <p>{% if mitglied.strasse %}{{mitglied.strasse}}{% endif %} {% if mitglied.hausnr %}{{mitglied.hausnr}}{% endif %}</p>
+        <p>{% if mitglied.plz %}{{mitglied.plz}}{% endif %} {% if mitglied.ort %}{{mitglied.ort}}{% endif %}</p>
+        <br />
+        {% endif %}
+        <h5>Kontaktdaten</h5>
+        {% if mitglied.tel_mobil %}<p><b>Telefon:</b> {{mitglied.tel_mobil}}</p>{% endif %}
+        <p><b>E-Mails:</b>
+            <ul>
+            {% for mail in mitglied.mitgliedmail_set.all %}
+            <li>{{mail.email}}</li>
+            {% endfor %}
+            </ul>
+        </p>
+    </div>
+</div>
+<div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
+</div>
