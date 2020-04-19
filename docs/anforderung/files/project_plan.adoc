@@ -25,8 +25,10 @@ include::csv/team.csv[]
 *** link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank[Github]
 ** Kommunikation:
 *** Whatsapp
+*** Discord
 ** Tickets aka. WorkItemList:
 *** link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues[Github Issues]
+*** Trello
 
 == Meilesteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
