@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from mitglieder.models import Mitglied
+from aemter.models import Amt
+
+admin.site.register(Mitglied)
+admin.site.register(Amt)

@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bin',
     'aemter',
-    'historie',
     'login',
     'mitglieder',
     'checklisten'
