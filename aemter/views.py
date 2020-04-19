@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from .models import Referat
 
 # Create your views here.
 def main_screen(request):
@@ -8,6 +9,8 @@ def main_screen(request):
         return redirect("/")
 
     context = {
+        'referate': Referat.objects.all(),
+
         'referate_set': [{
             'leitung': {
                 'name': 'Varchar Toll',
