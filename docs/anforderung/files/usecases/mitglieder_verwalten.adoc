@@ -18,7 +18,7 @@ Selbsterklärend.
 
 ==== Mitglied hinzufügen
 . Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein neues Mitglied anlegen möchte.
-. Alle benötigten Daten (Name, Vorname, Wahl, Legislatur) werden angegeben
+. Alle benötigten Mitgliedsdaten werden angegeben
 . Die Daten werden bestätigt.
 . Der Use Case ist abgeschlossen.
 
