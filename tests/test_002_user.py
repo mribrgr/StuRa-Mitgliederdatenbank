@@ -55,4 +55,7 @@ class TestAdmin(StaticLiveServerTestCase):
         entPassword.send_keys('0123456789test')
         btnLogin.click()
 
+        # Check Login Success
+        self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+            msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
         pass
