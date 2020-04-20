@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Referat
+from .models import Unterbereich
+from .models import Amt
 
 # Create your views here.
 def main_screen(request):
@@ -10,6 +12,8 @@ def main_screen(request):
 
     context = {
         'referate': Referat.objects.all(),
+        'unterbereiche': Unterbereich.objects.all(),
+        'aemter': Amt.objects.all(),
 
         'referate_set': [{
             'leitung': {
