@@ -5,6 +5,8 @@ import time
 from django.contrib.auth import get_user_model
 from aemter.models import Amt, Unterbereich, Referat
 
+import csv
+
 class TestMitgliedHinzufuegen(StaticLiveServerTestCase):
 
     # befor every test funktion
@@ -54,6 +56,51 @@ class TestMitgliedHinzufuegen(StaticLiveServerTestCase):
         self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
             msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
 
+        """
+            Kopiert von Theresa
+        """
+        Referat.objects.all().delete()
+        Unterbereich.objects.all().delete()
+        Amt.objects.all().delete()
+
+        with open("referate.csv") as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            for row in reader:
+                for referat in row:
+                    if not Referat.objects.filter(bezeichnung=referat).exists():
+                        r = Referat(bezeichnung=referat)
+                        r.save()
+                        print("Referat " + referat + " gespeichert")
+                        # Aemter
+                        a = Amt(bezeichnung="Leitung", referat=r)
+                        a.save()
+                        a = Amt(bezeichnung="Stellvertretende Leitung", referat=r)
+                        a.save()
+
+                    else:
+                        print("Referat " + referat + " existiert bereits")
+
+        with open("bereiche.csv") as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            for row in reader:
+                referat = row.pop(0)
+                print(referat)
+                for bereich in row:
+                    if Unterbereich.objects.filter(bezeichnung=bereich).exists()==False:
+                        print("Bereich " + bereich + " (Referat: " + referat + ") wird gespeichert")
+                        b = Unterbereich(bezeichnung=bereich, referat=Referat.objects.get(bezeichnung=referat))
+                        b.save()
+                        # Aemter
+                        a = Amt(bezeichnung="Leitung", unterbereich=b, referat=b.referat)
+                        a.save()
+                        a = Amt(bezeichnung="Stellvertretende Leitung", unterbereich=b, referat=b.referat)
+                        a.save()
+                        a = Amt(bezeichnung="Beratendes Mitglied", unterbereich=b, referat=b.referat)
+                        a.save()
+        """
+            Kopiert von Theresa
+        """
+        
         # Suchen des Hinzufügen Buttons
         try:
             btnAddMitglied = self.browser.find_element_by_id('btn-mitadd')
