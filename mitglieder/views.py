@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Amt, Referat, Unterbereich
-import json #simplejson, json
+import simplejson, json
 from django.template import RequestContext
 
 class CMitglied:

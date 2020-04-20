@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Referat
-from .models import Unterbereich
-from .models import Amt
+from .models import Referat, Unterbereich, Amt
 
 # Register your models here.
 admin.site.register(Referat)

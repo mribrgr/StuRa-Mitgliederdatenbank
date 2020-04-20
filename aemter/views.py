@@ -1,8 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from .models import Referat
-from .models import Unterbereich
-from .models import Amt
+from .models import Referat, Unterbereich, Amt
 from mitglieder.models import MitgliedAmt
 
 # Create your views here.
