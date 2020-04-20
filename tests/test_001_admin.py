@@ -4,11 +4,16 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 import time
 
-
-
 """
     Mit Namespace auf den link
     "{% url 'mitglieder:mitglieder_loeschen' %}"
+"""
+
+"""
+    import platform
+    platform.system()
+    'Linux'
+    'Windows'
 """
 
 class TestAdmin(StaticLiveServerTestCase):
