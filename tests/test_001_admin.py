@@ -16,6 +16,17 @@ import time
     'Windows'
 """
 
+"""
+    Admin und User unterscheiden
+        + Button Add
+        + Button Delete
+        + Button Bearbeiten
+"""
+
+"""
+    TODO: Suchen nach einen Linter, der den Sourcecode automatisch nach PEP8 anpasst
+"""
+
 class TestAdmin(StaticLiveServerTestCase):
 
     # befor every test funktion
