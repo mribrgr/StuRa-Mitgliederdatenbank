@@ -30,6 +30,7 @@ jobs:
         
     - run: cd ~
     - run: mkdir log
+    - run: touch ~/log/flake${{ matrix.python-version }}.txt
             
     - name: Lint with flake8
       run: |
