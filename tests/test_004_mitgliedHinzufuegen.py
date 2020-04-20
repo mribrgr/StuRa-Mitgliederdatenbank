@@ -100,7 +100,7 @@ class TestMitgliedHinzufuegen(StaticLiveServerTestCase):
         """
             Kopiert von Theresa
         """
-        
+
         # Suchen des Hinzufügen Buttons
         try:
             btnAddMitglied = self.browser.find_element_by_id('btn-mitadd')
@@ -152,7 +152,7 @@ class TestMitgliedHinzufuegen(StaticLiveServerTestCase):
         entEmail2.send_keys('Hans.Peter@web.de')
 
         # Einfügen der restlichen Daten der Form
-        entStrasse.send_keys('Straße der Ferheit')
+        entStrasse.send_keys('Straße der Freiheit')
         entHausnr.send_keys('24')
         entPlz.send_keys('01561')
         entOrt.send_keys('Ebersbach')
