@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Referat
 from .models import Unterbereich
 from .models import Amt
+from mitglieder.models import MitgliedAmt
 
 # Create your views here.
 def main_screen(request):
@@ -14,6 +15,7 @@ def main_screen(request):
         'referate': Referat.objects.all(),
         'unterbereiche': Unterbereich.objects.all(),
         'aemter': Amt.objects.all(),
+        'mitglieder': MitgliedAmt.objects.all(),
 
         'referate_set': [{
             'leitung': {
