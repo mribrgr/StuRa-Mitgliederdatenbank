@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form id="mitgliedForm" action="{% url 'mitglieder:erstellen' %}" method="post">
+<form id="mitgliedForm" action={% if mitglied %}"{% url 'mitglieder:speichern' mitglied.id %}"{% else %}"{% url 'mitglieder:erstellen' %}"{% endif %} method="post">
 {% csrf_token %}
 <div>
   <div class="row">
@@ -14,15 +14,15 @@
     <!-- Name & Vorname-->
     <div class="row">
       <div class="input-field col s12 m4 l3">
-        <input name="vorname" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
+        <input id="vorname" name="vorname" type="text" class="validate" {% if mitglied %}value="{{mitglied.vorname}}"{% endif %}>
           <label for="vorname">Vorname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.name}}"{% endif %}>
+        <input id="nachname" name="nachname" type="text" class="validate" {% if mitglied %}value="{{mitglied.name}}"{% endif %}>
         <label for="nachname">Nachname</label>
       </div>
       <div class="input-field col s12 m4 l3">
-        <input name="spitzname" type="text" class="validate" {% if mitglied.spitzname %}value="{{mitglied.spitzname}}"{% endif %}>
+        <input id="spitzname" name="spitzname" type="text" class="validate" {% if mitglied.spitzname %}value="{{mitglied.spitzname}}"{% endif %}>
         <label for="spitzname">Nickname</label>
       </div>
     </div>
@@ -33,14 +33,18 @@
         <h5>Ämter</h5>
         <br />
         <div id="div_aemter">
-        {% if mitglied.mitgliedamt_set.all %}
+        {% if mitglied.mitgliedamt_set.count %}
           {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
           {% with mitgliedamt.amt as amt %}
+          {% with forloop.counter as amtid %}
             {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
           {% endwith %}
           {% endfor %}
         {% else %}
+          {% with 1 as amtid %}
           {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
         {% endif %}
       </div>
         <!-- Button (weiteres Amt hinzufuegen) -->
@@ -56,12 +60,14 @@
         <h5>E-Mail-Adressen</h5>
         <br />
         <div id="div_emails">
-        {% if mitglied %}
+        {% if mitglied and mitglied.mitgliedmail_set.count %}
           {% for email in mitglied.mitgliedmail_set.all %}
             {% include 'mitglieder/email.html' %}
           {% endfor %}
         {% else %}
+          {% with 1 as emailid %}
           {% include 'mitglieder/email.html' %}
+          {% endwith %}
         {% endif %}
       </div>
         <!-- Button - E-Mail hinzufuegen -->
@@ -82,27 +88,27 @@
         <br />
       </div>
       <div class="input-field col s9 m5 l4">
-        <input name="strasse" type="text" class="validate" {% if mitglied.strasse %}value="{{mitglied.strasse}}"{% endif %}>
+        <input id="strasse" name="strasse" type="text" class="validate" {% if mitglied.strasse %}value="{{mitglied.strasse}}"{% endif %}>
         <label for="strasse">Straße</label>
       </div>
       <div class="input-field col s3 m3 l2">
-        <input name="hausnr" type="text" class="validate" {% if mitglied.hausnr %}value="{{mitglied.hausnr}}"{% endif %}>
+        <input id="hausnr" name="hausnr" type="text" class="validate" {% if mitglied.hausnr %}value="{{mitglied.hausnr}}"{% endif %}>
         <label for="hausnr">Hausnr.</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4 m3 l2">
-        <input name="plz" type="text" class="validate" {% if mitglied.plz %}value="{{mitglied.plz}}"{% endif %}>
+        <input id="plz" name="plz" type="text" class="validate" {% if mitglied.plz %}value="{{mitglied.plz}}"{% endif %}>
         <label for="plz">Postleitzahl</label>
       </div>
       <div class="input-field col s8 m5 l4">
-        <input name="ort" type="text" class="validate" {% if mitglied.ort %}value="{{mitglied.ort}}"{% endif %}>
+        <input id="ort" name="ort" type="text" class="validate" {% if mitglied.ort %}value="{{mitglied.ort}}"{% endif %}>
         <label for="ort">Ort</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m8 l6">
-        <input name="telefon_mobil" type="text" class="validate" {% if mitglied.tel_mobil %}value="{{mitglied.tel_mobil}}"{% endif %}>
+        <input id="telefon_mobil" name="telefon_mobil" type="text" class="validate" {% if mitglied.tel_mobil %}value="{{mitglied.tel_mobil}}"{% endif %}>
         <label for="telefon_mobil">Telefon (mobil)</label>
       </div>
     </div>
@@ -125,12 +131,13 @@
 
 <script>
   var referat_bez;
-  var amt_num = 1;
+  var amt_num = {{mitglied.mitgliedmail_set.count|default:1}};
   var email_num = 1;
   $(document).ready(function(){
     // Selects initialisieren
     initSelect();
     addReferatEventListener();
+    addBereichEventListener();
 
     // Amt hinzufuegen
     $("#addAmt").click(function(){
@@ -195,27 +202,34 @@
               $("#div_selectamt" + num).empty();
               initSelect();
               // Listener fuer Select Bereich (zeigt Select Amt an)
-              $('select[name^=selectbereich]').change(function(event){
-                  bereich_id = $(this).val();
-                  var url = $("#" + event.target.id).attr("data-url");
-                  var num = event.target.id.substr(13);
-                  $.ajax({
-                      url: url,
-                      data: {
-                      bereich: bereich_id,
-                      referat: referat_id,
-                      amtnum: num,
-                      },
-                      success: function(data){
-                        $("#div_selectamt" + num).html(data);
-                        initSelect();
-                      }
-                  });
-                  return false;
-              })
+              addSelectBereichEventListener();
             }
         });
         return false;
+    })
+  }
+
+  function addBereichEventListener(){
+    $('select[name^=selectbereich]').change(function(event){
+      var selectnum = this.id.substr(13);
+      referat_id = $("#selectreferat" + selectnum).val();
+      alert(selectnum);
+      bereich_id = $(this).val();
+      var url = $("#" + event.target.id).attr("data-url");
+      var num = event.target.id.substr(13);
+      $.ajax({
+          url: url,
+          data: {
+          bereich: bereich_id,
+          referat: referat_id,
+          amtnum: num,
+          },
+          success: function(data){
+            $("#div_selectamt" + num).html(data);
+            initSelect();
+          }
+      });
+      return false;
     })
   }
 
@@ -225,9 +239,17 @@
       var url = $("#" + this.id).attr("data-url");
       amtid = this.id.substr(10);
       $("#amt" + amtid).remove();
-      var ids = ["amt", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl"];
+      var ids = ["amt", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
+      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label", 
+      "beginn_kandidaturs_label", "ende_kandidaturs_label"];
+      var forLabel = ["beginn_kandidatur", "ende_kandidatur", "beginn_kandidaturs", "ende_kandidaturs"]
       for (var i=parseInt(amtid)+1; i<=amt_num; i++){
         // Dekrementieren der ID-Nummer, die eine hoehere Nummer als das geloeschte Element haben
+        forLabel.forEach(function(item){
+          var id = item + "_label" +  i.toString();
+          var newattr = item + (i-1).toString();
+          $("#" + id).attr("for", newattr);
+        });
         ids.forEach(function(item){
           var oldid = item + i.toString();
           var newid = item + (i-1).toString();
@@ -250,14 +272,16 @@
       var url = $("#" + this.id).attr("data-url");
       emailid = this.id.substr(11);
       $("#div_email" + emailid).remove();
-      var ids = ["div_email", "email", "emaildelbtn"];
+      var ids = ["div_email", "email", "emaildelbtn", "emaillabel"];
       for (var i=parseInt(emailid)+1; i<=email_num; i++){
+        $("#emaillabel" + i).attr("for", "email" + (i-1).toString())
         ids.forEach(function(item){
           var oldid = item + i.toString();
           var newid = item + (i-1).toString();
           $('#' + oldid).attr("name", newid);
           $("#" + oldid).attr("id", newid);
         });
+          
       }
       email_num--;
 

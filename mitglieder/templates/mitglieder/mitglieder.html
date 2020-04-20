@@ -10,12 +10,12 @@
           <div class="col s12">
               <!-- Serch Entry -->
               <div class="input-field inline" style="margin-top: 27px">
-                  <input class="validate" type="text" id="search">
+                  <input data-url="{% url 'mitglieder:suchen' %}" class="validate" type="text" id="search">
                   <label for="search">Suchen...</label>
               </div>
 
               <!-- Search Button -->
-              <a data-url="{% url 'mitglieder:suchen' %}" class="btn-floating waves-effect waves-light amber">
+              <a id="searchbtn" class="btn-floating waves-effect waves-light amber">
                 <i class="material-icons black-text">search</i>
               </a>
               {% if request.user.is_superuser %}
@@ -41,20 +41,20 @@
           <table class="highlight">
             <thead>
               <tr>
-                {% if request.user.is_superuser %}
+                {% if request.user.is_superuser %} 
                 <th></th>
                 {% endif %}
                 <th>Name</th>
                 <th>Ämter</th>
                 <th class="hide-on-small-only">E-Mails</th>
                 <th class="hide-on-med-and-down">Telefon</th>
-                {% if request.user.is_superuser %}
+                  {% if request.user.is_superuser %} 
                 <th></th>
-                {% endif %}
+                {% endif %} 
               </tr>
             </thead>
 
-            <tbody>
+            <tbody id="tbody">
               {% include 'mitglieder/row.html' %}
             </tbody>
           </table>
@@ -94,8 +94,55 @@
         var elems = document.querySelectorAll('.modal');
         var instance = M.Modal.init(elems, {dismissible: true});
 
+        addCheckboxEventListeners();
+        addRowEventListeners();
+
+        // Mitgliedersuche ueber Button
+        $("#searchbtn").click(function(event){
+          search();
+        });
+        // Mitgliedersuche ueber Enter-Taste
+        $("#search").keyup("enterKey", function(e){
+          if (e.keyCode == 13) search();
+        });
+
+        function search(){
+          search_string = $("#search").val();
+          var url = $("#search").attr('data-url');
+
+          $.ajax({
+            type: 'GET',
+            url: url,
+            data: {
+              search_string: search_string,
+            },
+            success: function(data){
+              // Speichern der Ids von ueber Checkboxen ausgewaehlten Mitgliedern
+              mitgliederids=[];
+              $('input[type=checkbox]').each(function () {
+                if (this.checked){
+                  var mitgliedid = this.id.substr(4);
+                  mitgliederids.push(mitgliedid); 
+                }
+              });
+              // Aktualisierung der Mitgliedertabelle auf Basis der Suche
+              $("#tbody").html(data);
+              // Hinzufuegen von Event Listenern zum Oeffnen des Modals und Auswaehlen von Mitgliedern
+              addRowEventListeners();
+              addCheckboxEventListeners();
+              // Auswaehlen aller Mitglieder, die vor Suche ausgewaehlt waren und angezeigt werden
+              selectedcheckboxes_num = 0;
+              for (mitgliedid of mitgliederids){
+                if($("#chk-" + mitgliedid).length) selectedcheckboxes_num++;
+                $("#chk-" + mitgliedid).prop('checked', true);
+              }
+            }
+          });
+        }
+
         // Anklicken eines Eintrags fuehrt zum Oeffnen des Modals
-        $('[class^="mitglied-"]').click(function(event){
+        function addRowEventListeners(){
+          $('[class^="mitglied-"]').click(function(event){
           event = event.target;
           do {
             event = event.parentNode;
@@ -122,8 +169,10 @@
             }
           });
         })
+        }
 
         // Speichern der Anzahl der selektierten Checkboxen, um den Loeschbutton bei 0 Selektionieren zu deaktivieren
+        function addCheckboxEventListeners(){
         $('input[type=checkbox').click(function(){
           if (this.checked){
             selectedcheckboxes_num++;
@@ -139,6 +188,7 @@
             }
           }
         });
+        }
 
         // Bestaetigung, dass Mitglieder geloescht werden sollen ueber Oeffnen eines Modals
         $('.delmitglieder').click(function(event){
@@ -164,7 +214,7 @@
         $('#delmitgliederconfirm').click(function(){
           var url = $("#"+this.id).attr('data-url');
           var mitgliederids = [];
-          $('input[type=checkbox]:checked').each(function () {
+          $('input[type=checkbox]').each(function () {
             if (this.checked){
               var mitgliedid = this.id.substr(4);
               $("#tr" + mitgliedid).remove();

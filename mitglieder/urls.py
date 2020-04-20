@@ -9,7 +9,7 @@ urlpatterns = [
     # Bearbeiten 
     path("<int:mitglied_id>/bearbeiten", views.mitgliedBearbeitenView, name="bearbeitenView"),
     path('ajax/laden', views.mitglied_laden, name='mitglied_laden'),
-  #  path("<int:mitglied_id>/bearbeiten/speichern", views.speichern, name="speichern"),
+    path("<int:mitglied_id>/bearbeiten/speichern", views.speichern, name="speichern"),
     path("ajax/mitglieder-loeschen", views.mitglieder_loeschen, name="mitglieder_loeschen"),
 
 # Mitglieder Erstellen View    
@@ -22,5 +22,5 @@ urlpatterns = [
     path('ajax/email-loeschen', views.email_loeschen, name='email_loeschen'),
 
     # Suchen
-    path('/<str:search_string>/suchen', views.suchen, name="suchen"),
+    path('ajax/suchen', views.suchen, name="suchen"),
 ]

@@ -1,12 +1,10 @@
-<div id="div_email{% if emailid %}{{emailid}}{% else %}{{forloop.counter}}{% endif %}" class="row">
-  <div class="col s10 m8 l6">
-    <div class="input-field">
-      <input type="email" name="email{% if emailid %}{{emailid}}{% else %}{{forloop.counter}}{% endif %}" id="email{% if emailid %}{{emailid}}{% else %}{{forloop.counter}}{% endif %}" type="text" class="validate" {% if email %}value="{{email.email}}"{% endif %}>
-      <label for="email">E-Mail</label>
-    </div>
-  </div>
-  <div class="col s2 m2 l1" style="padding-top: 16px">
-    <a id="emaildelbtn{% if emailid %}{{emailid}}{% else %}{{forloop.counter}}{% endif %}" data-url="{% url 'mitglieder:email_loeschen' %}" class="emaildelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
-  </div>
-</div>
+{% if emailid %}
+  {% with emailid as id %}
+    {% include 'mitglieder/email_input.html' %}
+  {% endwith %}
+{% else %}
+  {% with forloop.counter as id %}
+    {% include 'mitglieder/email_input.html' %}
+  {% endwith %}
+{% endif %}
 

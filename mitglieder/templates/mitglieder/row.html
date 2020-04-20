@@ -1,13 +1,7 @@
 {% for entry in data %}
-    
-
     <!-- Zeile -->
-<<<<<<< HEAD
     <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
-=======
-    <tr id="tr{{entry.id}}" class="mitglied">
         {% if request.user.is_superuser %}
->>>>>>> c6a31238dd2d19345c2b8f2c2939a4e46aed22e3
         <td>
             <!-- Checkbox -->
             <form method="post">{% csrf_token %}
@@ -42,9 +36,6 @@
         <td class="mitglied-{{entry.id}} hide-on-med-and-down">
             {{entry.tel_mobil|default:'-'}}
         </td>
-<<<<<<< HEAD
-        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td>
-=======
         <!-- TODO: Auflösen
           {% endif %}
           <td class="mitglied-{{entry.mitid}}">{{entry.nachname}}, {{entry.vorname}}</td>
@@ -54,8 +45,7 @@
           <td class="mitglied-{{entry.mitid}} hide-on-med-and-down">{{entry.telmobil}}</td>
           {% if request.user.is_superuser %}
         -->
-        <td><a href="/mitglieder/bearbeiten"><i class="material-icons black-text">create</i></a></td>
+        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
         {% endif %}
->>>>>>> c6a31238dd2d19345c2b8f2c2939a4e46aed22e3
     </tr>
 {% endfor %}

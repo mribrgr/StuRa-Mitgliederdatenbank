@@ -11,8 +11,11 @@ class Mitglied(models.Model):
     plz = models.CharField(max_length=5, null=True)
     ort = models.CharField(max_length=50, null=True)
     tel_mobil = models.CharField(max_length=15, null=True)
+
+
     def __str__(self):
         return self.vorname + " " + self.name
+    
 
 class MitgliedAmt(models.Model):
     mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)

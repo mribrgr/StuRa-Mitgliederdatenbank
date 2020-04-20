@@ -1,5 +1,5 @@
 <div class="input-field col s10 m8 l4">
-    <select data-url="{% url 'mitglieder:aemter_laden' %}" name="selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" id="selectbereich{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}">
+    <select data-url="{% url 'mitglieder:aemter_laden' %}" name="selectbereich{{amtid}}" id="selectbereich{{amtid}}">
         <option disabled selected>Bereich auswählen</option>
         <option {% if not bereiche and not amt.unterbereich %}selected="selected"{% endif %}type="hidden" value="-1">Keiner</option>
         {% if bereiche %}
