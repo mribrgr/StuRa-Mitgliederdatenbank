@@ -16,3 +16,4 @@ class TestUrls(SimpleTestCase):
     def test_bearbeiten_url_resolves(self):
         url = reverse('mitglieder:bearbeitenView')
         self.assertEquals(resolve(url).func, mitgliedBearbeitenView)
+        
