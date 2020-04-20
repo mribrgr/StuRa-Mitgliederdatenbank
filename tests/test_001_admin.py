@@ -27,6 +27,11 @@ import time
     TODO: Suchen nach einen Linter, der den Sourcecode automatisch nach PEP8 anpasst
 """
 
+"""
+    help?
+    https://docs.djangoproject.com/en/3.0/topics/testing/overview/
+"""
+
 class TestAdmin(StaticLiveServerTestCase):
 
     # befor every test funktion
