@@ -1,6 +1,4 @@
 # StuRa-Mitgliederdatenbank
-image:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge.svg?branch=develop["flake8", link="https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge"]
-
 link:docs/orga/task.adoc[Aufgabenstellung]
 
 link:https://nvie.com/posts/a-successful-git-branching-model[a successful git branching model]
