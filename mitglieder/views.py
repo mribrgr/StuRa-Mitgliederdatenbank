@@ -127,6 +127,8 @@ def erstellen(request):
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
 
+
+
 def mitgliedBearbeitenView(request, mitglied_id):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
@@ -142,28 +144,34 @@ def mitgliedBearbeitenView(request, mitglied_id):
                   template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
                   context = {'mitglied': mitglied, 'referate': referate})
 
+# Attribut attr (string) wird aus request (POST-Request) entnommen und zurueckgegeben
+# bei einem KeyError oder leerem String wird None zurueckgegeben
+def getValue(request, attr):
+    try:
+        val = request.POST[attr]
+        if val=="":
+            val=None
+    except KeyError:
+        print("KeyError for attribute " + attr)
+        val = None
+    return val
+
+
 # bearbeitetes Mitglied speichern
 def speichern(request, mitglied_id):
+    print("speichern")
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
         # Mitglied
-        vorname = request.POST['vorname']
-        nachname = request.POST['nachname']
-        spitzname = request.POST['spitzname']
-        strasse = request.POST['strasse']
-        hausnr = request.POST['hausnr']
-        plz = request.POST['plz']
-        ort = request.POST['ort']
-        telefon_mobil = request.POST['telefon_mobil']
-
-        mitglied.vorname = vorname
-        mitglied.name = nachname
-        mitglied.spitzname = spitzname
-        mitglied.strasse = strasse
-        mitglied.hausnr = hausnr
-        mitglied.plz = plz
-        mitglied.ort = ort
-        mitglied.tel_mobil = telefon_mobil
+        mitglied.vorname = getValue(request, 'vorname')
+        mitglied.name = getValue(request, 'nachname')
+        mitglied.spitzname = getValue(request, 'spitzname')
+        mitglied.strasse = getValue(request, 'strasse')
+        mitglied.hausnr = getValue(request, 'hausnr')
+        mitglied.plz = getValue(request, 'plz')
+        mitglied.ort = getValue(request, 'ort')
+        mitglied.tel_mobil = getValue(request, 'telefon_mobil')
+        mitglied.save()
 
         mitglied.mitgliedamt_set.all().delete()
         for i in range(1, aemternum+1):

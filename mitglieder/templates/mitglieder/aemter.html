@@ -1,8 +1,8 @@
 <div id="amt{{amtid}}" >
 <div class="row">
-    <div class="input-field col s10 m8 l4">
+    <div id="div_selectreferat{{amtid}}" class="input-field col s10 m8 l4">
       <!-- Referat -->
-      <select name="selectreferat{{amtid}}" data-url="{% url 'mitglieder:bereiche_laden' %}" id="selectreferat{{amtid}}">
+      <select id="selectreferat{{amtid}}" name="selectreferat{{amtid}}" data-url="{% url 'mitglieder:bereiche_laden' %}" class="selectbereich">
         <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
         {% for referat in referate %}
         <option value="{{referat.id}}" {% if referat.id == amt.referat.id %}selected="selected"{% endif %}>{{referat}}</option>
