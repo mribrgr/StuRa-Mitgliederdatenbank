@@ -216,6 +216,7 @@
           var mitgliederids = [];
           $('input[type=checkbox]').each(function () {
             if (this.checked){
+              this.checked = false;
               var mitgliedid = this.id.substr(4);
               $("#tr" + mitgliedid).remove();
               mitgliederids.push(mitgliedid); 
