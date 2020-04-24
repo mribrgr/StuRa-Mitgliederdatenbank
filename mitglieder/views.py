@@ -11,6 +11,7 @@ import re
 from django.template import RequestContext
 from django.db.models import Q
 
+# Anzahl der Aemter bzw. E-Mails die gespeichert werden muessen
 aemternum = 0
 emailnum = 0
 
@@ -19,35 +20,40 @@ def main_screen(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
-    my_list = Mitglied.objects.order_by('vorname', 'name')
+    # Erstellen eines Querysets mit allen Mitgliedern geordnet nach Namen
+    queryset = Mitglied.objects.order_by('vorname', 'name')
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
-                  context = {"data":my_list})
+                  context = {"data":queryset})
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
+    # Extrahieren der Mitglied-Id aus der GET-Request
     mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
-    print(mitglied_id)
+    # Daten zum Mitglied mit dieser Id an Frontend senden
     mitglied = Mitglied.objects.get(pk=mitglied_id)
     return render(request, 'mitglieder/modal.html', {'mitglied': mitglied})
 
 # Entfernen von Mitgliedern aus der Datenbank
 def mitglieder_loeschen(request):
+    # Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank
     mitgliederids = request.POST.get('mitglieder')
     mitgliederids = json.loads(mitgliederids)
-    print(mitgliederids)
     for mitgliedid in mitgliederids:
         Mitglied.objects.get(pk=mitgliedid).delete()
     return HttpResponse()
 
+# Mitglied erstellen Anzeige
 def mitgliedErstellenView(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
+    # beim Erstellen existiert anfangs jeweils ein Feld fuer Amt und E-Mail
     global aemternum, emailnum
     aemternum = emailnum = 1
+    # Laden aller Referate
     referate = Referat.objects.order_by('bezeichnung')
-
+    # Anzahl von E-Mails, Aemtern sowie Referate werden an Frontend gesendet
     return render(request=request,
         template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
         context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
@@ -65,10 +71,12 @@ def aemter_laden(request):
     global aemternum
     bereich_id = request.GET.get('bereich')
     amtnum = request.GET.get('amtnum')
+    # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
     if bereich_id == "-1":
         referat_id = request.GET.get('referat')
         aemter = Referat.objects.get(pk=referat_id).amt_set.all()
         aemter = aemter.filter(unterbereich__isnull=True)
+    # Laden aller Aemter fuer gewaehlten Unterbereich
     else:
         aemter = Unterbereich.objects.get(pk=bereich_id).amt_set.all()
     return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter, 'amtid': amtnum})
@@ -78,9 +86,10 @@ def aemter_html_laden(request):
     global aemternum
     aemternum += 1
     referate = Referat.objects.order_by('bezeichnung')
+    # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
     return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
 
-# Formular fur ein Amt loeschent (Mitglied erstellen/bearbeiten)
+# Formular fur ein Amt loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
     global aemternum
     aemternum-=1
@@ -126,8 +135,6 @@ def erstellen(request):
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
-
-
 
 def mitgliedBearbeitenView(request, mitglied_id):
     if not request.user.is_authenticated:
