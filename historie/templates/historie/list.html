@@ -11,21 +11,7 @@
     <div id="mitgliederTab" class="col s12">
       <p>
         <ul class="collection">
-          {% for entry in mitglieder %}
-          <li class="collection-item">
-            <a class="secondary-content">
-              <i class="material-icons">
-                {% if entry.history_type == "+" %}add{% endif %}
-                {% if entry.history_type == "~" %}edit{% endif %}
-                {% if entry.history_type == "-" %}delete{% endif %}
-              </i>
-            </a>
-            {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
-            {% if entry.history_type == "+" %}hinzugefügt{% endif %}
-            {% if entry.history_type == "~" %}geändert{% endif %}
-            {% if entry.history_type == "-" %}gelöscht{% endif %}
-          </li>
-          {% endfor %}
+          {% include 'historie/row.html' %}
         </ul>
       </p>
     </div>
@@ -37,10 +23,17 @@
   </div>
 </div>
 
+<!-- Initialize tabs and modals -->
 <script>
   var el = document.querySelectorAll('.tabs');
   var options;
   var instance = M.Tabs.init(el, options);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var options;
+    var instances = M.Modal.init(elems, options);
+  });
 </script>
 
 {% endblock %}

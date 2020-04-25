@@ -1,0 +1,43 @@
+{% for entry in mitglieder %}
+<!-- Modal -->
+<div id="modal{{entry.history_id}}" class="modal">
+  <div class="modal-content">
+    <h4>
+      Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+      {% if entry.history_type == "+" %}hinzugefügt{% endif %}
+      {% if entry.history_type == "~" %}geändert{% endif %}
+      {% if entry.history_type == "-" %}gelöscht{% endif %}
+    </h4>
+    <div>
+      <br />
+      <p><b>Zeitpunkt: </b> {{ entry.history_date|date:'d.m.Y H:i' }}</p>
+      <p><b>Nutzer: </b> {{ entry.history_user }}</p>
+      <br />
+      <h5>
+        {% if entry.history_type == "+" %}Hinzugefügter{% endif %}
+        {% if entry.history_type == "-" %}Gelöschter{% endif %}
+        Datensatz
+        {% if entry.history_type == "~" %}vor der Änderung{% endif %}
+      </h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect btn-flat">Schliessen</a>
+  </div>
+</div>
+
+<!-- Collection row -->
+<li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry.history_id}}">
+  <a class="secondary-content">
+    <i class="material-icons">
+      {% if entry.history_type == "+" %}add{% endif %}
+      {% if entry.history_type == "~" %}edit{% endif %}
+      {% if entry.history_type == "-" %}delete{% endif %}
+    </i>
+  </a>
+  {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+  {% if entry.history_type == "+" %}hinzugefügt{% endif %}
+  {% if entry.history_type == "~" %}geändert{% endif %}
+  {% if entry.history_type == "-" %}gelöscht{% endif %}
+</li>
+{% endfor %}
