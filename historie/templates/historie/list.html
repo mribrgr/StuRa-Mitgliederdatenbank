@@ -5,14 +5,14 @@
   <div class="col s12">
     <h3>Historie</h3>
     <ul class="tabs">
-      <li class="tab col s4"><a href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s4"><a class="active" href="#mitgliederTab">Mitglieder</a></li>
       <li class="tab col s4"><a href="#aemterTab">Ämter</a></li>
       <li class="tab col s4"><a href="#nutzerTab">Systemnutzer</a></li>
     </ul>
   </div>
-  {% include 'historie/mitgliederTab.html' %}
-  {% include 'historie/aemterTab.html' %}
-  {% include 'historie/nutzerTab.html' %}
+  {% include 'historie/tabs/mitgliederTab.html' %}
+  {% include 'historie/tabs/aemterTab.html' %}
+  {% include 'historie/tabs/nutzerTab.html' %}
 </div>
 
 <!-- Initialize tabs and modals -->

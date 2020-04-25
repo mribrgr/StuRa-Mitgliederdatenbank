@@ -24,6 +24,19 @@ def list(request):
     mitgliederMails = MitgliedMail.history.all()
     mitgliederAemter = MitgliedAmt.history.all()
 
+    referate = Referat.history.all()
+    unterbereiche = Unterbereich.history.all()
+    aemter = Amt.history.all()
+    rechte = Recht.history.all()
+    aemterRechte = AmtRecht.history.all()
+
     return render(request=request,
                   template_name="historie/list.html",
-                  context={"mitglieder":mitglieder, "mitgliederMails":mitgliederMails, "mitgliederAemter":mitgliederAemter})
+                  context={"mitglieder":mitglieder,
+                           "mitgliederMails":mitgliederMails,
+                           "mitgliederAemter":mitgliederAemter,
+                           "referate":referate,
+                           "unterbereiche":unterbereiche,
+                           "aemter":aemter,
+                           "rechte":rechte,
+                           "aemterRechte":aemterRechte})

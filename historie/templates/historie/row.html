@@ -4,11 +4,7 @@
 <div id="modal{{entry|to_class_name}}{{entry.history_id}}" class="modal">
   <div class="modal-content">
     <h4>
-      Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
-
-      {% if entry.history_type == "+" %}hinzugefügt{% endif %}
-      {% if entry.history_type == "~" %}geändert{% endif %}
-      {% if entry.history_type == "-" %}gelöscht{% endif %}
+      {% include 'historie/_titleBuilder.html' %}
     </h4>
     <div>
       <br />
@@ -18,9 +14,10 @@
       <h5>
         {% if entry.history_type == "+" %}Hinzugefügter{% endif %}
         {% if entry.history_type == "-" %}Gelöschter{% endif %}
+        {% if entry.history_type == "~" %}Neuer{% endif %}
         Datensatz
-        {% if entry.history_type == "~" %}vor der Änderung{% endif %}
       </h5>
+      {% include 'historie/_modalDataIncludes.html' %}
     </div>
   </div>
   <div class="modal-footer">
@@ -28,7 +25,6 @@
   </div>
 </div>
 
-<!-- Collection row -->
 <li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry|to_class_name}}{{entry.history_id}}">
   <a class="secondary-content">
     <i class="material-icons">
@@ -37,16 +33,6 @@
       {% if entry.history_type == "-" %}delete{% endif %}
     </i>
   </a>
-  {{ entry.history_date|date:'d.m.Y H:i' }} |
-
-  {% if entry|to_class_name == "HistoricalMitglied" %}
-  Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
-  {% endif %}
-  {% if entry|to_class_name == "HistoricalMitgliedMail" %}
-  E-Mail-Adresse zu Mitglied {{entry.mitglied_id}}
-  {% endif %}
-
-  {% if entry.history_type == "+" %}hinzugefügt{% endif %}
-  {% if entry.history_type == "~" %}geändert{% endif %}
-  {% if entry.history_type == "-" %}gelöscht{% endif %}
+  {{ entry.history_date|date:'d.m.Y H:i' }} –
+  {% include 'historie/_titleBuilder.html' %}
 </li>
