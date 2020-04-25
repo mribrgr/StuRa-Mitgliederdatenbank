@@ -4,25 +4,43 @@
 <div class="row">
   <div class="col s12">
     <h3>Historie</h3>
-  </div>
-  <div class="col s12">
-    <ul class="collection">
-      {% for entry in mitglieder %}
-      <li class="collection-item">
-        <a class="secondary-content">
-          <i class="material-icons">
-            {% if entry.history_type == "+" %}add{% endif %}
-            {% if entry.history_type == "~" %}edit{% endif %}
-            {% if entry.history_type == "-" %}delete{% endif %}
-          </i>
-        </a>
-        {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
-        {% if entry.history_type == "+" %}hinzugefügt{% endif %}
-        {% if entry.history_type == "~" %}geändert{% endif %}
-        {% if entry.history_type == "-" %}gelöscht{% endif %}
-      </li>
-      {% endfor %}
+    <ul class="tabs">
+      <li class="tab col s3"><a href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s3"><a href="#aemterTab">Ämter</a></li>
     </ul>
+    <div id="mitgliederTab" class="col s12">
+      <p>
+        <ul class="collection">
+          {% for entry in mitglieder %}
+          <li class="collection-item">
+            <a class="secondary-content">
+              <i class="material-icons">
+                {% if entry.history_type == "+" %}add{% endif %}
+                {% if entry.history_type == "~" %}edit{% endif %}
+                {% if entry.history_type == "-" %}delete{% endif %}
+              </i>
+            </a>
+            {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+            {% if entry.history_type == "+" %}hinzugefügt{% endif %}
+            {% if entry.history_type == "~" %}geändert{% endif %}
+            {% if entry.history_type == "-" %}gelöscht{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </p>
+    </div>
+    <div id="aemterTab" class="col s12">
+      <p>
+        Hier kommt die Ämter-Historie hin.
+      </p>
+    </div>
   </div>
 </div>
+
+<script>
+  var el = document.querySelectorAll('.tabs');
+  var options;
+  var instance = M.Tabs.init(el, options);
+</script>
+
 {% endblock %}
