@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bin',
     'aemter',
     'historie',
+    'historie.templatetags',
     'login',
     'mitglieder',
     'checklisten'

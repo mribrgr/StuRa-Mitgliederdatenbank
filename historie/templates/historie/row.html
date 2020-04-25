@@ -1,9 +1,11 @@
-{% for entry in mitglieder %}
+{% load to_class_name %}
+
 <!-- Modal -->
-<div id="modal{{entry.history_id}}" class="modal">
+<div id="modal{{entry|to_class_name}}{{entry.history_id}}" class="modal">
   <div class="modal-content">
     <h4>
       Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+
       {% if entry.history_type == "+" %}hinzugefügt{% endif %}
       {% if entry.history_type == "~" %}geändert{% endif %}
       {% if entry.history_type == "-" %}gelöscht{% endif %}
@@ -27,7 +29,7 @@
 </div>
 
 <!-- Collection row -->
-<li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry.history_id}}">
+<li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry|to_class_name}}{{entry.history_id}}">
   <a class="secondary-content">
     <i class="material-icons">
       {% if entry.history_type == "+" %}add{% endif %}
@@ -35,9 +37,16 @@
       {% if entry.history_type == "-" %}delete{% endif %}
     </i>
   </a>
-  {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+  {{ entry.history_date|date:'d.m.Y H:i' }} |
+
+  {% if entry|to_class_name == "HistoricalMitglied" %}
+  Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+  {% endif %}
+  {% if entry|to_class_name == "HistoricalMitgliedMail" %}
+  E-Mail-Adresse zu Mitglied {{entry.mitglied_id}}
+  {% endif %}
+
   {% if entry.history_type == "+" %}hinzugefügt{% endif %}
   {% if entry.history_type == "~" %}geändert{% endif %}
   {% if entry.history_type == "-" %}gelöscht{% endif %}
 </li>
-{% endfor %}

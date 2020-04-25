@@ -75,6 +75,10 @@ main {
   background-color: #ffc107;
 }
 
+.secondary-tabs .indicator {
+  background-color: #9e9e9e;
+}
+
 .historie-collection-item:hover {
   cursor: pointer;
 }

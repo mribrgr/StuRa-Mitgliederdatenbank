@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 
 from datetime import datetime
+from itertools import chain
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Referat, Unterbereich, Amt, Recht, AmtRecht
@@ -20,7 +21,9 @@ def list(request):
 
     # Fetch data
     mitglieder = Mitglied.history.all()
+    mitgliederMails = MitgliedMail.history.all()
+    mitgliederAemter = MitgliedAmt.history.all()
 
     return render(request=request,
                   template_name="historie/list.html",
-                  context={"mitglieder":mitglieder})
+                  context={"mitglieder":mitglieder, "mitgliederMails":mitgliederMails, "mitgliederAemter":mitgliederAemter})
