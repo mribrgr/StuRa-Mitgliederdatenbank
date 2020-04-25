@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'simple_history',
     'bin',
     'aemter',
+    'historie',
     'login',
     'mitglieder',
     'checklisten'
