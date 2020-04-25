@@ -27,6 +27,10 @@ Recht {{entry.id}} ({{entry.bezeichnung}})
 Recht {{entry.recht_id}} zu Amt {{entry.amt_id}}
 {% endif %}
 
+{% if entry|to_class_name == "HistoricalUser" %}
+Nutzer {{entry.id}} ({{entry.username}})
+{% endif %}
+
 {% if entry.history_type == "+" %}hinzugefügt{% endif %}
 {% if entry.history_type == "~" %}geändert{% endif %}
 {% if entry.history_type == "-" %}gelöscht{% endif %}

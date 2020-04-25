@@ -1,0 +1,30 @@
+<p><b>Nutzer-ID: </b> {{entry.id}}</p>
+<p><b>Nutzername: </b> {{entry.username}}</p>
+<p><b>Nachname: </b> {{entry.last_name}}</p>
+<p><b>Vorname: </b> {{entry.first_name}}</p>
+<p><b>E-Mail-Adresse: </b> {{entry.email}}</p>
+
+<p>
+  <b>Aktiv: </b>
+  {% if entry.is_active == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>
+<p>
+  <b>Mitarbeiter: </b>
+  {% if entry.is_staff == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>
+<p>
+  <b>Admin: </b>
+  {% if entry.is_superuser == True %}
+  Ja
+  {% else %}
+  Nein
+  {% endif %}
+</p>

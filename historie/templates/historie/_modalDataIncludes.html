@@ -25,3 +25,7 @@
 {% if entry|to_class_name == "HistoricalAmtRecht" %}
 {% include 'historie/modalData/amtRechtModalData.html' %}
 {% endif %}
+
+{% if entry|to_class_name == "HistoricalUser" %}
+{% include 'historie/modalData/userModalData.html' %}
+{% endif %}

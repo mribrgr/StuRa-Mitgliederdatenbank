@@ -4,10 +4,10 @@ from django.http import HttpResponse
 from django.template import RequestContext
 
 from datetime import datetime
-from itertools import chain
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Referat, Unterbereich, Amt, Recht, AmtRecht
+from django.contrib.auth.models import User
 
 # Create your views here.
 def list(request):
@@ -19,6 +19,8 @@ def list(request):
         messages.error(request, "Du musst Admin sein, um diese Seite aufrufen zu können.")
         return redirect("/mitglieder")
 
+
+
     # Fetch data
     mitglieder = Mitglied.history.all()
     mitgliederMails = MitgliedMail.history.all()
@@ -29,6 +31,7 @@ def list(request):
     aemter = Amt.history.all()
     rechte = Recht.history.all()
     aemterRechte = AmtRecht.history.all()
+    users = User.history.all()
 
     return render(request=request,
                   template_name="historie/list.html",
@@ -39,4 +42,5 @@ def list(request):
                            "unterbereiche":unterbereiche,
                            "aemter":aemter,
                            "rechte":rechte,
-                           "aemterRechte":aemterRechte})
+                           "aemterRechte":aemterRechte,
+                           "users":users})

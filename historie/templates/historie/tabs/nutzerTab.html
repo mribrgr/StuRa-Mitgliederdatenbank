@@ -1,5 +1,9 @@
 <div id="nutzerTab" class="col s12">
   <p>
-    Hier kommt die Systemnutzer-Historie hin.
+    <ul class="collection">
+      {% for entry in users %}
+      {% include 'historie/row.html' %}
+      {% endfor %}
+    </ul>
   </p>
 </div>
