@@ -54,3 +54,7 @@ main {
 .dropdown-content li > span {
   color: #000;
 }
+
+.secondary-content {
+  color: #000000;
+}

@@ -43,6 +43,7 @@
                         <li><a href="/aemter">Ämter</a></li>
                         <li><a href="/checklisten">Checklisten</a></li>
                         {% if request.user.is_superuser %}
+                        <li><a href="/admin/historie"><i class="material-icons">history</i></a></li>
                         <li><a href="/admin"><i class="material-icons">security</i></a></li>
                         {% endif %}
                         <li><a href="/logout"><i class="material-icons">exit_to_app</i></a></li>
@@ -58,6 +59,7 @@
         <li><a href="/aemter"><i class="material-icons">school</i>Ämter</a></li>
         <li><a href="/checklisten"><i class="material-icons">done_all</i>Checklisten</a></li>
         {% if request.user.is_superuser %}
+        <li><a href="/admin/historie"><i class="material-icons">history</i>Historie</a></li>
         <li><a href="/admin"><i class="material-icons">security</i>Admin-Bereich</a></li>
         {% endif %}
         <li><a href="/logout"><i class="material-icons">exit_to_app</i>Abmelden</a></li>
