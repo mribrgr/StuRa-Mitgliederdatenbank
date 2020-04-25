@@ -19,8 +19,8 @@ def list(request):
         return redirect("/mitglieder")
 
     # Fetch data
-    mitglied = Mitglied.history.all()
+    mitglieder = Mitglied.history.all()
 
     return render(request=request,
                   template_name="historie/list.html",
-                  context={"mitglied":mitglied})
+                  context={"mitglieder":mitglieder})

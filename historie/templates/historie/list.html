@@ -7,7 +7,7 @@
   </div>
   <div class="col s12">
     <ul class="collection">
-      {% for entry in mitglied %}
+      {% for entry in mitglieder %}
       <li class="collection-item">
         <a class="secondary-content">
           <i class="material-icons">
@@ -16,13 +16,10 @@
             {% if entry.history_type == "-" %}delete{% endif %}
           </i>
         </a>
-
-        <span class="title">
-          {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
-          {% if entry.history_type == "+" %}hinzugefügt{% endif %}
-          {% if entry.history_type == "~" %}geändert{% endif %}
-          {% if entry.history_type == "-" %}gelöscht{% endif %}
-        </span>
+        {{ entry.history_date|date:'d.m.Y H:i' }} | Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
+        {% if entry.history_type == "+" %}hinzugefügt{% endif %}
+        {% if entry.history_type == "~" %}geändert{% endif %}
+        {% if entry.history_type == "-" %}gelöscht{% endif %}
       </li>
       {% endfor %}
     </ul>
