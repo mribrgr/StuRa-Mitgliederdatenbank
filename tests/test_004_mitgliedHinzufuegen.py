@@ -62,12 +62,9 @@ class TestMitgliedHinzufuegen(MyTestCase):
         """
             TODO: Amt bzw. Referat auswählen
         """
+        self.browser.find_element_by_xpath("//input[@class='select-dropdown dropdown-trigger']").click()
+        self.browser.find_element_by_xpath("//ul[@class='dropdown-content select-dropdown']/li[2]").click()
         time.sleep(120)
-        referat = Select(self.browser.find_element_by_id('selectreferat1'))
-        self.browser.find_element_by_xpath("//select[@name='selectreferat1']/option[text()='Finanzen']").click()
-        #print(referat)
-        #WebDriverWait(self.browser, 10).until(expected_conditions.element_to_be_clickable((By.XPATH, "//select[@id='selectreferat1']//options[contains(.,'Finanzen')]")))
-        #referat.select_by_visible_text('Finanzen')
         
 
         btnAddEmail.click()
