@@ -27,6 +27,25 @@ def loginAsLukasAdmin(self):
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
 
+def loginAsLukasUser(self):
+    # Suche aller Objekte der Seite
+    try:
+        entUsername = self.browser.find_element_by_id('id_username')
+        entPassword = self.browser.find_element_by_id('id_password')
+        btnLogin = self.browser.find_element_by_id('btn-login')
+    except:
+        print("Es wurden nicht alle Objekte auf der Seite gefunden")
+
+    # Eingabe der Login-Daten
+    entUsername.send_keys('testlukas')
+    entPassword.send_keys('0123456789test')
+    btnLogin.click()
+
+    # Check Login Success
+    self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+        msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
+    pass
+
 class MyTestCase(StaticLiveServerTestCase):
     # befor every test funktion
     def setUp(self):
