@@ -2,10 +2,13 @@
     {% load static %}
     <!-- Compiled and minified JavaScript -->
     <script src="{% static "materialize.js" %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    -->
+    <script src="{% static "jquery.min.js" %}"></script>
 
     <!-- Material Design Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "materialize.css" %}">
 
     <!--Global style sheet-->
     <link rel="stylesheet" type="text/css" href="{% static "materialize.css" %}">

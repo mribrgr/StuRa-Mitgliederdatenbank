@@ -4,7 +4,6 @@ from selenium import webdriver
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
-import tracemalloc
 
 from aemter.models import Amt, Unterbereich, Referat
 
@@ -50,7 +49,6 @@ def loginAsLukasUser(self):
 class MyTestCase(StaticLiveServerTestCase):
     # befor every test funktion
     def setUp(self):
-        tracemalloc.start()
         """
             Auswahl des richtigen Webdriver anhand des Systemes
         """
@@ -129,5 +127,4 @@ class MyTestCase(StaticLiveServerTestCase):
         except:
             print('Error while closing')
         pass
-        tracemalloc.stop()
     pass
