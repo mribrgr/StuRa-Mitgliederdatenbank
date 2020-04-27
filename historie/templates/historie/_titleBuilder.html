@@ -4,10 +4,11 @@
 Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalMitgliedMail" %}
-E-Mail-Adresse zu Mitglied {{entry.mitglied_id}}
+E-Mail-Adresse zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalMitgliedAmt" %}
-Zuordnung von Amt {{entry.amt_id}} zu Mitglied {{entry.mitglied_id}}
+Zuordnung von Amt {{entry.amt_id}} ({{latestAmt.bezeichnung}} {{latestUnterbereich.bezeichnung}} {{latestReferat.bezeichnung}})
+zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
 {% endif %}
 
 {% if entry|to_class_name == "HistoricalReferat" %}

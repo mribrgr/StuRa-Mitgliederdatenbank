@@ -1,38 +1,33 @@
 {% load to_class_name %}
 
-<!-- Modal -->
-<div id="modal{{entry|to_class_name}}{{entry.history_id}}" class="modal">
-  <div class="modal-content">
-    <h4>
-      {% include 'historie/_titleBuilder.html' %}
-    </h4>
-    <div>
-      <br />
-      <p><b>Zeitpunkt: </b> {{ entry.history_date|date:'d.m.Y H:i' }}</p>
-      <p><b>Nutzer: </b> {{ entry.history_user }}</p>
-      <br />
-      <h5>
-        {% if entry.history_type == "+" %}Hinzugefügter{% endif %}
-        {% if entry.history_type == "-" %}Gelöschter{% endif %}
-        {% if entry.history_type == "~" %}Neuer{% endif %}
-        Datensatz
-      </h5>
-      {% include 'historie/_modalDataIncludes.html' %}
-    </div>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect btn-flat">Schliessen</a>
-  </div>
-</div>
+{% load get_associated_data	%}
 
-<li class="collection-item historie-collection-item modal-trigger" href="#modal{{entry|to_class_name}}{{entry.history_id}}">
-  <a class="secondary-content">
-    <i class="material-icons">
-      {% if entry.history_type == "+" %}add{% endif %}
-      {% if entry.history_type == "~" %}edit{% endif %}
-      {% if entry.history_type == "-" %}delete{% endif %}
-    </i>
-  </a>
-  {{ entry.history_date|date:'d.m.Y H:i' }} –
-  {% include 'historie/_titleBuilder.html' %}
-</li>
+{% if entry|to_class_name == "HistoricalMitgliedMail" or entry|to_class_name == "HistoricalMitgliedAmt" %}
+    {% get_associated_data "Mitglied" "latest" entry.mitglied_id None as latestMitglied %}
+    {% get_associated_data "Mitglied" "historical" entry.mitglied_id entry.history_date as historicalMitglied %}
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalMitgliedAmt" %}
+    {% get_associated_data "Amt" "latest" entry.amt_id None as latestAmt %}
+    {% get_associated_data "Amt" "historical" entry.amt_id entry.history_date as historicalAmt %}
+    
+    {% get_associated_data "Unterbereich" "latest" latestAmt.unterbereich_id None as latestUnterbereich %}
+    {% get_associated_data "Unterbereich" "historical" historicalAmt.unterbereich_id entry.history_date as historicalUnterbereich %}
+    
+    {% get_associated_data "Referat" "latest" latestAmt.referat_id None as latestReferat %}
+    {% get_associated_data "Referat" "historical" historicalAmt.referat_id entry.history_date as historicalReferat %}
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalUnterbereich" %}
+
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalAmt" %}
+
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalAmtRecht" %}
+
+{% endif %}
+
+{% include 'historie/rowContent.html' %}
