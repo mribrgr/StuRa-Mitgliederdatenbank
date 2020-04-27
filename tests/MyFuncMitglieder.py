@@ -76,7 +76,7 @@ def addMitglied(self):
     self.assertEqual(self.browser.current_url, 
                         self.live_server_url + reverse('mitglieder:homepage'), 
                         msg="Weiterleitung nicht erfolgt")     
-    self.assertEqual(self.browser.find_element_by_xpath("//tr[@id='tr1' and @class='mitglied']/td[@id='mitgliedname-1' and contains(text(), 'Hans Peter')]").text,
+    self.assertEqual(self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
                         "Hans Peter", 
                         msg="Hans Peter wurde nicht angelegt")
     pass
