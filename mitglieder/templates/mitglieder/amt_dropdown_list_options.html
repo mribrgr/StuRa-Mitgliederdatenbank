@@ -1,10 +1,25 @@
 <div class="input-field col s10 m8 l3">
-<select id="selectamt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}" name=selectamt{% if amtid %}{{amtid}}{% else %}{{forloop.counter}}{%endif%}>
+<select id="selectamt{{amtid}}" name=selectamt{{amtid}} class="selectamt">
     <option disabled selected>Amt auswählen</option>
     {% if aemter %}
     {% for amt in aemter %}
     <option class="black-text" value="{{amt.id}}">{{amt.bezeichnung}}</option>
     {% endfor %}
+    {% else %}
+      <!--Amt Teil eines Unterbereichs-->
+      {% if amt.unterbereich %}
+        {% for amt_b in amt.unterbereich.amt_set.all %}
+          <option {% if amt.id == amt_b.id %}selected="selected"{% endif %} class="black-text" value="{{amt.id}}">{{amt_b.bezeichnung}}</option>
+        {% endfor %}
+      <!-- Amt nicht Teil eines Unterbereichs -->
+      {% else %}
+        {% for amt_r in amt.referat.amt_set.all %}
+          <!-- nur Anzeigen von Aemtern des Referats, die zu keinem Unterbereich gehoeren-->
+          {% if not amt_r.unterbereich %}
+            <option {% if amt.id == amt_r.id %}selected="selected"{% endif %} class="black-text" value="{{amt.id}}">{{amt_r.bezeichnung}}</option>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     {% endif %}
   </select>
   <label>Amt</label>

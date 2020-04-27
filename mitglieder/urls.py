@@ -6,7 +6,10 @@ app_name = 'mitglieder'  # here for namespacing of urls.
 urlpatterns = [
     path("", views.main_screen, name="homepage"),
     path("erstellen", views.mitgliedErstellenView, name="erstellenView"),
-    path("bearbeiten", views.mitgliedBearbeitenView, name="bearbeitenView"),
+    # Bearbeiten 
+    path("<int:mitglied_id>/bearbeiten", views.mitgliedBearbeitenView, name="bearbeitenView"),
+    path('ajax/laden', views.mitglied_laden, name='mitglied_laden'),
+    path("<int:mitglied_id>/bearbeiten/speichern", views.speichern, name="speichern"),
     path("ajax/mitglieder-loeschen", views.mitglieder_loeschen, name="mitglieder_loeschen"),
 
 # Mitglieder Erstellen View    
@@ -17,4 +20,7 @@ urlpatterns = [
     path('ajax/email-html-laden', views.email_html_laden, name='email_html_laden'),
     path('ajax/amt-loeschen', views.amt_loeschen, name='amt_loeschen'),
     path('ajax/email-loeschen', views.email_loeschen, name='email_loeschen'),
+
+    # Suchen
+    path('ajax/suchen', views.suchen, name="suchen"),
 ]
