@@ -59,12 +59,17 @@ class TestMitgliedHinzufuegen(MyTestCase):
         entNachname.send_keys('Peter')
         entSpitzname.send_keys('Hansi')
 
-        """
-            TODO: Amt bzw. Referat auswählen
-        """
+        # Referat auswählen
         self.browser.find_element_by_xpath("//input[@class='select-dropdown dropdown-trigger']").click()
-        self.browser.find_element_by_xpath("//ul[@class='dropdown-content select-dropdown']/li[2]").click()
-        time.sleep(120)
+        self.browser.find_element_by_xpath("//ul[@class='dropdown-content select-dropdown']/li[3]").click()
+
+        # Bereich auswählen
+        self.browser.find_element_by_xpath("//div[@id='div_selectbereich1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
+        self.browser.find_element_by_xpath("//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
+
+        # Amt auswählen
+        self.browser.find_element_by_xpath("//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
+        self.browser.find_element_by_xpath("//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
         
 
         btnAddEmail.click()
@@ -87,6 +92,11 @@ class TestMitgliedHinzufuegen(MyTestCase):
         entTelefon_mobil.send_keys('0362594833')
 
         # Speichern der Daten
-        #btnSave.click()
-        time.sleep(120)
+        btnSave.click()
+
+        # überprüfen ob alles geklapt hat
+        self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+            msg="Weiterleitung nicht erfolgt")
+        self.assertEquals(self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[@class='mitglied-1' and contains(text(), 'Peter, Hans')]").text,
+                    "Peter, Hans", msg="Hans Peter wurde nicht angelegt")
         pass
