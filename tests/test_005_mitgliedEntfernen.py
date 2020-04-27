@@ -14,12 +14,14 @@ class TestMitgliedEntfernen(MyTestCase):
         """
             Öffnen der Website
         """
+        time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
         except:
             print('Error in opening login page')
         
         
+        time.sleep(5)
         """
             Login as Admin
         """

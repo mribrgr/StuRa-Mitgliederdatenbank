@@ -13,11 +13,13 @@ class TestMitgliedHinzufuegen(MyTestCase):
 
     # Tests
     def test_1MitgliedHinzufügen_AsSuperuser(self):
+        time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
         except:
             print('Error in opening login page')
 
+        time.sleep(5)
         """
             Anmelden als Admin
         """
