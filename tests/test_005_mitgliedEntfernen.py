@@ -1,6 +1,7 @@
 import time
 
 from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedEntfernen(MyTestCase):
     """
@@ -23,5 +24,11 @@ class TestMitgliedEntfernen(MyTestCase):
             Login as Admin
         """
         loginAsLukasAdmin(self)
-        time.sleep(20)
+        addMitglied(self)
+
+        """
+            TODO: Löschen eines Mitglieds
+        """
+
+        time.sleep(120)
         pass

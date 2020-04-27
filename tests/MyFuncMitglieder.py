@@ -71,8 +71,10 @@ def addMitglied(self):
     btnSave.click()
 
     # überprüfen ob alles geklapt hat
-    self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
-        msg="Weiterleitung nicht erfolgt")
+    self.assertEquals(self.browser.current_url, 
+                        self.live_server_url + reverse('mitglieder:homepage'), 
+                        msg="Weiterleitung nicht erfolgt")
     self.assertEquals(self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[@class='mitglied-1' and contains(text(), 'Peter, Hans')]").text,
-                "Peter, Hans", msg="Hans Peter wurde nicht angelegt")
+                        "Peter, Hans", 
+                        msg="Hans Peter wurde nicht angelegt")
     pass
