@@ -122,7 +122,7 @@ class MyTestCase(StaticLiveServerTestCase):
     # after every test funktion
     def tearDown(self):
         try:
-            self.browser.close()
+            #self.browser.close()
             self.browser.quit()
         except:
             print('Error while closing')

@@ -1,6 +1,6 @@
 """
     how to run?
-    python .\manage.py test --verbosity=3 --parallel
+    python .\manage.py test --verbosity=2 --parallel --keepdb
 
     how to run sepecific?
     python .\manage.py test --verbosity=3 --parallel --pattern="test_004*.py"

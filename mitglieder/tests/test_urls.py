@@ -7,11 +7,11 @@ class TestUrls(SimpleTestCase):
     def test_main_url_resolves(self):
         url = reverse('mitglieder:homepage')
         #print(resolve(url))
-        self.assertEquals(resolve(url).func, main_screen)
+        self.assertEqual(resolve(url).func, main_screen)
 
     def test_erstellen_url_resolves(self):
         url = reverse('mitglieder:erstellenView')
-        self.assertEquals(resolve(url).func, mitgliedErstellenView)
+        self.assertEqual(resolve(url).func, mitgliedErstellenView)
 
     """
     def test_bearbeiten_url_resolves(self):
