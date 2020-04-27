@@ -23,7 +23,7 @@ def loginAsLukasAdmin(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
 
@@ -42,7 +42,7 @@ def loginAsLukasUser(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEquals(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
 
@@ -86,7 +86,7 @@ class MyTestCase(StaticLiveServerTestCase):
                     if not Referat.objects.filter(bezeichnung=referat).exists():
                         r = Referat(bezeichnung=referat)
                         r.save()
-                        print("Referat " + referat + " gespeichert")
+                        #print("Referat " + referat + " gespeichert")
                         # Aemter
                         a = Amt(bezeichnung="Leitung", referat=r)
                         a.save()
@@ -94,16 +94,17 @@ class MyTestCase(StaticLiveServerTestCase):
                         a.save()
 
                     else:
-                        print("Referat " + referat + " existiert bereits")
+                        #print("Referat " + referat + " existiert bereits")
+                        pass
 
         with open("bereiche.csv") as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             for row in reader:
                 referat = row.pop(0)
-                print(referat)
+                #print(referat)
                 for bereich in row:
                     if Unterbereich.objects.filter(bezeichnung=bereich).exists()==False:
-                        print("Bereich " + bereich + " (Referat: " + referat + ") wird gespeichert")
+                        #print("Bereich " + bereich + " (Referat: " + referat + ") wird gespeichert")
                         b = Unterbereich(bezeichnung=bereich, referat=Referat.objects.get(bezeichnung=referat))
                         b.save()
                         # Aemter
@@ -122,6 +123,7 @@ class MyTestCase(StaticLiveServerTestCase):
     def tearDown(self):
         try:
             self.browser.close()
+            self.browser.quit()
         except:
             print('Error while closing')
         pass

@@ -1,10 +1,12 @@
+import time
 from selenium import webdriver
 from django.urls import reverse
 
 def addMitglied(self):
     # Suchen des Hinzufügen Buttons
     try:
-        btnAddMitglied = self.browser.find_element_by_id('btn-mitadd')
+        btnAddMitglied = self.browser.find_element_by_xpath("//a[@href='/mitglieder/erstellen']")
+        #btnAddMitglied = self.browser.find_element_by_id('btn-mitadd')
     except:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
@@ -26,7 +28,7 @@ def addMitglied(self):
         
         # Buttons
         btnAddEmail = self.browser.find_element_by_id('addEmailBtn')
-        btnSave = self.browser.find_element_by_id('btn-save')
+        btnSave = self.browser.find_element_by_id('save_button')
     except:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
@@ -71,10 +73,10 @@ def addMitglied(self):
     btnSave.click()
 
     # überprüfen ob alles geklapt hat
-    self.assertEquals(self.browser.current_url, 
+    self.assertEqual(self.browser.current_url, 
                         self.live_server_url + reverse('mitglieder:homepage'), 
-                        msg="Weiterleitung nicht erfolgt")
-    self.assertEquals(self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[@class='mitglied-1' and contains(text(), 'Peter, Hans')]").text,
-                        "Peter, Hans", 
+                        msg="Weiterleitung nicht erfolgt")     
+    self.assertEqual(self.browser.find_element_by_xpath("//tr[@id='tr1' and @class='mitglied']/td[@id='mitgliedname-1' and contains(text(), 'Hans Peter')]").text,
+                        "Hans Peter", 
                         msg="Hans Peter wurde nicht angelegt")
     pass

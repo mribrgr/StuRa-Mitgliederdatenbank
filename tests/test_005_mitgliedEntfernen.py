@@ -26,7 +26,8 @@ class TestMitgliedEntfernen(MyTestCase):
             Login as Admin
         """
         loginAsLukasAdmin(self)
-        #addMitglied(self)
+        # addMitglied(self) # bei einzelausführung kein Problem?
+        # Fehler beim XPATH 
 
         """
             TODO: Löschen eines Mitglieds
