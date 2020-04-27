@@ -24,11 +24,11 @@ class TestMitgliedEntfernen(MyTestCase):
             Login as Admin
         """
         loginAsLukasAdmin(self)
-        addMitglied(self)
+        #addMitglied(self)
 
         """
             TODO: Löschen eines Mitglieds
         """
 
-        time.sleep(120)
+        #time.sleep(120)
         pass
