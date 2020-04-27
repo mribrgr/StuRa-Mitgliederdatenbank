@@ -1,9 +1,9 @@
 """
     how to run?
-    python .\manage.py test --verbosity=3 --keepdb --parallel
+    python .\manage.py test --verbosity=3 --parallel
 
     how to run sepecific?
-    python .\manage.py test --verbosity=3 --keepdb --parallel --pattern="test_004*.py"
+    python .\manage.py test --verbosity=3 --parallel --pattern="test_004*.py"
 """
 
 """
