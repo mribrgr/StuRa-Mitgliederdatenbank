@@ -4,5 +4,10 @@
     damals {{historicalMitglied.vorname}} {{historicalMitglied.name}})</p>
 <p><b>Amt: </b> 
     {{entry.amt_id}}
-    (aktuell {{latestAmt.bezeichnung}},
-    damals {{historicalAmt.bezeichnung}})</p>
+    (aktuell {{latestAmt.bezeichnung}} 
+        {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
+        {{latestReferat.bezeichnung}}{% if historicalAmt %}, damals 
+        {{historicalAmt.bezeichnung}} 
+        {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}
+        {{historicalReferat.bezeichnung}}
+    {% endif %})</p>

@@ -1,2 +1,8 @@
-<p><b>Amt: </b> {{entry.amt_id}}</p>
-<p><b>Recht: </b> {{entry.recht_id}}</p>
+<p><b>Amt: </b> {{entry.amt_id}}
+(aktuell {{latestAmt.bezeichnung}} 
+        {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
+        {{latestReferat.bezeichnung}}, damals {{historicalAmt.bezeichnung}} 
+        {% if historicalUnterbereich %}{{historicalUnterbereich.bezeichnung}} {% endif %}
+        {{historicalReferat.bezeichnung}})</p>
+<p><b>Recht: </b> {{entry.recht_id}}
+    (aktuell {{latestRecht.bezeichnung}}, damals {{historicalRecht.bezeichnung}})</p>

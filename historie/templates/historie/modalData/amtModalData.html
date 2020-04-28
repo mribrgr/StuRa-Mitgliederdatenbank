@@ -1,5 +1,11 @@
 <p><b>Amt-ID: </b> {{entry.id}}</p>
 <p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
 <p><b>Workload: </b> {{entry.workload}}</p>
-<p><b>Referat: </b> {{entry.referat_id}}</p>
-<p><b>Unterbereich: </b> {{entry.unterbereich_id}}</p>
+
+<p><b>Referat: </b> {{entry.referat_id}}
+    (aktuell {{latestReferat.bezeichnung}}, damals {{historicalReferat.bezeichnung}})
+</p>
+
+{% if entry.unterbereich_id %}<p><b>Unterbereich: </b>{{entry.unterbereich_id}} 
+    (aktuell {{latestUnterbereich.bezeichnung}}, damals {{historicalUnterbereich.bezeichnung}})
+</p>{% endif %}

@@ -11,6 +11,7 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
     if(desiredInfo == "Amt"): foreignClass = Amt
     if(desiredInfo == "Unterbereich"): foreignClass = Unterbereich
     if(desiredInfo == "Referat"): foreignClass = Referat
+    if(desiredInfo == "Recht"): foreignClass = Recht
 
     if primaryKey == "": return None
 
@@ -28,6 +29,7 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
             try:
                 associatedEntry = instance.history.as_of(timestamp)
             except:
+                # If the referenced object has been created before history was tracked
                 associatedEntry = None
         else:
             # If the referenced object has been deleted

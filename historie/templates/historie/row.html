@@ -7,27 +7,34 @@
     {% get_associated_data "Mitglied" "historical" entry.mitglied_id entry.history_date as historicalMitglied %}
 {% endif %}
 
-{% if entry|to_class_name == "HistoricalMitgliedAmt" %}
+{% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalAmtRecht" %}
     {% get_associated_data "Amt" "latest" entry.amt_id None as latestAmt %}
     {% get_associated_data "Amt" "historical" entry.amt_id entry.history_date as historicalAmt %}
-    
-    {% get_associated_data "Unterbereich" "latest" latestAmt.unterbereich_id None as latestUnterbereich %}
-    {% get_associated_data "Unterbereich" "historical" historicalAmt.unterbereich_id entry.history_date as historicalUnterbereich %}
-    
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalAmtRecht" %}
     {% get_associated_data "Referat" "latest" latestAmt.referat_id None as latestReferat %}
     {% get_associated_data "Referat" "historical" historicalAmt.referat_id entry.history_date as historicalReferat %}
 {% endif %}
 
-{% if entry|to_class_name == "HistoricalUnterbereich" %}
+{% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalAmtRecht" %}
+    {% get_associated_data "Unterbereich" "latest" latestAmt.unterbereich_id None as latestUnterbereich %}
+    {% get_associated_data "Unterbereich" "historical" historicalAmt.unterbereich_id entry.history_date as historicalUnterbereich %}
+{% endif %}
 
+{% if entry|to_class_name == "HistoricalAmt" or entry|to_class_name == "HistoricalUnterbereich" %}
+    {% get_associated_data "Referat" "latest" entry.referat_id None as latestReferat %}
+    {% get_associated_data "Referat" "historical" entry.referat_id entry.history_date as historicalReferat %}
 {% endif %}
 
 {% if entry|to_class_name == "HistoricalAmt" %}
-
+    {% get_associated_data "Unterbereich" "latest" entry.unterbereich_id None as latestUnterbereich %}
+    {% get_associated_data "Unterbereich" "historical" entry.unterbereich_id entry.history_date as historicalUnterbereich %}
 {% endif %}
 
 {% if entry|to_class_name == "HistoricalAmtRecht" %}
-
+    {% get_associated_data "Recht" "latest" entry.recht_id None as latestRecht %}
+    {% get_associated_data "Recht" "historical" entry.recht_id entry.history_date as historicalRecht %}
 {% endif %}
 
 {% include 'historie/rowContent.html' %}
