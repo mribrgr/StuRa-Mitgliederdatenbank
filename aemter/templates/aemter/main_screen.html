@@ -2,69 +2,57 @@
 
 {% block content %}
 
-
-
 <div class="row">
   <div class="col s12">
     <h3>Ämter</h3>
   </div>
+
   <div class="col s12">
     <ul class="collapsible">
-      {% for referat in referate_set %}
-      <li>
-        <div class="collapsible-header grey lighten-2">{{referat.name}}</div>
-        <div class="collapsible-body">
-          <span>
-            <table>
+      <!-- List all referats as collapsibles -->
+      {% for referat in referate %}
+        <li>
+          <div class="collapsible-header grey lighten-2">Referat {{referat.bezeichnung}}</div>
+          <div class="collapsible-body">
+            <table name="department_table">
               <tbody>
-                <tr>
-                  <td witdth="100px">Referatsleitung</td>
-                  <td><span class="mitglied" id="{{referat.leitung.mitid}}">{{referat.leitung.name}}</span></td>
-                </tr>
-                <tr class="last-row">
-                  <td>Stellvertretende Referatsleitung</td>
-                  <td><span class="mitglied" id="{{bereich.stellvertretung.mitid}}">{{referat.stellvertretung.name}}</span></td>
-                </tr>
+                <!-- List all departments with their persons in office -->
+                {% for amt in aemter %}
+                  {% if amt.referat.id == referat.id and not amt.unterbereich %}
+                    {% include "./department_row.html" %}
+                  {% endif %}
+                {% endfor %}
               </tbody>
             </table>
+
             <ul class="collapsible">
-              {% for bereich in referat.bereiche_set %}
-              <li>
-                <div class="collapsible-header grey lighten-2">{{bereich.name}}</div>
-                <div class="collapsible-body">
-                  <table>
-                    <thead></thead>
-                    <tbody>
-                      <tr>
-                        <td>Bereichsleitung</td>
-                        <td><span class="mitglied" id="{{bereich.leitung.mitid}}">{{bereich.leitung.name}}</span></td>
-                      </tr>
-                      <tr>
-                        <td>Stellvertretende Bereichsleitung</td>
-                        <td><span class="mitglied" id="{{bereich.stellvertretung.mitid}}">{{bereich.stellvertretung.name}}</span></td>
-                      </tr>
-                      <tr class="last-row">
-                        <td>Weitere Mitglieder</td>
-                        <td>
-                        {% for mitglied in bereich.weitere_mitglieder %}
-                          <span class="mitglied" id="{{mitglied.mitid}}">{{mitglied.name}}</span><br>
-                        {% endfor %}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              <!-- List all sub-categories assigned to the referat as collapsibles -->
+              {% for unterbereich in unterbereiche %}
+                {% if unterbereich.referat.id == referat.id %}
+                  <li>
+                    <div class="collapsible-header grey lighten-2">Bereich {{unterbereich.bezeichnung}}</div>
+                    <div class="collapsible-body">
+                      <table name="department_table">
+                        <tbody>
+                          <!-- List all departments assigned to the sub-category with their persons in office -->
+                          {% for amt in aemter %}
+                            {% if amt.unterbereich.id == unterbereich.id %}
+                              {% include "./department_row.html" %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </li>
+                {% endif %}
               {% endfor %}
-            </li>
-          </ul>
-        </span>
-      </div>
-    </li>
-    {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </div>
-
 
 
 <style>
@@ -80,12 +68,33 @@
   }
 </style>
 
+
 <script>
+  /*
+    Marks last row of the given table for the Materialize framework.
+  */
+  function modify_last_line(table) {
+    let last_row = table.rows[table.rows.length - 1];
+    last_row.classList.add("last-row");
+  }
+
+  /*
+    Removes the line after the last row of any table.
+  */
+  function pretify_tables() {
+    let department_tables = document.getElementsByTagName("table");
+    for (let i = 0; i < department_tables.length; i++) {
+      modify_last_line(department_tables[i]);
+    }
+  }
+
+
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.collapsible');
     var options;
     var instances = M.Collapsible.init(elems, options);
   });
+  pretify_tables();
 </script>
 
 {% endblock %}

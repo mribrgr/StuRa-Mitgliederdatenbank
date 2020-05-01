@@ -1,0 +1,14 @@
+
+<tr>
+    <td>
+        {{amt.bezeichnung}}
+    </td>
+    <td>
+        <!-- Filter people that aren't assigned to the department -->
+        {% for mitglied in mitglieder %}
+            {% if mitglied.amt.id == amt.id %}
+                {{mitglied.mitglied.vorname}} {{mitglied.mitglied.name}}<br/>
+            {% endif %}
+        {% endfor %}
+    </td>
+</tr>
