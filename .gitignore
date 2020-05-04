@@ -108,3 +108,6 @@ venv.bak/
 # VS/VSCode directories
 .vs/
 .vscode/
+
+# Database
+db.sqlite3
