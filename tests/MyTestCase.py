@@ -57,7 +57,7 @@ class MyTestCase(StaticLiveServerTestCase):
             self.browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-win64\\geckodriver.exe')
             pass
         if system() == 'Linux':
-            self.browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-linux64\\geckodriver')
+            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver')
             pass
 
         self.browser.implicitly_wait(10)
