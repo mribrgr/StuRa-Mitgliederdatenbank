@@ -1,6 +1,6 @@
 # StuRa-Mitgliederdatenbank
 <!-- Badges -->
-![Test_Windows](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/Test/badge.svg)
+![Test_Windows](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/Test_Windows/badge.svg)
 ![flake8](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge.svg)
 
 ## Nützliches
