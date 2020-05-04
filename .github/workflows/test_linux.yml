@@ -39,4 +39,4 @@ jobs:
 
     # Run Tests
     - name: Run all tests
-      run: python -Wa manage.py test --verbosity=3 --parallel
+      run: python -Wa manage.py test --verbosity=3
