@@ -33,7 +33,7 @@ class TestMitgliedEntfernen(MyTestCase):
         self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
 
         """
-            TODO: Überprüfung ob Mitglied gelöscht
+            Überprüfung ob Mitglied gelöscht
         """
         self.assertEqual(self.browser.find_element_by_xpath("//div[@id='notification']").text, 
             "Mitglieder wurden erfolgreich gelöscht")
