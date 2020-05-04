@@ -26,14 +26,15 @@ class TestMitgliedEntfernen(MyTestCase):
         addMitglied(self) 
 
         """
-            TODO: Löschen eines Mitglieds
+            Löschen eines Mitglieds
         """
-
-        checkbox = self.browser.find_element_by_xpath("//label[@for='chk-1']/span")
-        checkbox.click()
-
+        self.browser.find_element_by_xpath("//label[@for='chk-1']/span").click()
         self.browser.find_element_by_xpath("//a[@id='delbtnl']").click()
         self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
+
+        """
+            TODO: Überprüfung ob Mitglied gelöscht
+        """
 
         time.sleep(120)
         pass
