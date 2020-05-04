@@ -35,6 +35,7 @@ class TestMitgliedEntfernen(MyTestCase):
         """
             TODO: Überprüfung ob Mitglied gelöscht
         """
+        self.assertEqual(self.browser.find_element_by_xpath("//div[@id='notification']").text, 
+            "Mitglieder wurden erfolgreich gelöscht")
 
-        time.sleep(120)
         pass
