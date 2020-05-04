@@ -11,9 +11,6 @@ class TestMitgliedEntfernen(MyTestCase):
     
     # Tests
     def test_1MitgliedEntfernen_AsSuperuser(self):
-        """
-            Öffnen der Website
-        """
         time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
@@ -26,12 +23,17 @@ class TestMitgliedEntfernen(MyTestCase):
             Login as Admin
         """
         loginAsLukasAdmin(self)
-        addMitglied(self) # bei einzelausführung kein Problem?
-        # Fehler beim XPATH 
+        addMitglied(self) 
 
         """
             TODO: Löschen eines Mitglieds
         """
 
-        #time.sleep(120)
+        checkbox = self.browser.find_element_by_xpath("//label[@for='chk-1']/span")
+        checkbox.click()
+
+        self.browser.find_element_by_xpath("//a[@id='delbtnl']").click()
+        self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
+
+        time.sleep(120)
         pass

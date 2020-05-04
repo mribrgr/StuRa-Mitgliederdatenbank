@@ -9,9 +9,6 @@ class TestUser(MyTestCase):
     
     # Tests
     def test_login_user(self):
-        """
-            Öffnen der Website
-        """
         time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
@@ -23,4 +20,8 @@ class TestUser(MyTestCase):
             Login as User
         """
         loginAsLukasUser(self)
+
+        """
+            TODO: Check ob es ein User ist.
+        """
         pass
