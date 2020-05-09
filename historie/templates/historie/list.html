@@ -2,8 +2,35 @@
 
 {% block content %}
 <div class="row">
-  <div class="col s12">
+  <div class="col s12 m12 l6">
     <h3>Historie</h3>
+  </div>
+
+  <!-- Do not right-align search on smaller screens -->
+  <div class="col s12 hide-on-large-only">
+    <div class="input-field inline" style="margin-top: 27px">
+      <input class="validate" type="text" id="search">
+      <label for="search">Suchen...</label>
+    </div>
+    <a class="btn-floating waves-effect waves-light amber">
+      <i class="material-icons black-text">search</i>
+    </a>
+  </div>
+
+  <!-- Right-align search on large screens -->
+  <div class="col l6 hide-on-med-and-down right-align">
+    <div class="input-field inline" style="margin-top: 27px">
+      <input class="validate" type="text" id="searchLg">
+      <label for="searchLg">Suchen...</label>
+    </div>
+    <a class="btn-floating waves-effect waves-light amber">
+      <i class="material-icons black-text">search</i>
+    </a>
+  </div>  
+</div>
+
+<div class="row">
+  <div class="col s12">
     <ul class="tabs">
       <li class="tab col s4"><a class="active" href="#mitgliederTab">Mitglieder</a></li>
       <li class="tab col s4"><a href="#aemterTab">Ämter</a></li>
