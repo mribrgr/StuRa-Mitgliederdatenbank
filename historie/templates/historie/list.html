@@ -7,27 +7,18 @@
   </div>
 
   <!-- Do not right-align search on smaller screens -->
-  <div class="col s12 hide-on-large-only">
-    <div class="input-field inline" style="margin-top: 27px">
-      <input class="validate" type="text" id="search">
-      <label for="search">Suchen...</label>
-    </div>
-    <a class="btn-floating waves-effect waves-light amber">
-      <i class="material-icons black-text">search</i>
-    </a>
+  <div class="col s12">
+    <form method="GET" action="">
+      {% csrf_token %}
+      <div class="input-field inline" style="margin-top: 27px">
+        <input class="validate" type="search" name="search" id="search" value="{{searchterm}}">
+        <label for="search">Suchen...</label>
+      </div>
+      <button class="btn-floating waves-effect waves-light amber" type="submit">
+        <i class="material-icons black-text">search</i>
+      </a>
+    </form>
   </div>
-
-  <!-- Right-align search on large screens -->
-  <div class="col l6 hide-on-med-and-down right-align">
-    <div class="input-field inline" style="margin-top: 27px">
-      <input class="validate" type="text" id="searchLg">
-      <label for="searchLg">Suchen...</label>
-    </div>
-    <a class="btn-floating waves-effect waves-light amber">
-      <i class="material-icons black-text">search</i>
-    </a>
-  </div>  
-</div>
 
 <div class="row">
   <div class="col s12">
