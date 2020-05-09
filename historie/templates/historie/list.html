@@ -6,7 +6,6 @@
     <h3>Historie</h3>
   </div>
 
-  <!-- Do not right-align search on smaller screens -->
   <div class="col s12">
     <form method="GET" action="">
       {% csrf_token %}
@@ -16,6 +15,9 @@
       </div>
       <button class="btn-floating waves-effect waves-light amber" type="submit">
         <i class="material-icons black-text">search</i>
+      </button>
+      <a href="/admin/historie" class="btn-floating waves-effect waves-light amber">
+        <i class="material-icons black-text">clear</i>
       </a>
     </form>
   </div>

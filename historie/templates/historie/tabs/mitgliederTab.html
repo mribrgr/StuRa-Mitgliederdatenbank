@@ -9,24 +9,30 @@
       <ul class="collection">
         {% for entry in mitglieder %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
   </div>
   <div id="mitgliederMailsTab">
-      <p>
-        <ul class="collection">
-          {% for entry in mitgliederMails %}
-          {% include 'historie/row.html' %}
-          {% endfor %}
-        </ul>
-      </p>
+    <p>
+      <ul class="collection">
+        {% for entry in mitgliederMails %}
+        {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
+        {% endfor %}
+      </ul>
+    </p>
   </div>
   <div id="mitgliederAemterTab">
     <p>
       <ul class="collection">
         {% for entry in mitgliederAemter %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>

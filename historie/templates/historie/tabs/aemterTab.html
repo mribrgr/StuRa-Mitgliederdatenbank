@@ -11,6 +11,8 @@
       <ul class="collection">
         {% for entry in referate %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
@@ -20,6 +22,8 @@
       <ul class="collection">
         {% for entry in unterbereiche %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
@@ -29,6 +33,8 @@
       <ul class="collection">
         {% for entry in aemter %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
@@ -38,6 +44,8 @@
       <ul class="collection">
         {% for entry in rechte %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
@@ -47,6 +55,8 @@
       <ul class="collection">
         {% for entry in aemterRechte %}
         {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
         {% endfor %}
       </ul>
     </p>
