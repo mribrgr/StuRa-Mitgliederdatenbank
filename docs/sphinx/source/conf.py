@@ -14,6 +14,13 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('./../../..'))
 
+# Specify settings module
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bin.settings')
+
+# Setup Django
+import django
+django.setup()
+
 
 # -- Project information -----------------------------------------------------
 
