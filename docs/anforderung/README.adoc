@@ -80,9 +80,6 @@ include::files/archit_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
 // Test Cases
 include::files/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
-// Design
-include::files/design.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
 
 = Essence Navigator
 image::img/essenceNavigator/2019-12-16.PNG[]

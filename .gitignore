@@ -107,3 +107,4 @@ venv.bak/
 
 # Visual Studio directories
 .vs/
+.vscode/

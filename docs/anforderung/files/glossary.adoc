@@ -40,6 +40,7 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |AE|Aufwandsentschädigung|Bei besonders hohem Zeitaufwand als Vergütung
 |UP|Unified Process|Vorgehensmodell für die Softwareentwicklung
 |Plone|--|Website des STURA
+|LXC |xx |xx
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -47,4 +48,5 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |===
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
+|Mitgliedsdaten |xx |xx |xx |xx 
 |===
