@@ -1,0 +1,4 @@
+django
+selenium
+simplejson
+sphinx

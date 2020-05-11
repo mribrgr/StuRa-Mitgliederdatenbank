@@ -1,46 +1,6 @@
 {% for entry in data %}
-    <!-- Modal -->
-    <div id="modal-{{entry.id}}" class="modal">
-        <div class="modal-content">
-            <h3>{{entry.vorname}} {% if entry.spitzname %}"{{entry.spitzname}}"{% endif %} {{entry.name}}</h3>
-            <div>
-                <br />
-                <p><b>Mitglieds-ID:</b> {{entry.id}}</p>
-                <p><b>Ämter:</b>
-                    {% if entry.mitgliedamt_set.all %}
-                        <ul>
-                            {% for amt in entry.mitgliedamt_set.all %}
-                                <li>{{amt.amt}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}-
-                    {% endif %}
-                </p>
-                <br />
-                {% if entry.strasse or entry.hausnr or entry.plz or entry.ort %}
-                <h5>Anschrift</h5>
-                <p>{% if entry.strasse %}{{entry.strasse}}{% endif %} {% if entry.hausnr %}{{entry.hausnr}}{% endif %}</p>
-                <p>{% if entry.plz %}{{entry.plz}}{% endif %} {% if entry.ort %}{{entry.ort}}{% endif %}</p>
-                <br />
-                {% endif %}
-                <h5>Kontaktdaten</h5>
-                {% if entry.tel_mobil %}<p><b>Telefon:</b> {{entry.tel_mobil}}</p>{% endif %}
-                <p><b>E-Mails:</b>
-                    <ul>
-                    {% for mail in entry.mitgliedmail_set.all %}
-                    <li>{{mail.email}}</li>
-                    {% endfor %}
-                    </ul>
-                </p>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schließen</a>
-        </div>
-    </div>
-
     <!-- Zeile -->
-    <tr id="tr{{entry.id}}" class="mitglied">
+    <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
         {% if request.user.is_superuser %}
         <td>
             <!-- Checkbox -->
@@ -51,7 +11,7 @@
             </label>
             </form>
         </td>
-        <td class="mitglied-{{entry.id}}">{{entry.name}}, {{entry.vorname}}</td>
+        <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
         <td class="mitglied-{{entry.id}}">
             {% if entry.mitgliedamt_set.all %}
             <ul>
@@ -74,9 +34,7 @@
             {% endif %}
         </td>
         <td class="mitglied-{{entry.id}} hide-on-med-and-down">
-            {% if entry.tel_mobil %}
-                {{entry.tel_mobil}}
-            {% else %}-{% endif %}
+            {{entry.tel_mobil|default:'-'}}
         </td>
         <!-- TODO: Auflösen
           {% endif %}
@@ -87,21 +45,7 @@
           <td class="mitglied-{{entry.mitid}} hide-on-med-and-down">{{entry.telmobil}}</td>
           {% if request.user.is_superuser %}
         -->
-        <td><a href="/mitglieder/bearbeiten"><i class="material-icons black-text">create</i></a></td>
+        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
         {% endif %}
     </tr>
-
-    <script>
-        var elem_{{entry.id}} = document.getElementById('modal-{{entry.id}}');
-        var instance_{{entry.id}} = M.Modal.init(elem_{{entry.id}}, {dismissible: true});
-        var elements = document.getElementsByClassName('mitglied-{{entry.id}}');
-        for(var i=0; i<elements.length; i++)
-        {
-            (elements)[i].addEventListener("click", function(){
-                //alert(this.innerHTML);
-                //alert(i);
-                instance_{{entry.id}}.open();
-            });
-        }
-    </script>
 {% endfor %}

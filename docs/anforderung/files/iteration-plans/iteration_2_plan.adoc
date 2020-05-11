@@ -21,9 +21,6 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 
 == Wesentliche Ziele
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
-
-Beispiele:
-
 * Wireframes ausarbeiten
 * Ausgearbeitete Wireframes Stakeholdern vorführen
 
@@ -52,8 +49,6 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 								
 == Bewertungskriterien
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
-Beispiele:
-
 * Essence Navigator Bilder wurden erstellt
 * Wireframes erhalten positive Rückmeldung vom Stackholder
 * Aufgaben abgeschlossen ja/nein

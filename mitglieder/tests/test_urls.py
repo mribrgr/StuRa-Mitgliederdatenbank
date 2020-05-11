@@ -1,18 +1,21 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from mitglieder.views import main_screen, mitglied_bearbeiten, mitglied_erstellen
+from mitglieder.views import main_screen, mitgliedErstellenView, mitgliedBearbeitenView
 
 class TestUrls(SimpleTestCase):
     def test_main_url_resolves(self):
-        url = reverse('main')
+        url = reverse('mitglieder:homepage')
         #print(resolve(url))
-        self.assertEquals(resolve(url).func, main_screen)
+        self.assertEqual(resolve(url).func, main_screen)
 
     def test_erstellen_url_resolves(self):
-        url = reverse('erstellen')
-        self.assertEquals(resolve(url).func, mitglied_erstellen)
+        url = reverse('mitglieder:erstellenView')
+        self.assertEqual(resolve(url).func, mitgliedErstellenView)
 
+    """
     def test_bearbeiten_url_resolves(self):
-        url = reverse('bearbeiten')
-        self.assertEquals(resolve(url).func, mitglied_bearbeiten)
+        url = reverse('mitglieder:bearbeitenView')
+        self.assertEquals(resolve(url).func, mitgliedBearbeitenView)#
+    """
+        

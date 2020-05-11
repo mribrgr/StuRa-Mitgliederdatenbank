@@ -21,9 +21,6 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 
 == Wesentliche Ziele
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
-
-Beispiele:
-
 * Beheben der Usability-Probleme, die von Abteilung X berichtet wurden
 * Ausliefern der Hauptszenarios, die die Integration mit System Y zeigen
 * 
@@ -58,8 +55,6 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 == Bewertungskriterien
 //Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
-Beispiele:
-
 * 97% der Testfälle auf Systemebene sind erfolgreich.
 * Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit den Abteilungen X und Y ergibt positive Rückmeldung.
 * Technische Präsentation / Demo erhält positive Rückmeldungen.
