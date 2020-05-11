@@ -60,7 +60,7 @@ class TestMultiuser(StaticLiveServerTestCase):
         """Returns a list containing :class:`bluepy.btle.Characteristic` objects for the peripheral. If no arguments are given, will return all characteristics. If startHnd and/or endHnd are given, the list is restricted to characteristics whose handles are within the given range.
 
         :param startHnd: Start index, defaults to 1
-        :type startHnd: xyz, optional
+        :type startHnd: int, optional
         :param endHnd: End index, defaults to 0xFFFF
         :type endHnd: int, optional
         :param uuids: a list of UUID strings, defaults to None

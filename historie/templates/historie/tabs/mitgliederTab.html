@@ -1,0 +1,40 @@
+<div id="mitgliederTab" class="col s12">
+  <ul class="tabs secondary-tabs">
+    <li class="tab col s4"><a class="active" href="#mitgliederStammdatenTab">Stammdaten</a></li>
+    <li class="tab col s4"><a href="#mitgliederMailsTab">E-Mail-Adressen</a></li>
+    <li class="tab col s4"><a href="#mitgliederAemterTab">Ämter</a></li>
+  </ul>
+  <div id="mitgliederStammdatenTab">
+    <p>
+      <ul class="collection">
+        {% for entry in mitglieder %}
+        {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+  <div id="mitgliederMailsTab">
+    <p>
+      <ul class="collection">
+        {% for entry in mitgliederMails %}
+        {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+  <div id="mitgliederAemterTab">
+    <p>
+      <ul class="collection">
+        {% for entry in mitgliederAemter %}
+        {% include 'historie/row.html' %}
+        {% empty %}
+        {% include 'historie/_noResultsRow.html' %}
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+</div>

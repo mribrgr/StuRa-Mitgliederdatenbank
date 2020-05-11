@@ -1,0 +1,31 @@
+{% load to_class_name %}
+
+{% if entry|to_class_name == "HistoricalMitglied" %}
+{% include 'historie/modalData/mitgliedModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalMitgliedMail" %}
+{% include 'historie/modalData/mitgliedMailModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalMitgliedAmt" %}
+{% include 'historie/modalData/mitgliedAmtModalData.html' %}
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalReferat" %}
+{% include 'historie/modalData/referatModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalUnterbereich" %}
+{% include 'historie/modalData/unterbereichModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalAmt" %}
+{% include 'historie/modalData/amtModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalRecht" %}
+{% include 'historie/modalData/rechtModalData.html' %}
+{% endif %}
+{% if entry|to_class_name == "HistoricalAmtRecht" %}
+{% include 'historie/modalData/amtRechtModalData.html' %}
+{% endif %}
+
+{% if entry|to_class_name == "HistoricalUser" %}
+{% include 'historie/modalData/userModalData.html' %}
+{% endif %}

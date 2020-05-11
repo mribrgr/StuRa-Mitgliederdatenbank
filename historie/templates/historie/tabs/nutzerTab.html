@@ -1,0 +1,11 @@
+<div id="nutzerTab" class="col s12">
+  <p>
+    <ul class="collection">
+      {% for entry in users %}
+      {% include 'historie/row.html' %}
+      {% empty %}
+      {% include 'historie/_noResultsRow.html' %}
+      {% endfor %}
+    </ul>
+  </p>
+</div>

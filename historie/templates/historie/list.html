@@ -1,5 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Hier wird die Historie angezeigt.</p>
+<div class="row">
+  <div class="col s12 m12 l6">
+    <h3>Historie</h3>
+  </div>
+
+  <div class="col s12">
+    <form method="GET" action="">
+      {% csrf_token %}
+      <div class="input-field inline" style="margin-top: 27px">
+        <input class="validate" type="search" name="search" id="search" value="{{searchterm}}">
+        <label for="search">Suchen...</label>
+      </div>
+      <button class="btn-floating waves-effect waves-light amber" type="submit">
+        <i class="material-icons black-text">search</i>
+      </button>
+      <a href="/admin/historie" class="btn-floating waves-effect waves-light amber">
+        <i class="material-icons black-text">clear</i>
+      </a>
+    </form>
+  </div>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s4"><a class="active" href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s4"><a href="#aemterTab">Ämter</a></li>
+      <li class="tab col s4"><a href="#nutzerTab">Systemnutzer</a></li>
+    </ul>
+  </div>
+  {% include 'historie/tabs/mitgliederTab.html' %}
+  {% include 'historie/tabs/aemterTab.html' %}
+  {% include 'historie/tabs/nutzerTab.html' %}
+</div>
+
+<!-- Initialize tabs and modals -->
+<script>
+  var el = document.querySelectorAll('.tabs');
+  var options;
+  var instance = M.Tabs.init(el, options);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var options;
+    var instances = M.Modal.init(elems, options);
+  });
+</script>
+
 {% endblock %}
