@@ -45,6 +45,6 @@ Testfall 005
 
 Testfall Spinx
 --------------
-.. automodule:: tests.test_sphinx
+.. automodule:: tests.sphinx
     :members:
     :undoc-members:
