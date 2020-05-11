@@ -37,6 +37,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    # Make migrations
+    - name: Run all tests
+      run: python manage.py makemigrations
+    
+    # Migrate
+    - name: Run all tests
+      run: python manage.py migrate
+      
     # Run Tests
     - name: Run all tests
       run: python -Wa manage.py test --verbosity=3 --parallel
