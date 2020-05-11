@@ -108,3 +108,7 @@ venv.bak/
 # Visual Studio directories
 .vs/
 .vscode/
+
+# Databese
+*.sqlite3
+*.sqlite
