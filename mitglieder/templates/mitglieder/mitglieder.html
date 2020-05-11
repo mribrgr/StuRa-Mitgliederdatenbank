@@ -41,16 +41,12 @@
           <table class="highlight">
             <thead>
               <tr>
-                {% if request.user.is_superuser %} 
                 <th></th>
-                {% endif %}
                 <th>Name</th>
                 <th>Ämter</th>
                 <th class="hide-on-small-only">E-Mails</th>
                 <th class="hide-on-med-and-down">Telefon</th>
-                  {% if request.user.is_superuser %} 
                 <th></th>
-                {% endif %} 
               </tr>
             </thead>
 
@@ -160,9 +156,7 @@
             success: function(data){
               var modal = $("#modal");
               modal.html(data);
-              // Modal ausfuellen
 
-              
               //Modal oeffnen 
               var instance = M.Modal.getInstance(modal)
               instance.open();
@@ -234,6 +228,9 @@
               // Meldung, dass Mitglieder erfolgreich geloescht wurden
               $("#notification").html("Mitglieder wurden erfolgreich gelöscht");
               selectedcheckboxes_num=0;
+              // Deaktivieren des Loeschbuttonss
+              $("#delbtnl").addClass("disabled");
+              $("#delbtns").addClass("disabled");
             }
           });
         });

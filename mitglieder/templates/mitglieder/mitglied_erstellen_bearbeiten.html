@@ -142,8 +142,8 @@
 
 <script>
   var referat_bez;
-  var amt_num = {{mitglied.mitgliedmail_set.count|default:1}};
-  var email_num = 1;
+  var amt_num = {{mitglied.mitgliedamt_set.count|default:1}};
+  var email_num = {{mitglied.mitgliedmail_set.count|default:1}};
   $(document).ready(function(){
   // Selects initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
@@ -158,10 +158,12 @@
       $("#vorname").addClass("invalid_input");
       addInputEventListener("vorname");
       valid_input = false;
+      console.log("vorname fehlt");
     } else $("#vorname").removeClass("invalid_input");
     if ($("#nachname").val()==""){
       $("#nachname").addClass("invalid_input");
       addInputEventListener("nachname");
+      console.log("name fehlt");
       valid_input = false;
     }
     // Pruefen, ob alle E-Mail- und Amtfelder ausgefuellt sind
@@ -170,24 +172,30 @@
       if (isEmail(email)==false) {
         $("#email" + i.toString()).addClass("invalid_input");
         addInputEventListener("email" + i.toString());
+        console.log("ungueltige email");
         valid_input=false;
       }
     }
     for (var i=1; i<=amt_num; i++){
       // Select fuer Amt existiert nocht nicht (weil kein Referat oder Bereich ausgewaehlt wurde) => rot markieren
       if (!$("#selectamt"+i.toString()).length){
+        console.log("selectamt" + i.toString());
         // Dropdown fuer Bereich existiert => rot markieren, ansonsten Dropdown fuer Referat rot markieren
         if ($("#selectbereich" + i.toString()).length){
+          console.log("Bereich wurde nicht ausgewaehlt")
           $("#div_selectbereich"+i.toString()).addClass("invalid_input");
           addDropdownEventListener("selectbereich" + i.toString());
         } else {
           $("#div_selectreferat" + i.toString()).addClass("invalid_input");
+          console.log("Referat wurde nicht ausgewaehlt");
           addDropdownEventListener("selectreferat" + i.toString());
         }
+        console.log("Kein Bereich oder Referat ausgewahelt");
         valid_input = false;
       }
       // Referat und Bereich, aber kein Amt ausgewaehlt => Amt rot markieren
       if ($("#selectamt" + i.toString() + " option:selected").prop("disabled")==true){
+        console.log("Ein Amt wurde nicht ausgewaehlt");
         valid_input = false;
         $("#div_selectamt" + i.toString()).addClass("invalid_input");
         addDropdownEventListener("selectamt" + i.toString());
