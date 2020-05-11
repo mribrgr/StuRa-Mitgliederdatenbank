@@ -105,9 +105,10 @@ venv.bak/
 # Visual Paradigm Backups
 *.vpp.*
 
-# VS/VSCode directories
+# Visual Studio directories
 .vs/
 .vscode/
 
-# Database
-db.sqlite3
+# Databese
+*.sqlite3
+*.sqlite
