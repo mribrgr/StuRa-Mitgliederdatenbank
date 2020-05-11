@@ -9,6 +9,12 @@ from aemter.models import Amt, Unterbereich, Referat
 
 
 def loginAsLukasAdmin(self):
+    """Login as testlukasadmin
+
+        :param self: self
+        :return: There is no return
+        :rtype: none
+    """
     # Suche aller Objekte der Seite
     try:
         entUsername = self.browser.find_element_by_id('id_username')
@@ -47,6 +53,10 @@ def loginAsLukasUser(self):
     pass
 
 class MyTestCase(StaticLiveServerTestCase):
+    """
+        Setup and Teardown funktions are specified here.
+        
+    """
     # befor every test funktion
     def setUp(self):
         """
