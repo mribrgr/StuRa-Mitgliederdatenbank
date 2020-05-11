@@ -12,13 +12,16 @@ Requirements:
 * Django
 * ...
 
+
 .. look for files like <file>.rst
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
 
-   tests 
+   mitglieder 
+   tests
+   
 
 
 
