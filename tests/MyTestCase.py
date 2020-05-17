@@ -1,6 +1,7 @@
 import csv
 from platform import system
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
@@ -68,7 +69,9 @@ class MyTestCase(StaticLiveServerTestCase):
             pass
         if system() == 'Linux':
             #executable_path='tests/firefoxdriver-linux64/geckodriver'
-            self.browser = webdriver.Firefox()
+            options = Options()
+            options.set_headless(headless=True)
+            self.browser = webdriver.Firefox(firefox_options=options)
             pass
 
         self.browser.implicitly_wait(10)
