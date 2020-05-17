@@ -30,6 +30,4 @@ jobs:
 
     # Create documentation
     - name: build
-      run: |
-        make clean
-        make html
+      run: make html
