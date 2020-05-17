@@ -71,7 +71,7 @@ class MyTestCase(StaticLiveServerTestCase):
             #executable_path='tests/firefoxdriver-linux64/geckodriver'
             options = Options()
             options.set_headless(headless=True)
-            self.browser = webdriver.Firefox(firefox_options=options)
+            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver', firefox_options=options)
             pass
 
         self.browser.implicitly_wait(10)
