@@ -35,9 +35,8 @@ class TestMitgliedEntfernen(MyTestCase):
         """
             Überprüfung ob Mitglied gelöscht
         """
-
         text = self.browser.find_element_by_xpath("//div[@id='notification']").text
-        if (len(text) > 1):
+        if (len(text) >= 1):
             mybool = True
         else:
             mybool = False
