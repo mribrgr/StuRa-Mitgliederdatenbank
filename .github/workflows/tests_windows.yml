@@ -47,4 +47,4 @@ jobs:
       
     # Run Tests
     - name: Run all tests
-      run: python -Wa manage.py
+      run: python -Wa manage.py test
