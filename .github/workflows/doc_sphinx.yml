@@ -34,6 +34,10 @@ jobs:
     - name: Change directory
       run: cd .\docs\sphinx\
 
+    # display Path
+    - name: PATH
+      run: tree
+
     # Create documentation
     - name: build
       run: |
