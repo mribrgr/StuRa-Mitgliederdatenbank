@@ -29,7 +29,7 @@ def loginAsLukasAdmin(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
 
@@ -48,14 +48,14 @@ def loginAsLukasUser(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'), 
+    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
 
 class MyTestCase(StaticLiveServerTestCase):
     """
         Setup and Teardown funktions are specified here.
-        
+
     """
     # befor every test funktion
     def setUp(self):
@@ -67,7 +67,8 @@ class MyTestCase(StaticLiveServerTestCase):
             self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-win64/geckodriver.exe')
             pass
         if system() == 'Linux':
-            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver')
+            #executable_path='tests/firefoxdriver-linux64/geckodriver'
+            self.browser = webdriver.Firefox()
             pass
 
         self.browser.implicitly_wait(10)
