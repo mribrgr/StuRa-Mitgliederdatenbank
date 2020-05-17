@@ -10,13 +10,19 @@ on:
 
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v1
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: '3.8' # Semantic version range syntax or exact version of a Python version
+        architecture: 'x64' # Optional - x64 or x86, defaults to x64
+
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
 
     # Install dependecies
     - name: Install dependencies
@@ -26,8 +32,10 @@ jobs:
 
     # Change directory
     - name: Change directory
-      run: cd docs/sphinx/
+      run: cd .\docs\sphinx\
 
     # Create documentation
     - name: build
-      run: make html
+      run: |
+        .\make clean
+        .\make html
