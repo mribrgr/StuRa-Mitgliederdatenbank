@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+# build/ #auskommentiert für sphinx
 develop-eggs/
 dist/
 downloads/
