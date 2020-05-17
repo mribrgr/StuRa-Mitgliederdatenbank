@@ -28,7 +28,7 @@ class TestMitgliedAendern(MyTestCase):
         """
             Auswählen eines Mitglieds (Stift)
         """
-        self.browser.find_element_by_xpath("//tr[@id='tr1']/td/a").click()
+        self.browser.find_element_by_xpath("//tbody/tr/td/a").click()
 
         """
             Verändern von Feldern
