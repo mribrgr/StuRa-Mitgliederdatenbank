@@ -17,7 +17,6 @@ class TestMitgliedAendern(MyTestCase):
         except:
             print('Error in opening login page')
 
-
         time.sleep(5)
         """
             Login as Admin + Add an Mitglied
