@@ -64,7 +64,7 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         if system() == 'Windows':
             #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
-            self.browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-win64\\geckodriver.exe')
+            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-win64/geckodriver.exe')
             pass
         if system() == 'Linux':
             self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver')

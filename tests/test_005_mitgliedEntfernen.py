@@ -8,30 +8,33 @@ class TestMitgliedEntfernen(MyTestCase):
         Setup and Teardown Funktions are specified in
         MyTestCase
     """
-    
+
     # Tests
     def test_1MitgliedEntfernen_AsSuperuser(self):
-        """
-            Öffnen der Website
-        """
         time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
         except:
             print('Error in opening login page')
-        
-        
+
+
         time.sleep(5)
         """
             Login as Admin
         """
         loginAsLukasAdmin(self)
-        addMitglied(self) # bei einzelausführung kein Problem?
-        # Fehler beim XPATH 
+        addMitglied(self)
 
         """
-            TODO: Löschen eines Mitglieds
+            Löschen eines Mitglieds
         """
+        self.browser.find_element_by_xpath("//form[@method='post']/label/span").click()
+        self.browser.find_element_by_xpath("//a[@id='delbtnl']").click()
+        self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
 
-        #time.sleep(120)
+        """
+            Überprüfung ob Mitglied gelöscht
+        """
+        text = self.browser.find_element_by_xpath("//div[@id='notification']")
+        self.assertTrue(text)
         pass

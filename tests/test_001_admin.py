@@ -9,9 +9,6 @@ class TestAdmin(MyTestCase):
     
     # Tests
     def test_login_superuser(self):
-        """
-            Öffnen der Website
-        """
         time.sleep(5)
         try:
             self.browser.get(self.live_server_url)
@@ -23,4 +20,8 @@ class TestAdmin(MyTestCase):
             Login as Admin
         """
         loginAsLukasAdmin(self)
+
+        """
+            TODO: Check ob es ein Admin ist.
+        """
         pass
