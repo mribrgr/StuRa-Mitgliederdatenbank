@@ -32,9 +32,14 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
-* Nutzung freier Lizensen
-* Sicherung und Wiederherstellung von Systemzuständen gewährleisten (zeitlich automatisiert)
-* Nutzungsrechtesystem -> Benutzerklassen
+* 3.2.1
+** Daten können nach mehreren Kriterien gefiltert werden.
+** Das System sollte den Nutzer bei ungültigen Eingaben anleiten, wie diese auszusehen haben.
+* 3.2.3
+** Mehrbenutzerbetrieb muss gewährleistet sein.
+*** Serialisierung für die Datenbankarbeit.
+* 3.2.4
+** Es soll bei freier Kapazität eine API für den Export eines Organigrammes erstellt werden.
 
 == Entscheidungen, Nebenbedingungen und Begründungen 
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.] 
@@ -61,19 +66,20 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 . Webserver : Speichern der Daten auf einem Server auf den von außen zugegriffen werden kann. Gängiger Architekturmechanismus für die Lagerung von Datenbanken.
 . Relationales DBS: Am weitesten Verbreitet. Bringt die meisten Vorteile zur Verwaltung von gängigen Daten mit.
-. Container (LXC): Einfach anzudocken an bestehendes System
+. Container (LXC): Arbeitet direkt mit dem vorinstallierten Linux-Kernel zusammen, benötigt demzufolge keine zusätzliche virtuelle Maschine. Lässt sich deshalb effizient und einfach einrichten.
 
 
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
 . Datenhaltung in einer relationalen Datenbank
-. Objektorientierte Programmierung -> Komponentenarchitektur
+. robuste Verwaltung von Mitgliedern und Ämtern
+. Schutz vor Änderungen Unbefugter
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
 Die Webanwendung wird auf dem Webframework Django basieren. Es wird sich um eine Komponentenarchitektur handeln. Die Objekte der einzelnen Klassen werden in einer Datenbank mittels SQLite gespeichert. Die Webanwendung soll auf einem LXC Container des Stura-Webservers laufen.
 
-* Schichtenrangfolge: Python -> Django -> SQLite -> LXC Container -> Webserver
+image::../files/svg/diagramm_layers.svg[]
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
@@ -84,7 +90,7 @@ Folgende Sichten werden empfohlen:
 //Beschreibt die Struktur und das Verhalten Systemteilen, die hohen Einfluss auf die Architektur haben. Dies kann die Paketstruktur, kritische Schnittstellen, wichtige Klassen und Subsysteme sowie die Beziehungen zwischen diesen Elementen enthalten. Zudem sollten die physische und logische Sicht persistenter Daten beschrieben werden, wenn es diesen Aspekt im System gibt. Dies ist ein hier dokumentierter Teilaspekt des Entwurfs.
 
 // nicht notwendig hier das Domänenmodell anzuzeigen
-//image::../klassendiagramm/KlassendiagrammEntwurf.png[]
+image::../files/svg/diagramm_paket.svg[]
 
 === Physische Sicht (Betriebssicht)
 //Beschreibt die physischen Knoten (Rechner) des Systems, der Prozesse, Threads und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
