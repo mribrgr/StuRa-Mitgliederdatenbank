@@ -67,8 +67,8 @@ def createUnterbereich(self, referat, unterbereich):
     """
         Überprüfung ob Unterbereichs hinzugefügt wurde
     """
-    createt_unterbereich = unterbereich + " (Referat " + referat + ")"
-    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%createt_unterbereich))
+    created_unterbereich = unterbereich + " (Referat " + referat + ")"
+    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%created_unterbereich))
     pass
 
 def createAmt(self, referat, unterbereich, amt):
@@ -89,6 +89,7 @@ def createAmt(self, referat, unterbereich, amt):
         :rtype: None
     """
     workload = "5"
+    unterbereich = unterbereich + " (Referat " + referat + ")"
 
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
@@ -114,6 +115,6 @@ def createAmt(self, referat, unterbereich, amt):
     """
         Überprüfung ob Amt hinzugefügt wurde
     """
-    createt_amt = amt + " " + unterbereich
-    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%createt_amt))
+    created_amt = amt + " " + unterbereich
+    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%created_amt))
     pass
