@@ -63,14 +63,14 @@ class MyTestCase(StaticLiveServerTestCase):
         """
             Auswahl des richtigen Webdriver anhand des Systemes
         """
+        options = Options()
+        options.set_headless(headless=True)
+
         if system() == 'Windows':
             #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
-            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-win64/geckodriver.exe')
+            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-win64/geckodriver.exe', firefox_options=options)
             pass
         if system() == 'Linux':
-            #executable_path='tests/firefoxdriver-linux64/geckodriver'
-            options = Options()
-            options.set_headless(headless=True)
             self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver', firefox_options=options)
             pass
 
