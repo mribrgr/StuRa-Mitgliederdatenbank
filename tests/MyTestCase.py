@@ -64,7 +64,7 @@ class MyTestCase(StaticLiveServerTestCase):
             Auswahl des richtigen Webdriver anhand des Systemes
         """
         # Auskommentieren bei localen tests
-        #options = Options()
+        options = Options()
         #options.set_headless(headless=True)
 
         if system() == 'Windows':
