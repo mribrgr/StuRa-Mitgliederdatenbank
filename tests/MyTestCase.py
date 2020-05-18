@@ -63,8 +63,9 @@ class MyTestCase(StaticLiveServerTestCase):
         """
             Auswahl des richtigen Webdriver anhand des Systemes
         """
-        options = Options()
-        options.set_headless(headless=True)
+        # Auskommentieren bei localen tests
+        #options = Options()
+        #options.set_headless(headless=True)
 
         if system() == 'Windows':
             #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
