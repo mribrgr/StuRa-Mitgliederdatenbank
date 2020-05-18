@@ -45,12 +45,6 @@ jobs:
     - name: Migrate
       run: python manage.py migrate
       
-    # Wait
-    - name: Sleep for 60 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '60s'
-      
     # Run Tests
     - name: Run all tests
       run: python manage.py test --verbosity=2
