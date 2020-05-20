@@ -34,6 +34,6 @@ jobs:
     - name: Change directory + build
       run: |
         cd .\docs\sphinx\
-        ls -l
+        tree
         .\make clean
         .\make html
