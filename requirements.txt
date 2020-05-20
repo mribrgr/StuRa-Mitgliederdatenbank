@@ -1,0 +1,5 @@
+django
+selenium
+simplejson
+sphinx
+django-simple-history

@@ -1,3 +1,22 @@
 # StuRa-Mitgliederdatenbank
+<!-- Badges -->
+![Test_Windows](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/Test_Windows/badge.svg)
+![Test_Linux](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/Test_Linux/badge.svg)
+![flake8](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge.svg)
+![doc_sphinx](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/doc_sphinx/badge.svg)
 
-Vorschlag: branching strategy: https://nvie.com/posts/a-successful-git-branching-model/
+## Nützliches
+
+[Aufgabenstellung](docs\anforderung\orga\task.adoc)
+
+[Abgabeformat](https://github.com/htwdd-se/VorlageBelegabgabe)
+
+[a successful git branching model](https://nvie.com/posts/a-successful-git-branching-model)
+
+[OpenUP Dokumentation](https://www2.htw-dresden.de/~anke/openup/index.htm)
+
+[Derzeitige Mitgliederdatenbank (man muss angemeldet sein)](https://stura.htw-dresden.de/stura/ref/verwaltung/mitglieder/mitgliederdatenbank)
+
+## Infos zum Datenmodell
++ [Organigramm](https://stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019) - Enthält (eigentlich alle) Infos zu den abzubildenden Referaten und Ämtern
++ [Diskussion Mitgliederdatenbank](https://wiki.stura.htw-dresden.de/index.php/Diskussion:Mitgliederdatenbank) - Enthält einen möglichen, bereits vom StuRa ausgearbeiteten Ansatz zur Strukturierung der Daten

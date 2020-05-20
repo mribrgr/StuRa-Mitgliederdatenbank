@@ -1,0 +1,46 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Use-Case: Ämter verwalten
+===	Kurzbeschreibung
+Mitglieder der internen Verwaltung des StuRas können Ämter hinzufügen, bearbeiten und löschen.
+
+===	Kurzbeschreibung der Akteure
+==== Interne Verwaltung
+Selbsterklärend.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+Mitglied der internen Verwaltung ist eingeloggt
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+==== Amt hinzufügen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt hinzufügen möchte
+. Eingabe der Daten
+. Bestätigung
+. Der Use Case ist abgeschlossen.
+
+==== Amt bearbeiten
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt bearbeiten möchte
+. while Nutzer hat Daten noch nicht gespeichert
+  * Hinzufügen eines Mitglieds (mit Angabe des Legislaturbeginns) oder Entfernen eines Mitglieds
+. end while
+. Der Use Case ist abgeschlossen.
+
+==== Amt löschen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt löschen möchte
+. Bestätigung der Löschung
+. Der Use Case ist abgeschlossen.
+
+
+===	Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== Veränderung der Daten in der Datenbank
+Die Daten werden in der Datenbank aktualisiert.
+Werden Mitglieder zu Ämtern hinzugefügt oder entfernt, so wird dies auch in der Mitgliedertabelle vermerkt.
+Gelöschte Ämter befinden sich weiterhin in der Datenbank, werden in der Webanwendung aber nicht mehr angezeigt und können nicht besetzt sein oder werden.
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+. Beim Löschen eines Amtes hat eine zusätzliche Sicherheitsabfrage zu erfolgen.
+

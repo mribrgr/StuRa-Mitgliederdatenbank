@@ -54,7 +54,6 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
 
 # Flask stuff:
 instance/
@@ -102,3 +101,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Visual Paradigm Backups
+*.vpp.*
+
+# Visual Studio directories
+.vs/
+.vscode/
+
+# Databese
+*.sqlite3
+*.sqlite

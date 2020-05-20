@@ -1,0 +1,51 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Use-Case: Mitglieder verwalten
+
+===	Kurzbeschreibung
+Mitglieder der internen Verwaltung des StuRas +
+sollen Mitglieder hinzufügen, bearbeiten und entfernen können.
+
+===	Kurzbeschreibung der Akteure
+==== Interne Verwaltung
+Selbsterklärend.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+. Das StuRa-Mitglied ist eingeloggt und verfügt über die benötigten Berechtigungen.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+==== Mitglied hinzufügen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein neues Mitglied anlegen möchte.
+. Alle benötigten Mitgliedsdaten werden angegeben
+. Die Daten werden bestätigt.
+. Der Use Case ist abgeschlossen.
+
+==== Mitglied bearbeiten
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied bearbeiten möchte.
+. Der Nutzer kann bestehende Daten einsehen und verändern (Namen oder Legislatur bearbeiten, Legislatur und Wahl hinzufügen)
+. Die veränderten Daten werden bestätigt
+. Der Use Case ist abgeschlossen.
+
+==== Mitglied löschen
+Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied löschen möchte.
+. Der Löschvorgang wird bestätigt.
+. Der Use Case ist abgeschlossen.
+
+
+===	Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== Hinzugefügtes Mitglied
+Das neue Mitglied befindet sich nun in der Mitgliedertabelle der Datenbank. Der Nutzer, vom das Erstellen ausging, sowie das Erstelldatum werden in der Historie verzeichnet.
+
+==== Bearbeitetes Mitglied
+Die Attribute in der Mitgliedertabelle wurden aktualisiert und der Ursprungszustand, der Nutzer, von dem die Bearbeitung ausging, sowie das Bearbeitungsdatum der Historie hinzugefügt.
+
+==== Gelöschtes Mitglied
+Das Mitglied wurde aus der Mitgliedertabelle entfernt. Alle personenbezogenen Daten des Mitglieds können nicht mehr wiederhergestellt werden.
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+. Beim Löschen eines Mitglieds hat eine zusätzliche Sicherheitsabfrage zu erfolgen.
+

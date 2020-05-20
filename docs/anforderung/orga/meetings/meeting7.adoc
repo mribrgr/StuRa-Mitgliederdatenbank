@@ -1,0 +1,66 @@
+# Treffen 7
+:toc:
+
+// mit Herr Ringel
+## Mit Herr Ringel
+
+### Offenes vom Letzten mal
+Stakeholder der das ganze Projekt unterschreibt.
+
+    Sophia Von Asow
+
+
+### Fragen
+Wie sieht das Abgabeformat aus? 1 Dokument aber wie ist die Reihenfolge orientierung an folie(bis jetzt)
+
+    in Vorlesung fragen
+
+
+### Tips
+Ist Iterationsplan, Soll essenceNAvigator
+
+
+
+
+// Privater Teil
+## Privat
+
+### Fragen
+Kennt sich jemand mit Lizensen aus?, gibt es unterschiede?
+Sonst wird einfach MIT Lizens hinzugefügt.
+
+Test Cases in eigener Rubrik, oder zum bestimmten Usecase?
+
+Github Issues durchgehen, die müssen abnehmen (ok)
+
+### Offenes 
+Fehler in Iterationsplan 2 - zugeordneter zum Architekturnotebook ist falsch (ok)
+
+Branch MenüWireframe kann gelöscht werden  (ok)
+
+Stefano -> Quality Management, Arbeitsorganisation kritisch
+
+4 Augen prinzip (ok)
+
+Ist Iterationsplan, Soll essenceNAvigator
+
+Glossar wortliste führen
+
+### nächste Woche
+* nicht funktionale Anforderungen (Stefan Iter2)
+* Glosar (Wings)
+* Wireframes überarbeiten (Wings)
+* Wireframe neue Mitglieder (Theresa)
+* Aktivitätsdiagramme
+** nutzer verwalten (Lukas)
+** mitglieder verwalten (Benjamin?)
+* risk List (Mauritius in Iter 2)
+* Iterationspläne fertig (Mauritius in Iter 2)
+* Testcases (Lukas)
+* Klassendiagram (Vincent)
+
+### Probleme
+
+### Verbesserungsvorschläge/Wünsche für die nächste Iteration
+
+4 Augen Prinzip

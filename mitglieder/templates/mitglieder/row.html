@@ -1,0 +1,40 @@
+{% for entry in data %}
+    <!-- Zeile -->
+    <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
+        <td>
+            <!-- Checkbox -->
+            <form method="post">{% csrf_token %}
+            <label for="chk-{{entry.id}}">
+                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
+                <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
+            </label>
+            </form>
+        </td>
+        <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
+        <td class="mitglied-{{entry.id}}">
+            {% if entry.mitgliedamt_set.all %}
+            <ul>
+                {% for amt in entry.mitgliedamt_set.all %}
+                    <li>{{amt.amt}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}-
+            {% endif %}
+        </td>
+        <td class="mitglied-{{entry.id}} hide-on-small-only">
+            {% if entry.mitgliedmail_set.all %}
+            <ul>
+            {% for mail in entry.mitgliedmail_set.all %}
+                <li>{{mail.email}}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+                -
+            {% endif %}
+        </td>
+        <td class="mitglied-{{entry.id}} hide-on-med-and-down">
+            {{entry.tel_mobil|default:'-'}}
+        </td>
+        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
+    </tr>
+{% endfor %}

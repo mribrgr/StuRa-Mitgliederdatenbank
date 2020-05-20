@@ -1,0 +1,28 @@
+<p><b>Amt-ID: </b> {{entry.id}}</p>
+<p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
+<p><b>Workload: </b> {{entry.workload}}</p>
+
+<p><b>Referat: </b> {{entry.referat_id}}
+    (aktuell {{latestReferat.bezeichnung}}, damals {{historicalReferat.bezeichnung}})
+</p>
+
+{% if entry.unterbereich_id %}<p><b>Unterbereich: </b>{{entry.unterbereich_id}} 
+    (aktuell {{latestUnterbereich.bezeichnung}}, damals {{historicalUnterbereich.bezeichnung}})
+</p>{% endif %}
+
+
+{% if entry.history_type == "~" %}
+    <br />
+    <h5>Alter Datensatz</h5>
+    <p><b>Amt-ID: </b> {{entry.prev_record.id}}</p>
+    <p><b>Bezeichnung: </b> {{entry.prev_record.bezeichnung}}</p>
+    <p><b>Workload: </b> {{entry.prev_record.workload}}</p>
+
+    <p><b>Referat: </b> {{entry.prev_record.referat_id}}
+        (aktuell {{latestReferatAlt.bezeichnung}}, damals {{historicalReferatAlt.bezeichnung}})
+    </p>
+
+    {% if entry.prev_record.unterbereich_id %}<p><b>Unterbereich: </b>{{entry.prev_record.unterbereich_id}} 
+        (aktuell {{latestUnterbereichAlt.bezeichnung}}, damals {{historicalUnterbereichAlt.bezeichnung}})
+    </p>{% endif %}
+{% endif %}
