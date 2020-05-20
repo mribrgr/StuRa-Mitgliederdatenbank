@@ -33,7 +33,18 @@ jobs:
     # Change directory and Build
     - name: Change directory + build
       run: |
-        cd .\docs\sphinx\
+        cd .\docs\
         tree
-        .\make clean
-        .\make html
+        sphinx-build .\sphinx\source\ .
+        
+    # commit
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"  
+        git commit -m "Add changes" -a
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{a180c713157f2b7cdda34b2089b4795abeb003da}}
