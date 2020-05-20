@@ -34,7 +34,7 @@ jobs:
     - name: Change directory + build
       run: |
         cd ./docs/
-        tree
+        ls -l
         sphinx-build ./sphinx/source/ .
         
     # commit
