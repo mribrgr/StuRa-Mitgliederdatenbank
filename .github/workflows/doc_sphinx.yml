@@ -10,7 +10,7 @@ on:
 
 jobs:
   docs:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
@@ -33,9 +33,9 @@ jobs:
     # Change directory and Build
     - name: Change directory + build
       run: |
-        cd .\docs\
+        cd ./docs/
         tree
-        sphinx-build .\sphinx\source\ .
+        sphinx-build ./sphinx/source/ .
         
     # commit
     - name: Commit files
