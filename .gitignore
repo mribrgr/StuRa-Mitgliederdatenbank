@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-# build/ #auskommentiert für GithubPages
+build/ #auskommentiert für GithubPages
 develop-eggs/
 dist/
 downloads/
