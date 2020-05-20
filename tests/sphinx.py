@@ -9,7 +9,7 @@ import time, _thread
 """
 
 class TestMultiuser(StaticLiveServerTestCase):
-    """This is a conceptual class representation of a simple BLE device (GATT Server). It is essentially an extended combination of the :class:`bluepy.btle.Peripheral` and :class:`bluepy.btle.ScanEntry` classes
+    """ Test GITHUB ACTION This is a conceptual class representation of a simple BLE device (GATT Server). It is essentially an extended combination of the :class:`bluepy.btle.Peripheral` and :class:`bluepy.btle.ScanEntry` classes
 
     :param client: A handle to the :class:`simpleble.SimpleBleClient` client object that detected the device
     :type client: class:`simpleble.SimpleBleClient`
@@ -37,7 +37,7 @@ class TestMultiuser(StaticLiveServerTestCase):
                 hier muss der richtige Webtreiber ausgewählt werden
                 1. Edge - Windows
                 2. Firefox - Windows
-                3. Firefox - Linux 
+                3. Firefox - Linux
             """
             #browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
             browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-win64\\geckodriver.exe')
