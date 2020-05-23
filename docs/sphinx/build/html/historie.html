@@ -81,6 +81,53 @@ gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgender
 </dd></dl>
 
 </div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>Alle Templates sind unter <cite>historie/templates/historie</cite> zu finden.</p>
+<div class="section" id="list-html">
+<h3>list.html<a class="headerlink" href="#list-html" title="Permalink to this headline">¶</a></h3>
+<p>Enthält den Grundaufbau der Historie. Die Historie wird hier in die 3 Tabs “Mitglieder”, “Ämter” und “Nutzer” unterteilt.</p>
+</div>
+<div class="section" id="tabs">
+<h3>tabs/*<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h3>
+<p>Unterteilt die drei Tabs “Mitglieder”, “Ämter” und “Nutzer” ggf. in weitere Tabs, z.B. bei Mitglieder in “Stammdaten”, “E-Mail-Adressen” und “Ämter”.
+Für jedes Model wird für jeden Historien-Eintrag im entsprechenden (Unter-)Tab eine neue Listenzeile samt Modal generiert.</p>
+</div>
+<div class="section" id="row-html">
+<h3>row.html<a class="headerlink" href="#row-html" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Je nachdem, zu welchem Model der Eintrag gehört, werden hier die zum Eintrag gehörenden zusätzlichen Daten inkludiert.</div>
+</div>
+<div class="line-block">
+<div class="line"><cite>Beispiel:</cite> Im Model MitgliedMails werden nur die IDs der Mitglieder gespeichert. Damit die Historie aber lesbarer und einfacher verständlich ist,
+werden z.B. Vor- und Nachname des zugehörigen Mitglieds ermittelt, einmal zum aktuellen und einmal zum Zeitpunkt der Erstellung des Historien-Eintrags.</div>
+</div>
+<div class="line-block">
+<div class="line">Falls der Historien-Eintrag zur Änderung eines Datensatzes gehört, werden außerdem die zusätzlichen Daten zum Vorher-Datensatz inkludiert.</div>
+</div>
+</div>
+<div class="section" id="rowcontent-html">
+<h3>rowContent.html<a class="headerlink" href="#rowcontent-html" title="Permalink to this headline">¶</a></h3>
+<p>Der eigentliche Inhalt eines Datensatzes. Hier wird der Grundaufbau der Zeile in der angezeigten Liste von Einträgen sowie des zugehörigen Modals beschrieben.</p>
+</div>
+<div class="section" id="titlebuilder-html">
+<h3>_titleBuilder.html<a class="headerlink" href="#titlebuilder-html" title="Permalink to this headline">¶</a></h3>
+<p>Beschreibt, wie der Titel, welcher in der Liste von Einträgen sowie auf dem Modal angezeigt wird, zusammengebaut wird.</p>
+</div>
+<div class="section" id="noresultsrow-html">
+<h3>_noResultsRow.html<a class="headerlink" href="#noresultsrow-html" title="Permalink to this headline">¶</a></h3>
+<p>Wird inkludiert, falls zu einer Suchanfrage bzw. zu einem Model keine Historien-Einträge vorhanden sind.</p>
+</div>
+<div class="section" id="modaldataincludes-html">
+<h3>_modalDataIncludes.html<a class="headerlink" href="#modaldataincludes-html" title="Permalink to this headline">¶</a></h3>
+<p>Je nachdem, zu welchem Model der Eintrag gehört, wird hier der entsprechende Inhalt des zugehörigen Modals inkludiert.</p>
+</div>
+<div class="section" id="modaldata">
+<h3>modalData/*<a class="headerlink" href="#modaldata" title="Permalink to this headline">¶</a></h3>
+<p>Für jedes Model wird hier beschrieben, welche Daten wie im zugehörigen Modal präsentiert werden sollen. Falls der Historien-Eintrag zur Änderung eines bestehenden Datensatzes
+gehört, wird ebenfalls der Datensatz vor der Änderung mitsamt zusätzlichen Daten angezeigt.</p>
+</div>
+</div>
 <div class="section" id="module-historie.templatetags.to_class_name">
 <span id="template-tags"></span><h2>Template Tags<a class="headerlink" href="#module-historie.templatetags.to_class_name" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -156,6 +203,17 @@ des Erstellens des Historien-Eintrags ermittelt werden sollen.</p></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-historie.views">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-html">list.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tabs">tabs/*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#row-html">row.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rowcontent-html">rowContent.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#titlebuilder-html">_titleBuilder.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#noresultsrow-html">_noResultsRow.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modaldataincludes-html">_modalDataIncludes.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modaldata">modalData/*</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-historie.templatetags.to_class_name">Template Tags</a></li>
 </ul>
 </li>
