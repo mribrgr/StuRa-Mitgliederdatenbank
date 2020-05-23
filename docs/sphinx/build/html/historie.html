@@ -51,6 +51,36 @@
 <p>django-simple-history ermöglicht das automatische Aufzeichnen des Zustands eines Models beim Ausführen einer Änderungsoperation (hinzufügen, bearbeiten, löschen).</p>
 </div>
 </div>
+<div class="section" id="module-historie.views">
+<span id="views"></span><h2>Views<a class="headerlink" href="#module-historie.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="historie.views.list">
+<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Die einzige View der <cite>historie</cite>-App, welche das Anzeigen aller Historien-Einträge ermöglicht.</p>
+<p>Folgende Aufgaben werden durch diese übernommen:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Bereitstellung der Daten: Die View holt sämtliche Historien-Einträge aus der Datenbank und stellt diese als Kontext bereit.</p></li>
+<li><p>Rendern des Templates</p></li>
+</ul>
+<p>Je nachdem, ob in der <cite>request</cite> Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
+gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:</p>
+<ul class="simple">
+<li><p>Alle Models werden dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.</p></li>
+<li><p>Hierfür werden die in Django integrierten <cite>Q Objects</cite> verwendet.</p></li>
+<li><p>Alle gefundenen Einträge werden in QuerySets zusammengefasst, welche anschließend an <code class="docutils literal notranslate"><span class="pre">render</span></code> übergeben werden.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat. Enthält ggf. Suchbegriffe, nach welchen die Historien-Einträge gefiltert werden sollen.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-historie.templatetags.to_class_name">
 <span id="template-tags"></span><h2>Template Tags<a class="headerlink" href="#module-historie.templatetags.to_class_name" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -90,8 +120,8 @@ des Erstellens des Historien-Eintrags ermittelt werden sollen.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Eine Instanz des mittels <code class="docutils literal notranslate"><span class="pre">desiredInfo</span></code> angegebenen Models, welche sämtliche Daten des Objekts mit der ID <code class="docutils literal notranslate"><span class="pre">primaryKey</span></code> zum mittels
-<code class="docutils literal notranslate"><span class="pre">queryType</span></code> und ggf. <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> angegebenen Zeitpunkt enthält.</p>
+<dd class="field-even"><p>Eine Instanz des mittels <cite>desiredInfo</cite> angegebenen Models, welche sämtliche Daten des Objekts mit der ID <cite>primaryKey</cite> zum mittels
+<cite>queryType</cite> und ggf. <cite>timestamp</cite> angegebenen Zeitpunkt enthält.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -125,6 +155,7 @@ des Erstellens des Historien-Eintrags ermittelt werden sollen.</p></li>
 <li class="toctree-l3"><a class="reference internal" href="#django-simple-history">django-simple-history</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-historie.views">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-historie.templatetags.to_class_name">Template Tags</a></li>
 </ul>
 </li>

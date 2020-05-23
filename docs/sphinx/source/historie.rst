@@ -20,6 +20,13 @@ django-simple-history
 
 django-simple-history ermöglicht das automatische Aufzeichnen des Zustands eines Models beim Ausführen einer Änderungsoperation (hinzufügen, bearbeiten, löschen).
 
+Views
+-----
+
+.. automodule:: historie.views
+    :members:
+    :undoc-members:
+
 Template Tags
 -------------
 

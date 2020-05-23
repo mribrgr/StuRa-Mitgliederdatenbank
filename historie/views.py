@@ -12,6 +12,25 @@ from django.db.models import Q
 
 # Create your views here.
 def list(request):
+    """
+    Die einzige View der `historie`-App, welche das Anzeigen aller Historien-Einträge ermöglicht.
+
+    Folgende Aufgaben werden durch diese übernommen:
+
+    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
+    * Bereitstellung der Daten: Die View holt sämtliche Historien-Einträge aus der Datenbank und stellt diese als Kontext bereit.
+    * Rendern des Templates
+
+    Je nachdem, ob in der `request` Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
+    gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:
+    
+    * Alle Models werden dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.
+    * Hierfür werden die in Django integrierten `Q Objects` verwendet.
+    * Alle gefundenen Einträge werden in QuerySets zusammengefasst, welche anschließend an ``render`` übergeben werden.
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat. Enthält ggf. Suchbegriffe, nach welchen die Historien-Einträge gefiltert werden sollen.
+    :return: Die gerenderte View.
+    """
     # Access restrictions
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")

@@ -29,8 +29,8 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
         des Erstellens des Historien-Eintrags ermittelt werden sollen.
     :type timestamp: datetime, "semi-optional"
 
-    :return: Eine Instanz des mittels ``desiredInfo`` angegebenen Models, welche sämtliche Daten des Objekts mit der ID ``primaryKey`` zum mittels
-        ``queryType`` und ggf. ``timestamp`` angegebenen Zeitpunkt enthält.
+    :return: Eine Instanz des mittels `desiredInfo` angegebenen Models, welche sämtliche Daten des Objekts mit der ID `primaryKey` zum mittels
+        `queryType` und ggf. `timestamp` angegebenen Zeitpunkt enthält.
     """
     if(desiredInfo == "Mitglied"): foreignClass = Mitglied
     if(desiredInfo == "Amt"): foreignClass = Amt
