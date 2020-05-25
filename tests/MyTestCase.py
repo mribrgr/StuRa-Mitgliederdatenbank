@@ -65,7 +65,7 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         # Auskommentieren bei localen tests
         options = Options()
-        #options.set_headless(headless=True)
+        options.set_headless(headless=True)
 
         if system() == 'Windows':
             #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
