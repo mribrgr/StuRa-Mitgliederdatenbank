@@ -1,15 +1,10 @@
+=====
 Tests
 =====
 
 MyTestCase
-----------
+==========
 .. automodule:: tests.MyTestCase
-    :members:
-    :undoc-members:
-
-MyFuncMitglieder
-----------------
-.. automodule:: tests.MyFuncMitglieder
     :members:
     :undoc-members:
 
@@ -22,6 +17,16 @@ Testfall 001
 Testfall 002
 ------------
 .. automodule:: tests.test_002_user
+    :members:
+    :undoc-members:
+
+
+Tests zu Mitglieder
+===================
+
+MyFuncMitglieder
+----------------
+.. automodule:: tests.MyFuncMitglieder
     :members:
     :undoc-members:
 
@@ -43,8 +48,23 @@ Testfall 005
     :members:
     :undoc-members:
 
+Tests zu Aemter
+===============
+
+MyFuncAemter
+----------------
+.. automodule:: tests.MyFuncAemter
+    :members:
+    :undoc-members:
+
+Testfall 007
+------------
+.. automodule:: tests.test_007_aemtHinzufuegen
+    :members:
+    :undoc-members:
+
 Testfall Spinx
---------------
+==============
 .. automodule:: tests.sphinx
     :members:
     :undoc-members:
