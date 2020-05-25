@@ -1,8 +1,5 @@
-import time
-
 from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
 from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
-from selenium.webdriver.support.ui import Select
 from django.urls import reverse
 
 class TestAemtHinzufuegen(MyTestCase):
