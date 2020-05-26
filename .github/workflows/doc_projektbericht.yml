@@ -19,6 +19,11 @@ jobs:
       with:
         python-version: '3.8' # Semantic version range syntax or exact version of a Python version
         architecture: 'x64' # Optional - x64 or x86, defaults to x64
+        
+    # Install
+    # https://github.com/alanshaw/markdown-pdf
+    - name: Install
+      run: npm install -g markdown-pdf --ignore-scripts
 
     # Build
     - name: Build with pandoc
