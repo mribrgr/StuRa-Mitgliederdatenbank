@@ -5,6 +5,10 @@
 ![flake8](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge.svg)
 ![doc_sphinx](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/doc_sphinx/badge.svg)
 
+## Documentation
+
+[https://mribrgr.github.io/StuRa-Mitgliederdatenbank/](https://mribrgr.github.io/StuRa-Mitgliederdatenbank/)
+
 ## Nützliches
 
 [Aufgabenstellung](docs\anforderung\orga\task.adoc)
