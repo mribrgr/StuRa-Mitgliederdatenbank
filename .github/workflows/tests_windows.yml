@@ -47,4 +47,4 @@ jobs:
       
     # Run Tests
     - name: Run all tests
-      run: python manage.py test --verbosity=2
+      run: python manage.py test
