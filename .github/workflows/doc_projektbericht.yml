@@ -40,17 +40,18 @@ jobs:
     - name: Build with pandoc
       uses: docker://pandoc/core:2.9
       with:
-        args: |>  # allows you to break string into multiple lines
+        args: | # allows you to break string into multiple lines
             --standalone
             --output=docs/projektbericht/projektbericht.pdf
             docs/projektbericht/README.md
+            
     # commit
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
-        git commit -m "Add changes" -a
+        git commit -m "Add changes (Projektbericht)" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
