@@ -23,7 +23,7 @@ jobs:
     # Install
     # https://github.com/alanshaw/markdown-pdf
     - name: Install
-      run: npm install -g markdown-pdf --ignore-scripts
+      run: sudo npm install -g markdown-pdf --ignore-scripts
 
     # Build
     - name: Build with pandoc
