@@ -2,4 +2,5 @@ django
 selenium
 simplejson
 sphinx
+sphinx_rtd_theme
 django-simple-history
