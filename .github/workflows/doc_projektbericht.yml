@@ -27,7 +27,7 @@ jobs:
 
     # Build
     - name: Build with markdown-pdf
-      run: markdown-pdf -o docs/projektbericht/projektbericht.pdf ./docs/projektbericht/README.md
+      run: markdown-pdf -o 'docs/projektbericht/projektbericht.pdf' 'docs/projektbericht/README.md'
             
     # commit
     - name: Commit files
