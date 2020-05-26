@@ -20,19 +20,13 @@ jobs:
         python-version: '3.8' # Semantic version range syntax or exact version of a Python version
         architecture: 'x64' # Optional - x64 or x86, defaults to x64
 
-    # Change directory
-    - name: Change directory + build
-      run: |
-        cd ./docs/projektbericht/
-        ls -l
-
     # Build
     - name: Build with pandoc
       uses: docker://pandoc/core:2.9
       with:
         args: | # allows you to break string into multiple lines
             --output=docs/projektbericht/projektbericht.pdf
-            docs/projektbericht/README.md
+            ./docs/projektbericht/README.md
             
     # commit
     - name: Commit files
