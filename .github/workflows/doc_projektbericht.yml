@@ -23,14 +23,14 @@ jobs:
     # Install
     # https://github.com/alanshaw/markdown-pdf
     - name: Install
-      run: sudo npm install -g markdown-pdf --ignore-scripts
+      run: sudo apt install pandoc texlive-latex-extra
 
     # Build
     - name: Build with markdown-pdf
       run: |
         cd docs/projektbericht/
         ls -l
-        markdown-pdf README.md
+        pandoc --from markdown -o output.pdf README.md
         ls -l
             
     # commit
