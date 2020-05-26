@@ -1,0 +1,56 @@
+name: doc_sprojectbericht
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@master
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8' # Semantic version range syntax or exact version of a Python version
+        architecture: 'x64' # Optional - x64 or x86, defaults to x64
+
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
+
+    # Install dependecies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Change directory
+    - name: Change directory + build
+      run: |
+        cd ./docs/projektbericht/
+        ls -l
+
+    # Build
+    - name: Build with pandoc
+    - uses: docker://pandoc/core:2.9
+        with:
+          args: "--help" # gets appended to pandoc command
+
+    # commit
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "Add changes" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: a180c713157f2b7cdda34b2089b4795abeb003da
