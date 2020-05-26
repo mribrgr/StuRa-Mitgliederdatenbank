@@ -10,6 +10,7 @@ class TestAemtHinzufuegen(MyTestCase):
         * Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird
         * Ob ein Amt richtig über das AdminPanel Hinzugefügt wird
         * Ein Komplextest ob man mit Hinzugefügten Referat/Unterbereich/Amt
+        
         Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
     """
 
