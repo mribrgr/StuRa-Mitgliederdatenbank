@@ -19,17 +19,16 @@ Requirements:
    :maxdepth: 3
    :caption: Contents:
 
-   mitglieder 
-   tests
    historie
+   mitglieder
+   tests
 
 
 
 
-   
 
 
-.. 
+..
    Indices and tables
    ==================
    * :ref:`genindex`
