@@ -5,6 +5,7 @@ from tests.MyTestCase import MyTestCase
 from tests.MyFuncLogin import loginAsLukasAdmin, loginAsLukasUser
 from tests.MyFuncMitglieder import addMitglied
 
+
 class TestMitgliedHinzufuegen(MyTestCase):
     """
         Setup and Teardown Funktions are specified in

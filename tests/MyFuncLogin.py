@@ -1,5 +1,6 @@
 from django.urls import reverse
 
+
 def loginAsLukasAdmin(self):
     """
         Öffnen eines Browsers und
@@ -13,7 +14,7 @@ def loginAsLukasAdmin(self):
     # Öffnen eines Browsers
     try:
         self.browser.get(self.live_server_url)
-    except:
+    except BaseException:
         print('Error in opening login page')
 
     # Suche aller Objekte der Seite
@@ -21,7 +22,7 @@ def loginAsLukasAdmin(self):
         entUsername = self.browser.find_element_by_id('id_username')
         entPassword = self.browser.find_element_by_id('id_password')
         btnLogin = self.browser.find_element_by_id('btn-login')
-    except:
+    except BaseException:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
     # Eingabe der Login-Daten
@@ -30,9 +31,13 @@ def loginAsLukasAdmin(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
+    self.assertEqual(
+        self.browser.current_url,
+        self.live_server_url +
+        reverse('mitglieder:homepage'),
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass
+
 
 def loginAsLukasUser(self):
     """
@@ -47,7 +52,7 @@ def loginAsLukasUser(self):
     # Öffnen eines Browsers
     try:
         self.browser.get(self.live_server_url)
-    except:
+    except BaseException:
         print('Error in opening login page')
 
     # Suche aller Objekte der Seite
@@ -55,7 +60,7 @@ def loginAsLukasUser(self):
         entUsername = self.browser.find_element_by_id('id_username')
         entPassword = self.browser.find_element_by_id('id_password')
         btnLogin = self.browser.find_element_by_id('btn-login')
-    except:
+    except BaseException:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
     # Eingabe der Login-Daten
@@ -64,6 +69,9 @@ def loginAsLukasUser(self):
     btnLogin.click()
 
     # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
+    self.assertEqual(
+        self.browser.current_url,
+        self.live_server_url +
+        reverse('mitglieder:homepage'),
         msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
     pass

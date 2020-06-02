@@ -7,12 +7,14 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from aemter.models import Amt, Unterbereich, Referat
 
+
 class MyTestCase(StaticLiveServerTestCase):
     """
         Setup and Teardown funktions are specified here.
 
     """
     # befor every test funktion
+
     def setUp(self):
         """
             Auswahl des richtigen Webdriver anhand des Systemes
@@ -30,8 +32,7 @@ class MyTestCase(StaticLiveServerTestCase):
                     executable_path='tests/firefoxdriver-win64/geckodriver.exe',
                     firefox_options=options,
                     log_path='django.log',
-                    keep_alive=False
-                    )
+                    keep_alive=False)
                 pass
             if system() == 'Linux':
                 self.browser = WebDriver(
@@ -40,19 +41,20 @@ class MyTestCase(StaticLiveServerTestCase):
                     firefox_options=options,
                     log_path='django.log',
                     keep_alive=False
-                    )
+                )
                 pass
 
             self.browser.implicitly_wait(10)
-        except:
+        except BaseException:
             print("konnte keine Webdriver-Instanz bekommen")
 
-
         # Hinzufügen von Admin
-        user = get_user_model().objects.create_superuser(username='testlukasadmin', password='0123456789test')
+        user = get_user_model().objects.create_superuser(
+            username='testlukasadmin', password='0123456789test')
 
         # Hinzufügen von Nutzern
-        user = get_user_model().objects.create_user(username='testlukas', password='0123456789test')
+        user = get_user_model().objects.create_user(
+            username='testlukas', password='0123456789test')
 
         """
             Hinzufügen von Ämter - Kopiert von Theresa
@@ -65,14 +67,16 @@ class MyTestCase(StaticLiveServerTestCase):
             reader = csv.reader(csvfile, delimiter=',')
             for row in reader:
                 for referat in row:
-                    if not Referat.objects.filter(bezeichnung=referat).exists():
+                    if not Referat.objects.filter(
+                            bezeichnung=referat).exists():
                         r = Referat(bezeichnung=referat)
                         r.save()
                         #print("Referat " + referat + " gespeichert")
                         # Aemter
                         a = Amt(bezeichnung="Leitung", referat=r)
                         a.save()
-                        a = Amt(bezeichnung="Stellvertretende Leitung", referat=r)
+                        a = Amt(
+                            bezeichnung="Stellvertretende Leitung", referat=r)
                         a.save()
 
                     else:
@@ -83,18 +87,25 @@ class MyTestCase(StaticLiveServerTestCase):
             reader = csv.reader(csvfile, delimiter=',')
             for row in reader:
                 referat = row.pop(0)
-                #print(referat)
+                # print(referat)
                 for bereich in row:
-                    if Unterbereich.objects.filter(bezeichnung=bereich).exists()==False:
+                    if Unterbereich.objects.filter(
+                            bezeichnung=bereich).exists() == False:
                         #print("Bereich " + bereich + " (Referat: " + referat + ") wird gespeichert")
-                        b = Unterbereich(bezeichnung=bereich, referat=Referat.objects.get(bezeichnung=referat))
+                        b = Unterbereich(
+                            bezeichnung=bereich,
+                            referat=Referat.objects.get(
+                                bezeichnung=referat))
                         b.save()
                         # Aemter
-                        a = Amt(bezeichnung="Leitung", unterbereich=b, referat=b.referat)
+                        a = Amt(bezeichnung="Leitung",
+                                unterbereich=b, referat=b.referat)
                         a.save()
-                        a = Amt(bezeichnung="Stellvertretende Leitung", unterbereich=b, referat=b.referat)
+                        a = Amt(bezeichnung="Stellvertretende Leitung",
+                                unterbereich=b, referat=b.referat)
                         a.save()
-                        a = Amt(bezeichnung="Beratendes Mitglied", unterbereich=b, referat=b.referat)
+                        a = Amt(bezeichnung="Beratendes Mitglied",
+                                unterbereich=b, referat=b.referat)
                         a.save()
         """
             Kopiert von Theresa

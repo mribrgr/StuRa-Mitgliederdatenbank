@@ -1,6 +1,7 @@
 from tests.MyTestCase import MyTestCase
 from tests.MyFuncLogin import loginAsLukasUser
 
+
 class TestUser(MyTestCase):
     """
         Setup and Teardown Funktions are specified in

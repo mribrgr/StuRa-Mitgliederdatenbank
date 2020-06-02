@@ -3,6 +3,7 @@ from tests.MyTestCase import MyTestCase
 from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
+
 class TestAemtAendern(MyTestCase):
     """
         Hier wird getestet:
@@ -26,13 +27,17 @@ class TestAemtAendern(MyTestCase):
 
         # ändern der Bezeichnung für test_referat
         suffix = "_1"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%referat).click()
-        self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(suffix)
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % referat).click()
+        self.browser.find_element_by_xpath(
+            "//input[@id='id_bezeichnung']").send_keys(suffix)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%(referat+suffix)))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % (referat + suffix)))
         pass
 
     def test_1UnterbereichBezeichnungAendern(self):
@@ -50,14 +55,18 @@ class TestAemtAendern(MyTestCase):
         # ändern der Bezeichnung für test_unterbereich
         suffix = "_1"
         text = unterbereich + " (Referat " + referat + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(suffix)
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        self.browser.find_element_by_xpath(
+            "//input[@id='id_bezeichnung']").send_keys(suffix)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
         text = unterbereich + suffix + " (Referat " + referat + ")"
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass
 
     def test_1UnterbereichReferatAendern(self):
@@ -79,15 +88,19 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         text = unterbereich + " (Referat " + referat + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        select_referat = Select(self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        select_referat = Select(
+            self.browser.find_element_by_xpath("//select[@id='id_referat']"))
         select_referat.select_by_visible_text(referat2)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
         text = unterbereich + " (Referat " + referat2 + ")"
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtBezeichnungAendern(self):
@@ -107,14 +120,18 @@ class TestAemtAendern(MyTestCase):
         # ändern des Referates, dem der Bereich zugeordnet wurde
         suffix = "_1"
         text = amt + " " + unterbereich + " (Referat " + referat + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(suffix)
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        self.browser.find_element_by_xpath(
+            "//input[@id='id_bezeichnung']").send_keys(suffix)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
         text = amt + suffix + " " + unterbereich + " (Referat " + referat + ")"
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtWorkloadAendern(self):
@@ -133,13 +150,17 @@ class TestAemtAendern(MyTestCase):
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
         text = amt + " " + unterbereich + " (Referat " + referat + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        self.browser.find_element_by_xpath("//input[@id='id_workload']").send_keys(workload)
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        self.browser.find_element_by_xpath(
+            "//input[@id='id_workload']").send_keys(workload)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtReferatAendern(self):
@@ -169,17 +190,22 @@ class TestAemtAendern(MyTestCase):
         workload = "5"
         text = amt + " " + unterbereich + " (Referat " + referat + ")"
         text_ub = unterbereich2 + " (Referat " + referat2 + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        select_referat = Select(self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        select_referat = Select(
+            self.browser.find_element_by_xpath("//select[@id='id_referat']"))
         select_referat.select_by_visible_text(referat2)
-        select_unterbereich = Select(self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
+        select_unterbereich = Select(
+            self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
         select_unterbereich.select_by_visible_text(text_ub)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
         text = amt + " " + unterbereich2 + " (Referat " + referat2 + ")"
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtUnterbereichAendern(self):
@@ -211,13 +237,17 @@ class TestAemtAendern(MyTestCase):
         workload = "5"
         text = amt + " " + unterbereich + " (Referat " + referat + ")"
         text_ub = unterbereich2 + " (Referat " + referat + ")"
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text).click()
-        select_unterbereich = Select(self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text).click()
+        select_unterbereich = Select(
+            self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
         select_unterbereich.select_by_visible_text(text_ub)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
         text = amt + " " + unterbereich2 + " (Referat " + referat + ")"
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%text))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % text))
         pass

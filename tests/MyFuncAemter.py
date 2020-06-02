@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import Select
 
+
 def createReferat(self, referat):
     """
         Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
@@ -18,19 +19,23 @@ def createReferat(self, referat):
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
     # Navigieren zu Referat Hinzufügen
-    self.browser.find_element_by_xpath("//a[@href='/admin/aemter/referat/add/']").click()
+    self.browser.find_element_by_xpath(
+        "//a[@href='/admin/aemter/referat/add/']").click()
 
-    #fill inputs
-    self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(referat)
+    # fill inputs
+    self.browser.find_element_by_xpath(
+        "//input[@id='id_bezeichnung']").send_keys(referat)
 
-    #summit form
+    # summit form
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
     """
         Überprüfung ob Referat hinzugefügt wurde
     """
-    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%referat))
+    self.assertTrue(self.browser.find_element_by_xpath(
+        "//a[contains(text(), '%s')]" % referat))
     pass
+
 
 def createUnterbereich(self, referat, unterbereich):
     """
@@ -52,24 +57,29 @@ def createUnterbereich(self, referat, unterbereich):
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
     # Navigieren zu Referat Hinzufügen
-    self.browser.find_element_by_xpath("//a[@href='/admin/aemter/unterbereich/add/']").click()
+    self.browser.find_element_by_xpath(
+        "//a[@href='/admin/aemter/unterbereich/add/']").click()
 
-    #fill inputs
-    self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(unterbereich)
+    # fill inputs
+    self.browser.find_element_by_xpath(
+        "//input[@id='id_bezeichnung']").send_keys(unterbereich)
 
-    #fill selects
-    select_referat = Select(self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+    # fill selects
+    select_referat = Select(
+        self.browser.find_element_by_xpath("//select[@id='id_referat']"))
     select_referat.select_by_visible_text(referat)
 
-    #summit form
+    # summit form
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
     """
         Überprüfung ob Unterbereichs hinzugefügt wurde
     """
     created_unterbereich = unterbereich + " (Referat " + referat + ")"
-    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%created_unterbereich))
+    self.assertTrue(self.browser.find_element_by_xpath(
+        "//a[contains(text(), '%s')]" % created_unterbereich))
     pass
+
 
 def createAmt(self, referat, unterbereich, amt):
     """
@@ -95,26 +105,33 @@ def createAmt(self, referat, unterbereich, amt):
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
     # Navigieren zu Amt Hinzufügen
-    self.browser.find_element_by_xpath("//a[@href='/admin/aemter/amt/']").click()
-    self.browser.find_element_by_xpath("//a[@href='/admin/aemter/amt/add/']").click()
+    self.browser.find_element_by_xpath(
+        "//a[@href='/admin/aemter/amt/']").click()
+    self.browser.find_element_by_xpath(
+        "//a[@href='/admin/aemter/amt/add/']").click()
 
-    #fill inputs
-    self.browser.find_element_by_xpath("//input[@id='id_bezeichnung']").send_keys(amt)
-    self.browser.find_element_by_xpath("//input[@id='id_workload']").send_keys(workload)
+    # fill inputs
+    self.browser.find_element_by_xpath(
+        "//input[@id='id_bezeichnung']").send_keys(amt)
+    self.browser.find_element_by_xpath(
+        "//input[@id='id_workload']").send_keys(workload)
 
-    #fill selects
-    select_referat = Select(self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+    # fill selects
+    select_referat = Select(
+        self.browser.find_element_by_xpath("//select[@id='id_referat']"))
     select_referat.select_by_visible_text(referat)
 
-    select_unterbereich = Select(self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
+    select_unterbereich = Select(
+        self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
     select_unterbereich.select_by_visible_text(unterbereich)
 
-    #summit form
+    # summit form
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
     """
         Überprüfung ob Amt hinzugefügt wurde
     """
     created_amt = amt + " " + unterbereich
-    self.assertTrue(self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%created_amt))
+    self.assertTrue(self.browser.find_element_by_xpath(
+        "//a[contains(text(), '%s')]" % created_amt))
     pass

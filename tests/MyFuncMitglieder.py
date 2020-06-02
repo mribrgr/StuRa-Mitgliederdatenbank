@@ -1,6 +1,7 @@
 from selenium import webdriver
 from django.urls import reverse
 
+
 def addMitglied(self):
     """
         Hinzufüghen eines Mitglieds mit default parametern
@@ -12,9 +13,10 @@ def addMitglied(self):
     """
     # Suchen des Hinzufügen Buttons
     try:
-        btnAddMitglied = self.browser.find_element_by_xpath("//a[@href='/mitglieder/erstellen']")
+        btnAddMitglied = self.browser.find_element_by_xpath(
+            "//a[@href='/mitglieder/erstellen']")
         #btnAddMitglied = self.browser.find_element_by_id('btn-mitadd')
-    except:
+    except BaseException:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
     # Klicken des Buttons
@@ -36,7 +38,7 @@ def addMitglied(self):
         # Buttons
         btnAddEmail = self.browser.find_element_by_id('addEmailBtn')
         btnSave = self.browser.find_element_by_id('save_button')
-    except:
+    except BaseException:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
     # Einfügen der Form
@@ -45,24 +47,29 @@ def addMitglied(self):
     entSpitzname.send_keys('Hansi')
 
     # Referat auswählen
-    self.browser.find_element_by_xpath("//input[@class='select-dropdown dropdown-trigger']").click()
-    self.browser.find_element_by_xpath("//ul[@class='dropdown-content select-dropdown']/li[3]").click()
+    self.browser.find_element_by_xpath(
+        "//input[@class='select-dropdown dropdown-trigger']").click()
+    self.browser.find_element_by_xpath(
+        "//ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     # Bereich auswählen
-    self.browser.find_element_by_xpath("//div[@id='div_selectbereich1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
-    self.browser.find_element_by_xpath("//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
+    self.browser.find_element_by_xpath(
+        "//div[@id='div_selectbereich1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
+    self.browser.find_element_by_xpath(
+        "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     # Amt auswählen
-    self.browser.find_element_by_xpath("//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
-    self.browser.find_element_by_xpath("//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
-
+    self.browser.find_element_by_xpath(
+        "//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
+    self.browser.find_element_by_xpath(
+        "//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     btnAddEmail.click()
     # Finden der Email Felder
     try:
         entEmail1 = self.browser.find_element_by_name('email1')
         entEmail2 = self.browser.find_element_by_name('email2')
-    except:
+    except BaseException:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
     # Eingabe der Emails
@@ -81,9 +88,10 @@ def addMitglied(self):
 
     # überprüfen ob alles geklapt hat
     self.assertEqual(self.browser.current_url,
-                        self.live_server_url + reverse('mitglieder:homepage'),
-                        msg="Weiterleitung nicht erfolgt")
-    self.assertEqual(self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
-                        "Hans Peter",
-                        msg="Hans Peter wurde nicht angelegt")
+                     self.live_server_url + reverse('mitglieder:homepage'),
+                     msg="Weiterleitung nicht erfolgt")
+    self.assertEqual(
+        self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
+        "Hans Peter",
+        msg="Hans Peter wurde nicht angelegt")
     pass

@@ -20,12 +20,12 @@ class TestMultiuser(StaticLiveServerTestCase):
     def setUp(self):
         self.browsers = list()
         for i in range(0, 1):
-            
+
                 #hier muss der richtige Webtreiber ausgewählt werden
                 #1. Edge - Windows
                 #2. Firefox - Windows
-                #3. Firefox - Linux 
-            
+                #3. Firefox - Linux
+
             #browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
             browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-win64\\geckodriver.exe')
             #browser = webdriver.Firefox(executable_path='tests\\firefoxdriver-linux64\\geckodriver')

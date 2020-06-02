@@ -2,6 +2,7 @@ from tests.MyTestCase import MyTestCase
 from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncMitglieder import addMitglied
 
+
 class TestMitgliedEntfernen(MyTestCase):
     """
         Setup and Teardown Funktions are specified in
@@ -17,9 +18,11 @@ class TestMitgliedEntfernen(MyTestCase):
         """
             Löschen eines Mitglieds
         """
-        self.browser.find_element_by_xpath("//form[@method='post']/label/span").click()
+        self.browser.find_element_by_xpath(
+            "//form[@method='post']/label/span").click()
         self.browser.find_element_by_xpath("//a[@id='delbtnl']").click()
-        self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
+        self.browser.find_element_by_xpath(
+            "//a[@id='delmitgliederconfirm']").click()
 
         """
             Überprüfung ob Mitglied gelöscht

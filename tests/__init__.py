@@ -7,12 +7,12 @@
 """
 
 """
-    NOTES: 
+    NOTES:
 
     Mit Namespace auf den link
     "{% url 'mitglieder:mitglieder_loeschen' %}"
 
-    
+
     import platform
     platform.system()
     'Linux'
