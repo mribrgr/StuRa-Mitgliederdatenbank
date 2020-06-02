@@ -4,6 +4,8 @@
 
     how to run sepecific?
     python .\manage.py test --verbosity=3 --parallel --pattern="test_004*.py"
+
+    PS C:\Users\Lukas Hirsch\Documents\StuRa-Mitgliederdatenbank\tests> autopep8 -i -r -a -a -a .
 """
 
 """
