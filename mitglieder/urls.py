@@ -6,13 +6,14 @@ app_name = 'mitglieder'  # here for namespacing of urls.
 urlpatterns = [
     path("", views.main_screen, name="homepage"),
     path("erstellen", views.mitgliedErstellenView, name="erstellenView"),
-    # Bearbeiten 
+
+    # Bearbeiten
     path("<int:mitglied_id>/bearbeiten", views.mitgliedBearbeitenView, name="bearbeitenView"),
     path('ajax/laden', views.mitglied_laden, name='mitglied_laden'),
     path("<int:mitglied_id>/bearbeiten/speichern", views.speichern, name="speichern"),
     path("ajax/mitglieder-loeschen", views.mitglieder_loeschen, name="mitglieder_loeschen"),
 
-# Mitglieder Erstellen View    
+    # Mitglieder Erstellen View
     path("erstellen/speichern", views.erstellen, name="erstellen"),
     path('ajax/bereiche-laden', views.bereiche_laden, name='bereiche_laden'),
     path('ajax/aemter-laden', views.aemter_laden, name='aemter_laden'),
