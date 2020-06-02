@@ -1,8 +1,8 @@
-import time
 from selenium import webdriver
 from django.urls import reverse
 
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin, loginAsLukasUser
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin, loginAsLukasUser
 from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedHinzufuegen(MyTestCase):
@@ -13,31 +13,19 @@ class TestMitgliedHinzufuegen(MyTestCase):
 
     # Tests
     def test_1MitgliedHinzufügen_AsSuperuser(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        time.sleep(5)
         """
-            Anmelden als Admin
+            Hier wird getestet, ob man als Admin ein Mitglied Hinzufügen kann.
         """
+        # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)
         pass
 
     def test_5MitgliederHinzufügen_AsSuperuser_lookAsUser(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        time.sleep(5)
         """
-            Anmelden als Admin
+            Hier wird getestet, ob man als Admin 5 Mitglieder Hinzufügen kann.
         """
+        # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)
         addMitglied(self)
@@ -50,5 +38,4 @@ class TestMitgliedHinzufuegen(MyTestCase):
         """
         self.browser.find_element_by_xpath("//li/a[@href='/logout']").click()
         loginAsLukasUser(self)
-        time.sleep(10)
         pass

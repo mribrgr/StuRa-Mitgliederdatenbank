@@ -1,6 +1,5 @@
-import time
-
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtEntfernen(MyTestCase):
@@ -13,11 +12,6 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Referat hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 
@@ -44,12 +38,7 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Unterbereich hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        # Login as Admin + Navigation
+        # Login as Admin
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
@@ -76,11 +65,6 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Amt hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 

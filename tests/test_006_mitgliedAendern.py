@@ -1,6 +1,5 @@
-import time
-
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedAendern(MyTestCase):
@@ -11,16 +10,7 @@ class TestMitgliedAendern(MyTestCase):
 
     # Tests
     def test_1MitgliedAendern_AsSuperuser(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        time.sleep(5)
-        """
-            Login as Admin + Add an Mitglied
-        """
+        # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)
 

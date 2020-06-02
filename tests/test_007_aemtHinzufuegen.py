@@ -1,4 +1,5 @@
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 from django.urls import reverse
 
@@ -10,7 +11,7 @@ class TestAemtHinzufuegen(MyTestCase):
         * Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird
         * Ob ein Amt richtig über das AdminPanel Hinzugefügt wird
         * Ein Komplextest ob man mit Hinzugefügten Referat/Unterbereich/Amt
-        
+
         Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
     """
 
@@ -19,12 +20,6 @@ class TestAemtHinzufuegen(MyTestCase):
             Hier wird ein Referat hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
-
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 
@@ -38,13 +33,7 @@ class TestAemtHinzufuegen(MyTestCase):
             Hier wird ein Unterbereich hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
-
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        # Login as Admin + Navigation
+        # Login as Admin
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
@@ -58,11 +47,6 @@ class TestAemtHinzufuegen(MyTestCase):
             Hier wird ein Amt hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 
@@ -80,12 +64,6 @@ class TestAemtHinzufuegen(MyTestCase):
             Ein neues Mitglied wird erstellt und diesem zugeordnet.
             Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-
         # Login as Admin
         loginAsLukasAdmin(self)
 

@@ -1,57 +1,11 @@
 import csv
 from platform import system
-from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.webdriver import WebDriver
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.urls import reverse
 
 from aemter.models import Amt, Unterbereich, Referat
-
-
-def loginAsLukasAdmin(self):
-    """Login as testlukasadmin
-
-        :param self: self
-        :return: There is no return
-        :rtype: none
-    """
-    # Suche aller Objekte der Seite
-    try:
-        entUsername = self.browser.find_element_by_id('id_username')
-        entPassword = self.browser.find_element_by_id('id_password')
-        btnLogin = self.browser.find_element_by_id('btn-login')
-    except:
-        print("Es wurden nicht alle Objekte auf der Seite gefunden")
-
-    # Eingabe der Login-Daten
-    entUsername.send_keys('testlukasadmin')
-    entPassword.send_keys('0123456789test')
-    btnLogin.click()
-
-    # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
-        msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
-    pass
-
-def loginAsLukasUser(self):
-    # Suche aller Objekte der Seite
-    try:
-        entUsername = self.browser.find_element_by_id('id_username')
-        entPassword = self.browser.find_element_by_id('id_password')
-        btnLogin = self.browser.find_element_by_id('btn-login')
-    except:
-        print("Es wurden nicht alle Objekte auf der Seite gefunden")
-
-    # Eingabe der Login-Daten
-    entUsername.send_keys('testlukas')
-    entPassword.send_keys('0123456789test')
-    btnLogin.click()
-
-    # Check Login Success
-    self.assertEqual(self.browser.current_url, self.live_server_url + reverse('mitglieder:homepage'),
-        msg="Konnte nicht angemeldet werden bzw. Weiterleitung nicht erfolgt")
-    pass
 
 class MyTestCase(StaticLiveServerTestCase):
     """
@@ -65,26 +19,39 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         # Auskommentieren bei localen tests
         options = Options()
+        options.log.level = "trace"
         options.set_headless(headless=True)
 
-        if system() == 'Windows':
-            #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
-            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-win64/geckodriver.exe', firefox_options=options)
-            pass
-        if system() == 'Linux':
-            self.browser = webdriver.Firefox(executable_path='tests/firefoxdriver-linux64/geckodriver', firefox_options=options)
-            pass
+        try:
+            if system() == 'Windows':
+                #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
+                self.browser = WebDriver(
+                    timeout=10,
+                    executable_path='tests/firefoxdriver-win64/geckodriver.exe',
+                    firefox_options=options,
+                    log_path='django.log',
+                    keep_alive=False
+                    )
+                pass
+            if system() == 'Linux':
+                self.browser = WebDriver(
+                    timeout=10,
+                    executable_path='tests/firefoxdriver-linux64/geckodriver',
+                    firefox_options=options,
+                    log_path='django.log',
+                    keep_alive=False
+                    )
+                pass
 
-        self.browser.implicitly_wait(10)
+            self.browser.implicitly_wait(10)
+        except:
+            print("konnte keine Webdriver-Instanz bekommen")
 
-        """
-            Hinzufügen von Admin
-        """
+
+        # Hinzufügen von Admin
         user = get_user_model().objects.create_superuser(username='testlukasadmin', password='0123456789test')
 
-        """
-            Hinzufügen von Nutzern
-        """
+        # Hinzufügen von Nutzern
         user = get_user_model().objects.create_user(username='testlukas', password='0123456789test')
 
         """
@@ -136,10 +103,5 @@ class MyTestCase(StaticLiveServerTestCase):
 
     # after every test funktion
     def tearDown(self):
-        try:
-            #self.browser.close()
-            self.browser.quit()
-        except:
-            print('Error while closing')
-        pass
+        self.browser.quit()
     pass
