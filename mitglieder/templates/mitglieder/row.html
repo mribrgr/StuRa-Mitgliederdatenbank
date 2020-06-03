@@ -1,6 +1,7 @@
 {% for entry in data %}
     <!-- Zeile -->
     <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
+        {% if request.user.is_superuser %}
         <td>
             <!-- Checkbox -->
             <form method="post">{% csrf_token %}
@@ -10,6 +11,7 @@
             </label>
             </form>
         </td>
+            {% endif %}
         <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
         <td class="mitglied-{{entry.id}}">
             {% if entry.mitgliedamt_set.all %}
@@ -34,7 +36,10 @@
         </td>
         <td class="mitglied-{{entry.id}} hide-on-med-and-down">
             {{entry.tel_mobil|default:'-'}}
-        </td>
-        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
+         <!-- Bearbeitungsstift -->
+         {% if request.user.is_superuser %}
+        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td>
+        {% endif %}
+
     </tr>
 {% endfor %}
