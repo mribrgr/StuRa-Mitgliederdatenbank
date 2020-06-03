@@ -68,12 +68,10 @@ class TestViews(TestCase):
         self.client.logout()
 
         # als user
-        # self.client.login(username='testlukas', password='0123456789test')
-        # response = self.client.get(self.erstellenView)
-        # print(response)
-        # self.assertEquals(response.status_code, 200)
-        # self.assertTemplateUsed(response, 'mitglieder/mitglied_erstellen_bearbeiten.html')
-        # self.client.logout()
+        self.client.login(username='testlukas', password='0123456789test')
+        response = self.client.get(self.erstellenView)
+        self.assertEquals(response.status_code, 302)
+        self.client.logout()
 
     def test_bearbeitenView_GET(self):
         # unangemeldet
@@ -88,8 +86,7 @@ class TestViews(TestCase):
         self.client.logout()
 
         # als user
-        # self.client.login(username='testlukas', password='0123456789test')
-        # response = self.client.get(self.erstellenView)
-        # self.assertEquals(response.status_code, 200)
-        # self.assertTemplateUsed(response, 'mitglieder/mitglied_erstellen_bearbeiten.html')
-        # self.client.logout()
+        self.client.login(username='testlukas', password='0123456789test')
+        response = self.client.get(self.erstellenView)
+        self.assertEquals(response.status_code, 302)
+        self.client.logout()
