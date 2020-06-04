@@ -11,7 +11,7 @@ def main_screen(request):
         return redirect("/")
 
     referate = Referat.objects.all().order_by('id')
-    paginator = Paginator(referate, 2) # Show 10 entries per page
+    paginator = Paginator(referate, 15) # Show 15 entries per page
     page_number = request.GET.get('page') # Get page number from request
     referate_page = paginator.get_page(page_number) # Get entries for that page
     referat_ids = referate_page.object_list.values_list('id', flat=True) # Get IDs of those entries
