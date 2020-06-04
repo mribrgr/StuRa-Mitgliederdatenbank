@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.core.paginator import Paginator
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Amt, Referat, Unterbereich
 import simplejson, json
@@ -20,11 +21,15 @@ def main_screen(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
-    # Erstellen eines Querysets mit allen Mitgliedern geordnet nach Namen
+    # Paginate data
     queryset = Mitglied.objects.order_by('vorname', 'name')
+    paginator = Paginator(queryset, 15) # Show 15 entries per page
+    page_number = request.GET.get('page') # Get page number from request
+    queryset_page = paginator.get_page(page_number) # Get entries for that page
+
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
-                  context = {"data":queryset})
+                  context = {"data":queryset_page})
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
@@ -206,7 +211,7 @@ def suchen(request):
     if not search_tokens:
         return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data":Mitglied.objects.all().order_by('vorname', 'name')})
+                  context = {"data": queryset_page})
 
     # Hinzufuegen aller Mitglieder zum QuerySet, deren Vor- oder Nachnamen ein Token enthalten
     matches={}
@@ -230,6 +235,7 @@ def suchen(request):
         print(str(mitid) + " " + str(matches[mitid]))
         print(mitglied(mitid))
         mitglieder_matches.insert(0, mitglied(mitid))
+
     return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data":mitglieder_matches})
+                  context = {"data": mitglieder_matches})
