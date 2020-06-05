@@ -25,11 +25,13 @@ def main_screen(request):
     queryset = Mitglied.objects.order_by('vorname', 'name')
     paginator = Paginator(queryset, 2) # Show 15 entries per page
     page_number = request.GET.get('page') # Get page number from request
+    if page_number is None:
+        page_number = 1
     queryset_page = paginator.get_page(page_number) # Get entries for that page
 
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
-                  context = {"data":queryset_page, "search_string": None})
+                  context = {"data":queryset_page, "search_string": None, "page_number": page_number})
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
@@ -204,6 +206,8 @@ def suchen(request):
     # Get parameters from request
     search_string = request.GET.get('search_string')
     page_number = request.GET.get('page')
+    if page_number is None:
+        page_number = 1
 
     # Trennzeichen: ", ", "," oder " "
     tokens = re.split(', |,| ', search_string)
@@ -218,7 +222,7 @@ def suchen(request):
 
         return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data": queryset_page, "search_string": None})
+                  context = {"data": queryset_page, "search_string": None, "page_number": page_number})
 
     # Hinzufuegen aller Mitglieder zum QuerySet, deren Vor- oder Nachnamen ein Token enthalten
     matches={}
@@ -249,4 +253,4 @@ def suchen(request):
 
     return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data": mitglieder_matches_page, "search_string": search_string})
+                  context = {"data": mitglieder_matches_page, "search_string": search_string, "page_number": page_number})

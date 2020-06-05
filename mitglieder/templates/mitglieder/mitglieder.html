@@ -36,7 +36,7 @@
 
     <!-- Erstellen der Mitgliederliste -->
     <div>
-      <div class="row">
+      <div class="row" id="tbody">
         {% include 'mitglieder/row.html' %}
       </div>
     </div>
@@ -80,6 +80,12 @@
         $("#searchbtn").click(function(event){
           search();
         });
+
+        // Neue Suche bei Seitenwechsel triggern
+        $(".page-link").click(function(event){
+          search();
+        });
+
         // Mitgliedersuche ueber Enter-Taste
         $("#search").keyup("enterKey", function(e){
           if (e.keyCode == 13) search();
@@ -87,6 +93,11 @@
 
         function search(){
           search_string = $("#search").val();
+          span_searchterm = $("#searchTermSpan").text();
+          span_page = $("#pageNumberSpan").text();
+          console.log("span_searchterm = " + span_searchterm);
+          console.log("span_page = " + span_page);
+
           var url = $("#search").attr('data-url');
 
           $.ajax({
@@ -94,6 +105,7 @@
             url: url,
             data: {
               search_string: search_string,
+              span_page: span_page
             },
             success: function(data){
               // Speichern der Ids von ueber Checkboxen ausgewaehlten Mitgliedern
