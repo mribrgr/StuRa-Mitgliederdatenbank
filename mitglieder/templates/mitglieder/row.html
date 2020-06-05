@@ -1,40 +1,88 @@
-{% for entry in data %}
-    <!-- Zeile -->
-    <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
-        <td>
-            <!-- Checkbox -->
-            <form method="post">{% csrf_token %}
-            <label for="chk-{{entry.id}}">
-                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
-                <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
-            </label>
-            </form>
-        </td>
-        <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
-        <td class="mitglied-{{entry.id}}">
-            {% if entry.mitgliedamt_set.all %}
-            <ul>
-                {% for amt in entry.mitgliedamt_set.all %}
-                    <li>{{amt.amt}}</li>
+<div id="tbody">
+    <p>Gesucht wurde nach {{ search_string }}</p>
+    <div class="col s12">
+        <table class="highlight">
+            <thead>
+                <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Ämter</th>
+                <th class="hide-on-small-only">E-Mails</th>
+                <th class="hide-on-med-and-down">Telefon</th>
+                <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for entry in data %}
+                    <!-- Zeile -->
+                    <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
+                        <td>
+                            <!-- Checkbox -->
+                            <form method="post">{% csrf_token %}
+                            <label for="chk-{{entry.id}}">
+                                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
+                                <span style="padding-left: 7px; margin-top: 7px; padding-right: 7px;"></span>
+                            </label>
+                            </form>
+                        </td>
+                        <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
+                        <td class="mitglied-{{entry.id}}">
+                            {% if entry.mitgliedamt_set.all %}
+                            <ul>
+                                {% for amt in entry.mitgliedamt_set.all %}
+                                    <li>{{amt.amt}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}-
+                            {% endif %}
+                        </td>
+                        <td class="mitglied-{{entry.id}} hide-on-small-only">
+                            {% if entry.mitgliedmail_set.all %}
+                            <ul>
+                            {% for mail in entry.mitgliedmail_set.all %}
+                                <li>{{mail.email}}</li>
+                            {% endfor %}
+                            </ul>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="mitglied-{{entry.id}} hide-on-med-and-down">
+                            {{entry.tel_mobil|default:'-'}}
+                        </td>
+                        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
+                    </tr>
                 {% endfor %}
-            </ul>
-            {% else %}-
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="col s12 center-align">
+        <ul class="pagination">
+        {% if data.has_previous %}
+            <li class="waves-effect"><a class="page-link" href="?page=1">1</a></li>
+            {% if data.number > 3 %}
+            <li class="waves-effect"><a class="page-link" href="?page={{ data.previous_page_number|add:-1 }}">{{ data.previous_page_number|add:-1 }}</a></li>
             {% endif %}
-        </td>
-        <td class="mitglied-{{entry.id}} hide-on-small-only">
-            {% if entry.mitgliedmail_set.all %}
-            <ul>
-            {% for mail in entry.mitgliedmail_set.all %}
-                <li>{{mail.email}}</li>
-            {% endfor %}
-            </ul>
-            {% else %}
-                -
+            {% if data.number != 2 %}
+            <li class="waves-effect"><a class="page-link" href="?page={{ data.previous_page_number }}">{{ data.previous_page_number }}</a></li>
             {% endif %}
-        </td>
-        <td class="mitglied-{{entry.id}} hide-on-med-and-down">
-            {{entry.tel_mobil|default:'-'}}
-        </td>
-        <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
-    </tr>
-{% endfor %}
+        {% endif %}
+        <li class="active" style="background-color: #ffc107"><a class="page-link">{{ data.number }}</a></li>
+        {% if data.has_next %}
+            {% if data.number != data.paginator.num_pages|add:-1 %}
+            <li class="waves-effect"><a class="page-link" 
+                {% if search_string %} href="{% url 'mitglieder:suchen' %}" 
+                {% else %} href="?page={{ data.next_page_number }}"
+                {% endif %}>{{ data.next_page_number }}</a></li>
+            {% endif %}
+            {% if data.number < data.paginator.num_pages|add:-2 %}
+            <li class="waves-effect"><a class="page-link" href="?page={{ data.next_page_number|add:1 }}">{{ data.next_page_number|add:1 }}</a></li>
+            {% endif %}
+            <li class="waves-effect"><a class="page-link" href="?page={{ data.paginator.num_pages }}">{{ data.paginator.num_pages }}</a></li>
+        {% endif %}
+        </ul>
+    </div>
+</div>

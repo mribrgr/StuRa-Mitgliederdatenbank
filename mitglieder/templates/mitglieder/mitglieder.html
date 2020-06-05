@@ -37,48 +37,7 @@
     <!-- Erstellen der Mitgliederliste -->
     <div>
       <div class="row">
-        <div class="col s12">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Ämter</th>
-                <th class="hide-on-small-only">E-Mails</th>
-                <th class="hide-on-med-and-down">Telefon</th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody id="tbody">
-              {% include 'mitglieder/row.html' %}
-            </tbody>
-          </table>
-        </div>
-        <!-- Pagination -->
-        <div class="col s12 center-align">
-          <ul class="pagination">
-            {% if data.has_previous %}
-              <li class="waves-effect"><a class="page-link" href="?page=1">1</a></li>
-              {% if data.number > 3 %}
-                <li class="waves-effect"><a class="page-link" href="?page={{ data.previous_page_number|add:-1 }}">{{ data.previous_page_number|add:-1 }}</a></li>
-              {% endif %}
-              {% if data.number != 2 %}
-                <li class="waves-effect"><a class="page-link" href="?page={{ data.previous_page_number }}">{{ data.previous_page_number }}</a></li>
-              {% endif %}
-            {% endif %}
-            <li class="active" style="background-color: #ffc107"><a class="page-link">{{ data.number }}</a></li>
-            {% if data.has_next %}
-              {% if data.number != data.paginator.num_pages|add:-1 %}
-                <li class="waves-effect"><a class="page-link" href="?page={{ data.next_page_number }}">{{ data.next_page_number }}</a></li>
-              {% endif %}
-              {% if data.number < data.paginator.num_pages|add:-2 %}
-                <li class="waves-effect"><a class="page-link" href="?page={{ data.next_page_number|add:1 }}">{{ data.next_page_number|add:1 }}</a></li>
-              {% endif %}
-              <li class="waves-effect"><a class="page-link" href="?page={{ data.paginator.num_pages }}">{{ data.paginator.num_pages }}</a></li>
-            {% endif %}
-          </ul>
-        </div>
+        {% include 'mitglieder/row.html' %}
       </div>
     </div>
 
