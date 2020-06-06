@@ -126,11 +126,41 @@ def list(request):
                            "aemter": aemterPage,
                            "rechte": rechtePage,
                            "aemterRechte": aemterRechtePage,
-                           "users": usersPage,
-                           "searchterm": searchterm})
+                           "users": usersPage})
 
-#def fetch_entries(request):
-#    # Get data from request
-#    searchterm = request.GET.get('search')
-#    page_number = request.GET.get('page')
-#    selected_tab = request.GET.get('tab')
+def fetch_entries(request):
+    # Access restrictions
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+    
+    # Get data from request
+    searchterm = request.GET.get('search')
+    page_number = request.GET.get('page')
+    selected_tab = request.GET.get('tab')
+    
+    searchterms = None
+    if searchterm:
+        searchterms = searchterm.split(',')
+        for term in searchterms:
+            term = term.strip()
+    
+    data = None
+    if selected_tab == "Mitglied":
+        data = Mitglied.history.none()
+        for term in searchterms:
+            data = data | Mitglied.history.filter(Q(id__icontains=term) | Q(vorname__icontains=term) | Q(name__icontains=term))
+    if selected_tab == "MitgliedMail":
+        data = MitgliedMail.history.none()
+        for term in searchterms:
+            data =  data | MitgliedMail.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) | Q(email__icontains=term))
+
+    # Paginate results
+    paginator = Paginator(data, 2)
+    data_page = paginator.get_page(page_number)
+
+    return render(request=request,
+                  template_name="historie/row.html",
+                  context={"data": data_page})
+

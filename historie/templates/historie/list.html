@@ -8,17 +8,13 @@
   </div>
 
   <div class="col s12">
-    <form method="GET" action="">
       {% csrf_token %}
       <div class="input-field inline" style="margin-top: 27px">
-        <input class="validate" type="search" name="search" id="search" value="{{searchterm}}">
+        <input class="validate" type="search" name="search" id="search" data-url="{% url 'historie:fetch_entries' %}">
         <label for="search">Suchen...</label>
       </div>
-      <button class="btn-floating waves-effect waves-light amber" type="submit">
+      <a class="btn-floating waves-effect waves-light amber" id="searchButton">
         <i class="material-icons black-text">search</i>
-      </button>
-      <a href="/admin/historie" class="btn-floating waves-effect waves-light amber">
-        <i class="material-icons black-text">clear</i>
       </a>
     </form>
   </div>
@@ -55,6 +51,7 @@
     // Register event handlers
     $(".tab-link").on("click", function(event) {
       var selectedTab = $(event.target).attr("data-tab");
+      
       // Update target on top tabs accordingly
       if(selectedTab == "Mitglied" || selectedTab == "MitgliedMail" || selectedTab == "MitgliedAmt")
         $("#MitgliedTab").attr("data-tab", selectedTab);
@@ -68,12 +65,69 @@
     $(".page-link").on("click", function(event) {
       page = $(event.target).attr("data-page");
       console.log("Entries for page " + page + " on tab " + $("#selectedTab").text() + " have been requested");
+      fetchEntries();
+    });
 
+    $("#searchButton").on("click", function(event) {
+      page = 1;
       fetchEntries();
     });
 
     function fetchEntries() {
-      
+      var search = $("#search").val();
+      var url = $("#search").attr("data-url");
+      var tab = $("#selectedTab").text();
+
+      console.log("Requesting entries for term " + search + " on tab " + tab + " on page " + page + " via URL " + url);
+
+      $.ajax({
+        type: 'GET',
+        url: url,
+        data: {
+          search: search,
+          page: page,
+          tab: tab
+        },
+        success: function(data) {
+          // Update displayed data
+          switch(tab) {
+            case "Mitglied":
+              $("#mitgliederStammdatenTab").html(data);
+              break;
+            case "MitgliedMail":
+              $("#mitgliederMailsTab").html(data);
+              break;
+            case "MitgliedAmt":
+              $("#mitgliederAemterTab").html(data);
+              break;
+            case "Referat":
+              $("#referateTab").html(data);
+              break;
+            case "Unterbereich":
+              $("#unterbereicheTab").html(data);
+              break;
+            case "Amt":
+              $("#aemterTab2").html(data);
+              break;
+            case "Recht":
+              $("#rechteTab").html(data);
+              break;
+            case "AmtRecht":
+              $("#aemterRechteTab").html(data);
+              break;
+            case "User":
+              $("#nutzerTab").html(data);
+              break;
+          }
+         
+          // Re-add event listener
+          $(".page-link").on("click", function(event) {
+            page = $(event.target).attr("data-page");
+            console.log("Entries for page " + page + " on tab " + $("#selectedTab").text() + " have been requested");
+            fetchEntries();
+          });
+        }
+      });
     }
   });
 </script>
