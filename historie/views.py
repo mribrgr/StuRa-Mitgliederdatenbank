@@ -13,22 +13,15 @@ from django.db.models import Q
 
 def list(request):
     """
-    Die einzige View der `historie`-App, welche das Anzeigen aller Historien-Einträge ermöglicht.
-
-    Folgende Aufgaben werden durch diese übernommen:
-
-    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
-    * Bereitstellung der Daten: Die View holt sämtliche Historien-Einträge aus der Datenbank und stellt diese als Kontext bereit.
-    * Rendern des Templates
-
-    Je nachdem, ob in der `request` Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
-    gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:
+    Die `list`-View wird aufgerufen, wenn der Nutzer über einen Link erstmalig die Historie aufruft (z.B. aus dem Menü heraus).
     
-    * Alle Models werden dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.
-    * Hierfür werden die in Django integrierten `Q Objects` verwendet.
-    * Alle gefundenen Einträge werden in QuerySets zusammengefasst, welche anschließend an ``render`` übergeben werden.
+    Folgende Aufgaben werden von dieser übernommen:
 
-    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat. Enthält ggf. Suchbegriffe, nach welchen die Historien-Einträge gefiltert werden sollen.
+    * Bereitstellung von Daten: Es werden alle Historien-Einträge für alle Tabs geholt, anschließend in Seiten à 15 Elemente aufgeteilt und jeweils die erste Seite an die View übergeben.
+    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
+    * Rendern des Templates der gesamten Seite.
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.
     :return: Die gerenderte View.
     """
     # Access restrictions
@@ -88,6 +81,30 @@ def list(request):
                            "users": usersPage})
 
 def fetch_entries(request):
+    """
+    Mit `fetch_entries` kann eine Liste von Historien-Einträgen mitsamt passender Pagination angefordert werden, welche die Einträge enthält, die...
+
+    * ...zum angegeben Tab bzw. Model gehören.
+    * ...in denen die angegebenen Suchbegriffe vorkommen.
+    * ...zur angeforderten Seite gehören.
+
+    Folgende Aufgaben werden durch diese übernommen:
+
+    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
+    * Bereitstellung von Daten: Die View stellt die gewünschte Seite der Historien-Einträge bereit, welche für das gewünschte Model zu den angegebenen Suchbegriffen gefunden wurden.
+    * Rendern der Liste mit den passenden Historien-Einträgen und der zugehörigen Pagination.
+
+    Je nachdem, ob in der `request` Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
+    gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:
+    
+    * Das gewünschte Model wird dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.
+    * Hierfür werden die in Django integrierten `Q Objects` verwendet.
+    * Alle gefundenen Einträge werden in einem QuerySet zusammengefasst, welches anschließend an ``render`` übergeben wird.
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat. 
+        Enthält stets die gewünschte Seitenzahl, den Namen des Tabs und damit Models, zu dem das Ergebnis geliefert werden soll und optional Suchbegriffe, nach denen das Model durchsucht werden soll.
+    :return: Die gerenderte Liste mit den entsprechenden Historien-Einträgen und der zugehörigen Pagination.
+    """
     # Access restrictions
     if not request.user.is_authenticated:
         return HttpResponse("Permission denied")

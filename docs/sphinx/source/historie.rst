@@ -43,6 +43,11 @@ tabs/*
 Unterteilt die drei Tabs "Mitglieder", "Ämter" und "Nutzer" ggf. in weitere Tabs, z.B. bei Mitglieder in "Stammdaten", "E-Mail-Adressen" und "Ämter".
 Für jedes Model wird für jeden Historien-Eintrag im entsprechenden (Unter-)Tab eine neue Listenzeile samt Modal generiert.
 
+tabs/_pagination.html
+~~~~~~~~~~~~~~~~~~~~~
+
+Enthält das Template für die Pagination (die Unterteilung der Historien-Einträge in Seiten).
+
 row.html
 ~~~~~~~~
 
