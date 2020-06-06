@@ -55,15 +55,15 @@ def list(request):
     # Paginate results
     page_number = 1
 
-    mitgliederPaginator = Paginator(mitglieder, 2)
-    mitgliederMailsPaginator = Paginator(mitgliederMails, 2)
-    mitgliederAemterPaginator = Paginator(mitgliederAemter, 2)
-    referatePaginator = Paginator(referate, 2)
-    unterbereichePaginator = Paginator(unterbereiche, 2)
-    aemterPaginator = Paginator(aemter, 2)
-    rechtePaginator = Paginator(rechte, 2)
-    aemterRechtePaginator = Paginator(aemterRechte, 2)
-    usersPaginator = Paginator(users, 2)
+    mitgliederPaginator = Paginator(mitglieder, 15)
+    mitgliederMailsPaginator = Paginator(mitgliederMails, 15)
+    mitgliederAemterPaginator = Paginator(mitgliederAemter, 15)
+    referatePaginator = Paginator(referate, 15)
+    unterbereichePaginator = Paginator(unterbereiche, 15)
+    aemterPaginator = Paginator(aemter, 15)
+    rechtePaginator = Paginator(rechte, 15)
+    aemterRechtePaginator = Paginator(aemterRechte, 15)
+    usersPaginator = Paginator(users, 15)
 
     mitgliederPage = mitgliederPaginator.get_page(page_number)
     mitgliederMailsPage = mitgliederMailsPaginator.get_page(page_number)
@@ -157,7 +157,7 @@ def fetch_entries(request):
             data = data | User.history.filter(Q(username__icontains=term) | Q(first_name__icontains=term) | Q(last_name__icontains=term) | Q(email__icontains=term))
 
     # Paginate results
-    paginator = Paginator(data, 2)
+    paginator = Paginator(data, 15)
     data_page = paginator.get_page(page_number)
 
     return render(request=request,
