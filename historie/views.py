@@ -39,59 +39,18 @@ def list(request):
         messages.error(request, "Du musst Admin sein, um diese Seite aufrufen zu können.")
         return redirect("/mitglieder")
 
-    searchterm = request.GET.get('search')
+    # Fetch all entries
+    mitglieder = Mitglied.history.all()
+    mitgliederMails = MitgliedMail.history.all()
+    mitgliederAemter = MitgliedAmt.history.all()
 
-    if searchterm is not None:
-        searchterms = searchterm.split(',')
-        
-        # Create empty QuerySets to unionize against
-        mitglieder = Mitglied.history.none()
-        mitgliederMails = MitgliedMail.history.none()
-        mitgliederAemter = MitgliedAmt.history.none()
-        referate = Referat.history.none()
-        unterbereiche = Unterbereich.history.none()
-        aemter = Amt.history.none()
-        rechte = Recht.history.none()
-        aemterRechte = AmtRecht.history.none()
-        users = User.history.none()
+    referate = Referat.history.all()
+    unterbereiche = Unterbereich.history.all()
+    aemter = Amt.history.all()
+    rechte = Recht.history.all()
+    aemterRechte = AmtRecht.history.all()
 
-        # Iterate over all given search terms and fetch all entries matching any of the terms
-        for term in searchterms:
-            term = term.strip()
-            mitglieder = mitglieder | Mitglied.history.filter(Q(id__icontains=term) | Q(vorname__icontains=term) | Q(name__icontains=term))
-            mitgliederMails =  mitgliederMails | MitgliedMail.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) | Q(email__icontains=term))
-            mitgliederAemter = mitgliederAemter | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
-                | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
-                | Q(amt__referat__bezeichnung__icontains=term)
-                | Q(amt__unterbereich__bezeichnung__icontains=term))
-
-            referate = referate | Referat.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
-            unterbereiche = unterbereiche | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term))
-            aemter = aemter | Amt.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) 
-                | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term) 
-                | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
-            rechte = rechte | Recht.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
-            aemterRechte = aemterRechte | AmtRecht.history.filter(Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
-                | Q(amt__referat__bezeichnung__icontains=term)
-                | Q(amt__unterbereich__bezeichnung__icontains=term)
-                | Q(recht__id__icontains=term) |Q(recht__bezeichnung__icontains=term))
-
-            users = users | User.history.filter(Q(username__icontains=term) | Q(first_name__icontains=term) | Q(last_name__icontains=term) | Q(email__icontains=term))
-    else:
-        # Fetch all entries
-        mitglieder = Mitglied.history.all()
-        mitgliederMails = MitgliedMail.history.all()
-        mitgliederAemter = MitgliedAmt.history.all()
-
-        referate = Referat.history.all()
-        unterbereiche = Unterbereich.history.all()
-        aemter = Amt.history.all()
-        rechte = Recht.history.all()
-        aemterRechte = AmtRecht.history.all()
-
-        users = User.history.all()
-
-        searchterm=""
+    users = User.history.all()
 
     # Paginate results
     page_number = 1
@@ -140,12 +99,17 @@ def fetch_entries(request):
     page_number = request.GET.get('page')
     selected_tab = request.GET.get('tab')
     
+    # Get indvidiual search terms
     searchterms = None
     if searchterm:
         searchterms = searchterm.split(',')
         for term in searchterms:
             term = term.strip()
     
+    if not searchterm:
+        searchterms = [""]
+    
+    # Get data for selected tab and search terms
     data = None
     if selected_tab == "Mitglied":
         data = Mitglied.history.none()
@@ -155,6 +119,42 @@ def fetch_entries(request):
         data = MitgliedMail.history.none()
         for term in searchterms:
             data =  data | MitgliedMail.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) | Q(email__icontains=term))
+    if selected_tab == "MitgliedAmt":
+        data = MitgliedAmt.history.none()
+        for term in searchterms:
+             data = data | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
+                | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
+                | Q(amt__referat__bezeichnung__icontains=term)
+                | Q(amt__unterbereich__bezeichnung__icontains=term))
+    if selected_tab == "Referat":
+        data = Referat.history.none()
+        for term in searchterms:
+            data = data | Referat.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
+    if selected_tab == "Unterbereich":
+        data = Unterbereich.history.none()
+        for term in searchterms:
+            data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term))
+    if selected_tab == "Amt":
+        data = Amt.history.none()
+        for term in searchterms:
+            data = data | Amt.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) 
+                | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term) 
+                | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
+    if selected_tab == "Recht":
+        data = Recht.history.none()
+        for term in searchterms:
+            data = data | Recht.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
+    if selected_tab == "AmtRecht":
+        data = AmtRecht.history.none()
+        for term in searchterms:
+            data = data | AmtRecht.history.filter(Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
+                | Q(amt__referat__bezeichnung__icontains=term)
+                | Q(amt__unterbereich__bezeichnung__icontains=term)
+                | Q(recht__id__icontains=term) |Q(recht__bezeichnung__icontains=term))
+    if selected_tab == "User":
+        data = User.history.none()
+        for term in searchterms:
+            data = data | User.history.filter(Q(username__icontains=term) | Q(first_name__icontains=term) | Q(last_name__icontains=term) | Q(email__icontains=term))
 
     # Paginate results
     paginator = Paginator(data, 2)

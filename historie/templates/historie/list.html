@@ -50,20 +50,24 @@
     // Register event handlers
     $(".tab-link").on("click", function(event) {
       var selectedTab = $(event.target).attr("data-tab");
-      
+
       // Update target on top tabs accordingly
       if(selectedTab == "Mitglied" || selectedTab == "MitgliedMail" || selectedTab == "MitgliedAmt")
         $("#MitgliedTab").attr("data-tab", selectedTab);
       if(selectedTab == "Referat" || selectedTab == "Unterbereich" || selectedTab == "Amt" || selectedTab == "Recht" || selectedTab == "AmtRecht")
         $("#AmtTab").attr("data-tab", selectedTab);
 
+      // Reset search before switching tabs to avoid confusion
+      $("#search").val("");
+      $("label[for='search']").removeClass("active");
+      page = 1;
+      fetchEntries();
+
       $("#selectedTab").text(selectedTab);
-      console.log("Tab " + $("#selectedTab").text() + " has been selected");
     });
 
     $(".page-link").on("click", function(event) {
       page = $(event.target).attr("data-page");
-      console.log("Entries for page " + page + " on tab " + $("#selectedTab").text() + " have been requested");
       fetchEntries();
     });
 
@@ -76,8 +80,6 @@
       var search = $("#search").val();
       var url = $("#search").attr("data-url");
       var tab = $("#selectedTab").text();
-
-      console.log("Requesting entries for term " + search + " on tab " + tab + " on page " + page + " via URL " + url);
 
       $.ajax({
         type: 'GET',
@@ -118,11 +120,13 @@
               $("#nutzerTab").html(data);
               break;
           }
-         
+
+          // Unbind old listeneres to prevent multi-firing
+          $(".page-link").off("click");
+
           // Re-add event listener
           $(".page-link").on("click", function(event) {
             page = $(event.target).attr("data-page");
-            console.log("Entries for page " + page + " on tab " + $("#selectedTab").text() + " have been requested");
             fetchEntries();
           });
         }
