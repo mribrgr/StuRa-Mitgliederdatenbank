@@ -41,11 +41,10 @@
     var instance = M.Tabs.init(el, options);
 
     // Initialize modals
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var options;
-      var instances = M.Modal.init(elems, options);
-    });
+    var elems = document.querySelectorAll('.modal');
+    var options;
+    var instances = M.Modal.init(elems, options);
+
 
     // Register event handlers
     $(".tab-link").on("click", function(event) {
@@ -129,6 +128,11 @@
             page = $(event.target).attr("data-page");
             fetchEntries();
           });
+
+          // Re-initialize modals
+          var elems = document.querySelectorAll('.modal');
+          var options;
+          var instances = M.Modal.init(elems, options);
         }
       });
     }
