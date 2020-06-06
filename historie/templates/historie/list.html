@@ -8,15 +8,14 @@
   </div>
 
   <div class="col s12">
-      {% csrf_token %}
-      <div class="input-field inline" style="margin-top: 27px">
-        <input class="validate" type="search" name="search" id="search" data-url="{% url 'historie:fetch_entries' %}">
-        <label for="search">Suchen...</label>
-      </div>
-      <a class="btn-floating waves-effect waves-light amber" id="searchButton">
-        <i class="material-icons black-text">search</i>
-      </a>
-    </form>
+    {% csrf_token %}
+    <div class="input-field inline" style="margin-top: 27px">
+      <input class="validate" type="search" name="search" id="search" data-url="{% url 'historie:fetch_entries' %}">
+      <label for="search">Suchen...</label>
+    </div>
+    <a class="btn-floating waves-effect waves-light amber" id="searchButton">
+      <i class="material-icons black-text">search</i>
+    </a>
   </div>
 
 <div class="row">
