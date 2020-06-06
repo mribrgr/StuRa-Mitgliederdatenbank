@@ -4,6 +4,7 @@
 <div class="row">
   <div class="col s12 m12 l6">
     <h3>Historie</h3>
+    <span id="selectedTab" style="display: none;">Mitglied</span>
   </div>
 
   <div class="col s12">
@@ -25,9 +26,9 @@
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s4"><a class="active" href="#mitgliederTab">Mitglieder</a></li>
-      <li class="tab col s4"><a href="#aemterTab">Ämter</a></li>
-      <li class="tab col s4"><a href="#nutzerTab">Systemnutzer</a></li>
+      <li class="tab col s4"><a class="tab-link active" data-tab="Mitglied" id="MitgliedTab" href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s4"><a class="tab-link" data-tab="Referat" id="AmtTab" href="#aemterTab">Ämter</a></li>
+      <li class="tab col s4"><a class="tab-link" data-tab="User" href="#nutzerTab">Systemnutzer</a></li>
     </ul>
   </div>
   {% include 'historie/tabs/mitgliederTab.html' %}
@@ -35,16 +36,45 @@
   {% include 'historie/tabs/nutzerTab.html' %}
 </div>
 
-<!-- Initialize tabs and modals -->
 <script>
-  var el = document.querySelectorAll('.tabs');
-  var options;
-  var instance = M.Tabs.init(el, options);
+  var page = 1;
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
+  $(document).ready(function() {
+    // Initialize tabs
+    var el = document.querySelectorAll('.tabs');
     var options;
-    var instances = M.Modal.init(elems, options);
+    var instance = M.Tabs.init(el, options);
+
+    // Initialize modals
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.modal');
+      var options;
+      var instances = M.Modal.init(elems, options);
+    });
+
+    // Register event handlers
+    $(".tab-link").on("click", function(event) {
+      var selectedTab = $(event.target).attr("data-tab");
+      // Update target on top tabs accordingly
+      if(selectedTab == "Mitglied" || selectedTab == "MitgliedMail" || selectedTab == "MitgliedAmt")
+        $("#MitgliedTab").attr("data-tab", selectedTab);
+      if(selectedTab == "Referat" || selectedTab == "Unterbereich" || selectedTab == "Amt" || selectedTab == "Recht" || selectedTab == "AmtRecht")
+        $("#AmtTab").attr("data-tab", selectedTab);
+
+      $("#selectedTab").text(selectedTab);
+      console.log("Tab " + $("#selectedTab").text() + " has been selected");
+    });
+
+    $(".page-link").on("click", function(event) {
+      page = $(event.target).attr("data-page");
+      console.log("Entries for page " + page + " on tab " + $("#selectedTab").text() + " have been requested");
+
+      fetchEntries();
+    });
+
+    function fetchEntries() {
+      
+    }
   });
 </script>
 

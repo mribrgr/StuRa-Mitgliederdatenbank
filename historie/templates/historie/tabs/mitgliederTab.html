@@ -1,43 +1,16 @@
 <div id="mitgliederTab" class="col s12">
   <ul class="tabs secondary-tabs">
-    <li class="tab col s4"><a class="active" href="#mitgliederStammdatenTab">Stammdaten</a></li>
-    <li class="tab col s4"><a href="#mitgliederMailsTab">E-Mail-Adressen</a></li>
-    <li class="tab col s4"><a href="#mitgliederAemterTab">Ämter</a></li>
+    <li class="tab col s4"><a class="tab-link active" data-tab="Mitglied" href="#mitgliederStammdatenTab">Stammdaten</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="MitgliedMail" href="#mitgliederMailsTab">E-Mail-Adressen</a></li>
+    <li class="tab col s4"><a class="tab-link" data-tab="MitgliedAmt" href="#mitgliederAemterTab">Ämter</a></li>
   </ul>
   <div id="mitgliederStammdatenTab">
-    <p>
-      <ul class="collection">
-        {% for entry in mitglieder %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=mitglieder %}
+    {% include 'historie/row.html' with data=mitglieder %}
   </div>
   <div id="mitgliederMailsTab">
-    <p>
-      <ul class="collection">
-        {% for entry in mitgliederMails %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=mitgliederMails %}
+    {% include 'historie/row.html' with data=mitgliederMails %}
   </div>
   <div id="mitgliederAemterTab">
-    <p>
-      <ul class="collection">
-        {% for entry in mitgliederAemter %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=mitgliederAemter %}
+    {% include 'historie/row.html' with data=mitgliederAemter %}
   </div>
 </div>

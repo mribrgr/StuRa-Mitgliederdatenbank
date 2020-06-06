@@ -11,7 +11,6 @@ from aemter.models import Referat, Unterbereich, Amt, Recht, AmtRecht
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-# Create your views here.
 def list(request):
     """
     Die einzige View der `historie`-App, welche das Anzeigen aller Historien-Einträge ermöglicht.
@@ -129,3 +128,9 @@ def list(request):
                            "aemterRechte": aemterRechtePage,
                            "users": usersPage,
                            "searchterm": searchterm})
+
+#def fetch_entries(request):
+#    # Get data from request
+#    searchterm = request.GET.get('search')
+#    page_number = request.GET.get('page')
+#    selected_tab = request.GET.get('tab')

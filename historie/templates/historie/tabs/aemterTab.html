@@ -1,69 +1,24 @@
 <div id="aemterTab" class="col s12">
   <ul class="tabs secondary-tabs">
-    <li class="tab col s2"><a class="active" href="#referateTab">Referate</a></li>
-    <li class="tab col s3"><a href="#unterbereicheTab">Unterbereiche</a></li>
-    <li class="tab col s2"><a href="#aemterTab2">Ämter</a></li>
-    <li class="tab col s2"><a href="#rechteTab">Rechte</a></li>
-    <li class="tab col s3"><a href="#aemterRechteTab">Ämter-Rechte</a></li>
+    <li class="tab col s2"><a class="tab-link active" data-tab="Referat" href="#referateTab">Referate</a></li>
+    <li class="tab col s3"><a class="tab-link" data-tab="Unterbereich" href="#unterbereicheTab">Unterbereiche</a></li>
+    <li class="tab col s2"><a class="tab-link" data-tab="Amt" href="#aemterTab2">Ämter</a></li>
+    <li class="tab col s2"><a class="tab-link" data-tab="Recht" href="#rechteTab">Rechte</a></li>
+    <li class="tab col s3"><a class="tab-link" data-tab="AmtRecht" href="#aemterRechteTab">Ämter-Rechte</a></li>
   </ul>
   <div id="referateTab">
-    <p>
-      <ul class="collection">
-        {% for entry in referate %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=referate %}
+    {% include 'historie/row.html' with data=referate %}
   </div>
   <div id="unterbereicheTab">
-    <p>
-      <ul class="collection">
-        {% for entry in unterbereiche %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=unterbereiche %}
+    {% include 'historie/row.html' with data=unterbereiche %}
   </div>
   <div id="aemterTab2">
-    <p>
-      <ul class="collection">
-        {% for entry in aemter %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=aemter %}
+    {% include 'historie/row.html' with data=aemter %}
   </div>
   <div id="rechteTab">
-    <p>
-      <ul class="collection">
-        {% for entry in rechte %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=rechte %}
+    {% include 'historie/row.html' with data=rechte %}
   </div>
   <div id="aemterRechteTab">
-    <p>
-      <ul class="collection">
-        {% for entry in aemterRechte %}
-        {% include 'historie/row.html' %}
-        {% empty %}
-        {% include 'historie/_noResultsRow.html' %}
-        {% endfor %}
-      </ul>
-    </p>
-    {% include 'historie/tabs/_pagination.html' with data=aemterRechte %}
+    {% include 'historie/row.html' with data=aemterRechte %}
   </div>
 </div>
