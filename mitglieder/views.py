@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import user_passes_test
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Amt, Referat, Unterbereich
 import simplejson, json
@@ -48,6 +49,7 @@ def mitglieder_loeschen(request):
     return HttpResponse()
 
 # Mitglied erstellen Anzeige
+@user_passes_test(lambda u: u.is_superuser)
 def mitgliedErstellenView(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
@@ -140,6 +142,7 @@ def erstellen(request):
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
 
+@user_passes_test(lambda u: u.is_superuser)
 def mitgliedBearbeitenView(request, mitglied_id):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
