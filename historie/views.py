@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 from django.template import RequestContext
+from django.core.paginator import Paginator
 
 from datetime import datetime
 
@@ -93,15 +94,38 @@ def list(request):
 
         searchterm=""
 
+    # Paginate results
+    page_number = 1
+
+    mitgliederPaginator = Paginator(mitglieder, 2)
+    mitgliederMailsPaginator = Paginator(mitgliederMails, 2)
+    mitgliederAemterPaginator = Paginator(mitgliederAemter, 2)
+    referatePaginator = Paginator(referate, 2)
+    unterbereichePaginator = Paginator(unterbereiche, 2)
+    aemterPaginator = Paginator(aemter, 2)
+    rechtePaginator = Paginator(rechte, 2)
+    aemterRechtePaginator = Paginator(aemterRechte, 2)
+    usersPaginator = Paginator(users, 2)
+
+    mitgliederPage = mitgliederPaginator.get_page(page_number)
+    mitgliederMailsPage = mitgliederMailsPaginator.get_page(page_number)
+    mitgliederAemterPage = mitgliederAemterPaginator.get_page(page_number)
+    referatePage = referatePaginator.get_page(page_number)
+    unterbereichePage = unterbereichePaginator.get_page(page_number)
+    aemterPage = aemterPaginator.get_page(page_number)
+    rechtePage = rechtePaginator.get_page(page_number)
+    aemterRechtePage = aemterRechtePaginator.get_page(page_number)
+    usersPage = usersPaginator.get_page(page_number)
+
     return render(request=request,
                   template_name="historie/list.html",
-                  context={"mitglieder":mitglieder,
-                           "mitgliederMails":mitgliederMails,
-                           "mitgliederAemter":mitgliederAemter,
-                           "referate":referate,
-                           "unterbereiche":unterbereiche,
-                           "aemter":aemter,
-                           "rechte":rechte,
-                           "aemterRechte":aemterRechte,
-                           "users":users,
-                           "searchterm":searchterm})
+                  context={"mitglieder": mitgliederPage,
+                           "mitgliederMails": mitgliederMailsPage,
+                           "mitgliederAemter": mitgliederAemterPage,
+                           "referate": referatePage,
+                           "unterbereiche": unterbereichePage,
+                           "aemter": aemterPage,
+                           "rechte": rechtePage,
+                           "aemterRechte": aemterRechtePage,
+                           "users": usersPage,
+                           "searchterm": searchterm})

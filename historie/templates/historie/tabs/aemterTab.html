@@ -16,6 +16,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=referate %}
   </div>
   <div id="unterbereicheTab">
     <p>
@@ -27,6 +28,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=unterbereiche %}
   </div>
   <div id="aemterTab2">
     <p>
@@ -38,6 +40,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=aemter %}
   </div>
   <div id="rechteTab">
     <p>
@@ -49,6 +52,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=rechte %}
   </div>
   <div id="aemterRechteTab">
     <p>
@@ -60,5 +64,6 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=aemterRechte %}
   </div>
 </div>

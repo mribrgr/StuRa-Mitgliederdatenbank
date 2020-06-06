@@ -14,6 +14,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=mitglieder %}
   </div>
   <div id="mitgliederMailsTab">
     <p>
@@ -25,6 +26,7 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=mitgliederMails %}
   </div>
   <div id="mitgliederAemterTab">
     <p>
@@ -36,5 +38,6 @@
         {% endfor %}
       </ul>
     </p>
+    {% include 'historie/tabs/_pagination.html' with data=mitgliederAemter %}
   </div>
 </div>
