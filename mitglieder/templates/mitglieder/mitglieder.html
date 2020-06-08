@@ -36,25 +36,8 @@
 
     <!-- Erstellen der Mitgliederliste -->
     <div>
-      <div class="row">
-        <div class="col s12">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Ämter</th>
-                <th class="hide-on-small-only">E-Mails</th>
-                <th class="hide-on-med-and-down">Telefon</th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody id="tbody">
-              {% include 'mitglieder/row.html' %}
-            </tbody>
-          </table>
-        </div>
+      <div class="row" id="tbody">
+        {% include 'mitglieder/row.html' %}
       </div>
     </div>
 
@@ -84,6 +67,7 @@
 
     <script>
       var selectedcheckboxes_num = 0;
+      var page = 0;
 
       $(document).ready(function(){
         // Initalisieren des Modals
@@ -95,13 +79,22 @@
 
         // Mitgliedersuche ueber Button
         $("#searchbtn").click(function(event){
+          page = 1;
           search();
         });
+
+        // Neue Suche bei Seitenwechsel triggern
+        $(".page-link").on("click", function(event){
+          page = $(event.target).attr('data-page');
+          search();
+        });
+
+
         // Mitgliedersuche ueber Enter-Taste
         $("#search").keyup("enterKey", function(e){
           if (e.keyCode == 13) search();
         });
-
+        
         function search(){
           search_string = $("#search").val();
           var url = $("#search").attr('data-url');
@@ -111,6 +104,7 @@
             url: url,
             data: {
               search_string: search_string,
+              page: page
             },
             success: function(data){
               // Speichern der Ids von ueber Checkboxen ausgewaehlten Mitgliedern
@@ -132,6 +126,12 @@
                 if($("#chk-" + mitgliedid).length) selectedcheckboxes_num++;
                 $("#chk-" + mitgliedid).prop('checked', true);
               }
+
+              // Re-add event Listener
+              $(".page-link").on("click", function(event){
+                page = $(event.target).attr('data-page');
+                search();
+              });
             }
           });
         }

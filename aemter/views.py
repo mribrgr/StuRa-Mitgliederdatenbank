@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Referat, Unterbereich, Amt
 from mitglieder.models import MitgliedAmt
@@ -9,84 +10,23 @@ def main_screen(request):
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
 
+    referate = Referat.objects.all().order_by('id')
+    paginator = Paginator(referate, 15) # Show 15 entries per page
+    page_number = request.GET.get('page') # Get page number from request
+    referate_page = paginator.get_page(page_number) # Get entries for that page
+    referat_ids = referate_page.object_list.values_list('id', flat=True) # Get IDs of those entries
+
+    # Only get associated data for current page
+    unterbereiche = Unterbereich.objects.filter(referat__id__in=referat_ids)
+    aemter = Amt.objects.filter(referat__id__in=referat_ids)
+    amt_ids = aemter.values_list('id', flat=True)
+    mitglieder = MitgliedAmt.objects.filter(amt__id__in=amt_ids)
+
     context = {
-        'referate': Referat.objects.all(),
-        'unterbereiche': Unterbereich.objects.all(),
-        'aemter': Amt.objects.all(),
-        'mitglieder': MitgliedAmt.objects.all(),
-
-        'referate_set': [{
-            'leitung': {
-                'name': 'Varchar Toll',
-            },
-            'stellvertretung': {'name': 'Marie Johanna'},
-            'name': 'Referat 1',
-            'bereiche_set': [{
-                    'name': 'Bereich 1',
-                    'leitung': {'name':'Mary Waves'},
-                    'stellvertretung': {'name':'Captain Beefart'},
-                    'weitere_mitglieder': [
-                    {'name': 'Bart Glover'},
-                    {'name': 'Lemmy Kilmister'},
-                    {'name': 'Bill Newton'}
-                    ]
-                },
-                {
-                    'name': 'Bereich 2',
-                    'leitung': {'name': 'Mary Waves'},
-                    'stellvertretung': {'name': 'Captain Feebart'},
-                    'weitere_mitglieder': [
-                    {'name': 'Bart Lover'},
-                    {'name': 'Lemmy Ilmister'},
-                    {'name': 'Bill Ewton'}
-                    ]
-                },
-            ]
-        },
-
-        {
-            'name': 'Referat 2',
-            'leitung': {'name':'Klaus Kleber'},
-            'stellvertretung': {'name': 'Jehns Spahn'},
-            'bereiche_set': [{
-                    'name': 'Bereich 1',
-                    'leitung': {'name':'Abbath Doom Occulta'},
-                    'stellvertretung': {'name':'Johnny Thunder'},
-                    'weitere_mitglieder': [
-                    {'name': 'Alexendre Hebert'},
-                    {'name': 'Benjamin Mitchner'},
-                    {'name': 'Atomfried Müller'}
-                    ]
-                },
-            ]
-        },
-
-        {
-            'name': 'Referat 3',
-            'leitung': {'name':'Alexi Laiho'},
-            'stellvertretung': {'name': 'Konrad Adenauer'},
-            'bereiche_set': [{
-                    'name': 'Bereich 1',
-                    'leitung': {'name':'Dave Mustaine'},
-                    'stellvertretung': {'name':'Ozzy Osbourne'},
-                    'weitere_mitglieder': [
-                        {'name': 'Chuck Norris'},
-                        {'name': 'Tony Stark'},
-                    ]
-                },
-            ]
-        },
-        ]
+        'referate': referate_page,
+        'unterbereiche': unterbereiche,
+        'aemter': aemter,
+        'mitglieder': mitglieder
     }
-    i=0
-    for referat in context['referate_set']:
-        referat['leitung']['mitid'] = i = i+1
-        referat['stellvertretung']['mitid'] = i = i+1
-        for bereich in referat['bereiche_set']:
-            bereich['leitung']['mitid'] = i = i+1
-            bereich['stellvertretung']['mitid'] = i = i+1
-            for mitglied in bereich['weitere_mitglieder']:
-                mitglied['mitid'] = i = i+1
-
 
     return render(request, 'aemter/main_screen.html', context)

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Amt, Referat, Unterbereich
@@ -16,16 +17,19 @@ from django.db.models import Q
 aemternum = 0
 emailnum = 0
 
-# Mitgliederanzeige
+# Mitgliederanzeige - Wird nur noch beim Aufruf aus dem Menü heraus einmalig aufgerufen
 def main_screen(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
-    # Erstellen eines Querysets mit allen Mitgliedern geordnet nach Namen
+    # Paginate data
     queryset = Mitglied.objects.order_by('vorname', 'name')
+    paginator = Paginator(queryset, 15) # Show 15 entries per page
+    queryset_page = paginator.get_page(1) # Get entries for the first page
+
     return render(request=request,
                   template_name="mitglieder/mitglieder.html",
-                  context = {"data":queryset})
+                  context = {"data": queryset_page})
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
@@ -200,6 +204,7 @@ def speichern(request, mitglied_id):
 # Suche in der Mitgliederanzeige
 def suchen(request):
     search_string = request.GET.get('search_string')
+    page_number = request.GET.get('page')
 
     # Trennzeichen: ", ", "," oder " "
     tokens = re.split(', |,| ', search_string)
@@ -207,9 +212,14 @@ def suchen(request):
     search_tokens = [t for t in tokens if t]
 
     if not search_tokens:
+        # Paginate data
+        queryset = Mitglied.objects.order_by('vorname', 'name')
+        paginator = Paginator(queryset, 15) # Show 15 entries per page
+        queryset_page = paginator.get_page(page_number) # Get entries for that page
+
         return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data":Mitglied.objects.all().order_by('vorname', 'name')})
+                  context = {"data": queryset_page})
 
     # Hinzufuegen aller Mitglieder zum QuerySet, deren Vor- oder Nachnamen ein Token enthalten
     matches={}
@@ -233,6 +243,11 @@ def suchen(request):
         print(str(mitid) + " " + str(matches[mitid]))
         print(mitglied(mitid))
         mitglieder_matches.insert(0, mitglied(mitid))
+
+    # Paginate data
+    paginator = Paginator(mitglieder_matches, 15) # Show 15 entries per page
+    mitglieder_matches_page = paginator.get_page(page_number) # Get entries for that page
+
     return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data":mitglieder_matches})
+                  context = {"data": mitglieder_matches_page})
