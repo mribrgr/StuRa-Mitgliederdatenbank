@@ -52,6 +52,29 @@
       {% endfor %}
     </ul>
   </div>
+  <div class="col s12 center-align">
+    <ul class="pagination">
+      {% if referate.has_previous %}
+        <li class="waves-effect"><a class="page-link" href="?page=1">1</a></li>
+        {% if referate.number > 3 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.previous_page_number|add:-1 }}">{{ referate.previous_page_number|add:-1 }}</a></li>
+        {% endif %}
+        {% if referate.number != 2 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.previous_page_number }}">{{ referate.previous_page_number }}</a></li>
+        {% endif %}
+      {% endif %}
+      <li class="active" style="background-color: #ffc107"><a class="page-link">{{ referate.number }}</a></li>
+      {% if referate.has_next %}
+        {% if referate.number != referate.paginator.num_pages|add:-1 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.next_page_number }}">{{ referate.next_page_number }}</a></li>
+        {% endif %}
+        {% if referate.number < referate.paginator.num_pages|add:-2 %}
+          <li class="waves-effect"><a class="page-link" href="?page={{ referate.next_page_number|add:1 }}">{{ referate.next_page_number|add:1 }}</a></li>
+        {% endif %}
+        <li class="waves-effect"><a class="page-link" href="?page={{ referate.paginator.num_pages }}">{{ referate.paginator.num_pages }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
 
 
