@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list-html">list.html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tabs">tabs/*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tabs-pagination-html">tabs/_pagination.html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#row-html">row.html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rowcontent-html">rowContent.html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#titlebuilder-html">_titleBuilder.html</a></li>
@@ -191,25 +192,51 @@
 <div class="section" id="module-historie.views">
 <span id="views"></span><h2>Views<a class="headerlink" href="#module-historie.views" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="historie.views.list">
-<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Die einzige View der <cite>historie</cite>-App, welche das Anzeigen aller Historien-Einträge ermöglicht.</p>
+<dt id="historie.views.fetch_entries">
+<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">fetch_entries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.fetch_entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mit <cite>fetch_entries</cite> kann eine Liste von Historien-Einträgen mitsamt passender Pagination angefordert werden, welche die Einträge enthält, die…</p>
+<ul class="simple">
+<li><p>…zum angegeben Tab bzw. Model gehören.</p></li>
+<li><p>…in denen die angegebenen Suchbegriffe vorkommen.</p></li>
+<li><p>…zur angeforderten Seite gehören.</p></li>
+</ul>
 <p>Folgende Aufgaben werden durch diese übernommen:</p>
 <ul class="simple">
 <li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
-<li><p>Bereitstellung der Daten: Die View holt sämtliche Historien-Einträge aus der Datenbank und stellt diese als Kontext bereit.</p></li>
-<li><p>Rendern des Templates</p></li>
+<li><p>Bereitstellung von Daten: Die View stellt die gewünschte Seite der Historien-Einträge bereit, welche für das gewünschte Model zu den angegebenen Suchbegriffen gefunden wurden.</p></li>
+<li><p>Rendern der Liste mit den passenden Historien-Einträgen und der zugehörigen Pagination.</p></li>
 </ul>
 <p>Je nachdem, ob in der <cite>request</cite> Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
 gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:</p>
 <ul class="simple">
-<li><p>Alle Models werden dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.</p></li>
+<li><p>Das gewünschte Model wird dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.</p></li>
 <li><p>Hierfür werden die in Django integrierten <cite>Q Objects</cite> verwendet.</p></li>
-<li><p>Alle gefundenen Einträge werden in QuerySets zusammengefasst, welche anschließend an <code class="docutils literal notranslate"><span class="pre">render</span></code> übergeben werden.</p></li>
+<li><p>Alle gefundenen Einträge werden in einem QuerySet zusammengefasst, welches anschließend an <code class="docutils literal notranslate"><span class="pre">render</span></code> übergeben wird.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat. Enthält ggf. Suchbegriffe, nach welchen die Historien-Einträge gefiltert werden sollen.</p>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat. 
+Enthält stets die gewünschte Seitenzahl, den Namen des Tabs und damit Models, zu dem das Ergebnis geliefert werden soll und optional Suchbegriffe, nach denen das Model durchsucht werden soll.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte Liste mit den entsprechenden Historien-Einträgen und der zugehörigen Pagination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="historie.views.list">
+<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Die <cite>list</cite>-View wird aufgerufen, wenn der Nutzer über einen Link erstmalig die Historie aufruft (z.B. aus dem Menü heraus).</p>
+<p>Folgende Aufgaben werden von dieser übernommen:</p>
+<ul class="simple">
+<li><p>Bereitstellung von Daten: Es werden alle Historien-Einträge für alle Tabs geholt, anschließend in Seiten à 15 Elemente aufgeteilt und jeweils die erste Seite an die View übergeben.</p></li>
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Rendern des Templates der gesamten Seite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Die gerenderte View.</p>
@@ -229,6 +256,10 @@ gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgender
 <h3>tabs/*<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h3>
 <p>Unterteilt die drei Tabs “Mitglieder”, “Ämter” und “Nutzer” ggf. in weitere Tabs, z.B. bei Mitglieder in “Stammdaten”, “E-Mail-Adressen” und “Ämter”.
 Für jedes Model wird für jeden Historien-Eintrag im entsprechenden (Unter-)Tab eine neue Listenzeile samt Modal generiert.</p>
+</div>
+<div class="section" id="tabs-pagination-html">
+<h3>tabs/_pagination.html<a class="headerlink" href="#tabs-pagination-html" title="Permalink to this headline">¶</a></h3>
+<p>Enthält das Template für die Pagination (die Unterteilung der Historien-Einträge in Seiten).</p>
 </div>
 <div class="section" id="row-html">
 <h3>row.html<a class="headerlink" href="#row-html" title="Permalink to this headline">¶</a></h3>
