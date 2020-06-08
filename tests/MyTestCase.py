@@ -28,23 +28,23 @@ class MyTestCase(StaticLiveServerTestCase):
             if system() == 'Windows':
                 #self.browser = webdriver.Edge('tests\\edgedriver_win64\\msedgedriver.exe')
                 self.browser = WebDriver(
-                    timeout=10,
+                    timeout=5,
                     executable_path='tests/firefoxdriver-win64/geckodriver.exe',
                     firefox_options=options,
                     log_path='django.log',
-                    keep_alive=False)
+                    keep_alive=True)
                 pass
             if system() == 'Linux':
                 self.browser = WebDriver(
-                    timeout=10,
+                    timeout=5,
                     executable_path='tests/firefoxdriver-linux64/geckodriver',
                     firefox_options=options,
                     log_path='django.log',
-                    keep_alive=False
+                    keep_alive=True
                 )
                 pass
 
-            self.browser.implicitly_wait(10)
+            self.browser.implicitly_wait(5)
         except BaseException:
             print("konnte keine Webdriver-Instanz bekommen")
 
