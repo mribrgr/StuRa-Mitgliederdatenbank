@@ -48,7 +48,7 @@ class TestAemtAendern(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Finanzen"
+        referat = "Referat Finanzen"
         unterbereich = "test_unterbereich"
         createUnterbereich(self, referat, unterbereich)
 
@@ -82,7 +82,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         # Hinzufügen eines Unterbereichs
-        referat = "Finanzen"
+        referat = "Referat Finanzen"
         unterbereich = "test_unterbereich"
         createUnterbereich(self, referat, unterbereich)
 
@@ -113,8 +113,8 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         amt = "test_amt"
-        referat = "Finanzen"
-        unterbereich = "Buchhaltung"
+        referat = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
         createAmt(self, referat, unterbereich, amt)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
@@ -143,8 +143,8 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         amt = "test_amt"
-        referat = "Finanzen"
-        unterbereich = "Buchhaltung"
+        referat = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
         createAmt(self, referat, unterbereich, amt)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
@@ -182,8 +182,8 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         amt = "test_amt"
-        referat = "Finanzen"
-        unterbereich = "Buchhaltung"
+        referat = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
         createAmt(self, referat, unterbereich, amt)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde

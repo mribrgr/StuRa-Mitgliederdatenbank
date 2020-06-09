@@ -38,7 +38,7 @@ class TestAemtHinzufuegen(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Finanzen"
+        referat = "Referat Finanzen"
         unterbereich = "test_unterbereich"
         createUnterbereich(self, referat, unterbereich)
         pass
@@ -53,8 +53,8 @@ class TestAemtHinzufuegen(MyTestCase):
 
         # Hinzufügen eines Amtes
         amt = "test_amt"
-        referat = "Finanzen"
-        unterbereich = "Buchhaltung"
+        referat = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
         createAmt(self, referat, unterbereich, amt)
         pass
 

@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from aemter.models import Amt, Unterbereich, Referat
+import importscripts.main as imp
 
 
 class MyTestCase(StaticLiveServerTestCase):
@@ -56,60 +57,9 @@ class MyTestCase(StaticLiveServerTestCase):
         user = get_user_model().objects.create_user(
             username='testlukas', password='0123456789test')
 
-        """
-            Hinzufügen von Ämter - Kopiert von Theresa
-        """
-        Referat.objects.all().delete()
-        Unterbereich.objects.all().delete()
-        Amt.objects.all().delete()
-
-        with open("referate.csv") as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
-            for row in reader:
-                for referat in row:
-                    if not Referat.objects.filter(
-                            bezeichnung=referat).exists():
-                        r = Referat(bezeichnung=referat)
-                        r.save()
-                        #print("Referat " + referat + " gespeichert")
-                        # Aemter
-                        a = Amt(bezeichnung="Leitung", referat=r)
-                        a.save()
-                        a = Amt(
-                            bezeichnung="Stellvertretende Leitung", referat=r)
-                        a.save()
-
-                    else:
-                        #print("Referat " + referat + " existiert bereits")
-                        pass
-
-        with open("bereiche.csv") as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
-            for row in reader:
-                referat = row.pop(0)
-                # print(referat)
-                for bereich in row:
-                    if Unterbereich.objects.filter(
-                            bezeichnung=bereich).exists() == False:
-                        #print("Bereich " + bereich + " (Referat: " + referat + ") wird gespeichert")
-                        b = Unterbereich(
-                            bezeichnung=bereich,
-                            referat=Referat.objects.get(
-                                bezeichnung=referat))
-                        b.save()
-                        # Aemter
-                        a = Amt(bezeichnung="Leitung",
-                                unterbereich=b, referat=b.referat)
-                        a.save()
-                        a = Amt(bezeichnung="Stellvertretende Leitung",
-                                unterbereich=b, referat=b.referat)
-                        a.save()
-                        a = Amt(bezeichnung="Beratendes Mitglied",
-                                unterbereich=b, referat=b.referat)
-                        a.save()
-        """
-            Kopiert von Theresa
-        """
+        # Hinzufügen von Ämter - über Importscript
+        file = open("importscripts/ReferateUnterbereicheAemter.csv")
+        imp.importAemter(file)
         pass
 
     # after every test funktion

@@ -47,7 +47,7 @@ class TestAemtEntfernen(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Finanzen"
+        referat = "Referat Finanzen"
         unterbereich = "test_unterbereich"
         createUnterbereich(self, referat, unterbereich)
 
@@ -79,8 +79,8 @@ class TestAemtEntfernen(MyTestCase):
 
         # Hinzufügen eines Amtes
         amt = "test_amt"
-        referat = "Finanzen"
-        unterbereich = "Buchhaltung"
+        referat = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
         createAmt(self, referat, unterbereich, amt)
 
         # Entfernen eines Amts

@@ -25,7 +25,7 @@ class TestMitgliedHinzufuegen(MyTestCase):
 
     def test_50MitgliederHinzufügen_AsSuperuser_lookAsUser(self):
         """
-            Hier wird getestet, ob man als Admin 5 Mitglieder Hinzufügen kann.
+            Hier wird getestet, ob man als Admin 50 Mitglieder Hinzufügen kann und ob die Pagination Funktioniert.
         """
         # Login as Admin
         loginAsLukasAdmin(self)

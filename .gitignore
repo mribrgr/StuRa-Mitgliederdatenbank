@@ -111,5 +111,6 @@ venv.bak/
 .vscode/
 
 # Databese
+db.*
 *.sqlite3
 *.sqlite
