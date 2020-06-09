@@ -84,6 +84,11 @@
 <li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mitglieder.html">Mitglieder</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#abhangigkeiten">Abhängigkeiten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#selenium">selenium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#einen-funktionierenden-webdriver">einen funktionierenden Webdriver</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-tests.MyTestCase">MyTestCase</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_001_admin">Testfall 001</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_002_user">Testfall 002</a></li>
@@ -94,14 +99,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_003_multiuser">Testfall 003</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_004_mitgliedHinzufuegen">Testfall 004</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_005_mitgliedEntfernen">Testfall 005</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_006_mitgliedAendern">Testfall 006</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tests-zu-aemter">Tests zu Aemter</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.MyFuncAemter">MyFuncAemter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-tests.test_007_aemtHinzufuegen">Testfall 007</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tests.test_008_aemtEntfernen">Testfall 008</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testfall-009">Testfall 009</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-tests.sphinx">Testfall Spinx</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +177,21 @@
             
   <div class="section" id="tests">
 <h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h1>
+<p>Der Ordner / das Modul Tests beinhaltet funktionale UI Tests.</p>
+<div class="section" id="abhangigkeiten">
+<h2>Abhängigkeiten<a class="headerlink" href="#abhangigkeiten" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selenium">
+<h3>selenium<a class="headerlink" href="#selenium" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Installation: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">selenium</span></code></p></li>
+<li><p>Dokumentation: <a class="reference external" href="https://www.selenium.dev/documentation/en/">https://www.selenium.dev/documentation/en/</a></p></li>
+</ul>
+</div>
+<div class="section" id="einen-funktionierenden-webdriver">
+<h3>einen funktionierenden Webdriver<a class="headerlink" href="#einen-funktionierenden-webdriver" title="Permalink to this headline">¶</a></h3>
+<p>Bei uns wurde der Firefox Webdriver genutzt <a class="reference external" href="https://github.com/mozilla/geckodriver">https://github.com/mozilla/geckodriver</a> &lt;<a class="reference external" href="https://github.com/mozilla/geckodriver">https://github.com/mozilla/geckodriver</a>&gt;</p>
+</div>
+</div>
 <div class="section" id="module-tests.MyTestCase">
 <span id="mytestcase"></span><h2>MyTestCase<a class="headerlink" href="#module-tests.MyTestCase" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
@@ -190,27 +212,41 @@
 
 </dd></dl>
 
-<dl class="py function">
-<dt id="tests.MyTestCase.loginAsLukasAdmin">
-<code class="sig-prename descclassname">tests.MyTestCase.</code><code class="sig-name descname">loginAsLukasAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyTestCase.loginAsLukasAdmin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Login as testlukasadmin</p>
+<span class="target" id="module-tests.MyFuncLogin"></span><dl class="py function">
+<dt id="tests.MyFuncLogin.loginAsLukasAdmin">
+<code class="sig-prename descclassname">tests.MyFuncLogin.</code><code class="sig-name descname">loginAsLukasAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncLogin.loginAsLukasAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Öffnen eines Browsers und
+Login als User testlukasadmin mit Adminrechten</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> – self</p>
+<dd class="field-odd"><p><strong>self</strong> – </p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>There is no return</p>
+<dd class="field-even"><p>No return Value</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>none</p>
+<dd class="field-odd"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tests.MyTestCase.loginAsLukasUser">
-<code class="sig-prename descclassname">tests.MyTestCase.</code><code class="sig-name descname">loginAsLukasUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyTestCase.loginAsLukasUser" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="tests.MyFuncLogin.loginAsLukasUser">
+<code class="sig-prename descclassname">tests.MyFuncLogin.</code><code class="sig-name descname">loginAsLukasUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncLogin.loginAsLukasUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Öffnen eines Browsers und
+Login als User testlukas mit Userrechten</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="section" id="module-tests.test_001_admin">
 <span id="testfall-001"></span><h3>Testfall 001<a class="headerlink" href="#module-tests.test_001_admin" title="Permalink to this headline">¶</a></h3>
@@ -220,7 +256,8 @@
 <dd><dl class="py method">
 <dt id="tests.test_001_admin.TestAdmin.test_login_superuser">
 <code class="sig-name descname">test_login_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_001_admin.TestAdmin.test_login_superuser" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Hier wird getestet, ob man sich als Admin einloggen kann</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -233,7 +270,8 @@
 <dd><dl class="py method">
 <dt id="tests.test_002_user.TestUser.test_login_user">
 <code class="sig-name descname">test_login_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_002_user.TestUser.test_login_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Hier wird getestet, ob man sich als User anmelden kann.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -246,7 +284,41 @@
 <dl class="py function">
 <dt id="tests.MyFuncMitglieder.addMitglied">
 <code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitglied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncMitglieder.addMitglied" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Hinzufüghen eines Mitglieds mit default parametern</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tests.MyFuncMitglieder.addMitgliedWithParameters">
+<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitgliedWithParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">vorname</span></em>, <em class="sig-param"><span class="n">nachname</span></em>, <em class="sig-param"><span class="n">spitzname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncMitglieder.addMitgliedWithParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hinzufüghen eines Mitglieds mit default parametern</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>vorname</strong> (<em>string</em>) – Vorname des zu erstellenden Mitglieds</p></li>
+<li><p><strong>nachname</strong> (<em>string</em>) – Nachname des zu erstellenden Mitglieds</p></li>
+<li><p><strong>spitzname</strong> (<em>string</em>) – Spitzname des zu erstellenden Mitglieds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="module-tests.test_003_multiuser">
@@ -261,12 +333,14 @@
 <dd><dl class="py method">
 <dt id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufugen_AsSuperuser">
 <span id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufügen_AsSuperuser"></span><code class="sig-name descname">test_1MitgliedHinzufügen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_1MitgliedHinzufugen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Hier wird getestet, ob man als Admin ein Mitglied Hinzufügen kann.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_5MitgliederHinzufugen_AsSuperuser_lookAsUser">
-<span id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_5MitgliederHinzufügen_AsSuperuser_lookAsUser"></span><code class="sig-name descname">test_5MitgliederHinzufügen_AsSuperuser_lookAsUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_5MitgliederHinzufugen_AsSuperuser_lookAsUser" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufugen_AsSuperuser_lookAsUser">
+<span id="tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufügen_AsSuperuser_lookAsUser"></span><code class="sig-name descname">test_50MitgliederHinzufügen_AsSuperuser_lookAsUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_004_mitgliedHinzufuegen.TestMitgliedHinzufuegen.test_50MitgliederHinzufugen_AsSuperuser_lookAsUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hier wird getestet, ob man als Admin 5 Mitglieder Hinzufügen kann.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -279,6 +353,19 @@
 <dd><dl class="py method">
 <dt id="tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser">
 <code class="sig-name descname">test_1MitgliedEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_005_mitgliedEntfernen.TestMitgliedEntfernen.test_1MitgliedEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.test_006_mitgliedAendern">
+<span id="testfall-006"></span><h3>Testfall 006<a class="headerlink" href="#module-tests.test_006_mitgliedAendern" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="tests.test_006_mitgliedAendern.TestMitgliedAendern">
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_006_mitgliedAendern.</code><code class="sig-name descname">TestMitgliedAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_006_mitgliedAendern.TestMitgliedAendern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="tests.test_006_mitgliedAendern.TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser">
+<code class="sig-name descname">test_1MitgliedAendern_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_006_mitgliedAendern.TestMitgliedAendern.test_1MitgliedAendern_AsSuperuser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -405,62 +492,37 @@ Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.</p>
 </dd></dl>
 
 </div>
-</div>
-<div class="section" id="module-tests.sphinx">
-<span id="testfall-spinx"></span><h2>Testfall Spinx<a class="headerlink" href="#module-tests.sphinx" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-tests.test_008_aemtEntfernen">
+<span id="testfall-008"></span><h3>Testfall 008<a class="headerlink" href="#module-tests.test_008_aemtEntfernen" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="tests.sphinx.TestMultiuser">
-<em class="property">class </em><code class="sig-prename descclassname">tests.sphinx.</code><code class="sig-name descname">TestMultiuser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.sphinx.TestMultiuser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test GITHUB ACTION This is a conceptual class representation of a simple BLE device (GATT Server). It is essentially an extended combination of the <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.ScanEntry</span></code> classes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>client</strong> (class:<cite>simpleble.SimpleBleClient</cite>) – A handle to the <code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> client object that detected the device</p></li>
-<li><p><strong>addr</strong> (<em>str</em><em>, </em><em>optional</em>) – Device MAC address, defaults to None</p></li>
-<li><p><strong>addrType</strong> (<em>str</em><em>, </em><em>optional</em>) – Device address type - one of ADDR_TYPE_PUBLIC or ADDR_TYPE_RANDOM, defaults to ADDR_TYPE_PUBLIC</p></li>
-<li><p><strong>iface</strong> (<em>int</em><em>, </em><em>optional</em>) – Bluetooth interface number (0 = /dev/hci0) used for the connection, defaults to 0</p></li>
-<li><p><strong>data</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of tuples (adtype, description, value) containing the AD type code, human-readable description and value for all available advertising data items, defaults to None</p></li>
-<li><p><strong>rssi</strong> (<em>int</em><em>, </em><em>optional</em>) – Received Signal Strength Indication for the last received broadcast from the device. This is an integer value measured in dB, where 0 dB is the maximum (theoretical) signal strength, and more negative numbers indicate a weaker signal, defaults to 0</p></li>
-<li><p><strong>connectable</strong> (<em>bool</em><em>, </em><em>optional</em>) – <cite>True</cite> if the device supports connections, and <cite>False</cite> otherwise (typically used for advertising ‘beacons’)., defaults to <cite>False</cite></p></li>
-<li><p><strong>updateCount</strong> (<em>int</em><em>, </em><em>optional</em>) – Integer count of the number of advertising packets received from the device so far, defaults to 0</p></li>
-</ul>
-</dd>
-</dl>
+<dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen">
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_008_aemtEntfernen.</code><code class="sig-name descname">TestAemtEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hier wird getestet:
+…</p>
 <dl class="py method">
-<dt id="tests.sphinx.TestMultiuser.setUp">
-<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.sphinx.TestMultiuser.setUp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+<dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser">
+<code class="sig-name descname">test_1AemtEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hier wird ein Amt hinzugefügt um es dann wieder zu entfernen.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tests.sphinx.TestMultiuser.tearDown">
-<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.sphinx.TestMultiuser.tearDown" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser">
+<code class="sig-name descname">test_1ReferatEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hier wird ein Referat hinzugefügt um es dann wieder zu entfernen.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tests.sphinx.TestMultiuser.test_foo">
-<code class="sig-name descname">test_foo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.sphinx.TestMultiuser.test_foo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list containing <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Characteristic</span></code> objects for the peripheral. If no arguments are given, will return all characteristics. If startHnd and/or endHnd are given, the list is restricted to characteristics whose handles are within the given range.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>startHnd</strong> (<em>int</em><em>, </em><em>optional</em>) – Start index, defaults to 1</p></li>
-<li><p><strong>endHnd</strong> (<em>int</em><em>, </em><em>optional</em>) – End index, defaults to 0xFFFF</p></li>
-<li><p><strong>uuids</strong> (<em>list</em><em>, </em><em>optional</em>) – a list of UUID strings, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of returned <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Characteristic</span></code> objects</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
+<dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser">
+<code class="sig-name descname">test_1UnterbereichEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1UnterbereichEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hier wird ein Unterbereich hinzugefügt um es dann wieder zu entfernen.</p>
 </dd></dl>
 
 </dd></dl>
 
+</div>
+<div class="section" id="testfall-009">
+<h3>Testfall 009<a class="headerlink" href="#testfall-009" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
