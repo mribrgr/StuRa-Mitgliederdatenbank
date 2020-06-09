@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from aemter.models import Amt, Unterbereich, Referat
-from importscripts.main import *
+import importscripts.main as imp
 
 
 class MyTestCase(StaticLiveServerTestCase):
@@ -58,8 +58,8 @@ class MyTestCase(StaticLiveServerTestCase):
             username='testlukas', password='0123456789test')
 
         # Hinzufügen von Ämter - über Importscript
-        file = open("ReferateUnterbereicheAemter.csv")
-        importAemter(file)
+        file = open("importscripts/ReferateUnterbereicheAemter.csv")
+        imp.importAemter(file)
         pass
 
     # after every test funktion

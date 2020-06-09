@@ -3,10 +3,8 @@ sys.path.append('..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bin.settings")
 django.setup()
 
-# your imports, e.g. Django models
 from aemter.models import Referat, Amt, Unterbereich
 import csv
-
 
 def importAemter(file):
     # Delete existing Data
@@ -58,5 +56,6 @@ def importAemter(file):
         new_amt.save()
     pass
 
-file = open("ReferateUnterbereicheAemter.csv")
-importAemter(file)
+if __name__ == "__main__":
+    file = open("ReferateUnterbereicheAemter.csv")
+    importAemter(file)
