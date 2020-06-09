@@ -1,7 +1,7 @@
-import time
-
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncMitglieder import addMitglied
+
 
 class TestMitgliedEntfernen(MyTestCase):
     """
@@ -11,26 +11,18 @@ class TestMitgliedEntfernen(MyTestCase):
 
     # Tests
     def test_1MitgliedEntfernen_AsSuperuser(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-
-        time.sleep(5)
-        """
-            Login as Admin
-        """
+        # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)
 
         """
             Löschen eines Mitglieds
         """
-        self.browser.find_element_by_xpath("//form[@method='post']/label/span").click()
+        self.browser.find_element_by_xpath(
+            "//form[@method='post']/label/span").click()
         self.browser.find_element_by_xpath("//a[@id='delbtnl']").click()
-        self.browser.find_element_by_xpath("//a[@id='delmitgliederconfirm']").click()
+        self.browser.find_element_by_xpath(
+            "//a[@id='delmitgliederconfirm']").click()
 
         """
             Überprüfung ob Mitglied gelöscht

@@ -1,7 +1,7 @@
-import time
-
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
 from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
+
 
 class TestAemtEntfernen(MyTestCase):
     """
@@ -13,11 +13,6 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Referat hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 
@@ -26,16 +21,20 @@ class TestAemtEntfernen(MyTestCase):
         createReferat(self, referat)
 
         # Entfernen eines referat
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%referat).click()
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % referat).click()
         self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
-        self.browser.find_element_by_xpath("//div/input[@type='submit']").click()
+        self.browser.find_element_by_xpath(
+            "//div/input[@type='submit']").click()
 
         # Überprüfen ob alles geklappt hat
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
         tmpbool = True
         try:
-            self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%referat)
-        except:
+            self.browser.find_element_by_xpath(
+                "//a[contains(text(), '%s')]" % referat)
+        except BaseException:
             tmpbool = False
         self.assertFalse(tmpbool)
         pass
@@ -44,12 +43,7 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Unterbereich hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
-        # Login as Admin + Navigation
+        # Login as Admin
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
@@ -58,16 +52,20 @@ class TestAemtEntfernen(MyTestCase):
         createUnterbereich(self, referat, unterbereich)
 
         # Entfernen eines unterbereiches
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%unterbereich).click()
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % unterbereich).click()
         self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
-        self.browser.find_element_by_xpath("//div/input[@type='submit']").click()
+        self.browser.find_element_by_xpath(
+            "//div/input[@type='submit']").click()
 
         # Überprüfen ob alles geklappt hat
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
         tmpbool = True
         try:
-            self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%unterbereich)
-        except:
+            self.browser.find_element_by_xpath(
+                "//a[contains(text(), '%s')]" % unterbereich)
+        except BaseException:
             tmpbool = False
         self.assertFalse(tmpbool)
         pass
@@ -76,11 +74,6 @@ class TestAemtEntfernen(MyTestCase):
         """
             Hier wird ein Amt hinzugefügt um es dann wieder zu entfernen.
         """
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-
         # Login as Admin
         loginAsLukasAdmin(self)
 
@@ -91,16 +84,20 @@ class TestAemtEntfernen(MyTestCase):
         createAmt(self, referat, unterbereich, amt)
 
         # Entfernen eines Amts
-        self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%amt).click()
+        self.browser.find_element_by_xpath(
+            "//a[contains(text(), '%s')]" % amt).click()
         self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
-        self.browser.find_element_by_xpath("//div/input[@type='submit']").click()
+        self.browser.find_element_by_xpath(
+            "//div/input[@type='submit']").click()
 
         # Überprüfen ob alles geklappt hat
-        self.assertTrue(self.browser.find_element_by_xpath("//li[@class='success']"))
+        self.assertTrue(self.browser.find_element_by_xpath(
+            "//li[@class='success']"))
         tmpbool = True
         try:
-            self.browser.find_element_by_xpath("//a[contains(text(), '%s')]"%amt)
-        except:
+            self.browser.find_element_by_xpath(
+                "//a[contains(text(), '%s')]" % amt)
+        except BaseException:
             tmpbool = False
         self.assertFalse(tmpbool)
         pass

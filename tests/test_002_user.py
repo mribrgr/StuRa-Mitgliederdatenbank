@@ -1,24 +1,19 @@
-import time
-from tests.MyTestCase import MyTestCase, loginAsLukasUser
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasUser
+
 
 class TestUser(MyTestCase):
     """
         Setup and Teardown Funktions are specified in
         MyTestCase
     """
-    
+
     # Tests
     def test_login_user(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-        
-        time.sleep(5)
         """
-            Login as User
+            Hier wird getestet, ob man sich als User anmelden kann.
         """
+        # Login as User
         loginAsLukasUser(self)
 
         """

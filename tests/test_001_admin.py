@@ -1,24 +1,19 @@
-import time
-from tests.MyTestCase import MyTestCase, loginAsLukasAdmin
+from tests.MyTestCase import MyTestCase
+from tests.MyFuncLogin import loginAsLukasAdmin
+
 
 class TestAdmin(MyTestCase):
     """
         Setup and Teardown Funktions are specified in
         MyTestCase
     """
-    
+
     # Tests
     def test_login_superuser(self):
-        time.sleep(5)
-        try:
-            self.browser.get(self.live_server_url)
-        except:
-            print('Error in opening login page')
-        
-        time.sleep(5)
         """
-            Login as Admin
+            Hier wird getestet, ob man sich als Admin einloggen kann
         """
+        # login
         loginAsLukasAdmin(self)
 
         """
