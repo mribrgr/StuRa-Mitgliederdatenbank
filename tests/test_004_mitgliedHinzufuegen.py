@@ -31,13 +31,14 @@ class TestMitgliedHinzufuegen(MyTestCase):
         loginAsLukasAdmin(self)
 
         for value in range(50):
-            print(f"Mitglied {value} wird hinzugefügt")
+            # print(f"Mitglied {value} wird hinzugefügt")
             try:
                 addMitgliedWithParameters(self,
                     f"Max_{value}", "Mustermann", "Musti")
                 self.browser.find_element_by_xpath("//ul[@class='pagination']/li/a[contains(text(), '1')]").click()
             except:
-                print(f"Mitglied {value} wurde übersprungen")
+                # print(f"Mitglied {value} wurde übersprungen")
+                pass
             pass
 
         # Test Mitglieder Pagination Seiten

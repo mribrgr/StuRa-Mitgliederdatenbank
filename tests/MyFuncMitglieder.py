@@ -193,14 +193,15 @@ def addMitgliedWithParameters(self,
     i = 1
     while (True):
         try:
-            print(f"Durchsucht wird Seite {i}")
+            # print(f"Durchsucht wird Seite {i}")
             webelement = self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), '%s')]"%(vorname + " " + nachname))
         except:
             try:
                 i = i + 1
                 self.browser.find_element_by_xpath("//ul[@class='pagination']/li/a[contains(text(), '%d')]"%i).click()
             except:
-                print("Etwas ist schief gegangen\n")
+                # print("Etwas ist schief gegangen\n")
+                pass
             continue
         break
 
