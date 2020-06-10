@@ -31,7 +31,7 @@ def importAemter(file):
         if not Referat.objects.filter(bezeichnung=referat).exists():
             new_referat = Referat(
                 bezeichnung = referat
-            )cd
+            )
             new_referat.save()
         else:
             new_referat = Referat.objects.get(bezeichnung=referat)

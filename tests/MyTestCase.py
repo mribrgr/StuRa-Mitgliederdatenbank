@@ -58,7 +58,7 @@ class MyTestCase(StaticLiveServerTestCase):
             username='testlukas', password='0123456789test')
 
         # Hinzufügen von Ämter - über Importscript
-        file = open("importscripts/ReferateUnterbereicheAemter.csv")
+        file = open("importscripts/ReferateUnterbereicheAemter.csv", encoding="utf-8")
         imp.importAemter(file)
         pass
 
