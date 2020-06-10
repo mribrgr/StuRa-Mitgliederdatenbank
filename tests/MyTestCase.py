@@ -36,13 +36,12 @@ class MyTestCase(StaticLiveServerTestCase):
                     keep_alive=True)
                 pass
             if system() == 'Linux':
-                self.browser = WebDriver(
-                    timeout=5,
-                    firefox_options=options,
-                    log_path='django.log',
-                    keep_alive=True
-                )
+                self.browser = WebDriver()
+                # timeout=5,
                 # executable_path='tests/firefoxdriver-linux64/geckodriver',
+                # firefox_options=options,
+                # log_path='django.log',
+                # keep_alive=True
                 pass
 
             self.browser.implicitly_wait(5)
