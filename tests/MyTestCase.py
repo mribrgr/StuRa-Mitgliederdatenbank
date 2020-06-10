@@ -47,9 +47,9 @@ class MyTestCase(StaticLiveServerTestCase):
 
             self.browser.implicitly_wait(5)
             # self.browser.fullscreen_window()
-        except BaseException:
+        except BaseException as e:
             print("konnte keine Webdriver-Instanz bekommen")
-            print(BaseException)
+            print(e)
 
         # Hinzufügen von Admin
         user = get_user_model().objects.create_superuser(
