@@ -114,3 +114,6 @@ venv.bak/
 db.*
 *.sqlite3
 *.sqlite
+
+# pycharm
+.idea/
