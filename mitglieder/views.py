@@ -6,7 +6,7 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from .models import Mitglied, MitgliedAmt, MitgliedMail
-from aemter.models import Amt, Referat, Unterbereich
+from aemter.models import Amt, Organisationseinheit, Unterbereich
 import simplejson, json
 # string splitting
 import re
@@ -58,7 +58,7 @@ def mitgliedErstellenView(request):
     global aemternum, emailnum
     aemternum = emailnum = 1
     # Laden aller Referate
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
     # Anzahl von E-Mails, Aemtern sowie Referate werden an Frontend gesendet
     return render(request=request,
         template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
@@ -69,7 +69,7 @@ def bereiche_laden(request):
     global aemternum
     referat_id = request.GET.get('referat')
     amtnum = request.GET.get('amtnum')
-    bereiche = Referat.objects.get(pk=referat_id).unterbereich_set.all()
+    bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
     return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum})
 
 # Aemter eines Bereichs an das Frontend senden
@@ -80,7 +80,7 @@ def aemter_laden(request):
     # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
     if bereich_id == "-1":
         referat_id = request.GET.get('referat')
-        aemter = Referat.objects.get(pk=referat_id).amt_set.all()
+        aemter = Organisationseinheit.objects.get(pk=referat_id).amt_set.all()
         aemter = aemter.filter(unterbereich__isnull=True)
     # Laden aller Aemter fuer gewaehlten Unterbereich
     else:
@@ -91,7 +91,7 @@ def aemter_laden(request):
 def aemter_html_laden(request):
     global aemternum
     aemternum += 1
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
     # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
     return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
 
@@ -152,7 +152,7 @@ def mitgliedBearbeitenView(request, mitglied_id):
     mitglied = Mitglied.objects.get(pk=mitglied_id)
     aemternum = max(1, mitglied.mitgliedamt_set.all().count())
     emailnum = max(1, mitglied.mitgliedmail_set.all().count())
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
 
     return render(request=request,
                   template_name="mitglieder/mitglied_erstellen_bearbeiten.html",

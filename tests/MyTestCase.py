@@ -5,7 +5,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-from aemter.models import Amt, Unterbereich, Referat
+from aemter.models import Amt, Unterbereich, Organisationseinheit
 import importscripts.main as imp
 
 
@@ -22,8 +22,8 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         # Auskommentieren bei localen tests
         options = Options()
-        options.log.level = "trace"
-        options.set_headless(headless=True)
+        #options.log.level = "trace"
+        #options.headless = True
 
         try:
             if system() == 'Windows':
@@ -46,6 +46,7 @@ class MyTestCase(StaticLiveServerTestCase):
                 pass
 
             self.browser.implicitly_wait(5)
+            # self.browser.fullscreen_window()
         except BaseException:
             print("konnte keine Webdriver-Instanz bekommen")
 

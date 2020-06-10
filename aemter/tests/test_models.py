@@ -5,7 +5,7 @@ from aemter.models import *
 class TestModels(TestCase):
 
     def setUp(self):
-        self.referat1 = Referat.objects.create(
+        self.referat1 = Organisationseinheit.objects.create(
             bezeichnung = "myreferat"
         )
 
@@ -36,12 +36,12 @@ class TestModels(TestCase):
     def test_Unterbereich_toString(self):
         self.assertEquals(
             self.unterbereich1.__str__(),
-            "myunterbereich (Referat myreferat)")
+            "myunterbereich (Organisationseinheit myreferat)")
 
     def test_Amt1_toString(self):
         self.assertEquals(
             self.amt1.__str__(),
-            "myamt1 myunterbereich (Referat myreferat)")
+            "myamt1 myunterbereich (Organisationseinheit myreferat)")
 
     def test_Amt2_toString(self):
         self.assertEquals(

@@ -177,23 +177,23 @@
       }
     }
     for (var i=1; i<=amt_num; i++){
-      // Select fuer Amt existiert nocht nicht (weil kein Referat oder Bereich ausgewaehlt wurde) => rot markieren
+      // Select fuer Amt existiert nocht nicht (weil kein Organisationseinheit oder Bereich ausgewaehlt wurde) => rot markieren
       if (!$("#selectamt"+i.toString()).length){
         console.log("selectamt" + i.toString());
-        // Dropdown fuer Bereich existiert => rot markieren, ansonsten Dropdown fuer Referat rot markieren
+        // Dropdown fuer Bereich existiert => rot markieren, ansonsten Dropdown fuer Organisationseinheit rot markieren
         if ($("#selectbereich" + i.toString()).length){
           console.log("Bereich wurde nicht ausgewaehlt")
           $("#div_selectbereich"+i.toString()).addClass("invalid_input");
           addDropdownEventListener("selectbereich" + i.toString());
         } else {
           $("#div_selectreferat" + i.toString()).addClass("invalid_input");
-          console.log("Referat wurde nicht ausgewaehlt");
+          console.log("Organisationseinheit wurde nicht ausgewaehlt");
           addDropdownEventListener("selectreferat" + i.toString());
         }
-        console.log("Kein Bereich oder Referat ausgewahelt");
+        console.log("Kein Bereich oder Organisationseinheit ausgewahelt");
         valid_input = false;
       }
-      // Referat und Bereich, aber kein Amt ausgewaehlt => Amt rot markieren
+      // Organisationseinheit und Bereich, aber kein Amt ausgewaehlt => Amt rot markieren
       if ($("#selectamt" + i.toString() + " option:selected").prop("disabled")==true){
         console.log("Ein Amt wurde nicht ausgewaehlt");
         valid_input = false;
@@ -210,7 +210,7 @@
     $("#addAmt").click(function(){
       amt_num++;
       var url = $("#addAmt").attr("data-url");
-      // Request an Server, dass dieser HTML fuer Referat-Dropdown senden moege
+      // Request an Server, dass dieser HTML fuer Organisationseinheit-Dropdown senden moege
       $.ajax({
         url: url,
         success: function(data){
@@ -236,14 +236,14 @@
     
 
     // Triggern eines change Events, falls nach erneutem Laden noch
-    // Referat ausgewaehlt ist, um Bereiche anzuzeigen
+    // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
     if ($('#selectreferat').val()){
       $('#selectreferat').trigger("change");
       
     }
   });
 
-  // Event Listener falls ein anderes Referat ausgewaehlt wird
+  // Event Listener falls ein anderes Organisationseinheit ausgewaehlt wird
   // Laden neuer Unterbereiche, Entfernen des Amt-Dropdowns
   function addReferatEventListener(){ 
     $('select[name^=selectreferat]').change(function(event){

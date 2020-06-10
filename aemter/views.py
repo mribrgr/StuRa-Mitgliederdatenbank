@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
-from .models import Referat, Unterbereich, Amt
+from .models import Organisationseinheit, Unterbereich, Amt
 from mitglieder.models import MitgliedAmt
 
 # Create your views here.
@@ -10,7 +10,7 @@ def main_screen(request):
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
 
-    referate = Referat.objects.all().order_by('id')
+    referate = Organisationseinheit.objects.all().order_by('id')
     paginator = Paginator(referate, 15) # Show 15 entries per page
     page_number = request.GET.get('page') # Get page number from request
     referate_page = paginator.get_page(page_number) # Get entries for that page

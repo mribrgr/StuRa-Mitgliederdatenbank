@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Referat',
+            name='Organisationseinheit',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='amt',
             name='referat',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Referat'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Organisationseinheit'),
         ),
         migrations.AddField(
             model_name='amt',

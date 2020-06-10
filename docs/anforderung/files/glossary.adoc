@@ -24,7 +24,7 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |Organigramm |Übersicht aller Ämter und Besetzungen |
 |Plenum| Gesamtheit der StuRa-Mitglieder |
 |Präsidium | Verantwortliche für StuRa-Sitzungen (Vorbereitung, Vorsitz, Nachbereitung)|
-|Referat|Exekutive des StuRas, verantwortlich für die Umsetzung der Beschlüsse des StuRas|
+|Organisationseinheit|Exekutive des StuRas, verantwortlich für die Umsetzung der Beschlüsse des StuRas|
 |Sicherheitsabfrage | Vom Nutzer wird für bestimmte Operationen eine zusätzliche Bestätigung dieser angefordert. |
 |Sprecher | Vertreter der Stundentenschaft bei verschiedenen Veranstaltungen|
 |Systemnutzer | Eine Person, die auf das Mitgliederdatenbank-System Zugriff hat. | Nutzer, Benutzer

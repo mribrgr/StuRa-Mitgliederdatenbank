@@ -1,7 +1,7 @@
 from django import template
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
-from aemter.models import Referat, Unterbereich, Amt, Recht, AmtRecht
+from aemter.models import Organisationseinheit, Unterbereich, Amt, Recht, AmtRecht
 
 register = template.Library()
 
@@ -15,7 +15,7 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
     sowohl zum jetzigen Zeitpunkt als auch zu dem Zeitpunkt, zu dem der Historien-Eintrag angelegt wurde.
 
     :param desiredInfo: Der Name des Models, aus welchem die zusätzlichen Daten ermittelt werden sollen.
-        Zulässige Werte: "Mitglied", "Amt", "Unterbereich", "Referat", "Recht"
+        Zulässige Werte: "Mitglied", "Amt", "Unterbereich", "Organisationseinheit", "Recht"
     :type desiredInfo: str
 
     :param queryType: Gibt an, ob die aktuellen Daten oder die Daten zum Zeitpunkt des Eintrags in die Historie ermittelt werden sollen.
@@ -35,7 +35,7 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
     if(desiredInfo == "Mitglied"): foreignClass = Mitglied
     if(desiredInfo == "Amt"): foreignClass = Amt
     if(desiredInfo == "Unterbereich"): foreignClass = Unterbereich
-    if(desiredInfo == "Referat"): foreignClass = Referat
+    if(desiredInfo == "Organisationseinheit"): foreignClass = Organisationseinheit
     if(desiredInfo == "Recht"): foreignClass = Recht
 
     if primaryKey == "": return None

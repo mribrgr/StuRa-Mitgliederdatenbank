@@ -8,17 +8,17 @@ class TestAemtHinzufuegen(MyTestCase):
     """
         Hier wird getestet:
 
-        * Ob ein Referat richtig über das AdminPanel Hinzugefügt wird
+        * Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird
         * Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird
         * Ob ein Amt richtig über das AdminPanel Hinzugefügt wird
-        * Ein Komplextest ob man mit Hinzugefügten Referat/Unterbereich/Amt
+        * Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Amt
 
         Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
     """
 
     def test_1ReferatHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Referat hinzugefügt und überprüft ob es dann richtig
+            Hier wird ein Organisationseinheit hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
         # Login as Admin
@@ -61,7 +61,7 @@ class TestAemtHinzufuegen(MyTestCase):
     def test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser(self):
         """
             Dies ist ein Zusammenhängender Test
-            Referat, Unterbereich und Amt werden neu angelegt.
+            Organisationseinheit, Unterbereich und Amt werden neu angelegt.
             Ein neues Mitglied wird erstellt und diesem zugeordnet.
             Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.
         """
@@ -129,7 +129,7 @@ class TestAemtHinzufuegen(MyTestCase):
             self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
             "Hans Peter",
             msg="Hans Peter wurde nicht angelegt")
-        searchstring = amt + " " + unterbereich + " (Referat " + referat + ")"
+        searchstring = amt + " " + unterbereich + " (Organisationseinheit " + referat + ")"
         self.assertEqual(
             self.browser.find_element_by_xpath(
                 "//tr[@class='mitglied']/td/ul/li[contains(text(), '%s')]" %
@@ -144,7 +144,7 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath("//a[@href='/aemter']").click()
 
         # öffnen der collabseables
-        searchstring = "Referat " + referat
+        searchstring = "Organisationseinheit " + referat
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
         searchstring = "Bereich " + unterbereich

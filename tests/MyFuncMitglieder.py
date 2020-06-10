@@ -46,7 +46,7 @@ def addMitglied(self):
     entNachname.send_keys('Peter')
     entSpitzname.send_keys('Hansi')
 
-    # Referat auswählen
+    # Organisationseinheit auswählen
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
@@ -145,7 +145,7 @@ def addMitgliedWithParameters(self,
     except:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
-    # Referat auswählen
+    # Organisationseinheit auswählen
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(

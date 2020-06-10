@@ -22,7 +22,7 @@
   <div class="col s12">
     <ul class="tabs">
       <li class="tab col s4"><a class="tab-link active" data-tab="Mitglied" id="MitgliedTab" href="#mitgliederTab">Mitglieder</a></li>
-      <li class="tab col s4"><a class="tab-link" data-tab="Referat" id="AmtTab" href="#aemterTab">Ämter</a></li>
+      <li class="tab col s4"><a class="tab-link" data-tab="Organisationseinheit" id="AmtTab" href="#aemterTab">Ämter</a></li>
       <li class="tab col s4"><a class="tab-link" data-tab="User" href="#nutzerTab">Systemnutzer</a></li>
     </ul>
   </div>
@@ -53,7 +53,7 @@
       // Update target on top tabs accordingly
       if(selectedTab == "Mitglied" || selectedTab == "MitgliedMail" || selectedTab == "MitgliedAmt")
         $("#MitgliedTab").attr("data-tab", selectedTab);
-      if(selectedTab == "Referat" || selectedTab == "Unterbereich" || selectedTab == "Amt" || selectedTab == "Recht" || selectedTab == "AmtRecht")
+      if(selectedTab == "Organisationseinheit" || selectedTab == "Unterbereich" || selectedTab == "Amt" || selectedTab == "Recht" || selectedTab == "AmtRecht")
         $("#AmtTab").attr("data-tab", selectedTab);
 
       // Reset search before switching tabs to avoid confusion
@@ -100,7 +100,7 @@
             case "MitgliedAmt":
               $("#mitgliederAemterTab").html(data);
               break;
-            case "Referat":
+            case "Organisationseinheit":
               $("#referateTab").html(data);
               break;
             case "Unterbereich":

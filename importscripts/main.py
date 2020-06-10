@@ -5,12 +5,12 @@ sys.path.append('..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bin.settings")
 django.setup()
 
-from aemter.models import Referat, Amt, Unterbereich
+from aemter.models import Organisationseinheit, Amt, Unterbereich
 import csv
 
 def importAemter(file):
     # Delete existing Data
-    Referat.objects.all().delete()
+    Organisationseinheit.objects.all().delete()
     Unterbereich.objects.all().delete()
     Amt.objects.all().delete()
 
@@ -24,17 +24,17 @@ def importAemter(file):
         # Print Current Line for Debug
         print(referat + " | " + unterbereich + " | " + amt)
 
-        if (referat == 'Referat'):
+        if (referat == 'Organisationseinheit'):
             continue
 
-        # Erstelle das Referat
-        if not Referat.objects.filter(bezeichnung=referat).exists():
-            new_referat = Referat(
+        # Erstelle das Organisationseinheit
+        if not Organisationseinheit.objects.filter(bezeichnung=referat).exists():
+            new_referat = Organisationseinheit(
                 bezeichnung = referat
             )
             new_referat.save()
         else:
-            new_referat = Referat.objects.get(bezeichnung=referat)
+            new_referat = Organisationseinheit.objects.get(bezeichnung=referat)
 
         # Erstelle den Unterbereich
         if not Unterbereich.objects.filter(bezeichnung=unterbereich).exists():

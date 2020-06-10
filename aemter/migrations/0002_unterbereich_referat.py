@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='unterbereich',
             name='referat',
-            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='aemter.Referat'),
+            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='aemter.Organisationseinheit'),
             preserve_default=False,
         ),
     ]

@@ -14,13 +14,13 @@ zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.n
 {% endif %}
 
 {% if entry|to_class_name == "HistoricalReferat" %}
-Referat {{entry.id}} ({{entry.bezeichnung}})
+Organisationseinheit {{entry.id}} ({{entry.bezeichnung}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalUnterbereich" %}
-Unterbereich {{entry.id}} ({{entry.bezeichnung}}) zu Referat {{entry.referat_id}} ({{latestReferat.bezeichnung}})
+Unterbereich {{entry.id}} ({{entry.bezeichnung}}) zu Organisationseinheit {{entry.referat_id}} ({{latestReferat.bezeichnung}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalAmt" %}
-Amt {{entry.id}} ({{entry.bezeichnung}}) in Referat
+Amt {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
 {{entry.referat_id}} ({{latestReferat.bezeichnung}}){% if entry.unterbereich_id %}, Unterbereich 
 {{entry.unterbereich_id}} ({{latestUnterbereich.bezeichnung}}){% endif %}
 {% endif %}

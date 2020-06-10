@@ -54,7 +54,7 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 //Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 |===
-|Für|	Referat Verwaltung (StuRa)
+|Für|	Organisationseinheit Verwaltung (StuRa)
 |welchem|	das Verwalten der Mitglieder deutlich erleichtert wird
 |Die Lösung ist eine | Webanwedung zur Mitgliederverwaltung
 |Die / Das	|das Verwalten übersichtlicher gestaltet und eine Historie speichert

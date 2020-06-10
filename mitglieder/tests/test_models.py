@@ -16,7 +16,7 @@ class TestModels(TestCase):
             tel_mobil = "0352075199"
         )
 
-        self.referat1 = Referat.objects.create(
+        self.referat1 = Organisationseinheit.objects.create(
             bezeichnung = "myreferat"
         )
 
@@ -50,7 +50,7 @@ class TestModels(TestCase):
     def test_mitgliedAmt_toString(self):
         self.assertEquals(
             self.mitgliedamt1.__str__(),
-            "Hans Peter, myamt myunterbereich (Referat myreferat)")
+            "Hans Peter, myamt myunterbereich (Organisationseinheit myreferat)")
 
     def test_mitgliedMail_toString(self):
         self.assertEquals(

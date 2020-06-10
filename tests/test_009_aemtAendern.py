@@ -54,7 +54,7 @@ class TestAemtAendern(MyTestCase):
 
         # ändern der Bezeichnung für test_unterbereich
         suffix = "_1"
-        text = unterbereich + " (Referat " + referat + ")"
+        text = unterbereich + " (Organisationseinheit " + referat + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -62,7 +62,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = unterbereich + suffix + " (Referat " + referat + ")"
+        text = unterbereich + suffix + " (Organisationseinheit " + referat + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -87,7 +87,7 @@ class TestAemtAendern(MyTestCase):
         createUnterbereich(self, referat, unterbereich)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
-        text = unterbereich + " (Referat " + referat + ")"
+        text = unterbereich + " (Organisationseinheit " + referat + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_referat = Select(
@@ -96,7 +96,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = unterbereich + " (Referat " + referat2 + ")"
+        text = unterbereich + " (Organisationseinheit " + referat2 + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -119,7 +119,7 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         suffix = "_1"
-        text = amt + " " + unterbereich + " (Referat " + referat + ")"
+        text = amt + " " + unterbereich + " (Organisationseinheit " + referat + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -127,7 +127,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = amt + suffix + " " + unterbereich + " (Referat " + referat + ")"
+        text = amt + suffix + " " + unterbereich + " (Organisationseinheit " + referat + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -149,7 +149,7 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = amt + " " + unterbereich + " (Referat " + referat + ")"
+        text = amt + " " + unterbereich + " (Organisationseinheit " + referat + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -165,7 +165,7 @@ class TestAemtAendern(MyTestCase):
 
     def test_1AmtReferatAendern(self):
         """
-            Hier wird das Referat geändert, dem das Amt zugeordnet ist
+            Hier wird das Organisationseinheit geändert, dem das Amt zugeordnet ist
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -188,8 +188,8 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = amt + " " + unterbereich + " (Referat " + referat + ")"
-        text_ub = unterbereich2 + " (Referat " + referat2 + ")"
+        text = amt + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text_ub = unterbereich2 + " (Organisationseinheit " + referat2 + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_referat = Select(
@@ -201,7 +201,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = amt + " " + unterbereich2 + " (Referat " + referat2 + ")"
+        text = amt + " " + unterbereich2 + " (Organisationseinheit " + referat2 + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -235,8 +235,8 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = amt + " " + unterbereich + " (Referat " + referat + ")"
-        text_ub = unterbereich2 + " (Referat " + referat + ")"
+        text = amt + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text_ub = unterbereich2 + " (Organisationseinheit " + referat + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_unterbereich = Select(
@@ -245,7 +245,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = amt + " " + unterbereich2 + " (Referat " + referat + ")"
+        text = amt + " " + unterbereich2 + " (Organisationseinheit " + referat + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(

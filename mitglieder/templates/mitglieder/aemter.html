@@ -1,14 +1,14 @@
 <div id="amt{{amtid}}" >
 <div class="row">
     <div id="div_selectreferat{{amtid}}" class="input-field col s10 m8 l4">
-      <!-- Referat -->
+      <!-- Organisationseinheit -->
       <select id="selectreferat{{amtid}}" name="selectreferat{{amtid}}" data-url="{% url 'mitglieder:bereiche_laden' %}" class="selectbereich">
-        <option value="{{amt.referat}}" disabled selected>Referat auswählen</option>
+        <option value="{{amt.referat}}" disabled selected>Organisationseinheit auswählen</option>
         {% for referat in referate %}
         <option value="{{referat.id}}" {% if referat.id == amt.referat.id %}selected="selected"{% endif %}>{{referat}}</option>
         {% endfor %}
       </select>
-      <label>Referat</label>
+      <label>Organisationseinheit</label>
     </div>
       <!-- Bereich -->
       <div id="div_selectbereich{{amtid}}">

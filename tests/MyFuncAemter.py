@@ -9,7 +9,7 @@ def createReferat(self, referat):
 
         :param self:
         :type self:
-        :param referat: Name, wie das neue Referat heißen soll
+        :param referat: Name, wie das neue Organisationseinheit heißen soll
         :type referat: string
         :return: No return Value
         :rtype: None
@@ -18,9 +18,9 @@ def createReferat(self, referat):
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
-    # Navigieren zu Referat Hinzufügen
+    # Navigieren zu Organisationseinheit Hinzufügen
     self.browser.find_element_by_xpath(
-        "//a[@href='/admin/aemter/referat/add/']").click()
+        "//a[@href='/admin/aemter/organisationseinheit/add/']").click()
 
     # fill inputs
     self.browser.find_element_by_xpath(
@@ -30,7 +30,7 @@ def createReferat(self, referat):
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
     """
-        Überprüfung ob Referat hinzugefügt wurde
+        Überprüfung ob Organisationseinheit hinzugefügt wurde
     """
     self.assertTrue(self.browser.find_element_by_xpath(
         "//a[contains(text(), '%s')]" % referat))
@@ -45,7 +45,7 @@ def createUnterbereich(self, referat, unterbereich):
 
         :param self:
         :type self:
-        :param referat: Referat, dem der Unterbereich zugeordnet werden soll
+        :param referat: Organisationseinheit, dem der Unterbereich zugeordnet werden soll
         :type referat: string
         :param unterbereich: Name des Unterbereichs
         :type unterbereich: string
@@ -56,7 +56,7 @@ def createUnterbereich(self, referat, unterbereich):
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
-    # Navigieren zu Referat Hinzufügen
+    # Navigieren zu Organisationseinheit Hinzufügen
     self.browser.find_element_by_xpath(
         "//a[@href='/admin/aemter/unterbereich/add/']").click()
 
@@ -75,7 +75,7 @@ def createUnterbereich(self, referat, unterbereich):
     """
         Überprüfung ob Unterbereichs hinzugefügt wurde
     """
-    created_unterbereich = unterbereich + " (Referat " + referat + ")"
+    created_unterbereich = unterbereich + " (Organisationseinheit " + referat + ")"
     self.assertTrue(self.browser.find_element_by_xpath(
         "//a[contains(text(), '%s')]" % created_unterbereich))
     pass
@@ -89,7 +89,7 @@ def createAmt(self, referat, unterbereich, amt):
 
         :param self:
         :type self:
-        :param referat: Referat, dem das Amt zugeordnet werden soll
+        :param referat: Organisationseinheit, dem das Amt zugeordnet werden soll
         :type referat: string
         :param unterbereich: Unterbereich des Referats
         :type unterbereich: string
@@ -99,7 +99,7 @@ def createAmt(self, referat, unterbereich, amt):
         :rtype: None
     """
     workload = "5"
-    unterbereich = unterbereich + " (Referat " + referat + ")"
+    unterbereich = unterbereich + " (Organisationseinheit " + referat + ")"
 
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()

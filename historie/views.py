@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from datetime import datetime
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
-from aemter.models import Referat, Unterbereich, Amt, Recht, AmtRecht
+from aemter.models import Organisationseinheit, Unterbereich, Amt, Recht, AmtRecht
 from django.contrib.auth.models import User
 from django.db.models import Q
 
@@ -37,7 +37,7 @@ def list(request):
     mitgliederMails = MitgliedMail.history.all()
     mitgliederAemter = MitgliedAmt.history.all()
 
-    referate = Referat.history.all()
+    referate = Organisationseinheit.history.all()
     unterbereiche = Unterbereich.history.all()
     aemter = Amt.history.all()
     rechte = Recht.history.all()
@@ -143,10 +143,10 @@ def fetch_entries(request):
                 | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
                 | Q(amt__referat__bezeichnung__icontains=term)
                 | Q(amt__unterbereich__bezeichnung__icontains=term))
-    if selected_tab == "Referat":
-        data = Referat.history.none()
+    if selected_tab == "Organisationseinheit":
+        data = Organisationseinheit.history.none()
         for term in searchterms:
-            data = data | Referat.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
+            data = data | Organisationseinheit.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
     if selected_tab == "Unterbereich":
         data = Unterbereich.history.none()
         for term in searchterms:

@@ -11,7 +11,7 @@ class TestAemtEntfernen(MyTestCase):
 
     def test_1ReferatEntfernen_AsSuperuser(self):
         """
-            Hier wird ein Referat hinzugefügt um es dann wieder zu entfernen.
+            Hier wird ein Organisationseinheit hinzugefügt um es dann wieder zu entfernen.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
