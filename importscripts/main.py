@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os, django, sys
 sys.path.append('..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bin.settings")
@@ -29,7 +31,7 @@ def importAemter(file):
         if not Referat.objects.filter(bezeichnung=referat).exists():
             new_referat = Referat(
                 bezeichnung = referat
-            )
+            )cd
             new_referat.save()
         else:
             new_referat = Referat.objects.get(bezeichnung=referat)
@@ -57,5 +59,5 @@ def importAemter(file):
     pass
 
 if __name__ == "__main__":
-    file = open("ReferateUnterbereicheAemter.csv")
+    file = open("ReferateUnterbereicheAemter.csv", encoding="utf-8")
     importAemter(file)
