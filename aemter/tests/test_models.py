@@ -29,21 +29,21 @@ class TestModels(TestCase):
         )
 
     def test_Referat_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.referat1.__str__(),
             "myreferat")
 
     def test_Unterbereich_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.unterbereich1.__str__(),
             "myunterbereich (Organisationseinheit myreferat)")
 
     def test_Amt1_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.amt1.__str__(),
             "myamt1 myunterbereich (Organisationseinheit myreferat)")
 
     def test_Amt2_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.amt2.__str__(),
             "myamt2 myreferat")

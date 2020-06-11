@@ -24,7 +24,7 @@ class TestViews(TestCase):
     def test_main_GET(self):
         # unangemeldet
         response = self.client.get(self.main_url)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
 
         # als admin
         self.client.login(username='testlukasadmin', password='0123456789test')
@@ -36,6 +36,6 @@ class TestViews(TestCase):
         # als user
         self.client.login(username='testlukas', password='0123456789test')
         response = self.client.get(self.main_url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'aemter/main_screen.html')
         self.client.logout()
