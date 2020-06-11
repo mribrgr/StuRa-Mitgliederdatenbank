@@ -37,7 +37,7 @@ class MyTestCase(StaticLiveServerTestCase):
                 pass
             if system() == 'Linux':
                 print("Linux")
-                self.browser = webdriver.Firefox(executable_path='/usr/bin/geckodriver')
+                self.browser = webdriver.Chrome()
                 # self.browser = webdriver.Firefox(
                 #     # timeout=5,
                 #     # executable_path='tests/firefoxdriver-linux64/geckodriver',
