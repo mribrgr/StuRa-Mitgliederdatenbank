@@ -25,34 +25,34 @@ class TestViews(TestCase):
     def test_main_screen_GET(self):
         # unangemeldet
         response = self.client.get(self.main_screen)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'login/login.html')
 
         # als admin
         self.client.login(username='testlukasadmin', password='0123456789test')
         response = self.client.get(self.main_screen)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.client.logout()
 
         # als user
         self.client.login(username='testlukas', password='0123456789test')
         response = self.client.get(self.main_screen)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.client.logout()
 
     def test_logout_request_GET(self):
         # unangemeldet
         response = self.client.get(self.logout_request)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
 
         # als admin
         self.client.login(username='testlukasadmin', password='0123456789test')
         response = self.client.get(self.logout_request)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.client.logout()
 
         # als user
         self.client.login(username='testlukas', password='0123456789test')
         response = self.client.get(self.logout_request)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.client.logout()

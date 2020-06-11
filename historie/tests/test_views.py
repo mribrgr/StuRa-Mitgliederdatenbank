@@ -22,17 +22,17 @@ class TestViews(TestCase):
     def test_main_screen_GET(self):
         # unangemeldet
         response = self.client.get(self.list)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
 
         # als admin
         self.client.login(username='testlukasadmin', password='0123456789test')
         response = self.client.get(self.list)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'historie/list.html')
         self.client.logout()
 
         # als user
         self.client.login(username='testlukas', password='0123456789test')
         response = self.client.get(self.list)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.client.logout()

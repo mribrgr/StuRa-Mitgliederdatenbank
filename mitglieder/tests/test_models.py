@@ -43,16 +43,16 @@ class TestModels(TestCase):
         )
 
     def test_mitglied_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitglied1.__str__(),
             "Hans Peter")
 
     def test_mitgliedAmt_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitgliedamt1.__str__(),
             "Hans Peter, myamt myunterbereich (Organisationseinheit myreferat)")
 
     def test_mitgliedMail_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitgliedmail1.__str__(),
             "sxxxxx@htw-dresden.de Hans Peter")

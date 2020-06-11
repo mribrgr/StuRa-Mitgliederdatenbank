@@ -22,7 +22,7 @@ def importAemter(file):
         funktion = row[2]
 
         # Print Current Line for Debug
-        print(referat + " | " + unterbereich + " | " + funktion)
+        # print(referat + " | " + unterbereich + " | " + funktion)
 
         if (referat == 'Organisationseinheit'):
             continue

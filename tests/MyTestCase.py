@@ -31,7 +31,7 @@ class MyTestCase(StaticLiveServerTestCase):
                     timeout=5,
                     executable_path='tests/firefoxdriver-win64/geckodriver.exe',
                     firefox_options=options,
-                    log_path='django.log',
+                    service_log_path='django.log',
                     keep_alive=True
                     )
                 pass
@@ -40,7 +40,7 @@ class MyTestCase(StaticLiveServerTestCase):
                     timeout=5,
                     executable_path='tests/firefoxdriver-linux64/geckodriver',
                     firefox_options=options,
-                    log_path='django.log',
+                    service_log_path='django.log',
                     keep_alive=True
                     )
                 pass
@@ -61,6 +61,7 @@ class MyTestCase(StaticLiveServerTestCase):
         # Hinzufügen von Ämter - über Importscript
         file = open("importscripts/ReferateUnterbereicheAemter.csv", encoding="utf-8")
         imp.importAemter(file)
+        file.close()
         pass
 
     # after every test funktion

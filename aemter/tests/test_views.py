@@ -29,7 +29,7 @@ class TestViews(TestCase):
         # als admin
         self.client.login(username='testlukasadmin', password='0123456789test')
         response = self.client.get(self.main_url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'aemter/main_screen.html')
         self.client.logout()
 
