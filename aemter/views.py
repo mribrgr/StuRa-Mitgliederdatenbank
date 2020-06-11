@@ -17,8 +17,8 @@ def main_screen(request):
     referat_ids = referate_page.object_list.values_list('id', flat=True) # Get IDs of those entries
 
     # Only get associated data for current page
-    unterbereiche = Unterbereich.objects.filter(referat__id__in=referat_ids)
-    aemter = Funktion.objects.filter(referat__id__in=referat_ids)
+    unterbereiche = Unterbereich.objects.filter(organisationseinheit__id__in=referat_ids)
+    aemter = Funktion.objects.filter(organisationseinheit__id__in=referat_ids)
     amt_ids = aemter.values_list('id', flat=True)
     mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids)
 

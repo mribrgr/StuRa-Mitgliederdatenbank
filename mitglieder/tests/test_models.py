@@ -22,13 +22,13 @@ class TestModels(TestCase):
 
         self.unterbereich1 = Unterbereich.objects.create(
             bezeichnung = "myunterbereich",
-            referat = self.referat1
+            organisationseinheit = self.referat1
         )
 
         self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt",
             workload = 4,
-            referat = self.referat1,
+            organisationseinheit = self.referat1,
             unterbereich = self.unterbereich1
         )
 

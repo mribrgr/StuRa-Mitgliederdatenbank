@@ -17,24 +17,24 @@ def importAemter(file):
     # read CSV
     reader = csv.reader(file, delimiter=',')
     for row in reader:
-        referat = row[0]
+        organisationseinheit = row[0]
         unterbereich = row[1]
         funktion = row[2]
 
         # Print Current Line for Debug
-        # print(referat + " | " + unterbereich + " | " + funktion)
+        # print(organisationseinheit + " | " + unterbereich + " | " + funktion)
 
-        if (referat == 'Organisationseinheit'):
+        if (organisationseinheit == 'Organisationseinheit'):
             continue
 
         # Erstelle das Organisationseinheit
-        if not Organisationseinheit.objects.filter(bezeichnung=referat).exists():
+        if not Organisationseinheit.objects.filter(bezeichnung=organisationseinheit).exists():
             new_referat = Organisationseinheit(
-                bezeichnung = referat
+                bezeichnung = organisationseinheit
             )
             new_referat.save()
         else:
-            new_referat = Organisationseinheit.objects.get(bezeichnung=referat)
+            new_referat = Organisationseinheit.objects.get(bezeichnung=organisationseinheit)
 
         # Erstelle den Unterbereich
         if not Unterbereich.objects.filter(bezeichnung=unterbereich).exists():
@@ -42,7 +42,7 @@ def importAemter(file):
             if (unterbereich != 'None'):
                 new_unterbereich = Unterbereich(
                     bezeichnung = unterbereich,
-                    referat = new_referat
+                    organisationseinheit = new_referat
                 )
                 new_unterbereich.save()
         else:
@@ -52,7 +52,7 @@ def importAemter(file):
         new_amt = Funktion(
             bezeichnung = funktion,
             workload = 5,
-            referat = new_referat,
+            organisationseinheit = new_referat,
             unterbereich = new_unterbereich
         )
         new_amt.save()

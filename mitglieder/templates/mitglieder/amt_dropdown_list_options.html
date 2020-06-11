@@ -13,7 +13,7 @@
         {% endfor %}
       <!-- Funktion nicht Teil eines Unterbereichs -->
       {% else %}
-        {% for amt_r in funktion.referat.funktion_set.all %}
+        {% for amt_r in funktion.organisationseinheit.funktion_set.all %}
           <!-- nur Anzeigen von Aemtern des Referats, die zu keinem Unterbereich gehoeren-->
           {% if not amt_r.unterbereich %}
             <option {% if funktion.id == amt_r.id %}selected="selected"{% endif %} class="black-text" value="{{funktion.id}}">{{amt_r.bezeichnung}}</option>

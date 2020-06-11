@@ -24,9 +24,9 @@ class TestAemtHinzufuegen(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
-        referat = "test_referat"
-        createReferat(self, referat)
+        # Hinzufügen eines organisationseinheit
+        organisationseinheit = "test_referat"
+        createReferat(self, organisationseinheit)
         pass
 
     def test_1UnterbereichHinzufuegen_AsSuperuser(self):
@@ -38,9 +38,9 @@ class TestAemtHinzufuegen(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
         pass
 
     def test_1AemtHinzufuegen_AsSuperuser(self):
@@ -53,9 +53,9 @@ class TestAemtHinzufuegen(MyTestCase):
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
         pass
 
     def test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser(self):
@@ -68,20 +68,20 @@ class TestAemtHinzufuegen(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        referat = "test_referat"
+        organisationseinheit = "test_referat"
         unterbereich = "test_unterbereich"
         funktion = "test_amt"
 
         """
             Erstellen von allen
         """
-        createReferat(self, referat)
+        createReferat(self, organisationseinheit)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         """
@@ -95,7 +95,7 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath(
             "//div[@id='div_selectreferat1']/div/input").click()
         self.browser.find_element_by_xpath(
-            "//span[text()='%s']" % referat).click()
+            "//span[text()='%s']" % organisationseinheit).click()
 
         self.browser.find_element_by_xpath(
             "//div[@id='div_selectbereich1']/div/div/input").click()
@@ -129,7 +129,7 @@ class TestAemtHinzufuegen(MyTestCase):
             self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
             "Hans Peter",
             msg="Hans Peter wurde nicht angelegt")
-        searchstring = funktion + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        searchstring = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.assertEqual(
             self.browser.find_element_by_xpath(
                 "//tr[@class='mitglied']/td/ul/li[contains(text(), '%s')]" %
@@ -144,7 +144,7 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath("//a[@href='/aemter']").click()
 
         # öffnen der collabseables
-        searchstring = "Organisationseinheit " + referat
+        searchstring = "Organisationseinheit " + organisationseinheit
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
         searchstring = "Bereich " + unterbereich

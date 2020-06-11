@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='funktion',
-            name='referat',
+            name='organisationseinheit',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Organisationseinheit'),
         ),
         migrations.AddField(

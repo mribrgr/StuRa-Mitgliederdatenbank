@@ -67,7 +67,7 @@ def mitgliedErstellenView(request):
 # Unterbereiche eines Referats an das Frontend senden
 def bereiche_laden(request):
     global aemternum
-    referat_id = request.GET.get('referat')
+    referat_id = request.GET.get('organisationseinheit')
     amtnum = request.GET.get('amtnum')
     bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
     return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum})
@@ -79,7 +79,7 @@ def aemter_laden(request):
     amtnum = request.GET.get('amtnum')
     # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
     if bereich_id == "-1":
-        referat_id = request.GET.get('referat')
+        referat_id = request.GET.get('organisationseinheit')
         aemter = Organisationseinheit.objects.get(pk=referat_id).funktion_set.all()
         aemter = aemter.filter(unterbereich__isnull=True)
     # Laden aller Aemter fuer gewaehlten Unterbereich

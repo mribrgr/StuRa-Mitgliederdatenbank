@@ -3,9 +3,9 @@
     <div id="div_selectreferat{{amtid}}" class="input-field col s10 m8 l4">
       <!-- Organisationseinheit -->
       <select id="selectreferat{{amtid}}" name="selectreferat{{amtid}}" data-url="{% url 'mitglieder:bereiche_laden' %}" class="selectbereich">
-        <option value="{{funktion.referat}}" disabled selected>Organisationseinheit auswählen</option>
-        {% for referat in referate %}
-        <option value="{{referat.id}}" {% if referat.id == funktion.referat.id %}selected="selected"{% endif %}>{{referat}}</option>
+        <option value="{{funktion.organisationseinheit}}" disabled selected>Organisationseinheit auswählen</option>
+        {% for organisationseinheit in referate %}
+        <option value="{{organisationseinheit.id}}" {% if organisationseinheit.id == funktion.organisationseinheit.id %}selected="selected"{% endif %}>{{organisationseinheit}}</option>
         {% endfor %}
       </select>
       <label>Organisationseinheit</label>

@@ -16,13 +16,13 @@ class TestAemtEntfernen(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
-        referat = "test_referat"
-        createReferat(self, referat)
+        # Hinzufügen eines organisationseinheit
+        organisationseinheit = "test_referat"
+        createReferat(self, organisationseinheit)
 
-        # Entfernen eines referat
+        # Entfernen eines organisationseinheit
         self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % referat).click()
+            "//a[contains(text(), '%s')]" % organisationseinheit).click()
         self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
         self.browser.find_element_by_xpath(
             "//div/input[@type='submit']").click()
@@ -33,7 +33,7 @@ class TestAemtEntfernen(MyTestCase):
         tmpbool = True
         try:
             self.browser.find_element_by_xpath(
-                "//a[contains(text(), '%s')]" % referat)
+                "//a[contains(text(), '%s')]" % organisationseinheit)
         except BaseException:
             tmpbool = False
         self.assertFalse(tmpbool)
@@ -47,9 +47,9 @@ class TestAemtEntfernen(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
 
         # Entfernen eines unterbereiches
         self.browser.find_element_by_xpath(
@@ -79,9 +79,9 @@ class TestAemtEntfernen(MyTestCase):
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # Entfernen eines Amts
         self.browser.find_element_by_xpath(

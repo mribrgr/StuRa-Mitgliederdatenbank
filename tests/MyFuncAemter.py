@@ -1,7 +1,7 @@
 from selenium.webdriver.support.ui import Select
 
 
-def createReferat(self, referat):
+def createReferat(self, organisationseinheit):
     """
         Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
         Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
@@ -9,8 +9,8 @@ def createReferat(self, referat):
 
         :param self:
         :type self:
-        :param referat: Name, wie das neue Organisationseinheit heißen soll
-        :type referat: string
+        :param organisationseinheit: Name, wie das neue Organisationseinheit heißen soll
+        :type organisationseinheit: string
         :return: No return Value
         :rtype: None
     """
@@ -24,7 +24,7 @@ def createReferat(self, referat):
 
     # fill inputs
     self.browser.find_element_by_xpath(
-        "//input[@id='id_bezeichnung']").send_keys(referat)
+        "//input[@id='id_bezeichnung']").send_keys(organisationseinheit)
 
     # summit form
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
@@ -33,11 +33,11 @@ def createReferat(self, referat):
         Überprüfung ob Organisationseinheit hinzugefügt wurde
     """
     self.assertTrue(self.browser.find_element_by_xpath(
-        "//a[contains(text(), '%s')]" % referat))
+        "//a[contains(text(), '%s')]" % organisationseinheit))
     pass
 
 
-def createUnterbereich(self, referat, unterbereich):
+def createUnterbereich(self, organisationseinheit, unterbereich):
     """
         Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
         Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
@@ -45,8 +45,8 @@ def createUnterbereich(self, referat, unterbereich):
 
         :param self:
         :type self:
-        :param referat: Organisationseinheit, dem der Unterbereich zugeordnet werden soll
-        :type referat: string
+        :param organisationseinheit: Organisationseinheit, dem der Unterbereich zugeordnet werden soll
+        :type organisationseinheit: string
         :param unterbereich: Name des Unterbereichs
         :type unterbereich: string
         :return: No return Value
@@ -66,8 +66,8 @@ def createUnterbereich(self, referat, unterbereich):
 
     # fill selects
     select_referat = Select(
-        self.browser.find_element_by_xpath("//select[@id='id_referat']"))
-    select_referat.select_by_visible_text(referat)
+        self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
+    select_referat.select_by_visible_text(organisationseinheit)
 
     # summit form
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
@@ -75,13 +75,13 @@ def createUnterbereich(self, referat, unterbereich):
     """
         Überprüfung ob Unterbereichs hinzugefügt wurde
     """
-    created_unterbereich = unterbereich + " (Organisationseinheit " + referat + ")"
+    created_unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
     self.assertTrue(self.browser.find_element_by_xpath(
         "//a[contains(text(), '%s')]" % created_unterbereich))
     pass
 
 
-def createAmt(self, referat, unterbereich, funktion):
+def createAmt(self, organisationseinheit, unterbereich, funktion):
     """
         Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
         Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
@@ -89,8 +89,8 @@ def createAmt(self, referat, unterbereich, funktion):
 
         :param self:
         :type self:
-        :param referat: Organisationseinheit, dem das Funktion zugeordnet werden soll
-        :type referat: string
+        :param organisationseinheit: Organisationseinheit, dem das Funktion zugeordnet werden soll
+        :type organisationseinheit: string
         :param unterbereich: Unterbereich des Referats
         :type unterbereich: string
         :param funktion: Angabe des Namens, der das neue Funktion erhalten soll
@@ -99,7 +99,7 @@ def createAmt(self, referat, unterbereich, funktion):
         :rtype: None
     """
     workload = "5"
-    unterbereich = unterbereich + " (Organisationseinheit " + referat + ")"
+    unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
 
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
@@ -118,8 +118,8 @@ def createAmt(self, referat, unterbereich, funktion):
 
     # fill selects
     select_referat = Select(
-        self.browser.find_element_by_xpath("//select[@id='id_referat']"))
-    select_referat.select_by_visible_text(referat)
+        self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
+    select_referat.select_by_visible_text(organisationseinheit)
 
     select_unterbereich = Select(
         self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))

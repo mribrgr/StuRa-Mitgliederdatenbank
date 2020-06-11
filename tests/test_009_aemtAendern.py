@@ -21,14 +21,14 @@ class TestAemtAendern(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
-        referat = "test_referat"
-        createReferat(self, referat)
+        # Hinzufügen eines organisationseinheit
+        organisationseinheit = "test_referat"
+        createReferat(self, organisationseinheit)
 
         # ändern der Bezeichnung für test_referat
         suffix = "_1"
         self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % referat).click()
+            "//a[contains(text(), '%s')]" % organisationseinheit).click()
         self.browser.find_element_by_xpath(
             "//input[@id='id_bezeichnung']").send_keys(suffix)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
@@ -37,7 +37,7 @@ class TestAemtAendern(MyTestCase):
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % (referat + suffix)))
+            "//a[contains(text(), '%s')]" % (organisationseinheit + suffix)))
         pass
 
     def test_1UnterbereichBezeichnungAendern(self):
@@ -48,13 +48,13 @@ class TestAemtAendern(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
 
         # ändern der Bezeichnung für test_unterbereich
         suffix = "_1"
-        text = unterbereich + " (Organisationseinheit " + referat + ")"
+        text = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -62,7 +62,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = unterbereich + suffix + " (Organisationseinheit " + referat + ")"
+        text = unterbereich + suffix + " (Organisationseinheit " + organisationseinheit + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -76,22 +76,22 @@ class TestAemtAendern(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
+        # Hinzufügen eines organisationseinheit
         referat2 = "test_referat"
         createReferat(self, referat2)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         # Hinzufügen eines Unterbereichs
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
-        text = unterbereich + " (Organisationseinheit " + referat + ")"
+        text = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_referat = Select(
-            self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+            self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
         select_referat.select_by_visible_text(referat2)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
@@ -113,13 +113,13 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         suffix = "_1"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -127,7 +127,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = funktion + suffix + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text = funktion + suffix + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -143,13 +143,13 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -170,7 +170,7 @@ class TestAemtAendern(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
+        # Hinzufügen eines organisationseinheit
         referat2 = "test_referat"
         createReferat(self, referat2)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
@@ -182,18 +182,18 @@ class TestAemtAendern(MyTestCase):
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + referat + ")"
+        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         text_ub = unterbereich2 + " (Organisationseinheit " + referat2 + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_referat = Select(
-            self.browser.find_element_by_xpath("//select[@id='id_referat']"))
+            self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
         select_referat.select_by_visible_text(referat2)
         select_unterbereich = Select(
             self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
@@ -215,28 +215,28 @@ class TestAemtAendern(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
-        referat = "test_referat"
-        createReferat(self, referat)
+        # Hinzufügen eines organisationseinheit
+        organisationseinheit = "test_referat"
+        createReferat(self, organisationseinheit)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         # Hinzufügen zwei Unterbereichs
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         unterbereich2 = "test_unterbereich2"
-        createUnterbereich(self, referat, unterbereich2)
+        createUnterbereich(self, organisationseinheit, unterbereich2)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         # Hinzufügen eines Amtes
         funktion = "test_amt"
-        createAmt(self, referat, unterbereich, funktion)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + referat + ")"
-        text_ub = unterbereich2 + " (Organisationseinheit " + referat + ")"
+        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        text_ub = unterbereich2 + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_unterbereich = Select(
@@ -245,7 +245,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = funktion + " " + unterbereich2 + " (Organisationseinheit " + referat + ")"
+        text = funktion + " " + unterbereich2 + " (Organisationseinheit " + organisationseinheit + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
