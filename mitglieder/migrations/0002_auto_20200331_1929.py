@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='mitglied',
-            name='amt',
+            name='funktion',
         ),
         migrations.CreateModel(
             name='MitgliedAmt',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amt', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Amt')),
+                ('funktion', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Funktion')),
                 ('mitglied', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mitglieder.Mitglied')),
             ],
         ),

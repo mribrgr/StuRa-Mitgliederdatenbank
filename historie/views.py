@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from datetime import datetime
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
-from aemter.models import Organisationseinheit, Unterbereich, Amt, Recht, AmtRecht
+from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, AmtRecht
 from django.contrib.auth.models import User
 from django.db.models import Q
 
@@ -39,7 +39,7 @@ def list(request):
 
     referate = Organisationseinheit.history.all()
     unterbereiche = Unterbereich.history.all()
-    aemter = Amt.history.all()
+    aemter = Funktion.history.all()
     rechte = Recht.history.all()
     aemterRechte = AmtRecht.history.all()
 
@@ -151,12 +151,12 @@ def fetch_entries(request):
         data = Unterbereich.history.none()
         for term in searchterms:
             data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term))
-    if selected_tab == "Amt":
-        data = Amt.history.none()
+    if selected_tab == "Funktion":
+        data = Funktion.history.none()
         for term in searchterms:
-            data = data | Amt.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) 
-                | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term) 
-                | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
+            data = data | Funktion.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term)
+                                                  | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term)
+                                                  | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
     if selected_tab == "Recht":
         data = Recht.history.none()
         for term in searchterms:

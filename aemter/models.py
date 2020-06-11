@@ -18,7 +18,7 @@ class Unterbereich(models.Model):
     def __unicode__(self):
         return u'%s' % self.bezeichnung
 
-class Amt(models.Model):
+class Funktion(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     workload = models.IntegerField(null=True)
     referat = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=False)
@@ -35,6 +35,6 @@ class Recht(models.Model):
     history = HistoricalRecords()
 
 class AmtRecht(models.Model):
-    amt = models.ForeignKey(Amt, on_delete=models.CASCADE, null=False)
+    funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()

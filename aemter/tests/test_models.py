@@ -14,14 +14,14 @@ class TestModels(TestCase):
             referat = self.referat1
         )
 
-        self.amt1 = Amt.objects.create(
+        self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt1",
             workload = 4,
             referat = self.referat1,
             unterbereich = self.unterbereich1
         )
 
-        self.amt2 = Amt.objects.create(
+        self.amt2 = Funktion.objects.create(
             bezeichnung = "myamt2",
             workload = 4,
             referat = self.referat1,

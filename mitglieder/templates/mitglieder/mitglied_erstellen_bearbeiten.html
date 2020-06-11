@@ -35,7 +35,7 @@
         <div id="div_aemter">
         {% if mitglied.mitgliedamt_set.count %}
           {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
-          {% with mitgliedamt.amt as amt %}
+          {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
             {% include 'mitglieder/aemter.html' %}
           {% endwith %}
@@ -233,19 +233,19 @@
         }
       });
     });
-    
+
 
     // Triggern eines change Events, falls nach erneutem Laden noch
     // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
     if ($('#selectreferat').val()){
       $('#selectreferat').trigger("change");
-      
+
     }
   });
 
   // Event Listener falls ein anderes Organisationseinheit ausgewaehlt wird
   // Laden neuer Unterbereiche, Entfernen des Amt-Dropdowns
-  function addReferatEventListener(){ 
+  function addReferatEventListener(){
     $('select[name^=selectreferat]').change(function(event){
         referat_id = $(this).val();
         var url = $('#' + event.target.id).attr("data-url");
@@ -305,7 +305,7 @@
   function addInputEventListener(id){
     $('#' + id).on("input", function(event){
       // Pruefen, ob Feld leer ist oder eine ungueltige E-Mail enthaelt
-      if ($("#"+id).val()=="" || 
+      if ($("#"+id).val()=="" ||
           ($("#"+id).attr("type")=="email" && !isEmail( $("#" + id).val() ) ) ){
         $("#" + id).addClass("invalid_input");
       } else {
@@ -324,11 +324,11 @@
     $(document).on("click", '.amtdelbtn', function(){
       var url = $("#" + this.id).attr("data-url");
       amtid = this.id.substr(10);
-      $("#amt" + amtid).remove();
+      $("#funktion" + amtid).remove();
 
       // Veraendern von ids, for- und label-Attributen
-      var ids = ["amt", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
-      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label", 
+      var ids = ["funktion", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
+      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label",
       "beginn_kandidaturs_label", "ende_kandidaturs_label"];
       var forLabel = ["beginn_kandidatur", "ende_kandidatur", "beginn_kandidaturs", "ende_kandidaturs"]
       for (var i=parseInt(amtid)+1; i<=amt_num; i++){
@@ -352,7 +352,7 @@
           url: url,
       });
     });
-    
+
     // E-Mail loeschen
     $(document).on("click", '.emaildelbtn', function(){
       var url = $("#" + this.id).attr("data-url");
@@ -367,7 +367,7 @@
           $('#' + oldid).attr("name", newid);
           $("#" + oldid).attr("id", newid);
         });
-          
+
       }
       email_num--;
       // Server melden, dass E-Mail geloescht wurde

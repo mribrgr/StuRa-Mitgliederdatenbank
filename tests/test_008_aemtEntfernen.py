@@ -72,20 +72,20 @@ class TestAemtEntfernen(MyTestCase):
 
     def test_1AemtEntfernen_AsSuperuser(self):
         """
-            Hier wird ein Amt hinzugefügt um es dann wieder zu entfernen.
+            Hier wird ein Funktion hinzugefügt um es dann wieder zu entfernen.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Amtes
-        amt = "test_amt"
+        funktion = "test_amt"
         referat = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, amt)
+        createAmt(self, referat, unterbereich, funktion)
 
         # Entfernen eines Amts
         self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % amt).click()
+            "//a[contains(text(), '%s')]" % funktion).click()
         self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
         self.browser.find_element_by_xpath(
             "//div/input[@type='submit']").click()
@@ -96,7 +96,7 @@ class TestAemtEntfernen(MyTestCase):
         tmpbool = True
         try:
             self.browser.find_element_by_xpath(
-                "//a[contains(text(), '%s')]" % amt)
+                "//a[contains(text(), '%s')]" % funktion)
         except BaseException:
             tmpbool = False
         self.assertFalse(tmpbool)

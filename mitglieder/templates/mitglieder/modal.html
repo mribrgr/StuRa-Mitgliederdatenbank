@@ -6,8 +6,8 @@
         <p><b>Ämter:</b>
             {% if mitglied.mitgliedamt_set.all %}
                 <ul>
-                    {% for amt in mitglied.mitgliedamt_set.all %}
-                        <li>{{amt.amt}}</li>
+                    {% for funktion in mitglied.mitgliedamt_set.all %}
+                        <li>{{funktion.funktion}}</li>
                     {% endfor %}
                 </ul>
             {% else %}-

@@ -14,21 +14,21 @@ Mitglied der internen Verwaltung ist eingeloggt
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-==== Amt hinzufügen
-. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt hinzufügen möchte
+==== Funktion hinzufügen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Funktion hinzufügen möchte
 . Eingabe der Daten
 . Bestätigung
 . Der Use Case ist abgeschlossen.
 
-==== Amt bearbeiten
-. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt bearbeiten möchte
+==== Funktion bearbeiten
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Funktion bearbeiten möchte
 . while Nutzer hat Daten noch nicht gespeichert
   * Hinzufügen eines Mitglieds (mit Angabe des Legislaturbeginns) oder Entfernen eines Mitglieds
 . end while
 . Der Use Case ist abgeschlossen.
 
-==== Amt löschen
-. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Amt löschen möchte
+==== Funktion löschen
+. Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Funktion löschen möchte
 . Bestätigung der Löschung
 . Der Use Case ist abgeschlossen.
 

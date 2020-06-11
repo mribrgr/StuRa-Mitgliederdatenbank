@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Amt',
+            name='Funktion',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),
@@ -45,17 +45,17 @@ class Migration(migrations.Migration):
             name='AmtRecht',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amt', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Amt')),
+                ('funktion', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Funktion')),
                 ('recht', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Recht')),
             ],
         ),
         migrations.AddField(
-            model_name='amt',
+            model_name='funktion',
             name='referat',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='aemter.Organisationseinheit'),
         ),
         migrations.AddField(
-            model_name='amt',
+            model_name='funktion',
             name='unterbereich',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='aemter.Unterbereich'),
         ),

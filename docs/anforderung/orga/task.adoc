@@ -21,10 +21,10 @@ anwendungsfreundlich sein.
 ### Funktionale Anforderungen
 * Anlegen von neuen Mitgliedern und Verwaltung bestehender Legislatur (von, bis,
 Bezeichnung)
-* Ämter (inkl. Workload)-nochmal dazwischengeschaltet: Amt ID, Mitglieder ID oder Leitung
+* Ämter (inkl. Workload)-nochmal dazwischengeschaltet: Funktion ID, Mitglieder ID oder Leitung
 oder Stellvertretung
-* Wahlen (ID, Kandidatur Datum, Wahl Datum, Beschluss Nummer, Amt, Rücktrittsdatum)
-* Aufwandsentschädigung (Erfüllungsgrad der Aufgaben, Mitglieder ID, Amt ID, Periode)
+* Wahlen (ID, Kandidatur Datum, Wahl Datum, Beschluss Nummer, Funktion, Rücktrittsdatum)
+* Aufwandsentschädigung (Erfüllungsgrad der Aufgaben, Mitglieder ID, Funktion ID, Periode)
 * Historie (alle Änderungen)
 * Ausgabe eines Arbeitsleitfadens für die interne Verwaltung (Checkliste)
 * Generierung Checkliste: Emailverteiler, Schlüsselkasten, Zugangsschließsystem, Berechtigung

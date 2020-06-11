@@ -5,24 +5,24 @@ sys.path.append('..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bin.settings")
 django.setup()
 
-from aemter.models import Organisationseinheit, Amt, Unterbereich
+from aemter.models import Organisationseinheit, Funktion, Unterbereich
 import csv
 
 def importAemter(file):
     # Delete existing Data
     Organisationseinheit.objects.all().delete()
     Unterbereich.objects.all().delete()
-    Amt.objects.all().delete()
+    Funktion.objects.all().delete()
 
     # read CSV
     reader = csv.reader(file, delimiter=',')
     for row in reader:
         referat = row[0]
         unterbereich = row[1]
-        amt = row[2]
+        funktion = row[2]
 
         # Print Current Line for Debug
-        print(referat + " | " + unterbereich + " | " + amt)
+        print(referat + " | " + unterbereich + " | " + funktion)
 
         if (referat == 'Organisationseinheit'):
             continue
@@ -48,9 +48,9 @@ def importAemter(file):
         else:
             new_unterbereich = Unterbereich.objects.get(bezeichnung=unterbereich)
 
-        # Erstelle das Amt
-        new_amt = Amt(
-            bezeichnung = amt,
+        # Erstelle das Funktion
+        new_amt = Funktion(
+            bezeichnung = funktion,
             workload = 5,
             referat = new_referat,
             unterbereich = new_unterbereich

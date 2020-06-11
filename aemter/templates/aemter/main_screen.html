@@ -17,8 +17,8 @@
             <table name="department_table">
               <tbody>
                 <!-- List all departments with their persons in office -->
-                {% for amt in aemter %}
-                  {% if amt.referat.id == referat.id and not amt.unterbereich %}
+                {% for funktion in aemter %}
+                  {% if funktion.referat.id == referat.id and not funktion.unterbereich %}
                     {% include "./department_row.html" %}
                   {% endif %}
                 {% endfor %}
@@ -35,8 +35,8 @@
                       <table name="department_table">
                         <tbody>
                           <!-- List all departments assigned to the sub-category with their persons in office -->
-                          {% for amt in aemter %}
-                            {% if amt.unterbereich.id == unterbereich.id %}
+                          {% for funktion in aemter %}
+                            {% if funktion.unterbereich.id == unterbereich.id %}
                               {% include "./department_row.html" %}
                             {% endif %}
                           {% endfor %}

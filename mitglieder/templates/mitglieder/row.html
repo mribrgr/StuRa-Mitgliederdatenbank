@@ -28,8 +28,8 @@
                     <td class="mitglied-{{entry.id}}">
                         {% if entry.mitgliedamt_set.all %}
                         <ul>
-                            {% for amt in entry.mitgliedamt_set.all %}
-                                <li>{{amt.amt}}</li>
+                            {% for funktion in entry.mitgliedamt_set.all %}
+                                <li>{{funktion.funktion}}</li>
                             {% endfor %}
                         </ul>
                         {% else %}-

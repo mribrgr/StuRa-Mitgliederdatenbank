@@ -15,12 +15,12 @@
             {% endif %}
 
             {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalAmtRecht" %}
-                {% get_associated_data "Amt" "latest" entry.amt_id None as latestAmt %}
-                {% get_associated_data "Amt" "historical" entry.amt_id entry.history_date as historicalAmt %}
+                {% get_associated_data "Funktion" "latest" entry.amt_id None as latestAmt %}
+                {% get_associated_data "Funktion" "historical" entry.amt_id entry.history_date as historicalAmt %}
 
                 {% if entry.history_type == "~" %}
-                    {% get_associated_data "Amt" "latest" entry.prev_record.amt_id None as latestAmtAlt %}
-                    {% get_associated_data "Amt" "historical" entry.prev_record.amt_id entry.history_date as historicalAmtAlt %}
+                    {% get_associated_data "Funktion" "latest" entry.prev_record.amt_id None as latestAmtAlt %}
+                    {% get_associated_data "Funktion" "historical" entry.prev_record.amt_id entry.history_date as historicalAmtAlt %}
                 {% endif %}
             {% endif %}
 

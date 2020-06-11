@@ -77,12 +77,12 @@ class Migration(migrations.Migration):
                 ('history_date', models.DateTimeField()),
                 ('history_change_reason', models.CharField(max_length=100, null=True)),
                 ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
-                ('amt', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='aemter.Amt')),
+                ('funktion', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='aemter.Funktion')),
                 ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
                 ('recht', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='aemter.Recht')),
             ],
             options={
-                'verbose_name': 'historical amt recht',
+                'verbose_name': 'historical funktion recht',
                 'ordering': ('-history_date', '-history_id'),
                 'get_latest_by': 'history_date',
             },
@@ -103,7 +103,7 @@ class Migration(migrations.Migration):
                 ('unterbereich', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='aemter.Unterbereich')),
             ],
             options={
-                'verbose_name': 'historical amt',
+                'verbose_name': 'historical funktion',
                 'ordering': ('-history_date', '-history_id'),
                 'get_latest_by': 'history_date',
             },

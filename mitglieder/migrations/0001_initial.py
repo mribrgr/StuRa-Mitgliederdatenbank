@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('tel_mobil', models.CharField(max_length=15, null=True)),
                 ('mail_privat', models.CharField(max_length=50, null=True)),
                 ('jabber_id', models.CharField(max_length=50, null=True)),
-                ('amt', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='aemter.Amt')),
+                ('funktion', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='aemter.Funktion')),
             ],
         ),
     ]

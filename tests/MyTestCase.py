@@ -4,7 +4,7 @@ from selenium import webdriver
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-from aemter.models import Amt, Unterbereich, Organisationseinheit
+from aemter.models import Funktion, Unterbereich, Organisationseinheit
 import importscripts.main as imp
 
 

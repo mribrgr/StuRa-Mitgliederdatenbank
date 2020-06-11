@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
-from .models import Organisationseinheit, Unterbereich, Amt
+from .models import Organisationseinheit, Unterbereich, Funktion
 from mitglieder.models import MitgliedAmt
 
 # Create your views here.
@@ -18,9 +18,9 @@ def main_screen(request):
 
     # Only get associated data for current page
     unterbereiche = Unterbereich.objects.filter(referat__id__in=referat_ids)
-    aemter = Amt.objects.filter(referat__id__in=referat_ids)
+    aemter = Funktion.objects.filter(referat__id__in=referat_ids)
     amt_ids = aemter.values_list('id', flat=True)
-    mitglieder = MitgliedAmt.objects.filter(amt__id__in=amt_ids)
+    mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids)
 
     context = {
         'referate': referate_page,

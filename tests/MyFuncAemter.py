@@ -81,7 +81,7 @@ def createUnterbereich(self, referat, unterbereich):
     pass
 
 
-def createAmt(self, referat, unterbereich, amt):
+def createAmt(self, referat, unterbereich, funktion):
     """
         Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
         Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
@@ -89,12 +89,12 @@ def createAmt(self, referat, unterbereich, amt):
 
         :param self:
         :type self:
-        :param referat: Organisationseinheit, dem das Amt zugeordnet werden soll
+        :param referat: Organisationseinheit, dem das Funktion zugeordnet werden soll
         :type referat: string
         :param unterbereich: Unterbereich des Referats
         :type unterbereich: string
-        :param amt: Angabe des Namens, der das neue Amt erhalten soll
-        :type amt: string
+        :param funktion: Angabe des Namens, der das neue Funktion erhalten soll
+        :type funktion: string
         :return: No return Value
         :rtype: None
     """
@@ -104,15 +104,15 @@ def createAmt(self, referat, unterbereich, amt):
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()
 
-    # Navigieren zu Amt Hinzufügen
+    # Navigieren zu Funktion Hinzufügen
     self.browser.find_element_by_xpath(
-        "//a[@href='/admin/aemter/amt/']").click()
+        "//a[@href='/admin/aemter/funktion/']").click()
     self.browser.find_element_by_xpath(
-        "//a[@href='/admin/aemter/amt/add/']").click()
+        "//a[@href='/admin/aemter/funktion/add/']").click()
 
     # fill inputs
     self.browser.find_element_by_xpath(
-        "//input[@id='id_bezeichnung']").send_keys(amt)
+        "//input[@id='id_bezeichnung']").send_keys(funktion)
     self.browser.find_element_by_xpath(
         "//input[@id='id_workload']").send_keys(workload)
 
@@ -129,9 +129,9 @@ def createAmt(self, referat, unterbereich, amt):
     self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
     """
-        Überprüfung ob Amt hinzugefügt wurde
+        Überprüfung ob Funktion hinzugefügt wurde
     """
-    created_amt = amt + " " + unterbereich
+    created_amt = funktion + " " + unterbereich
     self.assertTrue(self.browser.find_element_by_xpath(
         "//a[contains(text(), '%s')]" % created_amt))
     pass

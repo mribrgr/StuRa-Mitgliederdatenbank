@@ -1,12 +1,12 @@
 
 <tr>
     <td>
-        {{amt.bezeichnung}}
+        {{funktion.bezeichnung}}
     </td>
     <td>
         <!-- Filter people that aren't assigned to the department -->
         {% for mitglied in mitglieder %}
-            {% if mitglied.amt.id == amt.id %}
+            {% if mitglied.funktion.id == funktion.id %}
                 {{mitglied.mitglied.vorname}} {{mitglied.mitglied.name}}<br/>
             {% endif %}
         {% endfor %}

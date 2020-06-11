@@ -6,7 +6,7 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from .models import Mitglied, MitgliedAmt, MitgliedMail
-from aemter.models import Amt, Organisationseinheit, Unterbereich
+from aemter.models import Funktion, Organisationseinheit, Unterbereich
 import simplejson, json
 # string splitting
 import re
@@ -54,7 +54,7 @@ def mitgliedErstellenView(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
-    # beim Erstellen existiert anfangs jeweils ein Feld fuer Amt und E-Mail
+    # beim Erstellen existiert anfangs jeweils ein Feld fuer Funktion und E-Mail
     global aemternum, emailnum
     aemternum = emailnum = 1
     # Laden aller Referate
@@ -64,7 +64,7 @@ def mitgliedErstellenView(request):
         template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
         context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
 
-# Unterbereiche eines Referats an das Frontend senden        
+# Unterbereiche eines Referats an das Frontend senden
 def bereiche_laden(request):
     global aemternum
     referat_id = request.GET.get('referat')
@@ -80,14 +80,14 @@ def aemter_laden(request):
     # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
     if bereich_id == "-1":
         referat_id = request.GET.get('referat')
-        aemter = Organisationseinheit.objects.get(pk=referat_id).amt_set.all()
+        aemter = Organisationseinheit.objects.get(pk=referat_id).funktion_set.all()
         aemter = aemter.filter(unterbereich__isnull=True)
     # Laden aller Aemter fuer gewaehlten Unterbereich
     else:
-        aemter = Unterbereich.objects.get(pk=bereich_id).amt_set.all()
+        aemter = Unterbereich.objects.get(pk=bereich_id).funktion_set.all()
     return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter, 'amtid': amtnum})
 
-# Formular fuer ein Amt hinzufuegen (Mitglied erstellen/bearbeiten)
+# Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
 def aemter_html_laden(request):
     global aemternum
     aemternum += 1
@@ -95,7 +95,7 @@ def aemter_html_laden(request):
     # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
     return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
 
-# Formular fur ein Amt loeschen (Mitglied erstellen/bearbeiten)
+# Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
     global aemternum
     aemternum-=1
@@ -131,8 +131,8 @@ def erstellen(request):
 
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
-            amt = Amt.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(amt=amt, mitglied=mitglied)
+            funktion = Funktion.objects.get(pk=amt_id)
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
             mitgliedamt.save()
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
@@ -148,7 +148,7 @@ def mitgliedBearbeitenView(request, mitglied_id):
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
     global aemternum, emailnum
-    
+
     mitglied = Mitglied.objects.get(pk=mitglied_id)
     aemternum = max(1, mitglied.mitgliedamt_set.all().count())
     emailnum = max(1, mitglied.mitgliedmail_set.all().count())
@@ -190,8 +190,8 @@ def speichern(request, mitglied_id):
         mitglied.mitgliedamt_set.all().delete()
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
-            amt = Amt.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(amt=amt, mitglied=mitglied)
+            funktion = Funktion.objects.get(pk=amt_id)
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
             mitgliedamt.save()
 
         mitglied.mitgliedmail_set.all().delete()
@@ -233,7 +233,7 @@ def suchen(request):
                     matches[m.id]+=1
                 else:
                     matches[m.id]=1
-    
+
     # Mitglieder-Ids nach Anzahl der Matches sortieren
     matches_sorted = {k: v for k, v in sorted(matches.items(), key=lambda item: item[1])}
     # Mitgliederliste fuellen

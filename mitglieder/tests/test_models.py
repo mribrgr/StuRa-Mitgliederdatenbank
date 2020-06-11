@@ -25,7 +25,7 @@ class TestModels(TestCase):
             referat = self.referat1
         )
 
-        self.amt1 = Amt.objects.create(
+        self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt",
             workload = 4,
             referat = self.referat1,
@@ -34,7 +34,7 @@ class TestModels(TestCase):
 
         self.mitgliedamt1 = MitgliedAmt.objects.create(
             mitglied = self.mitglied1,
-            amt = self.amt1
+            funktion = self.amt1
         )
 
         self.mitgliedmail1 = MitgliedMail.objects.create(
