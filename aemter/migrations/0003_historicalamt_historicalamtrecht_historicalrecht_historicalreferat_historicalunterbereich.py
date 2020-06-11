@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
             bases=(simple_history.models.HistoricalChanges, models.Model),
         ),
         migrations.CreateModel(
-            name='HistoricalReferat',
+            name='HistoricalOrganisationseinheit',
             fields=[
                 ('id', models.IntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),
