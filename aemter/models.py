@@ -34,7 +34,7 @@ class Recht(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
 
-class AmtRecht(models.Model):
+class FunktionRecht(models.Model):
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()

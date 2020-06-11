@@ -1,7 +1,7 @@
 from django import template
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
-from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, AmtRecht
+from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, FunktionRecht
 
 register = template.Library()
 

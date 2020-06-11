@@ -19,7 +19,7 @@ Organisationseinheit {{entry.id}} ({{entry.bezeichnung}})
 {% if entry|to_class_name == "HistoricalUnterbereich" %}
 Unterbereich {{entry.id}} ({{entry.bezeichnung}}) zu Organisationseinheit {{entry.referat_id}} ({{latestReferat.bezeichnung}})
 {% endif %}
-{% if entry|to_class_name == "HistoricalAmt" %}
+{% if entry|to_class_name == "HistoricalFunktion" %}
 Amt {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
 {{entry.referat_id}} ({{latestReferat.bezeichnung}}){% if entry.unterbereich_id %}, Unterbereich
 {{entry.unterbereich_id}} ({{latestUnterbereich.bezeichnung}}){% endif %}
@@ -27,7 +27,7 @@ Amt {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
 {% if entry|to_class_name == "HistoricalRecht" %}
 Recht {{entry.id}} ({{entry.bezeichnung}})
 {% endif %}
-{% if entry|to_class_name == "HistoricalAmtRecht" %}
+{% if entry|to_class_name == "HistoricalFunktionRecht" %}
 Recht {{entry.recht_id}} ({{latestRecht.bezeichnung}}) zu Amt {{entry.amt_id}} ({{latestAmt.bezeichnung}}
 {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestReferat.bezeichnung}})
 {% endif %}

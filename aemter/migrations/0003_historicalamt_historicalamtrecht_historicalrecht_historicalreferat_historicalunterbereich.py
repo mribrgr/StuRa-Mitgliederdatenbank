@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
             bases=(simple_history.models.HistoricalChanges, models.Model),
         ),
         migrations.CreateModel(
-            name='HistoricalAmtRecht',
+            name='HistoricalFunktionRecht',
             fields=[
                 ('id', models.IntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('history_id', models.AutoField(primary_key=True, serialize=False)),
@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
             bases=(simple_history.models.HistoricalChanges, models.Model),
         ),
         migrations.CreateModel(
-            name='HistoricalAmt',
+            name='HistoricalFunktion',
             fields=[
                 ('id', models.IntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),

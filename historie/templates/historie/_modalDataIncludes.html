@@ -16,13 +16,13 @@
 {% if entry|to_class_name == "HistoricalUnterbereich" %}
 {% include 'historie/modalData/unterbereichModalData.html' %}
 {% endif %}
-{% if entry|to_class_name == "HistoricalAmt" %}
+{% if entry|to_class_name == "HistoricalFunktion" %}
 {% include 'historie/modalData/amtModalData.html' %}
 {% endif %}
 {% if entry|to_class_name == "HistoricalRecht" %}
 {% include 'historie/modalData/rechtModalData.html' %}
 {% endif %}
-{% if entry|to_class_name == "HistoricalAmtRecht" %}
+{% if entry|to_class_name == "HistoricalFunktionRecht" %}
 {% include 'historie/modalData/amtRechtModalData.html' %}
 {% endif %}
 
