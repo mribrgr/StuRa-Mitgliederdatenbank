@@ -33,6 +33,8 @@ def main_screen(request):
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
     # Extrahieren der Mitglied-Id aus der GET-Request
     mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
     # Daten zum Mitglied mit dieser Id an Frontend senden
@@ -41,6 +43,10 @@ def mitglied_laden(request):
 
 # Entfernen von Mitgliedern aus der Datenbank
 def mitglieder_loeschen(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
     # Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank
     mitgliederids = request.POST.get('mitglieder')
     mitgliederids = json.loads(mitgliederids)
@@ -66,6 +72,9 @@ def mitgliedErstellenView(request):
 
 # Unterbereiche eines Referats an das Frontend senden        
 def bereiche_laden(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global aemternum
     referat_id = request.GET.get('referat')
     amtnum = request.GET.get('amtnum')
@@ -74,6 +83,9 @@ def bereiche_laden(request):
 
 # Aemter eines Bereichs an das Frontend senden
 def aemter_laden(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global aemternum
     bereich_id = request.GET.get('bereich')
     amtnum = request.GET.get('amtnum')
@@ -89,6 +101,9 @@ def aemter_laden(request):
 
 # Formular fuer ein Amt hinzufuegen (Mitglied erstellen/bearbeiten)
 def aemter_html_laden(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    
     global aemternum
     aemternum += 1
     referate = Referat.objects.order_by('bezeichnung')
@@ -97,24 +112,43 @@ def aemter_html_laden(request):
 
 # Formular fur ein Amt loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global aemternum
     aemternum-=1
     return HttpResponse()
 
 # Formular fur eine E-Mail hinzufuegen (Mitglied erstellen/bearbeiten)
 def email_html_laden(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global emailnum
     emailnum +=1
     return render(request, 'mitglieder/email.html', {'emailid': emailnum})
 
 # Formular fur eine E-Mail loeschen (Mitglied erstellen/bearbeiten)
 def email_loeschen(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global emailnum
     emailnum-=1
     return HttpResponse()
 
 # Mitglied erstellen
 def erstellen(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global aemternum, emailnum
     if request.method == 'POST':
         # Mitglied
@@ -173,6 +207,11 @@ def getValue(request, attr):
 
 # bearbeitetes Mitglied speichern
 def speichern(request, mitglied_id):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     print("speichern")
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
@@ -203,6 +242,9 @@ def speichern(request, mitglied_id):
 
 # Suche in der Mitgliederanzeige
 def suchen(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     search_string = request.GET.get('search_string')
     page_number = request.GET.get('page')
 
