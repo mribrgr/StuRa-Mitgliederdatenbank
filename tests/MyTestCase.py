@@ -21,9 +21,9 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         # Auskommentieren bei localen tests
         options = webdriver.FirefoxOptions()
-        options.headless = True
-        options.add_argument("--no-sandbox") #bypass OS security model
-        options.add_argument("--disable-dev-shm-usage") #overcome limited resource problems
+        # options.headless = True
+        options.add_argument("--no-sandbox") # bypass OS security model
+        options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
 
         try:
             if system() == 'Windows':

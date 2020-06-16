@@ -20,9 +20,10 @@ def importAemter(file):
         organisationseinheit = row[0]
         unterbereich = row[1]
         funktion = row[2]
+        max_members = row[3]
 
         # Print Current Line for Debug
-        # print(organisationseinheit + " | " + unterbereich + " | " + funktion)
+        # print(organisationseinheit + " | " + unterbereich + " | " + funktion + " | " + max_members)
 
         if (organisationseinheit == 'Organisationseinheit'):
             continue
@@ -52,6 +53,7 @@ def importAemter(file):
         new_amt = Funktion(
             bezeichnung = funktion,
             workload = 5,
+            max_members = max_members,
             organisationseinheit = new_referat,
             unterbereich = new_unterbereich
         )

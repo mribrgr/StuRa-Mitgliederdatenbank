@@ -155,13 +155,13 @@ def addMitgliedWithParameters(self,
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectbereich1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[2]").click()
+        "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     # Funktion auswählen
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[4]").click()
+        "//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     btnAddEmail.click()
     # Finden der Email Felder

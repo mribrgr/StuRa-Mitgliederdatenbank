@@ -17,6 +17,7 @@ class TestModels(TestCase):
         self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt1",
             workload = 4,
+            max_members = 5,
             organisationseinheit = self.referat1,
             unterbereich = self.unterbereich1
         )
@@ -24,6 +25,7 @@ class TestModels(TestCase):
         self.amt2 = Funktion.objects.create(
             bezeichnung = "myamt2",
             workload = 4,
+            max_members = 5,
             organisationseinheit = self.referat1,
             unterbereich = None
         )

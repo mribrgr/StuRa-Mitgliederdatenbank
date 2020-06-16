@@ -94,6 +94,7 @@ class Migration(migrations.Migration):
                 ('id', models.IntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),
                 ('workload', models.IntegerField(null=True)),
+                ('max_members', models.IntegerField(null=False)),
                 ('history_id', models.AutoField(primary_key=True, serialize=False)),
                 ('history_date', models.DateTimeField()),
                 ('history_change_reason', models.CharField(max_length=100, null=True)),

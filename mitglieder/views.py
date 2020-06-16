@@ -129,15 +129,27 @@ def erstellen(request):
         mitglied = Mitglied(name=nachname, vorname=vorname, spitzname=spitzname, strasse=strasse, hausnr=hausnr, plz=plz, ort=ort, tel_mobil=telefon_mobil)
         mitglied.save()
 
-        for i in range(1, aemternum+1):
-            amt_id = request.POST['selectamt'+str(i)]
-            funktion = Funktion.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
-            mitgliedamt.save()
+        # E-Mail
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
             mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
             mitgliedmail.save()
+
+        # Funktion
+        for i in range(1, aemternum+1):
+            amt_id = request.POST['selectamt'+str(i)]
+            funktion = Funktion.objects.get(pk=amt_id)
+
+            # Check Max Members
+            if funktion.max_members != (0 or None):
+                # Maximale Member der Funktion sind begrenzt
+                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
+                    return mitgliedBearbeitenView(request, mitglied.id)
+
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt.save()
+
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
@@ -173,7 +185,6 @@ def getValue(request, attr):
 
 # bearbeitetes Mitglied speichern
 def speichern(request, mitglied_id):
-    print("speichern")
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
         # Mitglied
@@ -187,18 +198,26 @@ def speichern(request, mitglied_id):
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
         mitglied.save()
 
-        mitglied.mitgliedamt_set.all().delete()
-        for i in range(1, aemternum+1):
-            amt_id = request.POST['selectamt'+str(i)]
-            funktion = Funktion.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
-            mitgliedamt.save()
-
         mitglied.mitgliedmail_set.all().delete()
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
             mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
             mitgliedmail.save()
+
+        mitglied.mitgliedamt_set.all().delete()
+        for i in range(1, aemternum+1):
+            amt_id = request.POST['selectamt'+str(i)]
+            funktion = Funktion.objects.get(pk=amt_id)
+
+            # Check Max Members
+            if funktion.max_members != (0 or None):
+                # Maximale Member der Funktion sind begrenzt
+                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
+                    return mitgliedBearbeitenView(request, mitglied.id)
+
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt.save()
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
 
 # Suche in der Mitgliederanzeige

@@ -21,6 +21,7 @@ class Unterbereich(models.Model):
 class Funktion(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     workload = models.IntegerField(null=True)
+    max_members = models.IntegerField(null=False)
     organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=False)
     unterbereich = models.ForeignKey(Unterbereich, on_delete=models.CASCADE, null=True)
     history = HistoricalRecords()

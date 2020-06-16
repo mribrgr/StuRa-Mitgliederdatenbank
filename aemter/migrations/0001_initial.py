@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('bezeichnung', models.CharField(max_length=50)),
                 ('workload', models.IntegerField(null=True)),
+                ('max_members', models.IntegerField(null=False)),
             ],
         ),
         migrations.CreateModel(

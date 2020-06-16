@@ -1,66 +1,66 @@
-Organisationseinheit,Unterbereich,Funktion
-Angestellte,None,Service/Buchhaltung
-Angestellte,None,Koordination/Dokumentation
-Sprecherinnen und Sprecher,None,Sprecherin oder Sprecher
-Sprecherinnen und Sprecher,Kanzelei,Mitglied  Kanzelei
-Präsidium,None,Mitglied Präsidium als Antrags- und Beschlussverwaltung im Präsidium
-Präsidium,None,Mitglied Präsidium als Protokollerstellung im Präsidium
-Präsidium,None,Mitglied Präsidium als Sitzungsleitung im Präsidium
-Präsidium,None,Mitglied Präsidium als Redeleitung im Präsidium
-Präsidium,None,Mitglied Präsidium als Kontrolle der erledigten Aufgaben im Präsidium
-Referat Finanzen,None,Leitung Referat Finanzen
-Referat Finanzen,None,Leitung Referat Finanzen (Stellvertretung)
-Referat Finanzen,None,A-Zeichnung
-Referat Finanzen,None,B-Zeichnung
-Referat Finanzen,None,Haushaltsplanverantwortung 2019
-Referat Finanzen,None,Haushaltsplanverantwortung 2020
-Referat Finanzen,None,Stellvertretung Haushaltsplanverantwortung
-Referat Finanzen,Bereich Buchhaltung,Leitung Bereich Buchhaltung
-Referat Finanzen,Bereich Finanzprüfung,Leitung Bereich Finanzprüfung
-Referat Finanzen,Bereich Finanzprüfung,Leitung Bereich Finanzprüfung (Stellvertretung)
-Referat Finanzen,Bereich Haushalt,Leitung Bereich Haushalt
-Referat Finanzen,Bereich Mittelverwendung,Leitung Bereich Mittelverwendung
-Referat Finanzen,Bereich Mittelverwendung,Bereich Mittelverwendung
-Referat Hochschulpolitik,None,Leitung Referat Hochschulpolitik
-Referat Hochschulpolitik,None,Leitung Referat Hochschulpolitik (Stellvertretung)
-Referat Hochschulpolitik,Bereich Antidiskriminierung,Leitung Bereich Antidiskriminierung
-Referat Hochschulpolitik,Bereich Bund,Leitung Bereich Bund
-Referat Hochschulpolitik,Bereich Datenkultur,Leitung Bereich Datenkultur
-Referat Hochschulpolitik,Bereich Fakultäten,Leitung Bereich Fakultäten
-Referat Hochschulpolitik,Bereich Gebühren,Leitung Bereich Gebühren
-Referat Hochschulpolitik,Bereich Geschlechtergerechtigkeit,Leitung Bereich Geschlechtergerechtigkeit
-Referat Hochschulpolitik,Bereich Hochschule,Leitung Bereich Hochschule
-Referat Hochschulpolitik,Bereich Hochschule,Leitung Bereich Hochschule (Stellvertretung)
-Referat Hochschulpolitik,Bereich Land,Leitung Bereich Land
-Referat Hochschulpolitik,Bereich politische Bildung,Leitung Bereich politische Bildung
-Referat Hochschulpolitik,Bereich studentische Hilfskräfte,Leitung Bereich studentische Hilfskräfte
-Referat Hochschulpolitik,Bereich Ökologie,Leitung Bereich Ökologie
-Referat Internationales,None,Leitung Referat Internationales
-Referat Internationales,None,Leitung Referat Internationales (Stellvertretung)
-Referat Internationales,Bereich Auslandsinteresse,Leitung Bereich Auslandsinteresse
-Referat Internationales,Bereich Partnerhochschulen,Leitung Bereich Partnerhochschulen
-Referat Internationales,Bereich Sprachangebot,Leitung Bereich Sprachangebot
-Referat Kultur,None,Leitung Referat Kultur
-Referat Kultur,None,Leitung Referat Kultur (Stellvertretung)
-Referat Kultur,Bereich Gaming,Leitung Bereich Gaming
-Referat Kultur,Bereich Kino,Leitung Bereich Kino
-Referat Kultur,Bereich Kino,Leitung Bereich Kino (Stellvertretung)
-Referat Kultur,Bereich Kabarett,Leitung Bereich Kabarett
-Referat Kultur,Bereich Konzerte,Leitung Bereich Konzerte
-Referat Kultur,Bereich Party,Leitung Bereich Party
-Referat Kultur,Bereich Party,(Leitung Bereich Party (Stellvertretung))
-Referat Kultur,Bereich Studentinnen- und Studentenclubs,Leitung Bereich Studentinnen- Studentenclubs
-Referat Kultur,Bereich Theater,Leitung Bereich Theater
-Referat Öffentlichkeitsarbeit,None,Leitung Referat Öffentlichkeitsarbeit
-Referat Öffentlichkeitsarbeit,None,Leitung Referat Öffentlichkeitsarbeit (Stellvertretung)
-Referat Öffentlichkeitsarbeit,Bereich Erscheinungsbild,Leitung Bereich Erscheinungsbild
-Referat Öffentlichkeitsarbeit,Bereich Merchendise,Leitung Bereich Merchendise
-Referat Öffentlichkeitsarbeit,Bereich Presse,Leitung Bereich Presse
-Referat Öffentlichkeitsarbeit,Bereich Presse,Leitung Bereich Presse (Stellvertretung)
-Referat Öffentlichkeitsarbeit,Bereich Publikationen,Leitung Bereich Publikationen
-Referat Öffentlichkeitsarbeit,Bereich Publikationen,Leitung Bereich Publikationen (Stellvertretung)
-Referat Öffentlichkeitsarbeit,Bereich Schulen,Leitung Bereich Schulen
-Referat Öffentlichkeitsarbeit,Bereich Social Media,Leitung Bereich Social Media
-Referat Öffentlichkeitsarbeit,Bereich Social Media,Leitung Bereich Social Media(Stellvertretung)
-Referat Öffentlichkeitsarbeit,Bereich Veranstaltungen,Leitung Bereich Veranstaltungen
-Referat Öffentlichkeitsarbeit,Bereich Veranstaltungen,Leitung Bereich Veranstaltungen (Stellvertretung)
+Organisationseinheit,Unterbereich,Funktion,Max_members
+Angestellte,None,Service/Buchhaltung,1
+Angestellte,None,Koordination/Dokumentation,1
+Sprecherinnen und Sprecher,None,Sprecherin oder Sprecher,3
+Sprecherinnen und Sprecher,Kanzelei,Mitglied  Kanzelei,5
+Präsidium,None,Mitglied Präsidium als Antrags- und Beschlussverwaltung im Präsidium,1
+Präsidium,None,Mitglied Präsidium als Protokollerstellung im Präsidium,1
+Präsidium,None,Mitglied Präsidium als Sitzungsleitung im Präsidium,1
+Präsidium,None,Mitglied Präsidium als Redeleitung im Präsidium,1
+Präsidium,None,Mitglied Präsidium als Kontrolle der erledigten Aufgaben im Präsidium,1
+Referat Finanzen,None,Leitung Referat Finanzen,1
+Referat Finanzen,None,Leitung Referat Finanzen (Stellvertretung),1
+Referat Finanzen,None,A-Zeichnung,1
+Referat Finanzen,None,B-Zeichnung,2
+Referat Finanzen,None,Haushaltsplanverantwortung 2019,1
+Referat Finanzen,None,Haushaltsplanverantwortung 2020,1
+Referat Finanzen,None,Stellvertretung Haushaltsplanverantwortung,1
+Referat Finanzen,Bereich Buchhaltung,Leitung Bereich Buchhaltung,1
+Referat Finanzen,Bereich Finanzprüfung,Leitung Bereich Finanzprüfung,1
+Referat Finanzen,Bereich Finanzprüfung,Leitung Bereich Finanzprüfung (Stellvertretung),1
+Referat Finanzen,Bereich Haushalt,Leitung Bereich Haushalt,1
+Referat Finanzen,Bereich Mittelverwendung,Leitung Bereich Mittelverwendung,1
+Referat Finanzen,Bereich Mittelverwendung,Bereich Mittelverwendung,1
+Referat Hochschulpolitik,None,Leitung Referat Hochschulpolitik,1
+Referat Hochschulpolitik,None,Leitung Referat Hochschulpolitik (Stellvertretung),1
+Referat Hochschulpolitik,Bereich Antidiskriminierung,Leitung Bereich Antidiskriminierung,1
+Referat Hochschulpolitik,Bereich Bund,Leitung Bereich Bund,1
+Referat Hochschulpolitik,Bereich Datenkultur,Leitung Bereich Datenkultur,1
+Referat Hochschulpolitik,Bereich Fakultäten,Leitung Bereich Fakultäten,1
+Referat Hochschulpolitik,Bereich Gebühren,Leitung Bereich Gebühren,1
+Referat Hochschulpolitik,Bereich Geschlechtergerechtigkeit,Leitung Bereich Geschlechtergerechtigkeit,1
+Referat Hochschulpolitik,Bereich Hochschule,Leitung Bereich Hochschule,1
+Referat Hochschulpolitik,Bereich Hochschule,Leitung Bereich Hochschule (Stellvertretung),1
+Referat Hochschulpolitik,Bereich Land,Leitung Bereich Land,1
+Referat Hochschulpolitik,Bereich politische Bildung,Leitung Bereich politische Bildung,1
+Referat Hochschulpolitik,Bereich studentische Hilfskräfte,Leitung Bereich studentische Hilfskräfte,1
+Referat Hochschulpolitik,Bereich Ökologie,Leitung Bereich Ökologie,1
+Referat Internationales,None,Leitung Referat Internationales,1
+Referat Internationales,None,Leitung Referat Internationales (Stellvertretung),1
+Referat Internationales,Bereich Auslandsinteresse,Leitung Bereich Auslandsinteresse,1
+Referat Internationales,Bereich Partnerhochschulen,Leitung Bereich Partnerhochschulen,1
+Referat Internationales,Bereich Sprachangebot,Leitung Bereich Sprachangebot,1
+Referat Kultur,None,Leitung Referat Kultur,1
+Referat Kultur,None,Leitung Referat Kultur (Stellvertretung),1
+Referat Kultur,Bereich Gaming,Leitung Bereich Gaming,1
+Referat Kultur,Bereich Kino,Leitung Bereich Kino,1
+Referat Kultur,Bereich Kino,Leitung Bereich Kino (Stellvertretung),1
+Referat Kultur,Bereich Kabarett,Leitung Bereich Kabarett,1
+Referat Kultur,Bereich Konzerte,Leitung Bereich Konzerte,1
+Referat Kultur,Bereich Party,Leitung Bereich Party,1
+Referat Kultur,Bereich Party,(Leitung Bereich Party (Stellvertretung)),1
+Referat Kultur,Bereich Studentinnen- und Studentenclubs,Leitung Bereich Studentinnen- Studentenclubs,1
+Referat Kultur,Bereich Theater,Leitung Bereich Theater,1
+Referat Öffentlichkeitsarbeit,None,Leitung Referat Öffentlichkeitsarbeit,1
+Referat Öffentlichkeitsarbeit,None,Leitung Referat Öffentlichkeitsarbeit (Stellvertretung),1
+Referat Öffentlichkeitsarbeit,Bereich Erscheinungsbild,Leitung Bereich Erscheinungsbild,1
+Referat Öffentlichkeitsarbeit,Bereich Merchendise,Leitung Bereich Merchendise,1
+Referat Öffentlichkeitsarbeit,Bereich Presse,Leitung Bereich Presse,1
+Referat Öffentlichkeitsarbeit,Bereich Presse,Leitung Bereich Presse (Stellvertretung),1
+Referat Öffentlichkeitsarbeit,Bereich Publikationen,Leitung Bereich Publikationen,1
+Referat Öffentlichkeitsarbeit,Bereich Publikationen,Leitung Bereich Publikationen (Stellvertretung),1
+Referat Öffentlichkeitsarbeit,Bereich Schulen,Leitung Bereich Schulen,1
+Referat Öffentlichkeitsarbeit,Bereich Social Media,Leitung Bereich Social Media,1
+Referat Öffentlichkeitsarbeit,Bereich Social Media,Leitung Bereich Social Media(Stellvertretung),1
+Referat Öffentlichkeitsarbeit,Bereich Veranstaltungen,Leitung Bereich Veranstaltungen,1
+Referat Öffentlichkeitsarbeit,Bereich Veranstaltungen,Leitung Bereich Veranstaltungen (Stellvertretung),1

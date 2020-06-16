@@ -28,6 +28,7 @@ class TestModels(TestCase):
         self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt",
             workload = 4,
+            max_members = 5,
             organisationseinheit = self.referat1,
             unterbereich = self.unterbereich1
         )

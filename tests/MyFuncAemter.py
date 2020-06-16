@@ -99,6 +99,7 @@ def createAmt(self, organisationseinheit, unterbereich, funktion):
         :rtype: None
     """
     workload = "5"
+    max_members = "60"
     unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
 
     # Navigieren zum Admin Pannel
@@ -115,6 +116,8 @@ def createAmt(self, organisationseinheit, unterbereich, funktion):
         "//input[@id='id_bezeichnung']").send_keys(funktion)
     self.browser.find_element_by_xpath(
         "//input[@id='id_workload']").send_keys(workload)
+    self.browser.find_element_by_xpath(
+        "//input[@id='id_max_members']").send_keys(max_members)
 
     # fill selects
     select_referat = Select(
