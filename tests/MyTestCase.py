@@ -21,14 +21,13 @@ class MyTestCase(StaticLiveServerTestCase):
         """
         # Auskommentieren bei localen tests
         options = webdriver.FirefoxOptions()
-        # options.headless = True
+        options.headless = True
         options.add_argument("--no-sandbox") # bypass OS security model
         options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
 
         try:
             if system() == 'Windows':
                 self.browser = webdriver.Firefox(
-                    timeout=5,
                     executable_path='tests/firefoxdriver-win64/geckodriver.exe',
                     firefox_options=options,
                     service_log_path='django.log',
@@ -37,7 +36,6 @@ class MyTestCase(StaticLiveServerTestCase):
                 pass
             if system() == 'Linux':
                 self.browser = webdriver.Firefox(
-                    timeout=5,
                     executable_path='tests/firefoxdriver-linux64/geckodriver',
                     firefox_options=options,
                     service_log_path='django.log',
@@ -45,7 +43,7 @@ class MyTestCase(StaticLiveServerTestCase):
                     )
                 pass
 
-            self.browser.implicitly_wait(5)
+            self.browser.implicitly_wait(2)
         except BaseException as e:
             print("konnte keine Webdriver-Instanz bekommen")
             print(e)
