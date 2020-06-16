@@ -6,6 +6,9 @@ from mitglieder.models import MitgliedAmt
 
 # Create your views here.
 def main_screen(request):
+    """
+        Displays the Ämter-screen
+    """
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
