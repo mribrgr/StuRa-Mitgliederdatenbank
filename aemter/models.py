@@ -2,6 +2,14 @@ from django.db import models
 from simple_history.models import HistoricalRecords
 
 class Organisationseinheit(models.Model):
+    """
+        Datenbankmodel Organisationseinheit
+
+        Felder:
+
+        * bezeichnung
+        * history
+    """
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
     def __str__(self):
@@ -10,6 +18,15 @@ class Organisationseinheit(models.Model):
         return u'%s' % self.bezeichnung
 
 class Unterbereich(models.Model):
+    """
+        Datenbankmodel Unterbereich
+
+        Felder:
+
+        * bezeichnung
+        * organisationseinheit (Referenziert zugehörige Organisationseinheit)
+        * history
+    """
     bezeichnung = models.CharField(max_length=50, null=False)
     organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
@@ -19,6 +36,19 @@ class Unterbereich(models.Model):
         return u'%s' % self.bezeichnung
 
 class Funktion(models.Model):
+    """
+        Datenbankmodel Funktion
+
+        Felder:
+
+        * bezeichnung
+        * workload
+        * max_members (Maximale Anzahl an Mitgliedern in der Funktion)
+        * organisationseinheit (Referenziert zugehörige Organisationseinheit)
+        * unterbereich (Referenziert zugehörigen Unterbereich)
+            Unterbereich kann null sein
+        * history
+    """
     bezeichnung = models.CharField(max_length=50, null=False)
     workload = models.IntegerField(null=True)
     max_members = models.IntegerField(null=False)
@@ -32,10 +62,27 @@ class Funktion(models.Model):
             return self.bezeichnung + ' ' + self.unterbereich.__str__()
 
 class Recht(models.Model):
+    """
+        Datenbankmodell Recht
+
+        Felder:
+
+        * bezeichnung
+        * history
+    """
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
 
 class FunktionRecht(models.Model):
+    """
+        Datenbankmodell FunktionRecht
+
+        Felder:
+
+        * funktion
+        * recht
+        * history
+    """
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
