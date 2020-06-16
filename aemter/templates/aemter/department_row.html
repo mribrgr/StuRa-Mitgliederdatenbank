@@ -10,5 +10,17 @@
                 {{mitglied.mitglied.vorname}} {{mitglied.mitglied.name}}<br/>
             {% endif %}
         {% endfor %}
+        <p>
+        (
+        <!-- Filter prev_people that aren't assigned to the department -->
+        {% for prev_mitglied in prev_mitglieder %}
+            {% if prev_mitglied.funktion.id == funktion.id %}
+              {% for member in prev_mitglied.members.all %}
+                  {{member.vorname}} {{member.name}}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        )
+        </p>
     </td>
 </tr>

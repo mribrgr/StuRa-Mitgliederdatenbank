@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Organisationseinheit, Unterbereich, Funktion
-from mitglieder.models import MitgliedAmt
+from mitglieder.models import MitgliedAmt, PrevMitgliedAmt
 
 # Create your views here.
 def main_screen(request):
@@ -24,12 +24,14 @@ def main_screen(request):
     aemter = Funktion.objects.filter(organisationseinheit__id__in=referat_ids)
     amt_ids = aemter.values_list('id', flat=True)
     mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids)
+    prev_mitglieder = PrevMitgliedAmt.objects.filter(funktion__id__in=amt_ids)
 
     context = {
         'referate': referate_page,
         'unterbereiche': unterbereiche,
         'aemter': aemter,
-        'mitglieder': mitglieder
+        'mitglieder': mitglieder,
+        'prev_mitglieder': prev_mitglieder
     }
 
     return render(request, 'aemter/main_screen.html', context)
