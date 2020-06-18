@@ -95,6 +95,26 @@ include::csv/team.csv[]
 | 27.04.2020 - 10.05.2020
 | -
 
+|link:iteration-plans/iteration_8_plan.adoc[Iteration 8]
+| -
+| 11.05.2020 - 24.05.2020
+| -
+
+|link:iteration-plans/iteration_9_plan.adoc[Iteration 9]
+| -
+| 25.05.2020 - 07.06.2020
+| -
+
+|link:iteration-plans/iteration_10_plan.adoc[Iteration 10]
+| -
+| 08.06.2020 - 21.06.2020
+| -
+
+|link:iteration-plans/iteration_11_plan.adoc[Iteration 11]
+| -
+| 22.06.2020 - 05.07.2020
+| -
+
 |===
 
 == Deployment
