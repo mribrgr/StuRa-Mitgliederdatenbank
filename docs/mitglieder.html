@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tests" href="tests.html" />
@@ -50,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> StuRa - Mitgliederdatenbank
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
           
 
           
@@ -73,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -83,13 +85,30 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Mitglieder</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mitglieder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-mitglieder.views">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-html">aemter.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amt-dropdown-list-options-html">amt_dropdown_list_options.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bereich-dropdown-list-options-html">bereich_dropdown_list_options.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email-html">email.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email-input-html">email_input.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mitglieder-html">mitglieder.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mitglied-erstellen-bearbeiten-html">mitglied_erstellen_bearbeiten.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modal-html">modal.html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#row-html">row.html</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#template-tags">Template Tags</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -128,7 +147,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Mitglieder</li>
     
@@ -151,6 +170,365 @@
             
   <div class="section" id="mitglieder">
 <h1>Mitglieder<a class="headerlink" href="#mitglieder" title="Permalink to this headline">¶</a></h1>
+<p>Die Django-Applikation “mitglieder” dient zur Verwaltung (Anzeigen, Erstellen, Löschen, Bearbeiten) von Mitgliedern des StuRas. Nutzer, bei denen es sich nicht um Admins handelt, sind dabei nur zum Einsehen der Mitgliederdaten befugt.</p>
+<p>Zu jedem Mitglied werden folgende Attribute gespeichert:</p>
+<ul class="simple">
+<li><p>Vorname</p></li>
+<li><p>Nachname</p></li>
+<li><p>Spitzname (optional)</p></li>
+<li><p>Ämter (optional)</p></li>
+<li><p>E-Mail-Adresse(n) (optional)</p></li>
+<li><p>Anschrift (optional)</p></li>
+<li><p>Telefonnummer(n) (optional)</p></li>
+</ul>
+<div class="section" id="module-mitglieder.views">
+<span id="views"></span><h2>Views<a class="headerlink" href="#module-mitglieder.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="mitglieder.views.aemter_html_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_html_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
+<p>Aufgaben:
+* Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
+* Rendern des Templates
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Formular.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.aemter_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:
+* Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
+* Rendern des Templates
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.amt_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">amt_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.amt_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:
+* Erfassen der Anzahl der Ämter
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.bereiche_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">bereiche_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.bereiche_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:
+* Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
+* Rendern des Templates
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.email_html_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_html_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.</p>
+<p>Aufgaben:
+* Rendern des Formulars
+* Erfassen der Anzahl der E-Mails eines Mitglieds
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.email_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:
+* Erfassen der Anzahl der E-Mails
+* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.erstellen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">erstellen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.erstellen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speichert ein neues Mitglied in der Datenbank.</p>
+<p>Aufgaben:
+* Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.
+* Weiterleitung zur Mitgliederanischt.
+* Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.getValue">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</p>
+<p>Aufgaben:
+* Entnehmen des Attributs
+* Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Eine POST-Request.</p></li>
+<li><p><strong>attr</strong> – Das Attribut, das aus Request entnommen werden soll.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.main_screen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.main_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt eine Tabelle mit Migliedern an und ermöglicht die Suche nach Mitgliedern mit bestimmten Namen.
+Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie das Wechseln zur View zum Erstellen oder zum Bearbeiten ermöglicht.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die View holt sämtliche Mitglieder-Einträge aus der Datenbank und stellt diese als Kontext bereit.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können Mitglieder erstellen, bearbeiten und löschen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitgliedBearbeitenView">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedBearbeitenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedBearbeitenView" title="Permalink to this definition">¶</a></dt>
+<dd><p>View zum Bearbeiten eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Bereitstellung der Daten: Die View holt Attribute eines Mitglieds aus der Datenbank und zeigt diese an.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p></li>
+<li><p><strong>mitglied_id</strong> – Id des Mitglieds, das bearbeitet werden soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitgliedErstellenView">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedErstellenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedErstellenView" title="Permalink to this definition">¶</a></dt>
+<dd><p>View zum Erstellen eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitglied_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglied_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglied_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.</p>
+<p>Aufgaben:
+* Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
+* Rendern des Templates
+* Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitglieder_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglieder_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglieder_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Löscht ausgewählte Mitglieder aus der Datenbank.</p>
+<p>Aufgaben:
+* Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
+* Rendern des Templates
+* Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.speichern">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">speichern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.speichern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speichert ein bearbeitetes Mitglied in der Datenbank.</p>
+<p>Aufgaben:
+* Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden</p>
+<blockquote>
+<div><p>und anschließend alle Ämter und E-Mails aus request gespeichert werden.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p></li>
+<li><p><strong>mitglied_id</strong> – Die Id des Mitglieds, das bearbeitet wurde.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.suchen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">suchen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.suchen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.</p>
+<p>Aufgaben:
+* Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe</p>
+<blockquote>
+<div><p>im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Sucheingabe.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Templates mit den gefunden Mitgliedern.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>Alle Templates sind unter <cite>mitglieder/templates/mitglieder</cite> zu finden.</p>
+<div class="section" id="aemter-html">
+<h3>aemter.html<a class="headerlink" href="#aemter-html" title="Permalink to this headline">¶</a></h3>
+<p>Enthält die Felder für den Kandidaturzeitraum und Dropdowns für Attribute eines Amts. Initial wird neben den Textfeldern nur das Dropwdown für ein Referat angezeigt. Die restlichen Dropdowns werden über die Auswahl eines Referats bzw. Bereichs angezeigt.</p>
+</div>
+<div class="section" id="amt-dropdown-list-options-html">
+<h3>amt_dropdown_list_options.html<a class="headerlink" href="#amt-dropdown-list-options-html" title="Permalink to this headline">¶</a></h3>
+<p>Dropdown zur Auswahl eines Amts. Die angezeigten Auswahlmöglichkeiten hängen vom gewählten Bereich ab.</p>
+</div>
+<div class="section" id="bereich-dropdown-list-options-html">
+<h3>bereich_dropdown_list_options.html<a class="headerlink" href="#bereich-dropdown-list-options-html" title="Permalink to this headline">¶</a></h3>
+<p>Dropdown zur Auswahl eines Bereichs. Die angezeigten Auswahlmöglichkeiten hängen vom gewählten Referat ab.</p>
+</div>
+<div class="section" id="email-html">
+<h3>email.html<a class="headerlink" href="#email-html" title="Permalink to this headline">¶</a></h3>
+<p>Enthält ein Textfeld zur Eingabe einer E-Mail-Adresse sowie einen Löschbutton zum Entfernen der jeweiligen E-Mail-Adresse.</p>
+</div>
+<div class="section" id="email-input-html">
+<h3>email_input.html<a class="headerlink" href="#email-input-html" title="Permalink to this headline">¶</a></h3>
+<p>Enthält 0 bis n Kopien von <cite>email.html</cite> sowie einen Button, um genau eine weitere Kopie hinzuzufügen.</p>
+</div>
+<div class="section" id="mitglieder-html">
+<h3>mitglieder.html<a class="headerlink" href="#mitglieder-html" title="Permalink to this headline">¶</a></h3>
+<p>Ansicht mit allen Mitgliedern, welche über eine Tabelle angezeigt werden. Über das Anklicken einer Zeile wird ein Modal mit allen Daten eines Mitglieds angezeigt.
+Auch die Suche nach Mitgliedsnamen, das Löschen von Mitgliedern und das Wechseln zur <cite>mitgliedErstellenView</cite> kann hier durchgeführt werden.</p>
+</div>
+<div class="section" id="mitglied-erstellen-bearbeiten-html">
+<h3>mitglied_erstellen_bearbeiten.html<a class="headerlink" href="#mitglied-erstellen-bearbeiten-html" title="Permalink to this headline">¶</a></h3>
+<p>Ermöglicht die Eingabe aller Attribute eines bereits existierenden oder neuen Mitglieds.</p>
+</div>
+<div class="section" id="modal-html">
+<h3>modal.html<a class="headerlink" href="#modal-html" title="Permalink to this headline">¶</a></h3>
+<p>Ein Modal, das alle Attribute eines Mitglieds mit einer bestimmten Id anzeigt.</p>
+</div>
+<div class="section" id="row-html">
+<h3>row.html<a class="headerlink" href="#row-html" title="Permalink to this headline">¶</a></h3>
+<p>Eine Tabellenzeile, um Name, Vorname, Ämter, E-Mail-Adressen und die Telefonnummer eines Mitglieds anzuzeigen. Admins wird hier zusätzlich eine Checkbox und ein Button zum Bearbeiten des Mitglieds angezeigt.
+Wird von <cite>mitglieder.html</cite> inkludiert.</p>
+</div>
+</div>
+<div class="section" id="template-tags">
+<h2>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -173,11 +551,19 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Team T8
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -188,7 +574,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
