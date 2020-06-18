@@ -13,6 +13,17 @@ Zu jedem Mitglied werden folgende Attribute gespeichert:
 * Anschrift (optional)
 * Telefonnummer(n) (optional)
 
+Abhängigkeiten
+--------------
+
+simplejson
+~~~~~~~~~~
+
+* Installation: ``pip install simplejson``
+* Dokumentation: `https://simplejson.readthedocs.io/en/latest/ <https://simplejson.readthedocs.io/en/latest/>`_
+
+simplejson ist ein En- und Decoder für JSON.
+
 Views
 -----
 
@@ -73,15 +84,3 @@ row.html
 
 Eine Tabellenzeile, um Name, Vorname, Ämter, E-Mail-Adressen und die Telefonnummer eines Mitglieds anzuzeigen. Admins wird hier zusätzlich eine Checkbox und ein Button zum Bearbeiten des Mitglieds angezeigt.
 Wird von `mitglieder.html` inkludiert.
-
-
-Template Tags
--------------
-
-.. automodule:: mitglieder.templatetags.to_class_name
-    :members:
-    :undoc-members:
-
-.. automodule:: mitglieder.templatetags.get_associated_data
-    :members:
-    :undoc-members:

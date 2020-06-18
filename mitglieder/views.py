@@ -49,6 +49,7 @@ def mitglied_laden(request):
     Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.
 
     Aufgaben:
+
     * Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
     * Rendern des Templates
     * Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.
@@ -70,6 +71,7 @@ def mitglieder_loeschen(request):
     Löscht ausgewählte Mitglieder aus der Datenbank.
 
     Aufgaben:
+
     * Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
     * Rendern des Templates
     * Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen
@@ -126,6 +128,7 @@ def bereiche_laden(request):
     Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
 
     Aufgaben:
+
     * Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
     * Rendern des Templates
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
@@ -148,6 +151,7 @@ def aemter_laden(request):
     Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
 
     Aufgaben:
+
     * Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
     * Rendern des Templates
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
@@ -177,6 +181,7 @@ def aemter_html_laden(request):
     Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.
 
     Aufgaben:
+
     * Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
     * Rendern des Templates
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
@@ -199,6 +204,7 @@ def amt_loeschen(request):
     Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
 
     Aufgaben:
+
     * Erfassen der Anzahl der Ämter
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
 
@@ -220,6 +226,7 @@ def email_html_laden(request):
     Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.
 
     Aufgaben:
+
     * Rendern des Formulars
     * Erfassen der Anzahl der E-Mails eines Mitglieds
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
@@ -240,6 +247,7 @@ def email_loeschen(request):
     Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
 
     Aufgaben:
+
     * Erfassen der Anzahl der E-Mails
     * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
 
@@ -261,6 +269,7 @@ def erstellen(request):
     Speichert ein neues Mitglied in der Datenbank.
 
     Aufgaben:
+
     * Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.
     * Weiterleitung zur Mitgliederanischt.
     * Rechteeinschränkung: Nur Admins können die Funktion auslösen.
@@ -343,6 +352,7 @@ def getValue(request, attr):
     Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.
 
     Aufgaben:
+
     * Entnehmen des Attributs
     * Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben
 
@@ -366,6 +376,7 @@ def speichern(request, mitglied_id):
     Speichert ein bearbeitetes Mitglied in der Datenbank.
 
     Aufgaben:
+
     * Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden
       und anschließend alle Ämter und E-Mails aus request gespeichert werden.
     * Weiterleitung zur Mitgliederanischt.
@@ -413,6 +424,7 @@ def suchen(request):
     Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.
 
     Aufgaben:
+
     * Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe
       im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.
     * Rendern des Templates
