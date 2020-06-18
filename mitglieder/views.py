@@ -17,8 +17,20 @@ from django.db.models import Q
 aemternum = 0
 emailnum = 0
 
-# Mitgliederanzeige - Wird nur noch beim Aufruf aus dem Menü heraus einmalig aufgerufen
 def main_screen(request):
+    """
+    Zeigt eine Tabelle mit Migliedern an und ermöglicht die Suche nach Mitgliedern mit bestimmten Namen.
+    Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie das Wechseln zur View zum Erstellen oder zum Bearbeiten ermöglicht.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Die View holt sämtliche Mitglieder-Einträge aus der Datenbank und stellt diese als Kontext bereit.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur Admins können Mitglieder erstellen, bearbeiten und löschen.
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.
+    :return: Die gerenderte View.
+    """
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
@@ -33,6 +45,20 @@ def main_screen(request):
 
 # Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
+    """
+    Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.
+    :return: Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
     # Extrahieren der Mitglied-Id aus der GET-Request
     mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
     # Daten zum Mitglied mit dieser Id an Frontend senden
@@ -41,6 +67,22 @@ def mitglied_laden(request):
 
 # Entfernen von Mitgliedern aus der Datenbank
 def mitglieder_loeschen(request):
+    """
+    Löscht ausgewählte Mitglieder aus der Datenbank.
+
+    Aufgaben:
+
+    * Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
     # Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank
     mitgliederids = request.POST.get('mitglieder')
     mitgliederids = json.loads(mitgliederids)
@@ -48,9 +90,25 @@ def mitglieder_loeschen(request):
         Mitglied.objects.get(pk=mitgliedid).delete()
     return HttpResponse()
 
-# Mitglied erstellen Anzeige
 @user_passes_test(lambda u: u.is_superuser)
 def mitgliedErstellenView(request):
+    """
+    View zum Erstellen eines Mitglieds.
+
+    Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.
+
+    Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert. 
+
+    Aufgaben:
+
+    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
+    * Rendern des Templates
+    * Speichern des Mitglieds in der Datenbank
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.
+    :return: Die gerenderte View.
+    """
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
@@ -66,6 +124,21 @@ def mitgliedErstellenView(request):
 
 # Unterbereiche eines Referats an das Frontend senden
 def bereiche_laden(request):
+    """
+    Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.
+    :return: Das gerenderte Dropdown.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global aemternum
     referat_id = request.GET.get('organisationseinheit')
     amtnum = request.GET.get('amtnum')
@@ -74,6 +147,21 @@ def bereiche_laden(request):
 
 # Aemter eines Bereichs an das Frontend senden
 def aemter_laden(request):
+    """
+    Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.
+    :return: Das gerenderte Dropdown.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global aemternum
     bereich_id = request.GET.get('bereich')
     amtnum = request.GET.get('amtnum')
@@ -89,6 +177,21 @@ def aemter_laden(request):
 
 # Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
 def aemter_html_laden(request):
+    """
+    Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: Das gerenderte Formular.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    
     global aemternum
     aemternum += 1
     referate = Organisationseinheit.objects.order_by('bezeichnung')
@@ -97,24 +200,89 @@ def aemter_html_laden(request):
 
 # Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
+    """
+    Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
+
+    Aufgaben:
+
+    * Erfassen der Anzahl der Ämter
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global aemternum
     aemternum-=1
     return HttpResponse()
 
 # Formular fur eine E-Mail hinzufuegen (Mitglied erstellen/bearbeiten)
 def email_html_laden(request):
+    """
+    Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.
+
+    Aufgaben:
+
+    * Rendern des Formulars
+    * Erfassen der Anzahl der E-Mails eines Mitglieds
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     global emailnum
     emailnum +=1
     return render(request, 'mitglieder/email.html', {'emailid': emailnum})
 
 # Formular fur eine E-Mail loeschen (Mitglied erstellen/bearbeiten)
 def email_loeschen(request):
+    """
+    Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
+
+    Aufgaben:
+
+    * Erfassen der Anzahl der E-Mails
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global emailnum
     emailnum-=1
     return HttpResponse()
 
 # Mitglied erstellen
 def erstellen(request):
+    """
+    Speichert ein neues Mitglied in der Datenbank.
+
+    Aufgaben:
+
+    * Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.
+    * Weiterleitung zur Mitgliederanischt.
+    * Rechteeinschränkung: Nur Admins können die Funktion auslösen.
+
+    :param request: Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.
+    :return: Weiterleitung zur Mitgliederansicht.
+    """
+    if not request.user.is_authenticated:
+        messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
+        return redirect("/")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
     global aemternum, emailnum
     if request.method == 'POST':
         # Mitglied
@@ -156,6 +324,25 @@ def erstellen(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def mitgliedBearbeitenView(request, mitglied_id):
+    """
+    View zum Bearbeiten eines Mitglieds.
+
+    Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.
+
+    Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert. 
+
+    Aufgaben:
+
+    * Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.
+    * Bereitstellung der Daten: Die View holt Attribute eines Mitglieds aus der Datenbank und zeigt diese an.
+    * Rendern des Templates
+    * Speichern des Mitglieds in der Datenbank
+
+    :param request: Die HTML-Request, welche den Aufruf der View ausgelöst hat.
+    :param mitglied_id: Id des Mitglieds, das bearbeitet werden soll
+    :return: Die gerenderte View.
+    """
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
@@ -173,6 +360,18 @@ def mitgliedBearbeitenView(request, mitglied_id):
 # Attribut attr (string) wird aus request (POST-Request) entnommen und zurueckgegeben
 # bei einem KeyError oder leerem String wird None zurueckgegeben
 def getValue(request, attr):
+    """
+    Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.
+
+    Aufgaben:
+
+    * Entnehmen des Attributs
+    * Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben
+
+    :param request: Eine POST-Request.
+    :param attr: Das Attribut, das aus Request entnommen werden soll.
+    :return: Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist
+    """
     try:
         val = request.POST[attr]
         if val=="":
@@ -185,9 +384,27 @@ def getValue(request, attr):
 
 # bearbeitetes Mitglied speichern
 def speichern(request, mitglied_id):
+    """
+    Speichert ein bearbeitetes Mitglied in der Datenbank.
+
+    Aufgaben:
+
+    * Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden
+      und anschließend alle Ämter und E-Mails aus request gespeichert werden.
+    * Weiterleitung zur Mitgliederanischt.
+    * Rechteeinschränkung: Nur Admins können die Funktion auslösen.
+
+    :param request: Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.
+    :param mitglied_id: Die Id des Mitglieds, das bearbeitet wurde.
+    :return: Weiterleitung zur Mitgliederansicht.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+      
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
-        # Mitglied
         mitglied.vorname = getValue(request, 'vorname')
         mitglied.name = getValue(request, 'nachname')
         mitglied.spitzname = getValue(request, 'spitzname')
@@ -222,6 +439,22 @@ def speichern(request, mitglied_id):
 
 # Suche in der Mitgliederanzeige
 def suchen(request):
+    """
+    Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe
+      im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Sucheingabe.
+    :return: Das gerenderte Templates mit den gefunden Mitgliedern.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
     search_string = request.GET.get('search_string')
     page_number = request.GET.get('page')
 
