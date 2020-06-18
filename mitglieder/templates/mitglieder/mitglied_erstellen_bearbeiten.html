@@ -240,7 +240,6 @@
     // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
     if ($('#selectreferat').val()){
       $('#selectreferat').trigger("change");
-
     }
   });
 
@@ -259,6 +258,7 @@
             amtnum: num,
             },
             success: function(data){
+              // 
               $("#div_selectbereich" + num).html(data);
               $("#div_selectamt" + num).empty();
               initSelect();

@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
+from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Funktion, Organisationseinheit, Unterbereich
 import simplejson, json
@@ -35,7 +36,7 @@ def main_screen(request):
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
     # Paginate data
-    queryset = Mitglied.objects.order_by('vorname', 'name')
+    queryset = Mitglied.objects.order_by(Lower('vorname'), Lower('name'))
     paginator = Paginator(queryset, 15) # Show 15 entries per page
     queryset_page = paginator.get_page(1) # Get entries for the first page
 
@@ -43,7 +44,6 @@ def main_screen(request):
                   template_name="mitglieder/mitglieder.html",
                   context = {"data": queryset_page})
 
-# Senden eines Mitglieds an das Frontend fuer das Modal
 def mitglied_laden(request):
     """
     Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.

@@ -17,12 +17,14 @@
                 <tr id="tr{{entry.id}}" class="mitglied" data-url="{% url 'mitglieder:mitglied_laden' %}" >
                     <td>
                         <!-- Checkbox -->
+                        {% if request.user.is_superuser %}
                         <form method="post" style="margin-bottom: 0px; margin-top: 4px; padding-left: 7px; padding-right: 7px;">
                             {% csrf_token %}
                             <label for="chk-{{entry.id}}"/>
                             <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
                             <span style="padding-left: 7px; padding-right: 7px;"></span>
                         </form>
+                        {% endif %}
                     </td>
                     <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
                     <td class="mitglied-{{entry.id}}">
@@ -51,7 +53,12 @@
                     <td class="mitglied-{{entry.id}} hide-on-med-and-down">
                         {{entry.tel_mobil|default:'-'}}
                     </td>
-                    <td><a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a></td></td>
+                    <!-- edit button (pencil) -->
+                    {% if request.user.is_superuser %}
+                    <td>
+                        <a href="{% url 'mitglieder:bearbeitenView' entry.id %}"><i class="material-icons black-text">create</i></a>
+                    </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
