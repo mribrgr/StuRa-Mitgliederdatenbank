@@ -83,6 +83,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aemter.html">Ämter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mitglieder.html">Mitglieder</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tests</a><ul>
@@ -381,7 +382,7 @@ Login als User testlukas mit Userrechten</p>
 <span id="myfuncaemter"></span><h3>MyFuncAemter<a class="headerlink" href="#module-tests.MyFuncAemter" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="tests.MyFuncAemter.createAmt">
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createAmt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">referat</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">amt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createAmt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createAmt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">funktion</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createAmt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
 Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
 befindet.</p>
@@ -389,9 +390,9 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Organisationseinheit, dem das Amt zugeordnet werden soll</p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem das Funktion zugeordnet werden soll</p></li>
 <li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
-<li><p><strong>amt</strong> (<em>string</em>) – Angabe des Namens, der das neue Amt erhalten soll</p></li>
+<li><p><strong>funktion</strong> (<em>string</em>) – Angabe des Namens, der das neue Funktion erhalten soll</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -405,7 +406,7 @@ befindet.</p>
 
 <dl class="py function">
 <dt id="tests.MyFuncAemter.createReferat">
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createReferat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">referat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createReferat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createReferat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createReferat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
 Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
 befindet.</p>
@@ -413,7 +414,7 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -427,7 +428,7 @@ befindet.</p>
 
 <dl class="py function">
 <dt id="tests.MyFuncAemter.createUnterbereich">
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">referat</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createUnterbereich" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.MyFuncAemter.createUnterbereich" title="Permalink to this definition">¶</a></dt>
 <dd><p>Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
 Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
 befindet.</p>
@@ -435,7 +436,7 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
 <li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
 </ul>
 </dd>
@@ -458,14 +459,14 @@ befindet.</p>
 <ul class="simple">
 <li><p>Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird</p></li>
 <li><p>Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ob ein Amt richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Amt</p></li>
+<li><p>Ob ein Funktion richtig über das AdminPanel Hinzugefügt wird</p></li>
+<li><p>Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Funktion</p></li>
 </ul>
 <p>Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird</p>
 <dl class="py method">
 <dt id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1AemtHinzufuegen_AsSuperuser">
 <code class="sig-name descname">test_1AemtHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1AemtHinzufuegen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hier wird ein Amt hinzugefügt und überprüft ob es dann richtig
+<dd><p>Hier wird ein Funktion hinzugefügt und überprüft ob es dann richtig
 übernommen wurde.</p>
 </dd></dl>
 
@@ -487,7 +488,7 @@ befindet.</p>
 <dt id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser">
 <code class="sig-name descname">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dies ist ein Zusammenhängender Test
-Organisationseinheit, Unterbereich und Amt werden neu angelegt.
+Organisationseinheit, Unterbereich und Funktion werden neu angelegt.
 Ein neues Mitglied wird erstellt und diesem zugeordnet.
 Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.</p>
 </dd></dl>
@@ -505,7 +506,7 @@ Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.</p>
 <dl class="py method">
 <dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser">
 <code class="sig-name descname">test_1AemtEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1AemtEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hier wird ein Amt hinzugefügt um es dann wieder zu entfernen.</p>
+<dd><p>Hier wird ein Funktion hinzugefügt um es dann wieder zu entfernen.</p>
 </dd></dl>
 
 <dl class="py method">
