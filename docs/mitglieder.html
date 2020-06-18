@@ -86,6 +86,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mitglieder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#abhangigkeiten">Abhängigkeiten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simplejson">simplejson</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-mitglieder.views">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#aemter-html">aemter.html</a></li>
@@ -99,7 +103,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#row-html">row.html</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#template-tags">Template Tags</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
@@ -181,16 +184,29 @@
 <li><p>Anschrift (optional)</p></li>
 <li><p>Telefonnummer(n) (optional)</p></li>
 </ul>
+<div class="section" id="abhangigkeiten">
+<h2>Abhängigkeiten<a class="headerlink" href="#abhangigkeiten" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simplejson">
+<h3>simplejson<a class="headerlink" href="#simplejson" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Installation: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">simplejson</span></code></p></li>
+<li><p>Dokumentation: <a class="reference external" href="https://simplejson.readthedocs.io/en/latest/">https://simplejson.readthedocs.io/en/latest/</a></p></li>
+</ul>
+<p>simplejson ist ein En- und Decoder für JSON.</p>
+</div>
+</div>
 <div class="section" id="module-mitglieder.views">
 <span id="views"></span><h2>Views<a class="headerlink" href="#module-mitglieder.views" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="mitglieder.views.aemter_html_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_html_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
-<p>Aufgaben:
-* Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
-* Rendern des Templates
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
@@ -205,10 +221,12 @@
 <dt id="mitglieder.views.aemter_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
-<p>Aufgaben:
-* Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
-* Rendern des Templates
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
@@ -223,9 +241,11 @@
 <dt id="mitglieder.views.amt_loeschen">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">amt_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.amt_loeschen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
-<p>Aufgaben:
-* Erfassen der Anzahl der Ämter
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der Ämter</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
@@ -240,10 +260,12 @@
 <dt id="mitglieder.views.bereiche_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">bereiche_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.bereiche_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
-<p>Aufgaben:
-* Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
-* Rendern des Templates
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.</p>
@@ -258,10 +280,12 @@
 <dt id="mitglieder.views.email_html_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_html_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.</p>
-<p>Aufgaben:
-* Rendern des Formulars
-* Erfassen der Anzahl der E-Mails eines Mitglieds
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Rendern des Formulars</p></li>
+<li><p>Erfassen der Anzahl der E-Mails eines Mitglieds</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
@@ -276,9 +300,11 @@
 <dt id="mitglieder.views.email_loeschen">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_loeschen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
-<p>Aufgaben:
-* Erfassen der Anzahl der E-Mails
-* Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der E-Mails</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
@@ -293,10 +319,12 @@
 <dt id="mitglieder.views.erstellen">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">erstellen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.erstellen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Speichert ein neues Mitglied in der Datenbank.</p>
-<p>Aufgaben:
-* Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.
-* Weiterleitung zur Mitgliederanischt.
-* Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.</p></li>
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p>
@@ -311,9 +339,11 @@
 <dt id="mitglieder.views.getValue">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.getValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</p>
-<p>Aufgaben:
-* Entnehmen des Attributs
-* Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entnehmen des Attributs</p></li>
+<li><p>Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -402,10 +432,12 @@ Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder feh
 <dt id="mitglieder.views.mitglied_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglied_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglied_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.</p>
-<p>Aufgaben:
-* Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
-* Rendern des Templates
-* Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.</p>
@@ -420,10 +452,12 @@ Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder feh
 <dt id="mitglieder.views.mitglieder_loeschen">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglieder_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglieder_loeschen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Löscht ausgewählte Mitglieder aus der Datenbank.</p>
-<p>Aufgaben:
-* Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
-* Rendern des Templates
-* Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen</p>
@@ -438,12 +472,10 @@ Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder feh
 <dt id="mitglieder.views.speichern">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">speichern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.speichern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Speichert ein bearbeitetes Mitglied in der Datenbank.</p>
-<p>Aufgaben:
-* Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden</p>
-<blockquote>
-<div><p>und anschließend alle Ämter und E-Mails aus request gespeichert werden.</p>
-</div></blockquote>
+<p>Aufgaben:</p>
 <ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden
+und anschließend alle Ämter und E-Mails aus request gespeichert werden.</p></li>
 <li><p>Weiterleitung zur Mitgliederanischt.</p></li>
 <li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
 </ul>
@@ -464,12 +496,10 @@ Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder feh
 <dt id="mitglieder.views.suchen">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">suchen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.suchen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.</p>
-<p>Aufgaben:
-* Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe</p>
-<blockquote>
-<div><p>im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</p>
-</div></blockquote>
+<p>Aufgaben:</p>
 <ul class="simple">
+<li><p>Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe
+im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</p></li>
 <li><p>Rendern des Templates</p></li>
 <li><p>Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.</p></li>
 </ul>
@@ -525,9 +555,6 @@ Auch die Suche nach Mitgliedsnamen, das Löschen von Mitgliedern und das Wechsel
 <p>Eine Tabellenzeile, um Name, Vorname, Ämter, E-Mail-Adressen und die Telefonnummer eines Mitglieds anzuzeigen. Admins wird hier zusätzlich eine Checkbox und ein Button zum Bearbeiten des Mitglieds angezeigt.
 Wird von <cite>mitglieder.html</cite> inkludiert.</p>
 </div>
-</div>
-<div class="section" id="template-tags">
-<h2>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
