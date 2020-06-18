@@ -19,7 +19,7 @@ urlpatterns = [
     path('ajax/aemter-laden', views.aemter_laden, name='aemter_laden'),
     path('ajax/aemter-html-laden', views.aemter_html_laden, name='aemter_html_laden'),
     path('ajax/email-html-laden', views.email_html_laden, name='email_html_laden'),
-    path('ajax/amt-loeschen', views.amt_loeschen, name='amt_loeschen'),
+    path('ajax/funktion-loeschen', views.amt_loeschen, name='amt_loeschen'),
     path('ajax/email-loeschen', views.email_loeschen, name='email_loeschen'),
 
     # Suchen

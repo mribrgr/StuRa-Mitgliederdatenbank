@@ -10,15 +10,15 @@
   <div class="col s12">
     <ul class="collapsible">
       <!-- List all referats as collapsibles -->
-      {% for referat in referate %}
+      {% for organisationseinheit in referate %}
         <li>
-          <div class="collapsible-header grey lighten-2">Referat {{referat.bezeichnung}}</div>
+          <div class="collapsible-header grey lighten-2">Organisationseinheit {{organisationseinheit.bezeichnung}}</div>
           <div class="collapsible-body">
             <table name="department_table">
               <tbody>
                 <!-- List all departments with their persons in office -->
-                {% for amt in aemter %}
-                  {% if amt.referat.id == referat.id and not amt.unterbereich %}
+                {% for funktion in aemter %}
+                  {% if funktion.organisationseinheit.id == organisationseinheit.id and not funktion.unterbereich %}
                     {% include "./department_row.html" %}
                   {% endif %}
                 {% endfor %}
@@ -26,17 +26,17 @@
             </table>
 
             <ul class="collapsible">
-              <!-- List all sub-categories assigned to the referat as collapsibles -->
+              <!-- List all sub-categories assigned to the organisationseinheit as collapsibles -->
               {% for unterbereich in unterbereiche %}
-                {% if unterbereich.referat.id == referat.id %}
+                {% if unterbereich.organisationseinheit.id == organisationseinheit.id %}
                   <li>
                     <div class="collapsible-header grey lighten-2">Bereich {{unterbereich.bezeichnung}}</div>
                     <div class="collapsible-body">
                       <table name="department_table">
                         <tbody>
                           <!-- List all departments assigned to the sub-category with their persons in office -->
-                          {% for amt in aemter %}
-                            {% if amt.unterbereich.id == unterbereich.id %}
+                          {% for funktion in aemter %}
+                            {% if funktion.unterbereich.id == unterbereich.id %}
                               {% include "./department_row.html" %}
                             {% endif %}
                           {% endfor %}

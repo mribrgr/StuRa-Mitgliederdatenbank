@@ -1,38 +1,41 @@
+# -*- coding: utf-8 -*-
+
 import os, django, sys
 sys.path.append('..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bin.settings")
 django.setup()
 
-from aemter.models import Referat, Amt, Unterbereich
+from aemter.models import Organisationseinheit, Funktion, Unterbereich
 import csv
 
 def importAemter(file):
     # Delete existing Data
-    Referat.objects.all().delete()
+    Organisationseinheit.objects.all().delete()
     Unterbereich.objects.all().delete()
-    Amt.objects.all().delete()
+    Funktion.objects.all().delete()
 
     # read CSV
     reader = csv.reader(file, delimiter=',')
     for row in reader:
-        referat = row[0]
+        organisationseinheit = row[0]
         unterbereich = row[1]
-        amt = row[2]
+        funktion = row[2]
+        max_members = row[3]
 
         # Print Current Line for Debug
-        print(referat + " | " + unterbereich + " | " + amt)
+        # print(organisationseinheit + " | " + unterbereich + " | " + funktion + " | " + max_members)
 
-        if (referat == 'Referat'):
+        if (organisationseinheit == 'Organisationseinheit'):
             continue
 
-        # Erstelle das Referat
-        if not Referat.objects.filter(bezeichnung=referat).exists():
-            new_referat = Referat(
-                bezeichnung = referat
+        # Erstelle das Organisationseinheit
+        if not Organisationseinheit.objects.filter(bezeichnung=organisationseinheit).exists():
+            new_referat = Organisationseinheit(
+                bezeichnung = organisationseinheit
             )
             new_referat.save()
         else:
-            new_referat = Referat.objects.get(bezeichnung=referat)
+            new_referat = Organisationseinheit.objects.get(bezeichnung=organisationseinheit)
 
         # Erstelle den Unterbereich
         if not Unterbereich.objects.filter(bezeichnung=unterbereich).exists():
@@ -40,22 +43,23 @@ def importAemter(file):
             if (unterbereich != 'None'):
                 new_unterbereich = Unterbereich(
                     bezeichnung = unterbereich,
-                    referat = new_referat
+                    organisationseinheit = new_referat
                 )
                 new_unterbereich.save()
         else:
             new_unterbereich = Unterbereich.objects.get(bezeichnung=unterbereich)
 
-        # Erstelle das Amt
-        new_amt = Amt(
-            bezeichnung = amt,
+        # Erstelle das Funktion
+        new_amt = Funktion(
+            bezeichnung = funktion,
             workload = 5,
-            referat = new_referat,
+            max_members = max_members,
+            organisationseinheit = new_referat,
             unterbereich = new_unterbereich
         )
         new_amt.save()
     pass
 
 if __name__ == "__main__":
-    file = open("ReferateUnterbereicheAemter.csv")
+    file = open("ReferateUnterbereicheAemter.csv", encoding="utf-8")
     importAemter(file)

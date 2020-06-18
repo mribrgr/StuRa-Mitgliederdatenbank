@@ -30,7 +30,7 @@
                     <td class="mitglied-{{entry.id}}">
                         {% if entry.mitgliedamt_set.all %}
                         <ul style="margin-bottom: 0px">
-                            <li>{{entry.mitgliedamt_set.first.amt}}</li>
+                            <li>{{entry.mitgliedamt_set.first.funktion}}</li>
                             {% if entry.mitgliedamt_set.all.count > 1 %}
                                 <li>...</li>
                             {% endif %}

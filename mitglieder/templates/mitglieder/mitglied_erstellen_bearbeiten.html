@@ -35,7 +35,7 @@
         <div id="div_aemter">
         {% if mitglied.mitgliedamt_set.count %}
           {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
-          {% with mitgliedamt.amt as amt %}
+          {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
             {% include 'mitglieder/aemter.html' %}
           {% endwith %}
@@ -177,29 +177,30 @@
       }
     }
     for (var i=1; i<=amt_num; i++){
-      // Select fuer Amt existiert nocht nicht (weil kein Referat oder Bereich ausgewaehlt wurde) => rot markieren
+      // Select fuer Amt existiert nocht nicht (weil kein Organisationseinheit oder Bereich ausgewaehlt wurde) => rot markieren
       if (!$("#selectamt"+i.toString()).length){
         console.log("selectamt" + i.toString());
-        // Dropdown fuer Bereich existiert => rot markieren, ansonsten Dropdown fuer Referat rot markieren
+        // Dropdown fuer Bereich existiert => rot markieren, ansonsten Dropdown fuer Organisationseinheit rot markieren
         if ($("#selectbereich" + i.toString()).length){
           console.log("Bereich wurde nicht ausgewaehlt")
           $("#div_selectbereich"+i.toString()).addClass("invalid_input");
           addDropdownEventListener("selectbereich" + i.toString());
         } else {
           $("#div_selectreferat" + i.toString()).addClass("invalid_input");
-          console.log("Referat wurde nicht ausgewaehlt");
+          console.log("Organisationseinheit wurde nicht ausgewaehlt");
           addDropdownEventListener("selectreferat" + i.toString());
         }
-        console.log("Kein Bereich oder Referat ausgewahelt");
+        console.log("Kein Bereich oder Organisationseinheit ausgewahelt");
         valid_input = false;
       }
-      // Referat und Bereich, aber kein Amt ausgewaehlt => Amt rot markieren
+      // Organisationseinheit und Bereich, aber kein Amt ausgewaehlt => Amt rot markieren
       if ($("#selectamt" + i.toString() + " option:selected").prop("disabled")==true){
         console.log("Ein Amt wurde nicht ausgewaehlt");
         valid_input = false;
         $("#div_selectamt" + i.toString()).addClass("invalid_input");
         addDropdownEventListener("selectamt" + i.toString());
       }
+
     }
     // bei gueltigen Eingaben Daten an Server schicken
     if (valid_input) $('#mitgliedForm').submit();
@@ -210,7 +211,7 @@
     $("#addAmt").click(function(){
       amt_num++;
       var url = $("#addAmt").attr("data-url");
-      // Request an Server, dass dieser HTML fuer Referat-Dropdown senden moege
+      // Request an Server, dass dieser HTML fuer Organisationseinheit-Dropdown senden moege
       $.ajax({
         url: url,
         success: function(data){
@@ -233,18 +234,18 @@
         }
       });
     });
-    
+
 
     // Triggern eines change Events, falls nach erneutem Laden noch
-    // Referat ausgewaehlt ist, um Bereiche anzuzeigen
+    // Organisationseinheit ausgewaehlt ist, um Bereiche anzuzeigen
     if ($('#selectreferat').val()){
-      $('#selectreferat').trigger("change"); 
+      $('#selectreferat').trigger("change");
     }
   });
 
-  // Event Listener falls ein anderes Referat ausgewaehlt wird
+  // Event Listener falls ein anderes Organisationseinheit ausgewaehlt wird
   // Laden neuer Unterbereiche, Entfernen des Amt-Dropdowns
-  function addReferatEventListener(){ 
+  function addReferatEventListener(){
     $('select[name^=selectreferat]').change(function(event){
         referat_id = $(this).val();
         var url = $('#' + event.target.id).attr("data-url");
@@ -253,7 +254,7 @@
         $.ajax({
             url: url,
             data: {
-            referat: referat_id,
+            organisationseinheit: referat_id,
             amtnum: num,
             },
             success: function(data){
@@ -282,7 +283,7 @@
           url: url,
           data: {
           bereich: bereich_id,
-          referat: referat_id,
+          organisationseinheit: referat_id,
           amtnum: num,
           },
           success: function(data){
@@ -305,7 +306,7 @@
   function addInputEventListener(id){
     $('#' + id).on("input", function(event){
       // Pruefen, ob Feld leer ist oder eine ungueltige E-Mail enthaelt
-      if ($("#"+id).val()=="" || 
+      if ($("#"+id).val()=="" ||
           ($("#"+id).attr("type")=="email" && !isEmail( $("#" + id).val() ) ) ){
         $("#" + id).addClass("invalid_input");
       } else {
@@ -324,11 +325,11 @@
     $(document).on("click", '.amtdelbtn', function(){
       var url = $("#" + this.id).attr("data-url");
       amtid = this.id.substr(10);
-      $("#amt" + amtid).remove();
+      $("#funktion" + amtid).remove();
 
       // Veraendern von ids, for- und label-Attributen
-      var ids = ["amt", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
-      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label", 
+      var ids = ["funktion", "selectreferat", "div_selectbereich", "selectbereich", "selectamt", "div_selectamt", "amtdelbtns", "amtdelbtnl",
+      "beginn_kandidatur", "beginn_kandidaturs", "ende_kandidatur", "ende_kandidaturs", "beginn_kandidatur_label", "ende_kandidatur_label",
       "beginn_kandidaturs_label", "ende_kandidaturs_label"];
       var forLabel = ["beginn_kandidatur", "ende_kandidatur", "beginn_kandidaturs", "ende_kandidaturs"]
       for (var i=parseInt(amtid)+1; i<=amt_num; i++){
@@ -352,7 +353,7 @@
           url: url,
       });
     });
-    
+
     // E-Mail loeschen
     $(document).on("click", '.emaildelbtn', function(){
       var url = $("#" + this.id).attr("data-url");
@@ -367,7 +368,7 @@
           $('#' + oldid).attr("name", newid);
           $("#" + oldid).attr("id", newid);
         });
-          
+
       }
       email_num--;
       // Server melden, dass E-Mail geloescht wurde

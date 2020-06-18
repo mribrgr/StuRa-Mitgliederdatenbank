@@ -54,7 +54,7 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 //Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 |===
-|Für|	Referat Verwaltung (StuRa)
+|Für|	Organisationseinheit Verwaltung (StuRa)
 |welchem|	das Verwalten der Mitglieder deutlich erleichtert wird
 |Die Lösung ist eine | Webanwedung zur Mitgliederverwaltung
 |Die / Das	|das Verwalten übersichtlicher gestaltet und eine Historie speichert
@@ -71,7 +71,7 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 |Name|	Beschreibung	| Verantwortlichkeiten
 |Verwaltung des StuRas	|selbsterklärend	|Eintragen von Mitgliedern, Dokumentieren von Wahlen, Einrichten von Zugängen
 |Präsidium	|Das Präsidium ist zuständig für Sitzungen des StuRas	| Dokumentieren von Anwesenheit
-|Mitglieder des StuRas	| Studierende der HTW, die vom StuRa in ein Amt gewählt wurden | Lesen von Daten aller Mitglieder
+|Mitglieder des StuRas	| Studierende der HTW, die vom StuRa in ein Funktion gewählt wurden | Lesen von Daten aller Mitglieder
 |===
 
 === Benutzerumgebung

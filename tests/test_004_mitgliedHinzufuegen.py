@@ -5,6 +5,7 @@ from django.urls import reverse
 from tests.MyTestCase import MyTestCase
 from tests.MyFuncLogin import loginAsLukasAdmin, loginAsLukasUser
 from tests.MyFuncMitglieder import *
+from tests.MyFuncAemter import createAmt
 
 
 class TestMitgliedHinzufuegen(MyTestCase):
@@ -30,6 +31,13 @@ class TestMitgliedHinzufuegen(MyTestCase):
         # Login as Admin
         loginAsLukasAdmin(self)
 
+        # Hinzufügen eines Amtes
+        funktion = "test_amt"
+        organisationseinheit = "Referat Finanzen"
+        unterbereich = "Bereich Buchhaltung"
+        createAmt(self, organisationseinheit, unterbereich, funktion)
+        self.browser.find_element_by_xpath("//a[@href='/']").click()
+
         for value in range(50):
             # print(f"Mitglied {value} wird hinzugefügt")
             try:
@@ -37,7 +45,7 @@ class TestMitgliedHinzufuegen(MyTestCase):
                     f"Max_{value}", "Mustermann", "Musti")
                 self.browser.find_element_by_xpath("//ul[@class='pagination']/li/a[contains(text(), '1')]").click()
             except:
-                # print(f"Mitglied {value} wurde übersprungen")
+                self.assertTrue(False, msg=f"Mitglied {value} wurde übersprungen")
                 pass
             pass
 

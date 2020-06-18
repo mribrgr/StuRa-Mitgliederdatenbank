@@ -2,7 +2,7 @@
     {{entry.mitglied_id}} 
     (aktuell {{latestMitglied.vorname}} {{latestMitglied.name}}, 
     damals {{historicalMitglied.vorname}} {{historicalMitglied.name}})</p>
-<p><b>Amt: </b> 
+<p><b>Funktion: </b>
     {{entry.amt_id}}
     (aktuell {{latestAmt.bezeichnung}} 
         {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
@@ -19,7 +19,7 @@
         {{entry.prev_record.mitglied_id}} 
         (aktuell {{latestMitgliedAlt.vorname}} {{latestMitgliedAlt.name}}, 
         damals {{historicalMitgliedAlt.vorname}} {{historicalMitgliedAlt.name}})</p>
-    <p><b>Amt: </b> 
+    <p><b>Funktion: </b>
         {{entry.prev_record.amt_id}}
         (aktuell {{latestAmtAlt.bezeichnung}} 
             {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}

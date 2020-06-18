@@ -16,25 +16,26 @@ class TestModels(TestCase):
             tel_mobil = "0352075199"
         )
 
-        self.referat1 = Referat.objects.create(
+        self.referat1 = Organisationseinheit.objects.create(
             bezeichnung = "myreferat"
         )
 
         self.unterbereich1 = Unterbereich.objects.create(
             bezeichnung = "myunterbereich",
-            referat = self.referat1
+            organisationseinheit = self.referat1
         )
 
-        self.amt1 = Amt.objects.create(
+        self.amt1 = Funktion.objects.create(
             bezeichnung = "myamt",
             workload = 4,
-            referat = self.referat1,
+            max_members = 5,
+            organisationseinheit = self.referat1,
             unterbereich = self.unterbereich1
         )
 
         self.mitgliedamt1 = MitgliedAmt.objects.create(
             mitglied = self.mitglied1,
-            amt = self.amt1
+            funktion = self.amt1
         )
 
         self.mitgliedmail1 = MitgliedMail.objects.create(
@@ -43,16 +44,16 @@ class TestModels(TestCase):
         )
 
     def test_mitglied_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitglied1.__str__(),
             "Hans Peter")
 
     def test_mitgliedAmt_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitgliedamt1.__str__(),
-            "Hans Peter, myamt myunterbereich (Referat myreferat)")
+            "Hans Peter, myamt myunterbereich (Organisationseinheit myreferat)")
 
     def test_mitgliedMail_toString(self):
-        self.assertEquals(
+        self.assertEqual(
             self.mitgliedmail1.__str__(),
             "sxxxxx@htw-dresden.de Hans Peter")

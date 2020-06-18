@@ -389,7 +389,7 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Referat, dem das Amt zugeordnet werden soll</p></li>
+<li><p><strong>referat</strong> (<em>string</em>) – Organisationseinheit, dem das Amt zugeordnet werden soll</p></li>
 <li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
 <li><p><strong>amt</strong> (<em>string</em>) – Angabe des Namens, der das neue Amt erhalten soll</p></li>
 </ul>
@@ -413,7 +413,7 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Name, wie das neue Referat heißen soll</p></li>
+<li><p><strong>referat</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -435,7 +435,7 @@ befindet.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> – </p></li>
-<li><p><strong>referat</strong> (<em>string</em>) – Referat, dem der Unterbereich zugeordnet werden soll</p></li>
+<li><p><strong>referat</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
 <li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
 </ul>
 </dd>
@@ -456,10 +456,10 @@ befindet.</p>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_007_aemtHinzufuegen.</code><code class="sig-name descname">TestAemtHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hier wird getestet:</p>
 <ul class="simple">
-<li><p>Ob ein Referat richtig über das AdminPanel Hinzugefügt wird</p></li>
+<li><p>Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird</p></li>
 <li><p>Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird</p></li>
 <li><p>Ob ein Amt richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ein Komplextest ob man mit Hinzugefügten Referat/Unterbereich/Amt</p></li>
+<li><p>Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Amt</p></li>
 </ul>
 <p>Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird</p>
 <dl class="py method">
@@ -472,7 +472,7 @@ befindet.</p>
 <dl class="py method">
 <dt id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1ReferatHinzufuegen_AsSuperuser">
 <code class="sig-name descname">test_1ReferatHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_1ReferatHinzufuegen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hier wird ein Referat hinzugefügt und überprüft ob es dann richtig
+<dd><p>Hier wird ein Organisationseinheit hinzugefügt und überprüft ob es dann richtig
 übernommen wurde.</p>
 </dd></dl>
 
@@ -487,7 +487,7 @@ befindet.</p>
 <dt id="tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser">
 <code class="sig-name descname">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_007_aemtHinzufuegen.TestAemtHinzufuegen.test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dies ist ein Zusammenhängender Test
-Referat, Unterbereich und Amt werden neu angelegt.
+Organisationseinheit, Unterbereich und Amt werden neu angelegt.
 Ein neues Mitglied wird erstellt und diesem zugeordnet.
 Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.</p>
 </dd></dl>
@@ -511,7 +511,7 @@ Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.</p>
 <dl class="py method">
 <dt id="tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser">
 <code class="sig-name descname">test_1ReferatEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_008_aemtEntfernen.TestAemtEntfernen.test_1ReferatEntfernen_AsSuperuser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hier wird ein Referat hinzugefügt um es dann wieder zu entfernen.</p>
+<dd><p>Hier wird ein Organisationseinheit hinzugefügt um es dann wieder zu entfernen.</p>
 </dd></dl>
 
 <dl class="py method">

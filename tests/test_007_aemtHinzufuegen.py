@@ -8,25 +8,25 @@ class TestAemtHinzufuegen(MyTestCase):
     """
         Hier wird getestet:
 
-        * Ob ein Referat richtig über das AdminPanel Hinzugefügt wird
+        * Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird
         * Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird
-        * Ob ein Amt richtig über das AdminPanel Hinzugefügt wird
-        * Ein Komplextest ob man mit Hinzugefügten Referat/Unterbereich/Amt
+        * Ob ein Funktion richtig über das AdminPanel Hinzugefügt wird
+        * Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Funktion
 
         Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
     """
 
     def test_1ReferatHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Referat hinzugefügt und überprüft ob es dann richtig
+            Hier wird ein Organisationseinheit hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        # Hinzufügen eines referat
-        referat = "test_referat"
-        createReferat(self, referat)
+        # Hinzufügen eines organisationseinheit
+        organisationseinheit = "test_referat"
+        createReferat(self, organisationseinheit)
         pass
 
     def test_1UnterbereichHinzufuegen_AsSuperuser(self):
@@ -38,50 +38,50 @@ class TestAemtHinzufuegen(MyTestCase):
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Unterbereichs
-        referat = "Referat Finanzen"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "test_unterbereich"
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
         pass
 
     def test_1AemtHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Amt hinzugefügt und überprüft ob es dann richtig
+            Hier wird ein Funktion hinzugefügt und überprüft ob es dann richtig
             übernommen wurde.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
 
         # Hinzufügen eines Amtes
-        amt = "test_amt"
-        referat = "Referat Finanzen"
+        funktion = "test_amt"
+        organisationseinheit = "Referat Finanzen"
         unterbereich = "Bereich Buchhaltung"
-        createAmt(self, referat, unterbereich, amt)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
         pass
 
     def test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser(self):
         """
             Dies ist ein Zusammenhängender Test
-            Referat, Unterbereich und Amt werden neu angelegt.
+            Organisationseinheit, Unterbereich und Funktion werden neu angelegt.
             Ein neues Mitglied wird erstellt und diesem zugeordnet.
             Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
 
-        referat = "test_referat"
+        organisationseinheit = "test_referat"
         unterbereich = "test_unterbereich"
-        amt = "test_amt"
+        funktion = "test_amt"
 
         """
             Erstellen von allen
         """
-        createReferat(self, referat)
+        createReferat(self, organisationseinheit)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        createUnterbereich(self, referat, unterbereich)
+        createUnterbereich(self, organisationseinheit, unterbereich)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        createAmt(self, referat, unterbereich, amt)
+        createAmt(self, organisationseinheit, unterbereich, funktion)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
         """
@@ -95,7 +95,7 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath(
             "//div[@id='div_selectreferat1']/div/input").click()
         self.browser.find_element_by_xpath(
-            "//span[text()='%s']" % referat).click()
+            "//span[text()='%s']" % organisationseinheit).click()
 
         self.browser.find_element_by_xpath(
             "//div[@id='div_selectbereich1']/div/div/input").click()
@@ -104,7 +104,7 @@ class TestAemtHinzufuegen(MyTestCase):
 
         self.browser.find_element_by_xpath(
             "//div[@id='div_selectamt1']/div/div/input").click()
-        self.browser.find_element_by_xpath("//span[text()='%s']" % amt).click()
+        self.browser.find_element_by_xpath("//span[text()='%s']" % funktion).click()
 
         # weitere Daten Hinzufügen
         self.browser.find_element_by_name('vorname').send_keys('Hans')
@@ -129,13 +129,13 @@ class TestAemtHinzufuegen(MyTestCase):
             self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
             "Hans Peter",
             msg="Hans Peter wurde nicht angelegt")
-        searchstring = amt + " " + unterbereich + " (Referat " + referat + ")"
+        searchstring = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.assertEqual(
             self.browser.find_element_by_xpath(
                 "//tr[@class='mitglied']/td/ul/li[contains(text(), '%s')]" %
                 searchstring).text,
             searchstring,
-            msg="Amt wurde nicht richtig zugewiesen")
+            msg="Funktion wurde nicht richtig zugewiesen")
 
         """
             Schauen in der Ämter Übersicht ob alles angezeigt wird
@@ -144,24 +144,24 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath("//a[@href='/aemter']").click()
 
         # öffnen der collabseables
-        searchstring = "Referat " + referat
+        searchstring = "Organisationseinheit " + organisationseinheit
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
         searchstring = "Bereich " + unterbereich
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
 
-        # überprüfen ob Amt da ist
+        # überprüfen ob Funktion da ist
         self.assertEqual(
             self.browser.find_element_by_xpath(
                 "//tr/td[contains(text(), '%s')]" %
-                amt).text,
-            amt,
-            msg="Amt ist nicht in Übersicht Ämter vorhanden")
+                funktion).text,
+            funktion,
+            msg="Funktion ist nicht in Übersicht Ämter vorhanden")
         """
-        TODO: Schauen ob Person richtig einem Amt zugeordnet wurde
+        TODO: Schauen ob Person richtig einem Funktion zugeordnet wurde
         self.assertEqual(self.browser.find_element_by_xpath("//tr/td[contains(text(), 'Hans Peter\n')]").text,
                             "Hans Peter",
-                            msg="Hans Peter wurde nicht richtig dem Amt hinzugefügt")
+                            msg="Hans Peter wurde nicht richtig dem Funktion hinzugefügt")
         """
         pass

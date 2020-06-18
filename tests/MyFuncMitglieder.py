@@ -46,7 +46,7 @@ def addMitglied(self):
     entNachname.send_keys('Peter')
     entSpitzname.send_keys('Hansi')
 
-    # Referat auswählen
+    # Organisationseinheit auswählen
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
@@ -58,7 +58,7 @@ def addMitglied(self):
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[2]").click()
 
-    # Amt auswählen
+    # Funktion auswählen
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
@@ -145,7 +145,7 @@ def addMitgliedWithParameters(self,
     except:
         print("Es wurden nicht alle Objekte auf der Seite gefunden")
 
-    # Referat auswählen
+    # Organisationseinheit auswählen
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
@@ -155,13 +155,13 @@ def addMitgliedWithParameters(self,
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectbereich1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[2]").click()
+        "//div[@id='div_selectbereich1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
-    # Amt auswählen
+    # Funktion auswählen
     self.browser.find_element_by_xpath(
         "//div[@id='div_selectamt1']/div/div/input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[4]").click()
+        "//div[@id='div_selectamt1']/div/div/ul[@class='dropdown-content select-dropdown']/li[3]").click()
 
     btnAddEmail.click()
     # Finden der Email Felder

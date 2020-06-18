@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
-from aemter.models import Amt, Referat, Unterbereich
+from aemter.models import Funktion, Organisationseinheit, Unterbereich
 import simplejson, json
 # string splitting
 import re
@@ -112,17 +112,17 @@ def mitgliedErstellenView(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
-    # beim Erstellen existiert anfangs jeweils ein Feld fuer Amt und E-Mail
+    # beim Erstellen existiert anfangs jeweils ein Feld fuer Funktion und E-Mail
     global aemternum, emailnum
     aemternum = emailnum = 1
     # Laden aller Referate
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
     # Anzahl von E-Mails, Aemtern sowie Referate werden an Frontend gesendet
     return render(request=request,
         template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
         context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
 
-# Unterbereiche eines Referats an das Frontend senden        
+# Unterbereiche eines Referats an das Frontend senden
 def bereiche_laden(request):
     """
     Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
@@ -140,9 +140,9 @@ def bereiche_laden(request):
         return HttpResponse("Permission denied")
 
     global aemternum
-    referat_id = request.GET.get('referat')
+    referat_id = request.GET.get('organisationseinheit')
     amtnum = request.GET.get('amtnum')
-    bereiche = Referat.objects.get(pk=referat_id).unterbereich_set.all()
+    bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
     return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum})
 
 # Aemter eines Bereichs an das Frontend senden
@@ -167,15 +167,15 @@ def aemter_laden(request):
     amtnum = request.GET.get('amtnum')
     # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
     if bereich_id == "-1":
-        referat_id = request.GET.get('referat')
-        aemter = Referat.objects.get(pk=referat_id).amt_set.all()
+        referat_id = request.GET.get('organisationseinheit')
+        aemter = Organisationseinheit.objects.get(pk=referat_id).funktion_set.all()
         aemter = aemter.filter(unterbereich__isnull=True)
     # Laden aller Aemter fuer gewaehlten Unterbereich
     else:
-        aemter = Unterbereich.objects.get(pk=bereich_id).amt_set.all()
+        aemter = Unterbereich.objects.get(pk=bereich_id).funktion_set.all()
     return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter, 'amtid': amtnum})
 
-# Formular fuer ein Amt hinzufuegen (Mitglied erstellen/bearbeiten)
+# Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
 def aemter_html_laden(request):
     """
     Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.
@@ -194,11 +194,11 @@ def aemter_html_laden(request):
     
     global aemternum
     aemternum += 1
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
     # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
     return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
 
-# Formular fur ein Amt loeschen (Mitglied erstellen/bearbeiten)
+# Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
     """
     Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
@@ -297,15 +297,27 @@ def erstellen(request):
         mitglied = Mitglied(name=nachname, vorname=vorname, spitzname=spitzname, strasse=strasse, hausnr=hausnr, plz=plz, ort=ort, tel_mobil=telefon_mobil)
         mitglied.save()
 
-        for i in range(1, aemternum+1):
-            amt_id = request.POST['selectamt'+str(i)]
-            amt = Amt.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(amt=amt, mitglied=mitglied)
-            mitgliedamt.save()
+        # E-Mail
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
             mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
             mitgliedmail.save()
+
+        # Funktion
+        for i in range(1, aemternum+1):
+            amt_id = request.POST['selectamt'+str(i)]
+            funktion = Funktion.objects.get(pk=amt_id)
+
+            # Check Max Members
+            if funktion.max_members != (0 or None):
+                # Maximale Member der Funktion sind begrenzt
+                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
+                    return mitgliedBearbeitenView(request, mitglied.id)
+
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt.save()
+
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
@@ -335,11 +347,11 @@ def mitgliedBearbeitenView(request, mitglied_id):
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
     global aemternum, emailnum
-    
+
     mitglied = Mitglied.objects.get(pk=mitglied_id)
     aemternum = max(1, mitglied.mitgliedamt_set.all().count())
     emailnum = max(1, mitglied.mitgliedmail_set.all().count())
-    referate = Referat.objects.order_by('bezeichnung')
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
 
     return render(request=request,
                   template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
@@ -390,8 +402,7 @@ def speichern(request, mitglied_id):
         return HttpResponse("Permission denied")
     if not request.user.is_superuser:
         return HttpResponse("Permission denied")
-
-    print("speichern")
+      
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
         mitglied.vorname = getValue(request, 'vorname')
@@ -404,18 +415,26 @@ def speichern(request, mitglied_id):
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
         mitglied.save()
 
-        mitglied.mitgliedamt_set.all().delete()
-        for i in range(1, aemternum+1):
-            amt_id = request.POST['selectamt'+str(i)]
-            amt = Amt.objects.get(pk=amt_id)
-            mitgliedamt = MitgliedAmt(amt=amt, mitglied=mitglied)
-            mitgliedamt.save()
-
         mitglied.mitgliedmail_set.all().delete()
         for i in range(1, emailnum+1):
             email = request.POST['email'+str(i)]
             mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
             mitgliedmail.save()
+
+        mitglied.mitgliedamt_set.all().delete()
+        for i in range(1, aemternum+1):
+            amt_id = request.POST['selectamt'+str(i)]
+            funktion = Funktion.objects.get(pk=amt_id)
+
+            # Check Max Members
+            if funktion.max_members != (0 or None):
+                # Maximale Member der Funktion sind begrenzt
+                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
+                    return mitgliedBearbeitenView(request, mitglied.id)
+
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt.save()
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
 
 # Suche in der Mitgliederanzeige
@@ -466,7 +485,7 @@ def suchen(request):
                     matches[m.id]+=1
                 else:
                     matches[m.id]=1
-    
+
     # Mitglieder-Ids nach Anzahl der Matches sortieren
     matches_sorted = {k: v for k, v in sorted(matches.items(), key=lambda item: item[1])}
     # Mitgliederliste fuellen
