@@ -16,6 +16,9 @@ class Organisationseinheit(models.Model):
         return self.bezeichnung
     def __unicode__(self):
         return u'%s' % self.bezeichnung
+    class Meta:
+        verbose_name = "Organisationseinheit"
+        verbose_name_plural = "Organisationseinheiten"
 
 class Unterbereich(models.Model):
     """
@@ -34,6 +37,9 @@ class Unterbereich(models.Model):
         return self.bezeichnung + " (Organisationseinheit " + self.organisationseinheit.__str__() + ")"
     def __unicode__(self):
         return u'%s' % self.bezeichnung
+    class Meta:
+        verbose_name = "Unterbereich"
+        verbose_name_plural = "Unterbereiche"
 
 class Funktion(models.Model):
     """
@@ -60,6 +66,9 @@ class Funktion(models.Model):
             return self.bezeichnung + " " + self.organisationseinheit.__str__()
         else:
             return self.bezeichnung + ' ' + self.unterbereich.__str__()
+    class Meta:
+        verbose_name = "Funktion"
+        verbose_name_plural = "Funktionen"
 
 class Recht(models.Model):
     """
@@ -72,6 +81,9 @@ class Recht(models.Model):
     """
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
+    class Meta:
+        verbose_name = "Recht"
+        verbose_name_plural = "Rechte"
 
 class FunktionRecht(models.Model):
     """
@@ -86,3 +98,6 @@ class FunktionRecht(models.Model):
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
+    class Meta:
+        verbose_name = "Zuordnung Funktion-Recht"
+        verbose_name_plural = "Zuordnungen Funktion-Recht"
