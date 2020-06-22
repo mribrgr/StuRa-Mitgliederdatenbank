@@ -3,6 +3,7 @@ from simple_history.admin import SimpleHistoryAdmin
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, FunktionRecht
+from checklisten.models import Checkliste, Aufgabe, ChecklisteAufgabe
 
 # Register your models here.
 admin.site.register(Mitglied, SimpleHistoryAdmin)
@@ -14,3 +15,7 @@ admin.site.register(Unterbereich, SimpleHistoryAdmin)
 admin.site.register(Funktion, SimpleHistoryAdmin)
 admin.site.register(Recht, SimpleHistoryAdmin)
 admin.site.register(FunktionRecht, SimpleHistoryAdmin)
+
+admin.site.register(Checkliste, SimpleHistoryAdmin)
+admin.site.register(Aufgabe, SimpleHistoryAdmin)
+admin.site.register(ChecklisteAufgabe, SimpleHistoryAdmin)
