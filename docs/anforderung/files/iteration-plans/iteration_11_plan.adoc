@@ -41,8 +41,8 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Iterationsplan 4 erstellen | hoch | 3 | ausstehend | x | mribrgr | 0 | 3
 
 // alte Aufgaben
-| Legislaturen auflisten | mittel | 2 | ausstehend | link:../glossary.adoc[Glossar], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/24[Issue #24] | Jill3, Helene3e, Unterstützung von thrs79136 | 0.5 | 2
-| Architecture notebook | mittel | 5 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | creerm | ? | 5
+| Legislaturen auflisten | mittel | 2 | ausstehend | link:../glossary.adoc[Glossar], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/24[Issue #24] | thrs79136 | 0.5 | 2
+| Checklisten | mittel | 5 | in Arbeit | link:../archit_notebook.adoc[Architecture Notebook] | benjaming | ? | 5
 | Nichtfunktionale Anforderungen | mittel | 3 | in Arbeit | x | Stefano-96 | 1.5 | 3
 | Projektplan abgabefertig machen | hoch | 2 | in Arbeit | tba | mribrgr | 1 | 2
 | Test Cases ausarbeiten | hoch | 3 | in Arbeit | tba | Yoshinonxkun | 0 | 5
