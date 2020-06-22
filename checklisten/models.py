@@ -1,9 +1,9 @@
 from django.db import models
 
-from mitglieder.models import Mitglied
+from mitglieder.models import MitgliedAmt
 
 class Checkliste(models.Model):
-    mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
+    mitgliedAmt = models.ForeignKey(MitgliedAmt, on_delete=models.CASCADE, null=False)
 
 class Aufgabe(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
