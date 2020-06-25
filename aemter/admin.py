@@ -33,6 +33,6 @@ admin.site.register(MitgliedAmt, SimpleHistoryAdmin)
 
 admin.site.register(Organisationseinheit, OrganisationseinheitAdmin)
 admin.site.register(Unterbereich, UnterbereichAdmin)
-admin.site.register(Funktion, SimpleHistoryAdmin)
+#admin.site.register(Funktion, SimpleHistoryAdmin)
 admin.site.register(Recht, SimpleHistoryAdmin)
 admin.site.register(FunktionRecht, SimpleHistoryAdmin)
