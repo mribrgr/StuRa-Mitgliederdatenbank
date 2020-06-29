@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-from .models import Checkliste
+from .models import Checkliste, ChecklisteAufgabe
+from aemter.models import FunktionRecht
 
 def main_screen(request):
     if not request.user.is_authenticated:
@@ -9,6 +10,8 @@ def main_screen(request):
         return redirect("/")
 
     checklisten = Checkliste.objects.all()
+    aufgaben = ChecklisteAufgabe.objects.all()
+    rechte = FunktionRecht.objects.all()
 
     return render(request=request, 
                   template_name='checklisten/main_screen.html', 
@@ -18,4 +21,7 @@ def erstellen(request):
     return redirect("/checklisten")
 
 def abhaken(request):
+    return redirect("/checklisten")
+
+def loeschen(request):
     return redirect("/checklisten")

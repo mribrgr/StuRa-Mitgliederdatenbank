@@ -5,11 +5,12 @@
   <div class="col s12">
     <h3>Checklisten</h3>
   </div>
-  {% for mitglied in mitglieder %}
+  {% for entry in checklisten %}
   <div class="col l4 m6 s12">
     <div class="card medium grey lighten-2">
       <div class="card-content">
-        <span class="card-title truncate">{{mitglied.name}}</span>
+        <span class="card-title truncate">{{entry.mitglied.vorname}} {{entry.mitglied.name}}</span>
+        {% if entry.amt %}<p>{{entry.amt.funktion.tostring}}</p>{% endif %}
           <form action="#">
             {% for aufgabe in mitglied.aufgaben %}
              <p>

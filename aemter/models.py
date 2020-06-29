@@ -66,6 +66,8 @@ class Funktion(models.Model):
             return self.bezeichnung + " " + self.organisationseinheit.__str__()
         else:
             return self.bezeichnung + ' ' + self.unterbereich.__str__()
+    def tostring(self):
+        return self.__str__()
     class Meta:
         verbose_name = "Funktion"
         verbose_name_plural = "Funktionen"
