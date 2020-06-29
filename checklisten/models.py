@@ -1,14 +1,15 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 
-from mitglieder.models import MitgliedAmt
+from mitglieder.models import Mitglied, MitgliedAmt
 
 class Checkliste(models.Model):
-    mitgliedAmt = models.ForeignKey(MitgliedAmt, on_delete=models.CASCADE, null=False)
+    mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
+    amt = models.ForeignKey(MitgliedAmt, on_delete=models.CASCADE, null=True)
     history = HistoricalRecords()
 
     def __str__(self):
-        return self.mitgliedAmt.mitglied.__str__()
+        return self.mitglied.__str__() + ": " + self.amt.__str__()
     class Meta:
         verbose_name = "Checkliste"
         verbose_name_plural = "Checklisten"
