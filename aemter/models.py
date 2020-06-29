@@ -81,6 +81,8 @@ class Recht(models.Model):
     """
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
+    def __str__(self):
+        return self.bezeichnung
     class Meta:
         verbose_name = "Recht"
         verbose_name_plural = "Rechte"
@@ -98,6 +100,8 @@ class FunktionRecht(models.Model):
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
+    def __str__(self):
+        return self.funktion.__str__() + ": " + self.recht.__str__()
     class Meta:
         verbose_name = "Zuordnung Funktion-Recht"
         verbose_name_plural = "Zuordnungen Funktion-Recht"

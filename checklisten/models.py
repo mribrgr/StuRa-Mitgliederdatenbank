@@ -7,6 +7,8 @@ class Checkliste(models.Model):
     mitgliedAmt = models.ForeignKey(MitgliedAmt, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
 
+    def __str__(self):
+        return self.mitgliedAmt.mitglied.__str__()
     class Meta:
         verbose_name = "Checkliste"
         verbose_name_plural = "Checklisten"
@@ -15,6 +17,8 @@ class Aufgabe(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
 
+    def __str__(self):
+        return self.bezeichnung.__str__()
     class Meta:
         verbose_name = "Aufgabe"
         verbose_name_plural = "Aufgaben"
