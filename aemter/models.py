@@ -52,8 +52,8 @@ class Funktion(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     workload = models.IntegerField(null=True)
     max_members = models.IntegerField(null=False)
-    organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=False)
-    unterbereich = models.ForeignKey(Unterbereich, on_delete=models.CASCADE, null=True)
+    organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=True, blank=True)
+    unterbereich = models.ForeignKey(Unterbereich, on_delete=models.CASCADE, null=True, blank=True)
     history = HistoricalRecords()
     def __str__(self):
         if self.unterbereich is None:
