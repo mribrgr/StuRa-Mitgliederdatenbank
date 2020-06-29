@@ -31,7 +31,7 @@ class Unterbereich(models.Model):
     organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
     def __str__(self):
-        return self.bezeichnung + " (Organisationseinheit " + self.organisationseinheit.__str__() + ")"
+        return self.bezeichnung + " (" + self.organisationseinheit.__str__() + ")"
     def __unicode__(self):
         return u'%s' % self.bezeichnung
 
