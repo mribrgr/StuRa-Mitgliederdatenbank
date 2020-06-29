@@ -84,20 +84,17 @@ class TestAemtEntfernen(MyTestCase):
         createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # Entfernen eines Amts
+        unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % funktion).click()
-        self.browser.find_element_by_xpath("//a[@class='deletelink']").click()
+            "//a[contains(text(), '%s')]" % unterbereich).click()
         self.browser.find_element_by_xpath(
-            "//div/input[@type='submit']").click()
+            "//tr/td[@class='original']/p[contains(text(), '%s')]/../../td[@class='delete']/input"%(funktion + " " + unterbereich)).click()
+        self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
-        # Überprüfen ob alles geklappt hat
+        """
+            Überprüfung ob Funktion entfernt wurde
+            TODO: Testen ob das Amt jetzt wirklich nicht mehr da ist
+        """
         self.assertTrue(self.browser.find_element_by_xpath(
-            "//li[@class='success']"))
-        tmpbool = True
-        try:
-            self.browser.find_element_by_xpath(
-                "//a[contains(text(), '%s')]" % funktion)
-        except BaseException:
-            tmpbool = False
-        self.assertFalse(tmpbool)
+            "//li[@class='success']/a[contains(text(), '%s')]" % unterbereich))
         pass
