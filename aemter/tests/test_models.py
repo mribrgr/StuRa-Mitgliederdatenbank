@@ -14,16 +14,16 @@ class TestModels(TestCase):
             organisationseinheit = self.referat1
         )
 
-        self.amt1 = Funktion.objects.create(
-            bezeichnung = "myamt1",
+        self.funktion1 = Funktion.objects.create(
+            bezeichnung = "myfunktion1",
             workload = 4,
             max_members = 5,
             organisationseinheit = self.referat1,
             unterbereich = self.unterbereich1
         )
 
-        self.amt2 = Funktion.objects.create(
-            bezeichnung = "myamt2",
+        self.funktion2 = Funktion.objects.create(
+            bezeichnung = "myfunktion2",
             workload = 4,
             max_members = 5,
             organisationseinheit = self.referat1,
@@ -38,14 +38,14 @@ class TestModels(TestCase):
     def test_Unterbereich_toString(self):
         self.assertEqual(
             self.unterbereich1.__str__(),
-            "myunterbereich (Organisationseinheit myreferat)")
+            "myunterbereich (myreferat)")
 
-    def test_Amt1_toString(self):
+    def test_Funktion1_toString(self):
         self.assertEqual(
-            self.amt1.__str__(),
-            "myamt1 myunterbereich (Organisationseinheit myreferat)")
+            self.funktion1.__str__(),
+            "myfunktion1 myunterbereich (myreferat)")
 
-    def test_Amt2_toString(self):
+    def test_Funktion2_toString(self):
         self.assertEqual(
-            self.amt2.__str__(),
-            "myamt2 myreferat")
+            self.funktion2.__str__(),
+            "myfunktion2 myreferat")

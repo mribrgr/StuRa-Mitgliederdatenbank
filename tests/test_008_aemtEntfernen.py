@@ -84,7 +84,7 @@ class TestAemtEntfernen(MyTestCase):
         createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # Entfernen eines Amts
-        unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        unterbereich = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % unterbereich).click()
         self.browser.find_element_by_xpath(
