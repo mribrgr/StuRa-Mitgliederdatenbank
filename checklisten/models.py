@@ -9,7 +9,7 @@ class Checkliste(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return self.mitglied.__str__() + ": " + self.amt.__str__()
+        return self.amt.__str__()
     class Meta:
         verbose_name = "Checkliste"
         verbose_name_plural = "Checklisten"
@@ -30,6 +30,8 @@ class ChecklisteAufgabe(models.Model):
     abgehakt = models.BooleanField(default=False, null=False)
     history = HistoricalRecords()
 
+    def __str__(self):
+        return self.checkliste.__str__() + " - " + self.aufgabe.__str__()
     class Meta:
         verbose_name = "Zuordnung Checkliste-Aufgabe"
         verbose_name_plural = "Zuordnungen Checkliste-Aufgabe"
