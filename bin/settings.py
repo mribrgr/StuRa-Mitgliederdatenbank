@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'bin',
     'aemter',
     'historie',
-    'historie.templatetags',
+    'historie.templatetags.t_historie',
     'login',
     'mitglieder',
-    'checklisten'
+    'checklisten',
+    'checklisten.templatetags.t_checklisten'
 ]
 
 MIDDLEWARE = [
