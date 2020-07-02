@@ -10,7 +10,6 @@ def main_screen(request):
         return redirect("/")
 
     checklisten = Checkliste.objects.all()
-    aufgaben = ChecklisteAufgabe.objects.all()
     rechte = FunktionRecht.objects.all()
 
     return render(request=request, 

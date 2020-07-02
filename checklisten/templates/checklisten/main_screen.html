@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load t_checklisten.get_tasks %}
+
 {% block content %}
 <div class="row">
   <div class="col s12">
@@ -11,16 +13,17 @@
       <div class="card-content">
         <span class="card-title truncate">{{entry.mitglied.vorname}} {{entry.mitglied.name}}</span>
         {% if entry.amt %}<p>{{entry.amt.funktion.tostring}}</p>{% endif %}
-          <form action="#">
-            {% for aufgabe in mitglied.aufgaben %}
-             <p>
-                 <label>
-                     <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} />
-                     <span class="black-text">{{aufgabe.name}}</span>
-                 </label>
-             </p>
-            {% endfor %}
-          </form>
+        <br />
+        <form action="#">
+          {% for task in entry.id|get_tasks %}
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} />
+                    <span class="black-text">{{task.aufgabe.bezeichnung}}</span>
+                </label>
+            </p>
+          {% endfor %}
+        </form>
       </div>
       {% if request.user.is_superuser %}
       <div class="card-action">
