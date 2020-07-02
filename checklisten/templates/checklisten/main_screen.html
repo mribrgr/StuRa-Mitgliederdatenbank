@@ -14,13 +14,13 @@
         <span class="card-title truncate">{{entry.mitglied.vorname}} {{entry.mitglied.name}}</span>
         {% if entry.amt %}<p>{{entry.amt.funktion.tostring}}</p>{% endif %}
         <br />
-        <form action="#">
+        <form method="POST">
           {% for task in entry.id|get_tasks %}
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} />
-                    <span class="black-text">{{task.aufgabe.bezeichnung}}</span>
-                </label>
+            <p class="truncate">
+              <label>
+                <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} onclick="abhaken({{task.id}});" {% if task.abgehakt %} checked="checked" {% endif %} />
+                <span class="black-text">{{task.aufgabe.bezeichnung}}</span>
+              </label>
             </p>
           {% endfor %}
         </form>
@@ -45,4 +45,17 @@
   </div>
   {% endif %}
 </div>
+
+<script>
+  function abhaken(task_id) {
+    $.ajax({
+      type: 'POST',
+      url: '/checklisten/abhaken',
+      data: {
+        task_id: task_id,
+        csrfmiddlewaretoken: '{{ csrf_token }}'
+      }
+    });
+  }
+</script>
 {% endblock %}

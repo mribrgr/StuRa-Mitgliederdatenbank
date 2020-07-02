@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import HttpResponse
 
 from .models import Checkliste, ChecklisteAufgabe
 from aemter.models import FunktionRecht
@@ -10,7 +11,6 @@ def main_screen(request):
         return redirect("/")
 
     checklisten = Checkliste.objects.all()
-    rechte = FunktionRecht.objects.all()
 
     return render(request=request, 
                   template_name='checklisten/main_screen.html', 
@@ -20,6 +20,16 @@ def erstellen(request):
     return redirect("/checklisten")
 
 def abhaken(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
+    task_id = request.POST.get('task_id')
+    task = ChecklisteAufgabe.objects.get(id=task_id)
+    task.abgehakt = not task.abgehakt
+    task.save()
+
     return redirect("/checklisten")
 
 def loeschen(request):
