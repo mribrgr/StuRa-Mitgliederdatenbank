@@ -1,5 +1,5 @@
-{% load to_class_name %}
-{% load get_associated_data	%}
+{% load t_historie.to_class_name %}
+{% load t_historie.get_associated_data	%}
 
 <p>
     <ul class="collection">
@@ -15,22 +15,22 @@
             {% endif %}
 
             {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalFunktionRecht" %}
-                {% get_associated_data "Funktion" "latest" entry.amt_id None as latestAmt %}
-                {% get_associated_data "Funktion" "historical" entry.amt_id entry.history_date as historicalAmt %}
+                {% get_associated_data "Funktion" "latest" entry.funktion_id None as latestAmt %}
+                {% get_associated_data "Funktion" "historical" entry.funktion_id entry.history_date as historicalAmt %}
 
                 {% if entry.history_type == "~" %}
-                    {% get_associated_data "Funktion" "latest" entry.prev_record.amt_id None as latestAmtAlt %}
-                    {% get_associated_data "Funktion" "historical" entry.prev_record.amt_id entry.history_date as historicalAmtAlt %}
+                    {% get_associated_data "Funktion" "latest" entry.prev_record.funktion_id None as latestAmtAlt %}
+                    {% get_associated_data "Funktion" "historical" entry.prev_record.funktion_id entry.history_date as historicalAmtAlt %}
                 {% endif %}
             {% endif %}
 
             {% if entry|to_class_name == "HistoricalMitgliedAmt" or entry|to_class_name == "HistoricalFunktionRecht" %}
-                {% get_associated_data "Organisationseinheit" "latest" latestAmt.referat_id None as latestReferat %}
-                {% get_associated_data "Organisationseinheit" "historical" historicalAmt.referat_id entry.history_date as historicalReferat %}
+                {% get_associated_data "Organisationseinheit" "latest" latestAmt.organisationseinheit_id None as latestReferat %}
+                {% get_associated_data "Organisationseinheit" "historical" historicalAmt.organisationseinheit_id entry.history_date as historicalReferat %}
 
                 {% if entry.history_type == "~" %}
-                    {% get_associated_data "Organisationseinheit" "latest" latestAmtAlt.referat_id None as latestReferatAlt %}
-                    {% get_associated_data "Organisationseinheit" "historical" historicalAmtAlt.referat_id entry.history_date as historicalReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "latest" latestAmtAlt.organisationseinheit_id None as latestReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" historicalAmtAlt.organisationseinheit_id entry.history_date as historicalReferatAlt %}
                 {% endif %}
             {% endif %}
 
@@ -45,12 +45,12 @@
             {% endif %}
 
             {% if entry|to_class_name == "HistoricalFunktion" or entry|to_class_name == "HistoricalUnterbereich" %}
-                {% get_associated_data "Organisationseinheit" "latest" entry.referat_id None as latestReferat %}
-                {% get_associated_data "Organisationseinheit" "historical" entry.referat_id entry.history_date as historicalReferat %}
+                {% get_associated_data "Organisationseinheit" "latest" entry.organisationseinheit_id None as latestReferat %}
+                {% get_associated_data "Organisationseinheit" "historical" entry.organisationseinheit_id entry.history_date as historicalReferat %}
 
                 {% if entry.history_type == "~" %}
-                    {% get_associated_data "Organisationseinheit" "latest" entry.prev_record.referat_id None as latestReferatAlt %}
-                    {% get_associated_data "Organisationseinheit" "historical" entry.prev_record.referat_id entry.history_date as historicalReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "latest" entry.prev_record.organisationseinheit_id None as latestReferatAlt %}
+                    {% get_associated_data "Organisationseinheit" "historical" entry.prev_record.organisationseinheit_id entry.history_date as historicalReferatAlt %}
                 {% endif %}
             {% endif %}
 

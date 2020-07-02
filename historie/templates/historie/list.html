@@ -60,9 +60,9 @@
       $("#search").val("");
       $("label[for='search']").removeClass("active");
       page = 1;
-      fetchEntries();
 
       $("#selectedTab").text(selectedTab);
+      fetchEntries();
     });
 
     $(".page-link").on("click", function(event) {

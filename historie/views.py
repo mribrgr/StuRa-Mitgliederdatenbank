@@ -115,7 +115,7 @@ def fetch_entries(request):
     searchterm = request.GET.get('search')
     page_number = request.GET.get('page')
     selected_tab = request.GET.get('tab')
-    
+
     # Get indvidiual search terms
     searchterms = None
     if searchterm:
@@ -139,10 +139,10 @@ def fetch_entries(request):
     if selected_tab == "MitgliedAmt":
         data = MitgliedAmt.history.none()
         for term in searchterms:
-             data = data | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
-                | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
-                | Q(amt__referat__bezeichnung__icontains=term)
-                | Q(amt__unterbereich__bezeichnung__icontains=term))
+            data = data | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
+                | Q(funktion__id__icontains=term) | Q(funktion__bezeichnung__icontains=term) 
+                | Q(funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(funktion__unterbereich__bezeichnung__icontains=term))
     if selected_tab == "Organisationseinheit":
         data = Organisationseinheit.history.none()
         for term in searchterms:
@@ -150,24 +150,24 @@ def fetch_entries(request):
     if selected_tab == "Unterbereich":
         data = Unterbereich.history.none()
         for term in searchterms:
-            data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term))
-    if selected_tab == "Funktion":
+            data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(organisationseinheit__id__icontains=term) | Q(organisationseinheit__bezeichnung__icontains=term))
+    if selected_tab == "Amt":
         data = Funktion.history.none()
         for term in searchterms:
             data = data | Funktion.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term)
-                                                  | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term)
-                                                  | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
+                | Q(organisationseinheit__id__icontains=term) | Q(organisationseinheit__bezeichnung__icontains=term)
+                | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
     if selected_tab == "Recht":
         data = Recht.history.none()
         for term in searchterms:
             data = data | Recht.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
-    if selected_tab == "FunktionRecht":
+    if selected_tab == "AmtRecht":
         data = FunktionRecht.history.none()
         for term in searchterms:
-            data = data | FunktionRecht.history.filter(Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term)
-                                                       | Q(amt__referat__bezeichnung__icontains=term)
-                                                       | Q(amt__unterbereich__bezeichnung__icontains=term)
-                                                       | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term))
+            data = data | FunktionRecht.history.filter(Q(funktion__id__icontains=term) | Q(funktion__bezeichnung__icontains=term)
+                | Q(funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(funktion__unterbereich__bezeichnung__icontains=term)
+                | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term))
     if selected_tab == "User":
         data = User.history.none()
         for term in searchterms:
