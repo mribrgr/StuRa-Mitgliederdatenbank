@@ -2,6 +2,7 @@ from django.db import models
 from simple_history.models import HistoricalRecords
 
 from mitglieder.models import Mitglied, MitgliedAmt
+from aemter.models import Recht
 
 class Checkliste(models.Model):
     mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
@@ -35,3 +36,15 @@ class ChecklisteAufgabe(models.Model):
     class Meta:
         verbose_name = "Zuordnung Checkliste-Aufgabe"
         verbose_name_plural = "Zuordnungen Checkliste-Aufgabe"
+
+class ChecklisteRecht(models.Model):
+    checkliste = models.ForeignKey(Checkliste, on_delete=models.CASCADE, null=False)
+    recht = models.ForeignKey(Recht, on_delete=models.CASCADE, null=False)
+    abgehakt = models.BooleanField(default=False, null=False)
+    history = HistoricalRecords()
+
+    def __str__(self):
+        return self.checkliste.__str__() + " - " + self.recht.__str__()
+    class Meta:
+        verbose_name = "Zuordnung Checkliste-Recht"
+        verbose_name_plural = "Zuordnungen Checkliste-Recht"
