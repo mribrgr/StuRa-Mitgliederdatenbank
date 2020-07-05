@@ -9,5 +9,6 @@ app_name = 'checklisten'  # here for namespacing of urls.
 
 urlpatterns = [
     path("", views.main_screen, name="homepage"),
-    path("abhaken", views.abhaken, name="abhaken")
+    path("abhaken", views.abhaken, name="abhaken"),
+    path("loeschen", views.loeschen, name="loeschen")
 ]

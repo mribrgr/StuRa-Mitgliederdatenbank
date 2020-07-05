@@ -17,19 +17,21 @@ def main_screen(request):
                   context = {"checklisten": checklisten})
 
 def erstellen(request):
-    return redirect("/checklisten")
+    return HttpResponse()
 
 def abhaken(request):
     if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
+        return HttpResponse("Nice try, FBI.")
     if not request.user.is_superuser:
-        return HttpResponse("Permission denied")
+        return HttpResponse("No way, CIA.")
 
     task_type = request.POST.get('task_type')
     if(task_type != "Aufgabe" and task_type != "Recht"):
         return HttpResponse("Invalid task_type")
 
     task_id = request.POST.get('task_id')
+    if not task_id:
+        return HttpResponse("No task_id provided")
 
     task = None
     if task_type == "Aufgabe":
@@ -42,7 +44,21 @@ def abhaken(request):
     task.abgehakt = not task.abgehakt
     task.save()
 
-    return redirect("/checklisten")
+    return HttpResponse()
 
 def loeschen(request):
-    return redirect("/checklisten")
+    if not request.user.is_authenticated:
+        return HttpResponse("Not today, NSA.")
+    if not request.user.is_superuser:
+        return HttpResponse("Good trick, MI6.")
+
+    checkliste_id = request.POST.get('checkliste_id')
+    if not checkliste_id:
+        return HttpResponse("No checkliste_id provided")
+    checkliste = Checkliste.objects.get(id=checkliste_id)
+    if not checkliste:
+        return HttpResponse("Invalid checkliste_id")
+
+    checkliste.delete()
+
+    return HttpResponse()
