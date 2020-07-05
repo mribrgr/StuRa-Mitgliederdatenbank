@@ -57,7 +57,7 @@ class Funktion(models.Model):
     history = HistoricalRecords()
     def __str__(self):
         if self.unterbereich is None:
-            return self.bezeichnung + " " + self.organisationseinheit.__str__()
+            return self.bezeichnung + " (" + self.organisationseinheit.__str__() + ")"
         else:
             return self.bezeichnung + ' ' + self.unterbereich.__str__()
 
