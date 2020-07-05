@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load t_checklisten.get_tasks %}
+{% load t_checklisten.get_perms %}
 
 {% block content %}
 <div class="row">
@@ -9,20 +10,31 @@
   </div>
   {% for entry in checklisten %}
   <div class="col l4 m6 s12">
-    <div class="card medium grey lighten-2">
+    <div class="card grey lighten-2">
       <div class="card-content">
         <span class="card-title truncate">{{entry.mitglied.vorname}} {{entry.mitglied.name}}</span>
         {% if entry.amt %}<p>{{entry.amt.funktion.tostring}}</p>{% endif %}
         <br />
-        <form method="POST">
+        <form>
           {% for task in entry.id|get_tasks %}
             <p class="truncate">
               <label>
-                <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %} disabled="disabled" {% endif %} onclick="abhaken({{task.id}});" {% if task.abgehakt %} checked="checked" {% endif %} />
+                <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{task.id}}, 'Aufgabe');" {% if task.abgehakt %}checked="checked"{% endif %} />
                 <span class="black-text">{{task.aufgabe.bezeichnung}}</span>
               </label>
             </p>
           {% endfor %}
+          {% if entry.amt %}
+            <p style="margin-top: 1em; margin-bottom: 0.5em"><b>Zu gewährende Rechte</b></p>
+            {% for perm in entry.id|get_perms %}
+              <p class="truncate">
+                <label>
+                  <input type="checkbox" class="filled-in checkbox-amber" {% if not request.user.is_superuser %}disabled="disabled"{% endif %} onclick="abhaken({{perm.id}}, 'Recht');" {%if perm.abgehakt %}checked="checked"{% endif %} />
+                  <span class="black-text">{{perm.recht.bezeichnung}}</span>
+                </label>
+              </p>
+            {% endfor %}
+          {% endif %}
         </form>
       </div>
       {% if request.user.is_superuser %}
@@ -47,12 +59,13 @@
 </div>
 
 <script>
-  function abhaken(task_id) {
+  function abhaken(task_id, task_type) {
     $.ajax({
       type: 'POST',
       url: '/checklisten/abhaken',
       data: {
         task_id: task_id,
+        task_type: task_type,
         csrfmiddlewaretoken: '{{ csrf_token }}'
       }
     });
