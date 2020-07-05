@@ -48,4 +48,4 @@ class TestModels(TestCase):
     def test_Funktion2_toString(self):
         self.assertEqual(
             self.funktion2.__str__(),
-            "myfunktion2 myreferat")
+            "myfunktion2 (myreferat)")
