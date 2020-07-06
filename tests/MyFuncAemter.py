@@ -75,7 +75,7 @@ def createUnterbereich(self, organisationseinheit, unterbereich):
     """
         Überprüfung ob Unterbereichs hinzugefügt wurde
     """
-    created_unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+    created_unterbereich = unterbereich + " (" + organisationseinheit + ")"
     self.assertTrue(self.browser.find_element_by_xpath(
         "//a[contains(text(), '%s')]" % created_unterbereich))
     pass
@@ -100,7 +100,7 @@ def createAmt(self, organisationseinheit, unterbereich, funktion):
     """
     workload = "5"
     max_members = "60"
-    unterbereich = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+    unterbereich = unterbereich + " (" + organisationseinheit + ")"
 
     # Navigieren zum Admin Pannel
     self.browser.find_element_by_xpath("//a[@href='/admin']").click()

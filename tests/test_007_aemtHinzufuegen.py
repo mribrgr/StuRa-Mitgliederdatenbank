@@ -129,7 +129,7 @@ class TestAemtHinzufuegen(MyTestCase):
             self.browser.find_element_by_xpath("//tr[@class='mitglied']/td[contains(text(), 'Hans Peter')]").text,
             "Hans Peter",
             msg="Hans Peter wurde nicht angelegt")
-        searchstring = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        searchstring = funktion + " " + unterbereich + " (" + organisationseinheit + ")"
         self.assertEqual(
             self.browser.find_element_by_xpath(
                 "//tr[@class='mitglied']/td/ul/li[contains(text(), '%s')]" %
@@ -144,10 +144,10 @@ class TestAemtHinzufuegen(MyTestCase):
         self.browser.find_element_by_xpath("//a[@href='/aemter']").click()
 
         # öffnen der collabseables
-        searchstring = "Organisationseinheit " + organisationseinheit
+        searchstring = organisationseinheit
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
-        searchstring = "Bereich " + unterbereich
+        searchstring = unterbereich
         self.browser.find_element_by_xpath(
             "//div[text()='%s']" % searchstring).click()
 

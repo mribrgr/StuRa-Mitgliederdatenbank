@@ -12,7 +12,7 @@
       <!-- List all referats as collapsibles -->
       {% for organisationseinheit in referate %}
         <li>
-          <div class="collapsible-header grey lighten-2">Organisationseinheit {{organisationseinheit.bezeichnung}}</div>
+          <div class="collapsible-header grey lighten-2">{{organisationseinheit.bezeichnung}}</div>
           <div class="collapsible-body">
             <table name="department_table">
               <tbody>
@@ -30,7 +30,7 @@
               {% for unterbereich in unterbereiche %}
                 {% if unterbereich.organisationseinheit.id == organisationseinheit.id %}
                   <li>
-                    <div class="collapsible-header grey lighten-2">Bereich {{unterbereich.bezeichnung}}</div>
+                    <div class="collapsible-header grey lighten-2">{{unterbereich.bezeichnung}}</div>
                     <div class="collapsible-body">
                       <table name="department_table">
                         <tbody>
