@@ -22,6 +22,7 @@ class Mitglied(models.Model):
 class MitgliedAmt(models.Model):
     mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
+    amtszeit_beginn = models.DateField(null=True)
     history = HistoricalRecords()
     def __str__(self):
         return self.mitglied.__str__() + ", " + self.funktion.__str__()
@@ -30,7 +31,8 @@ class MitgliedAmt(models.Model):
 def delete_MitgliedAmt_hook(sender, instance, using, **kwargs):
     # print("post_delete")
     # Überprüfen ob schon eine PrevMitgliedAmt Liste für die funktion da ist
-    if PrevMitgliedAmt.objects.filter(funktion=instance.funktion).count() != 0:
+    mitglieder_count = PrevMitgliedAmt.objects.filter(funktion=instance.funktion).count()
+    if mitglieder_count != 0:
         # es ist schon eins da
         # print("Ist schon eins da")
         prev_mitglieder = PrevMitgliedAmt.objects.get(funktion=instance.funktion)
@@ -46,8 +48,14 @@ def delete_MitgliedAmt_hook(sender, instance, using, **kwargs):
     # print(prev_mitglieder.members.all())
     pass
 
+    # Mitglied und Nummer, die beschreibt, die wie vielte Person das Mitglied in einer Funktion war
+class MitgliedNummerPaar(models.Model):
+    mitglied = models.ForeignKey(Mitglied, on_delete=models.CASCADE, null=False)
+    nummer = models.IntegerField(null=False)
+
 class PrevMitgliedAmt(models.Model):
-    members = models.ManyToManyField(Mitglied)
+    # Liste mit allen Instanzen MitgliedAmt der zugehörigen Funktion
+    members = models.ManyToManyField(MitgliedNummerPaar)
     funktion = models.ForeignKey(Funktion, on_delete=models.CASCADE, null=False)
     history = HistoricalRecords()
 

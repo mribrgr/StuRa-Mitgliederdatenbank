@@ -138,6 +138,21 @@
     border-bottom-color: red !important;
   }
 
+  /* gelber Date Picker */
+  .datepicker-date-display, .datepicker-table td.is-selected, .month-next:focus, .month-prev:focus{
+    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #ffc107;
+  }
+  .year-text{
+    color: rgba(0,0,0,0.7) !important;
+  }
+  .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .datepicker-table td.is-today {
+    color: #be5500;
+  }
+
+  .datepicker-day-button:focus{
+    background-color: rgba(255, 193, 7, 0.5);
+  }
 </style>
 
 <script>
@@ -145,8 +160,10 @@
   var amt_num = {{mitglied.mitgliedamt_set.count|default:1}};
   var email_num = {{mitglied.mitgliedmail_set.count|default:1}};
   $(document).ready(function(){
-  // Selects initialisieren, Event Listener fuer Dropdowns hinzufuegen
+
+  // Selects und Date Picker initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
+  initDatePicker();
   addReferatEventListener();
   addBereichEventListener();
 
@@ -218,6 +235,7 @@
           // Einfuegen des HTML-Codes
           $("#div_aemter").append(data);
           initSelect();
+          initDatePicker();
           addReferatEventListener();
         }
       });
@@ -381,6 +399,21 @@
     var elems = document.querySelectorAll('select');
     var options;
     var instances = M.FormSelect.init(elems, options);
+  }
+    // Date Picker initialisieren
+  function initDatePicker(){
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', defaultDate: "11.01.2000", showClearBtn: true, i18n: {
+                months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+                monthsShort: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
+                weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+                weekdaysShort: ["Mo","Di", "Mi", "Do", "Fr", "Sa", "So"],
+                weekdaysAbbrev: ["M","D", "M", "D", "F", "S", "S"],
+                today: 'heute',
+                clear: 'löschen',
+                cancel: 'abbrechen',
+            },
+        });
   }
 </script>
 

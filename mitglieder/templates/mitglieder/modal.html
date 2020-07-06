@@ -3,16 +3,18 @@
     <div>
         <br />
         <p><b>Mitglieds-ID:</b> {{mitglied.id}}</p>
+        {% if mitglied.mitgliedamt_set.all %}
         <p><b>Ämter:</b>
             {% if mitglied.mitgliedamt_set.all %}
                 <ul>
-                    {% for funktion in mitglied.mitgliedamt_set.all %}
-                        <li>{{funktion.funktion}}</li>
+                    {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
+                        <li>{{mitgliedamt.funktion}} ({{mitgliedamt.amtszeit_beginn|default:"unbekannt"}} - {{mitgliedamt.amtszeit_ende|default:"heute"}})</li>
                     {% endfor %}
                 </ul>
             {% else %}-
             {% endif %}
         </p>
+        {% endif %}
         <br />
         {% if request.user.is_superuser %}
             {% if mitglied.strasse or mitglied.hausnr or mitglied.plz or mitglied.ort %}
@@ -24,6 +26,7 @@
         {% endif %}
         <h5>Kontaktdaten</h5>
         {% if mitglied.tel_mobil %}<p><b>Telefon:</b> {{mitglied.tel_mobil}}</p>{% endif %}
+        {% if mitglied.mitgliedmail_set.all %}
         <p><b>E-Mails:</b>
             <ul>
             {% for mail in mitglied.mitgliedmail_set.all %}
@@ -31,6 +34,7 @@
             {% endfor %}
             </ul>
         </p>
+        {% endif %}
     </div>
 </div>
 <div class="modal-footer">

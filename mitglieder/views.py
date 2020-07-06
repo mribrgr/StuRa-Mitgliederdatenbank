@@ -307,6 +307,8 @@ def erstellen(request):
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
+            print(request.POST['ende_kandidatur'+str(i)])
+            print(request.POST['beginn_kandidatur'+str(i)])
 
             # Check Max Members
             if funktion.max_members != (0 or None):
