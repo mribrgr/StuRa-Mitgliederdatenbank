@@ -381,7 +381,7 @@ Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie d
 
 <dl class="py function">
 <dt id="mitglieder.views.mitgliedBearbeitenView">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedBearbeitenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedBearbeitenView" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedBearbeitenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedBearbeitenView" title="Permalink to this definition">¶</a></dt>
 <dd><p>View zum Bearbeiten eines Mitglieds.</p>
 <p>Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.</p>
 <p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
@@ -408,7 +408,7 @@ Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder feh
 
 <dl class="py function">
 <dt id="mitglieder.views.mitgliedErstellenView">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedErstellenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedErstellenView" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedErstellenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedErstellenView" title="Permalink to this definition">¶</a></dt>
 <dd><p>View zum Erstellen eines Mitglieds.</p>
 <p>Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.</p>
 <p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
