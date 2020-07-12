@@ -143,6 +143,9 @@ class TestAemtHinzufuegen(MyTestCase):
         # navigieren zur Ämterübersicht
         self.browser.find_element_by_xpath("//a[@href='/aemter']").click()
 
+        # zu seite 3
+        self.browser.find_element_by_xpath("//a[@href='?page=3']").click()
+
         # öffnen der collabseables
         searchstring = organisationseinheit
         self.browser.find_element_by_xpath(

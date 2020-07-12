@@ -50,7 +50,7 @@ def addMitglied(self):
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//ul[@class='dropdown-content select-dropdown']/li[4]").click()
+        "//ul[@class='dropdown-content select-dropdown']/li[19]").click()
 
     # Bereich auswählen
     self.browser.find_element_by_xpath(
@@ -149,7 +149,7 @@ def addMitgliedWithParameters(self,
     self.browser.find_element_by_xpath(
         "//input[@class='select-dropdown dropdown-trigger']").click()
     self.browser.find_element_by_xpath(
-        "//ul[@class='dropdown-content select-dropdown']/li[4]").click()
+        "//ul[@class='dropdown-content select-dropdown']/li[19]").click()
 
     # Bereich auswählen
     self.browser.find_element_by_xpath(
