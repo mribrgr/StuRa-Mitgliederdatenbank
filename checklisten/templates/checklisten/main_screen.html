@@ -68,8 +68,11 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, null);
+    var modalElems = document.querySelectorAll('.modal');
+    var modalInstances = M.Modal.init(modalElems, null);
+
+    var selectElems = document.querySelectorAll('select');
+    var selectInstances = M.FormSelect.init(selectElems, null);
   });
 
   function abhaken(task_id, task_type) {
