@@ -1,8 +1,36 @@
 <div id="createModal" class="modal">
     <div class="modal-content">
-        <h4>Checkliste erstellen</h4>
-    </div>
-    <div class="modal-footer">
-        <a class="modal-close waves-effect waves-amber btn-flat">Abbrechen</a>
+        <div class="row">
+            <div class="col s12">
+                <h4>Checkliste erstellen</h4>
+                <br />
+            </div>                      
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-field col l6 m12 s12">
+                    <select id="mitgliedSelect" name="mitgliedSelect" required>
+                        <option value="" disabled selected>Bitte auswählen</option>
+                    </select>
+                    <label>Mitglied</label>
+                </div>
+                <div class="input-field col l6 m12 s12">
+                    <select id="funktionSelect" name="funktionSelect">
+                        <option value="-1" selected>Keine</option>
+                    </select>
+                    <label>Funktion</label>
+                </div>
+                <div class="col s12">
+                    <label>
+                        <input type="checkbox" id="generalTasksCheckbox" name="generalTasksCheckbox" class="filled-in checkbox-amber" checked="checked" />
+                        <span class="black-text">Allgemeine Aufgaben zur Liste hinzufügen</span>
+                    </label>
+                </div>
+                <div class="col s12">
+                    <br />
+                    <button class="btn waves-effect waves-light amber black-text" type="submit">Erstellen</button>
+                    <a class="modal-close waves-effect waves-light btn-flat">Abbrechen</a>
+                </div>     
+            </form>         
+        </div>
     </div>
 </div>
