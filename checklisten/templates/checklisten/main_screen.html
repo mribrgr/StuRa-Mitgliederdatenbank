@@ -7,6 +7,7 @@
 
 {% if request.user.is_superuser %}
   {% include 'checklisten/_deleteModal.html' %}
+  {% include 'checklisten/_createModal.html' %}
 {% endif %}
 
 <div class="row">
@@ -54,7 +55,7 @@
   {% endfor %}
   {% if request.user.is_superuser %}
   <div class="col l4 m6 s12">
-    <a href="#">
+    <a href="#createModal" class="modal-trigger">
       <div class="card medium grey lighten-2 valign-wrapper">
         <div class="card-content" style="width: 100%">
             <i class="material-icons large black-text center" style="width: 100%">add</i>
