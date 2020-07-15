@@ -11,14 +11,24 @@ import importscripts.main as imp
 class MyTestCase(StaticLiveServerTestCase):
     """
         Setup and Teardown funktions are specified here.
-
+        The following Testcases inherit from this class.
     """
     # befor every test funktion
 
     def setUp(self):
         """
-            Auswahl des richtigen Webdriver anhand des Systemes
+            This Funktion is called before every testcase.
+
+            It setup the webdriver and create 1 admin and 1 user.
+            The Importscripts from the folder *importscripts* are also called here.
+
+            The Webdriver Instance is stored in **self.browser**.
+
+            :param self:
+            :type self:
+            :return: No return Value
         """
+
         # Auskommentieren bei localen tests
         options = webdriver.FirefoxOptions()
         options.headless = True
@@ -64,5 +74,14 @@ class MyTestCase(StaticLiveServerTestCase):
 
     # after every test funktion
     def tearDown(self):
+        """
+            This Funktion is called after every testcase.
+
+            The Webdriver Instance that is stored in **self.browser** will be closed.
+            :param self:
+            :type self:
+            :return: No return Value
+         """
+
         self.browser.quit()
     pass
