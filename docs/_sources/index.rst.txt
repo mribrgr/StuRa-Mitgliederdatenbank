@@ -19,14 +19,9 @@ Requirements:
    :maxdepth: 3
    :caption: Contents:
 
-   deployment
-   aemter
-   historie
-   mitglieder
-   tests
-
-
-
+   masterUserDoc
+   masterDeveloperDoc
+   masterCodeDoc
 
 
 
