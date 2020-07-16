@@ -48,5 +48,5 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |===
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
-|Mitgliedsdaten |xx |xx |xx |xx 
+|Mitgliedsdaten |Zusammensetung von Name, Vorname, Legislatur(Funktion), Adresse |divers | belegte Funktion muss vorhanden sein |xx
 |===
