@@ -5,7 +5,7 @@
                 <h4>Checkliste erstellen</h4>
                 <br />
             </div>                      
-            <form method="POST">
+            <form method="POST" action="/checklisten/erstellen">
                 {% csrf_token %}
                 <div class="input-field col l6 m12 s12">
                     <select id="mitgliedSelect" name="mitgliedSelect" required onChange="populateFunktionSelect();">

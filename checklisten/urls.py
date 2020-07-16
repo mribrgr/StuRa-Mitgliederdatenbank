@@ -11,5 +11,6 @@ urlpatterns = [
     path("", views.main_screen, name="homepage"),
     path("abhaken", views.abhaken, name="abhaken"),
     path("loeschen", views.loeschen, name="loeschen"),
+    path("erstellen", views.erstellen, name="erstellen"),
     path("get_funktionen", views.get_funktionen, name="get_funktionen")
 ]

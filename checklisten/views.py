@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 
-from .models import Checkliste, ChecklisteAufgabe, ChecklisteRecht
+from .models import Checkliste, ChecklisteAufgabe, ChecklisteRecht, Aufgabe
 from aemter.models import FunktionRecht
 from mitglieder.models import Mitglied, MitgliedAmt
 
@@ -19,7 +19,57 @@ def main_screen(request):
                   context = {"checklisten": checklisten, "mitglieder": mitglieder})
 
 def erstellen(request):
-    return HttpResponse()
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
+    # Get data from request
+    mitglied_id = request.POST.get("mitgliedSelect")
+    funktion_id = request.POST.get("funktionSelect")
+    includeGeneralTasks = request.POST.get("generalTasksCheckbox")
+
+    # Determine if general tasks shall be included
+    if includeGeneralTasks == "on" or includeGeneralTasks is None and funktion_id == "-1":
+        includeGeneralTasks = True
+    else:
+        includeGeneralTasks = False
+
+    # Get foreign data
+    mitglied = Mitglied.objects.get(id=mitglied_id)
+    if not mitglied:
+        return HttpResponse("Mitglied does not exist")
+    
+    # Get funktion if selected
+    funktion = None
+    if funktion_id != "-1":
+        funktion = MitgliedAmt.objects.get(id=funktion_id)
+        if not funktion:
+            return HttpResponse("Funktion does not exist")
+
+    existing = Checkliste.objects.filter(mitglied=mitglied, amt=funktion)
+    if existing:
+        messages.error(request, "Es existiert bereits eine Checkliste für dieses Mitglied und diese Funktion.")
+        return redirect("/checklisten")
+
+    # Create checkliste
+    checkliste = Checkliste(mitglied=mitglied, amt=funktion)
+    checkliste.save()
+
+    # Add general tasks if selected
+    if includeGeneralTasks == True:
+        for task in Aufgabe.objects.all():
+            aufgabe = ChecklisteAufgabe(checkliste=checkliste, aufgabe=task)
+            aufgabe.save()
+    
+    # Add Rechte if Funktion was selected
+    if funktion is not None:
+        for funktion_recht in FunktionRecht.objects.filter(funktion__id=funktion.funktion.id):
+            perm = funktion_recht.recht
+            recht = ChecklisteRecht(checkliste=checkliste, recht=perm)
+            recht.save()
+
+    return redirect("/checklisten")
 
 def abhaken(request):
     if not request.user.is_authenticated:
