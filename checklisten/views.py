@@ -4,6 +4,7 @@ from django.http import HttpResponse
 
 from .models import Checkliste, ChecklisteAufgabe, ChecklisteRecht
 from aemter.models import FunktionRecht
+from mitglieder.models import Mitglied, MitgliedAmt
 
 def main_screen(request):
     if not request.user.is_authenticated:
@@ -11,10 +12,11 @@ def main_screen(request):
         return redirect("/")
 
     checklisten = Checkliste.objects.all()
+    mitglieder = Mitglied.objects.all().order_by('-id')[:20]
 
     return render(request=request, 
                   template_name='checklisten/main_screen.html', 
-                  context = {"checklisten": checklisten})
+                  context = {"checklisten": checklisten, "mitglieder": mitglieder})
 
 def erstellen(request):
     return HttpResponse()
@@ -62,3 +64,18 @@ def loeschen(request):
     checkliste.delete()
 
     return HttpResponse()
+
+def get_funktionen(request):
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
+    mitglied_id = request.GET.get('mitglied_id')
+    if not mitglied_id:
+        return HttpResponse("No mitglied_id provided")
+    funktionen = MitgliedAmt.objects.filter(mitglied__id=mitglied_id)
+
+    return render(request=request, 
+                  template_name='checklisten/_funktionSelectOptions.html', 
+                  context = {"funktionen": funktionen})

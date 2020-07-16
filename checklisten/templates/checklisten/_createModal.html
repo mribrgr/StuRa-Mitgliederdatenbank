@@ -8,20 +8,23 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="input-field col l6 m12 s12">
-                    <select id="mitgliedSelect" name="mitgliedSelect" required>
+                    <select id="mitgliedSelect" name="mitgliedSelect" required onChange="populateFunktionSelect();">
                         <option value="" disabled selected>Bitte auswählen</option>
+                        {% for mitglied in mitglieder %}
+                            <option value="{{mitglied.id}}">{{mitglied.vorname}} "{{mitglied.spitzname}}" {{mitglied.name}}</option>
+                        {% endfor %}
                     </select>
                     <label>Mitglied</label>
                 </div>
                 <div class="input-field col l6 m12 s12">
-                    <select id="funktionSelect" name="funktionSelect">
+                    <select id="funktionSelect" name="funktionSelect" onChange="updateGeneralTasksCheckbox();">
                         <option value="-1" selected>Keine</option>
                     </select>
                     <label>Funktion</label>
                 </div>
                 <div class="col s12">
                     <label>
-                        <input type="checkbox" id="generalTasksCheckbox" name="generalTasksCheckbox" class="filled-in checkbox-amber" checked="checked" />
+                        <input type="checkbox" id="generalTasksCheckbox" name="generalTasksCheckbox" class="filled-in checkbox-amber" checked="checked" disabled />
                         <span class="black-text">Allgemeine Aufgaben zur Liste hinzufügen</span>
                     </label>
                 </div>
@@ -34,3 +37,41 @@
         </div>
     </div>
 </div>
+
+<script>
+    function populateFunktionSelect() {
+        // Clear previous options
+        var funktionSelect = document.getElementById("funktionSelect");
+        var length = funktionSelect.options.length - 1;
+        for(i = length; i >= 1; i--) {
+            funktionSelect.remove(i);
+        }
+
+        // Fetch new options
+        var mitglied_id = document.getElementById("mitgliedSelect").value;
+        $.ajax({
+            type: 'GET',
+            url: '/checklisten/get_funktionen',
+            data: {
+                mitglied_id: mitglied_id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function(data) {
+                $("#funktionSelect").append(data);
+                M.FormSelect.init(funktionSelect, null);
+            }
+        });    
+    }
+
+    function updateGeneralTasksCheckbox() {
+        var funktionSelect = document.getElementById("funktionSelect");
+        var generalTasksCheckbox = document.getElementById("generalTasksCheckbox");
+        if(funktionSelect.value == "-1") {
+            generalTasksCheckbox.checked = true;
+            generalTasksCheckbox.disabled = true;
+        }
+        else {
+            generalTasksCheckbox.disabled = false;
+        }
+    }
+</script>
