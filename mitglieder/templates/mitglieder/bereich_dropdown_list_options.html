@@ -7,7 +7,7 @@
         <option value="{{bereich.id}}">{{bereich.bezeichnung}}</option>
         {% endfor %}
         {% else %}
-            {% for bereich in funktion.organisationseinheit.unterbereich_set.all %}
+            {% for bereich in funktion.unterbereich.organisationseinheit.unterbereich_set.all %}
                 <option {% if bereich.id == funktion.unterbereich.id %}selected="selected"{% endif %} value="{{bereich.id}}">{{bereich.bezeichnung}}</option>
             {% endfor %}
         {% endif %}
