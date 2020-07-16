@@ -29,9 +29,9 @@ class MitgliedAmt(models.Model):
 
 @receiver(post_delete, sender=MitgliedAmt)
 def delete_MitgliedAmt_hook(sender, instance, using, **kwargs):
-    # print("post_delete")
-    # Überprüfen ob schon eine PrevMitgliedAmt Liste für die funktion da ist
+    print("post_delete")
     mitglieder_count = PrevMitgliedAmt.objects.filter(funktion=instance.funktion).count()
+    # Überprüfen ob schon eine PrevMitgliedAmt Liste für die funktion da ist
     if mitglieder_count != 0:
         # es ist schon eins da
         # print("Ist schon eins da")
@@ -44,8 +44,10 @@ def delete_MitgliedAmt_hook(sender, instance, using, **kwargs):
 
     # Hinzufügen des Entfernten mitglieds
     prev_mitglieder.members.clear()
-    prev_mitglieder.members.add(instance.mitglied)
-    # print(prev_mitglieder.members.all())
+    mitglied_nummer_paar = MitgliedNummerPaar(mitglied=instance.mitglied,nummer=1)
+    mitglied_nummer_paar.save()
+    prev_mitglieder.members.add(mitglied_nummer_paar)
+    print(prev_mitglieder.members.all())
     pass
 
     # Mitglied und Nummer, die beschreibt, die wie vielte Person das Mitglied in einer Funktion war
