@@ -16,10 +16,15 @@ class TestAemtHinzufuegen(MyTestCase):
         Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
     """
 
-    def test_1ReferatHinzufuegen_AsSuperuser(self):
+    def test_1OrganisationseinheitHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Organisationseinheit hinzugefügt und überprüft ob es dann richtig
-            übernommen wurde.
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a "organisationseingeit" as Admin.
+
+            Steps:
+
+            * login as Admin
+            * add a "organisationseinheit"
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -31,8 +36,13 @@ class TestAemtHinzufuegen(MyTestCase):
 
     def test_1UnterbereichHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Unterbereich hinzugefügt und überprüft ob es dann richtig
-            übernommen wurde.
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a "unterbereich" as Admin.
+
+            Steps:
+
+            * login as Admin
+            * add a "unterbereich"
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -43,10 +53,15 @@ class TestAemtHinzufuegen(MyTestCase):
         createUnterbereich(self, organisationseinheit, unterbereich)
         pass
 
-    def test_1AemtHinzufuegen_AsSuperuser(self):
+    def test_1FunktionHinzufuegen_AsSuperuser(self):
         """
-            Hier wird ein Funktion hinzugefügt und überprüft ob es dann richtig
-            übernommen wurde.
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a funktion as Admin.
+
+            Steps:
+
+            * login as Admin
+            * add a funktion
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -60,10 +75,19 @@ class TestAemtHinzufuegen(MyTestCase):
 
     def test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser(self):
         """
-            Dies ist ein Zusammenhängender Test
-            Organisationseinheit, Unterbereich und Funktion werden neu angelegt.
-            Ein neues Mitglied wird erstellt und diesem zugeordnet.
-            Es wird Überprüft ob auch alles in die Ämterübersicht mitgenommen wird.
+            This is a complex "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.
+            We also check if we can a new Member with the new data and if everything is displayed correctly
+            in "/aemter/".
+
+            Steps:
+
+            * login as Admin
+            * add a "organisationseinheit"
+            * add a "unterbereich"
+            * add a funktion
+            * create a Member
+            * navigate to aemteruebersicht "/aemter/"
         """
         # Login as Admin
         loginAsLukasAdmin(self)

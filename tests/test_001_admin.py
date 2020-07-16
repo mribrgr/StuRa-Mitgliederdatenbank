@@ -4,14 +4,15 @@ from tests.MyFuncLogin import loginAsLukasAdmin
 
 class TestAdmin(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown Functions are specified in
         MyTestCase
     """
 
     # Tests
     def test_login_superuser(self):
         """
-            Hier wird getestet, ob man sich als Admin einloggen kann
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can login as Admin and all sites are correct displayed.
         """
         # login
         loginAsLukasAdmin(self)

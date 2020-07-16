@@ -11,7 +11,9 @@ class TestUser(MyTestCase):
     # Tests
     def test_login_user(self):
         """
-            Hier wird getestet, ob man sich als User anmelden kann.
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can login as User and all sites are correct displayed.
+            But that you can not reach Admin-only content.
         """
         # Login as User
         loginAsLukasUser(self)

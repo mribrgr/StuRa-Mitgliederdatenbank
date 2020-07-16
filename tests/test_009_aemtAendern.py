@@ -14,9 +14,11 @@ class TestAemtAendern(MyTestCase):
 
     """
 
-    def test_1ReferatBezeichnungAendern(self):
+    def test_1OrganisationseinheitBezeichnungAendern(self):
         """
-            Die Bezeichnung eines Referates wird geändert indem eine _1 angehängt wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a "organisationseinheit" as Admin.
+            We change the name of the "organisationseinheit" by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -42,7 +44,9 @@ class TestAemtAendern(MyTestCase):
 
     def test_1UnterbereichBezeichnungAendern(self):
         """
-            Die Bezeichnung eines Unterbereiches wird geändert indem eine _1 angehängt wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a "unterbereich" as Admin.
+            We change the name of the "unterbereich" by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -71,7 +75,8 @@ class TestAemtAendern(MyTestCase):
 
     def test_1UnterbereichReferatAendern(self):
         """
-            Ändern des Referates, dem der Unterbereich zugeordnet ist
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the "organisationseinheit" of a "unterbereich" as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -105,8 +110,9 @@ class TestAemtAendern(MyTestCase):
 
     def test_1AmtBezeichnungAendern(self):
         """
-            Hier wird die Bezeichnung eines Amtes geändert indem eine _1 angehängt
-            wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a funktion as Admin.
+            We change the name of the funktion by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -136,7 +142,8 @@ class TestAemtAendern(MyTestCase):
 
     def test_1AmtWorkloadAendern(self):
         """
-            Hier wird der Workload eines Amtes geändert
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the workload of a funktion as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -167,7 +174,8 @@ class TestAemtAendern(MyTestCase):
 
     def test_1AmtReferatAendern(self):
         """
-            Hier wird das Organisationseinheit geändert, dem das Funktion zugeordnet ist
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the "organisationseinheit" of a funktion as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)

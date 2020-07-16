@@ -12,6 +12,8 @@ class MyTestCase(StaticLiveServerTestCase):
     """
         Setup and Teardown funktions are specified here.
         The following Testcases inherit from this class.
+
+        All Testcases Inherit from this class are testing the User Interface.
     """
     # befor every test funktion
 
@@ -20,6 +22,7 @@ class MyTestCase(StaticLiveServerTestCase):
             This Funktion is called before every testcase.
 
             It setup the webdriver and create 1 admin and 1 user.
+            You can adjust the webdriver by changing the *options* parameter.
             The Importscripts from the folder *importscripts* are also called here.
 
             The Webdriver Instance is stored in **self.browser**.

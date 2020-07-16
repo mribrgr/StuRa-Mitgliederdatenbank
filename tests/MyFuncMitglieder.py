@@ -4,12 +4,12 @@ from django.urls import reverse
 
 def addMitglied(self):
     """
-        Hinzufüghen eines Mitglieds mit default parametern
+        Add a member with default parameters over the "mitglieder/erstellen" view.
+        You need to be on the "mitglieder/" site to call this funktion.
 
         :param self:
         :type self:
         :return: No return Value
-        :rtype: None
     """
     # Suchen des Hinzufügen Buttons
     try:
@@ -102,18 +102,19 @@ def addMitgliedWithParameters(self,
                                 spitzname,
                                 ):
     """
-        Hinzufüghen eines Mitglieds mit default parametern
+        Add a member with default parameters over the "mitglieder/erstellen" view.
+        You can change firstname, lastname and username.
+        You need to be on the "mitglieder/" site to call this funktion.
 
         :param self:
         :type self:
-        :param vorname: Vorname des zu erstellenden Mitglieds
+        :param vorname: Firstname of the Member, that you want to create.
         :type vorname: string
-        :param nachname: Nachname des zu erstellenden Mitglieds
+        :param nachname: Lastname of the Member, that you want to create.
         :type nachname: string
-        :param spitzname: Spitzname des zu erstellenden Mitglieds
+        :param spitzname: Username of the Member, that you want to create.
         :type spitzname: string
         :return: No return Value
-        :rtype: None
     """
     # Suchen des Hinzufügen Buttons
     try:
