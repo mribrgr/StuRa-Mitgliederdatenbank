@@ -6,14 +6,8 @@ from django.urls import reverse
 
 class TestAemtHinzufuegen(MyTestCase):
     """
-        Hier wird getestet:
-
-        * Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird
-        * Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird
-        * Ob ein Funktion richtig über das AdminPanel Hinzugefügt wird
-        * Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Funktion
-
-        Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird
+        Setup and Teardown Funktions are specified in
+        MyTestCase
     """
 
     def test_1OrganisationseinheitHinzufuegen_AsSuperuser(self):

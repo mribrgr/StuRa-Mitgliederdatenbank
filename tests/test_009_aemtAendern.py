@@ -6,12 +6,8 @@ from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtAendern(MyTestCase):
     """
-        Hier wird getestet:
-
-        * Ob man alle Eigenschaften zu Referaten ändern kann
-        * Ob man alle Eigenschaften zu Unterbereichen ändern kann
-        * Ob man alle Eigenschaften zu Ämtern ändern kann
-
+        Setup and Teardown Funktions are specified in
+        MyTestCase
     """
 
     def test_1OrganisationseinheitBezeichnungAendern(self):

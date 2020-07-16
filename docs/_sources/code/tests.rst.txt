@@ -1,7 +1,8 @@
 Tests
 -----
 
-This section contains the description of the functional UI test created with the selenium testframework.
+This section contains the description of the functional UI test created with the selenium testframework. The Pagination
+and the Module historie are passively testet in the other Tests.
 
 Sources
 ~~~~~~~
@@ -29,10 +30,28 @@ MyTestCase
         :undoc-members:
         :noindex:
 
+Helper Functions
+~~~~~~~~~~~~~~~~
     .. automodule:: tests.MyFuncLogin
         :members:
         :undoc-members:
         :noindex:
+
+    .. automodule:: tests.MyFuncMitglieder
+        :members:
+        :undoc-members:
+        :noindex:
+
+    .. automodule:: tests.MyFuncAemter
+        :members:
+        :undoc-members:
+        :noindex:
+
+
+Login Module Tests
+~~~~~~~~~~~~~~~~~~
+
+The System under test (SUT) is the "login" module.
 
 Testcase 001
 """"""""""""
@@ -48,17 +67,11 @@ Testcase 002
       :undoc-members:
       :noindex:
 
-Tests zu Mitglieder
-~~~~~~~~~~~~~~~~~~~
 
-The
+Mitglieder Module Tests
+~~~~~~~~~~~~~~~~~~~~~~~
 
-MyFuncMitglieder
-""""""""""""""""
-    .. automodule:: tests.MyFuncMitglieder
-        :members:
-        :undoc-members:
-        :noindex:
+The System under test (SUT) is the "mitglieder" module.
 
 Testcase 003
 """"""""""""
@@ -88,15 +101,11 @@ Testcase 006
       :undoc-members:
       :noindex:
 
-Tests zu Aemter
-~~~~~~~~~~~~~~~
 
-MyFuncAemter
-""""""""""""
-  .. automodule:: tests.MyFuncAemter
-      :members:
-      :undoc-members:
-      :noindex:
+Aemter Module Tests
+~~~~~~~~~~~~~~~~~~~
+
+The System under test (SUT) is the "aemter" module.
 
 Testcase 007
 """"""""""""

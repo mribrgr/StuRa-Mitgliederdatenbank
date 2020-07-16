@@ -5,8 +5,8 @@ from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtEntfernen(MyTestCase):
     """
-        Hier wird getestet:
-        ...
+        Setup and Teardown Funktions are specified in
+        MyTestCase
     """
 
     def test_1ReferatEntfernen_AsSuperuser(self):

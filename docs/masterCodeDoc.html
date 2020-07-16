@@ -148,21 +148,21 @@
 <li class="toctree-l4"><a class="reference internal" href="#webdriver-for-firefox">Webdriver for Firefox</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#mytestcase">MyTestCase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mytestcase">MyTestCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#helper-functions">Helper Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-module-tests">Login Module Tests</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-001">Testcase 001</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-002">Testcase 002</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#tests-zu-mitglieder">Tests zu Mitglieder</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#myfuncmitglieder">MyFuncMitglieder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mitglieder-module-tests">Mitglieder Module Tests</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-003">Testcase 003</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-004">Testcase 004</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-005">Testcase 005</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-006">Testcase 006</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#tests-zu-aemter">Tests zu Aemter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#myfuncaemter">MyFuncAemter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-module-tests">Aemter Module Tests</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-007">Testcase 007</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-008">Testcase 008</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#testcase-009">Testcase 009</a></li>
@@ -2096,7 +2096,8 @@ This function clears following Tables in your Database:</p>
 </div>
 <div class="section" id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<p>This section contains the description of the functional UI test created with the selenium testframework.</p>
+<p>This section contains the description of the functional UI test created with the selenium testframework. The Pagination
+and the Module historie are passively testet in the other Tests.</p>
 <div class="section" id="sources">
 <h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -2156,7 +2157,12 @@ The Importscripts from the folder <em>importscripts</em> are also called here.</
 
 </dd></dl>
 
-<dl class="py function">
+</div></blockquote>
+</div>
+<div class="section" id="helper-functions">
+<h3>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="py function">
 <dt>
 <code class="sig-prename descclassname">tests.MyFuncLogin.</code><code class="sig-name descname">loginAsLukasAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
 <dd><p>Opens a Browser instance and login as admin with the account testlukasadmin.</p>
@@ -2184,7 +2190,107 @@ The Importscripts from the folder <em>importscripts</em> are also called here.</
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitglied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
+You need to be on the “mitglieder/” site to call this funktion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitgliedWithParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">vorname</span></em>, <em class="sig-param"><span class="n">nachname</span></em>, <em class="sig-param"><span class="n">spitzname</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
+You can change firstname, lastname and username.
+You need to be on the “mitglieder/” site to call this funktion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>vorname</strong> (<em>string</em>) – Firstname of the Member, that you want to create.</p></li>
+<li><p><strong>nachname</strong> (<em>string</em>) – Lastname of the Member, that you want to create.</p></li>
+<li><p><strong>spitzname</strong> (<em>string</em>) – Username of the Member, that you want to create.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createAmt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">funktion</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem das Funktion zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
+<li><p><strong>funktion</strong> (<em>string</em>) – Angabe des Namens, der das neue Funktion erhalten soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createReferat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div></blockquote>
+</div>
+<div class="section" id="login-module-tests">
+<h3>Login Module Tests<a class="headerlink" href="#login-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “login” module.</p>
 <div class="section" id="testcase-001">
 <h4>Testcase 001<a class="headerlink" href="#testcase-001" title="Permalink to this headline">¶</a></h4>
 <blockquote>
@@ -2225,50 +2331,9 @@ But that you can not reach Admin-only content.</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="tests-zu-mitglieder">
-<h3>Tests zu Mitglieder<a class="headerlink" href="#tests-zu-mitglieder" title="Permalink to this headline">¶</a></h3>
-<p>The</p>
-<div class="section" id="myfuncmitglieder">
-<h4>MyFuncMitglieder<a class="headerlink" href="#myfuncmitglieder" title="Permalink to this headline">¶</a></h4>
-<blockquote>
-<div><dl class="py function">
-<dt>
-<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitglied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
-You need to be on the “mitglieder/” site to call this funktion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No return Value</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt>
-<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitgliedWithParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">vorname</span></em>, <em class="sig-param"><span class="n">nachname</span></em>, <em class="sig-param"><span class="n">spitzname</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
-You can change firstname, lastname and username.
-You need to be on the “mitglieder/” site to call this funktion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> – </p></li>
-<li><p><strong>vorname</strong> (<em>string</em>) – Firstname of the Member, that you want to create.</p></li>
-<li><p><strong>nachname</strong> (<em>string</em>) – Lastname of the Member, that you want to create.</p></li>
-<li><p><strong>spitzname</strong> (<em>string</em>) – Username of the Member, that you want to create.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No return Value</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div></blockquote>
-</div>
+<div class="section" id="mitglieder-module-tests">
+<h3>Mitglieder Module Tests<a class="headerlink" href="#mitglieder-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “mitglieder” module.</p>
 <div class="section" id="testcase-003">
 <h4>Testcase 003<a class="headerlink" href="#testcase-003" title="Permalink to this headline">¶</a></h4>
 <blockquote>
@@ -2369,87 +2434,17 @@ Member is correct changed in the table.</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="tests-zu-aemter">
-<h3>Tests zu Aemter<a class="headerlink" href="#tests-zu-aemter" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="myfuncaemter">
-<h4>MyFuncAemter<a class="headerlink" href="#myfuncaemter" title="Permalink to this headline">¶</a></h4>
-<blockquote>
-<div><dl class="py function">
-<dt>
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createAmt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">funktion</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
-Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
-befindet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> – </p></li>
-<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem das Funktion zugeordnet werden soll</p></li>
-<li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
-<li><p><strong>funktion</strong> (<em>string</em>) – Angabe des Namens, der das neue Funktion erhalten soll</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No return Value</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt>
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createReferat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
-Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
-befindet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> – </p></li>
-<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No return Value</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt>
-<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
-Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
-befindet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> – </p></li>
-<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
-<li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>No return Value</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div></blockquote>
-</div>
+<div class="section" id="aemter-module-tests">
+<h3>Aemter Module Tests<a class="headerlink" href="#aemter-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “aemter” module.</p>
 <div class="section" id="testcase-007">
 <h4>Testcase 007<a class="headerlink" href="#testcase-007" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_007_aemtHinzufuegen.</code><code class="sig-name descname">TestAemtHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Hier wird getestet:</p>
-<ul class="simple">
-<li><p>Ob ein Organisationseinheit richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ob ein Unterbereich richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ob ein Funktion richtig über das AdminPanel Hinzugefügt wird</p></li>
-<li><p>Ein Komplextest ob man mit Hinzugefügten Organisationseinheit/Unterbereich/Funktion</p></li>
-</ul>
-<p>Ein neues Mitglied erstellen kann, und ob es in der Ämterübersicht übernommen wird</p>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
 <dl class="py method">
 <dt>
 <code class="sig-name descname">test_1FunktionHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
@@ -2514,8 +2509,8 @@ in “/aemter/”.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_008_aemtEntfernen.</code><code class="sig-name descname">TestAemtEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Hier wird getestet:
-…</p>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
 <dl class="py method">
 <dt>
 <code class="sig-name descname">test_1AemtEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
@@ -2565,12 +2560,8 @@ Here we want to check if you can delete a “unterbereich” as Admin.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_009_aemtAendern.</code><code class="sig-name descname">TestAemtAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Hier wird getestet:</p>
-<ul class="simple">
-<li><p>Ob man alle Eigenschaften zu Referaten ändern kann</p></li>
-<li><p>Ob man alle Eigenschaften zu Unterbereichen ändern kann</p></li>
-<li><p>Ob man alle Eigenschaften zu Ämtern ändern kann</p></li>
-</ul>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
 <dl class="py method">
 <dt>
 <code class="sig-name descname">test_1AmtBezeichnungAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
