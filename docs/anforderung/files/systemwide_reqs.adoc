@@ -53,9 +53,9 @@ link:usecase_model.adoc[[Use-Cases\]]
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
 *<F010> Antwortzeiten:*
-    infinity (bei bloßer Betrachtung) +
+    Es ist keine spezielle Antwortzeit vorgeschrieben, die Websites sollten aber sich in endlicher zeit aufbauen (Pagination) +
 *<F011> Durchsatz:*
-    0 +
+    Es ist kein spezieller Durchsatz gefordert +
 *<F012> Kapazität:* +
 
 * Mehrbenutzerbetrieb muss gewährleistet sein.
