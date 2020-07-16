@@ -12,16 +12,16 @@ link:usecase_model.adoc[[Use-Cases\]]
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
-Authentifizierung:
+*<F001> Authentifizierung:*
 
 * Daten müssen vor Unbefugten geschützt werden
 
-Zeitsteuerung:
+*<F002> Zeitsteuerung:*
 
 * Die Datenbank muss in regelmäßigen Abständen (Jeden Monat) gesichert werden
 * Alte Sicherungen Löschen (Die älter sind als 12 Monate)
 
-Auditierung:
+*<F003> Auditierung:*
 
 * Es soll ein Änderungslog geführt werden (Datum-Nutzer-Änderung)
 
@@ -30,14 +30,14 @@ Auditierung:
  
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlenern, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.) 
-*Sprache:* 
+*<F004> Sprache:*
     Deutsch +
-*Datumsformat:* 
+*<F005> Datumsformat:*
     dd.mm.yyyy +
-*Währungen:* 
+*<F006> Währungen:*
     Euro
 
-*Benutzerfreundlichkeit*
+*<F007> Benutzerfreundlichkeit*
 
 * Sehr einfaches Erlernen und schnelle Bedienung.
 * Daten können nach mehreren Kriterien gefiltert werden
@@ -45,34 +45,34 @@ Auditierung:
 
 === Zuverlässigkeit (Reliability)
 //Reliability includes the product and/or system's ability to keep running under stress and adverse conditions. Specify requirements for reliability acceptance levels, and how they will be measured and evaluated. Suggested topics are availability, frequency of severity of failures and recoverability.
-*Verfügbarkeit:*  
+*<F008> Verfügbarkeit:*
     Die Software ist grundsätzlich verfügbar, solange auch der Server des StuRas diese Bedingung erfüllt. Das Programm soll Wartungsfrei laufen, bzw vom Endnutzer gewartet werden können im laufendem Betrieb. +
-*Wiederherstellbarkeit:*
+*<F009> Wiederherstellbarkeit:*
     Das Programm soll bei Totalausfall zum letzten Backup hergestellt werden können (in ca 24h?)  
 
 === Effizienz (Performance)
 //The performance characteristics of the system should be outlined in this section. Examples are response time, throughput, capacity and startup or shutdown times.
-*Antwortzeiten:* 
+*<F010> Antwortzeiten:*
     infinity (bei bloßer Betrachtung) +
-*Durchsatz:* 
+*<F011> Durchsatz:*
     0 +
-*Kapazität:* +
+*<F012> Kapazität:* +
 
-* Mehrbenutzerbetrieb muss gewährleistet sein. 
+* Mehrbenutzerbetrieb muss gewährleistet sein.
 -> Serialisierung für die Datenbankarbeit +
 
 
 === Wartbarkeit (Supportability)
 //This section indicates any requirements that will enhance the supportability or maintainability of the system being built, including adaptability and upgrading, compatibility, configurability, scalability and requirements regarding system installation, level of support and maintenance.
-*Anpassbarkeit:*
+*<F013> Anpassbarkeit:*
     Es soll bei freier Kapazität eine API für den
     Export eines Organigrammes erstellt werden. +
-*Kompatibilität:*
+*<F014> Kompatibilität:*
     Mit allen Betriebssystemen -> Browseranwendung.
     Es muss einbindbar in den Plone sein. +
-*Konfigurierbarkeit:*
+*<F015> Konfigurierbarkeit:*
     Die zugrundeliegende Datenbank soll frei gewählt werden (MySQL, MSSQL, SQLite, ...) +
-*Wartbarkeit:*
+*<F016> Wartbarkeit:*
     Einfache Administrative Aufgaben werden vom Benutzer übernommen.
 
 == Zusätzliche Anforderungen
@@ -83,20 +83,20 @@ Auditierung:
 //* Vorgaben für die Programmiersprache
 //* zu unterstützende Plattformen / Betriebssysteme
 //* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
-*Implementierung:*
+*<F017> Implementierung:*
     Python (Django),
     SQLite +
-*Plattform:* 
+*<F018> Plattform:*
     Plattformunabhängig -> Browserapplikation +
-*Ressourcenbegrenzungen:* 
+*<F019> Ressourcenbegrenzungen:*
     Möglichst geringer Energieverbrauch, 
     Speicherplatz (so viel wie im Container vorhanden), 
     Möglichst wenig Traffic +
-*Legal:*
+*<F020> Legal:*
     strikte Einhaltung des Datenschutzes +
        
 === Interface Requirements
-*Look & Feel:*
+*<F021> Look & Feel:*
      angelehnt an das bekannte Stura/Htw-Design +
 
 
