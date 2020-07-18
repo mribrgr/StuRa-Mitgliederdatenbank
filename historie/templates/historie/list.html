@@ -120,9 +120,18 @@
             case "User":
               $("#nutzerTab").html(data);
               break;
+            case "Checkliste":
+              $("#checklistenTab2").html(data);
+              break;
+            case "ChecklisteAufgabe":
+              $("#checklistenAufgabenTab").html(data);
+              break;
+            case "ChecklisteRecht":
+              $("#checklistenRechteTab").html(data);
+              break;
           }
 
-          // Unbind old listeneres to prevent multi-firing
+          // Unbind old listeners to prevent multi-firing of events
           $(".page-link").off("click");
 
           // Re-add event listener
