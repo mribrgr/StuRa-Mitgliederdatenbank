@@ -7,7 +7,7 @@ Mitglied {{entry.id}} ({{entry.vorname}} {{entry.name}})
 E-Mail-Adresse zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalMitgliedAmt" %}
-Zuordnung von Amt {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
+Zuordnung von Funktion {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
 {% if latestUnterbereich.bezeichnung %}{{latestUnterbereich.bezeichnung}} {% endif %}
 {{latestReferat.bezeichnung}})
 zu Mitglied {{entry.mitglied_id}} ({{latestMitglied.vorname}} {{latestMitglied.name}})
@@ -20,7 +20,7 @@ Organisationseinheit {{entry.id}} ({{entry.bezeichnung}})
 Unterbereich {{entry.id}} ({{entry.bezeichnung}}) zu Organisationseinheit {{entry.organisationseinheit_id}} ({{latestReferat.bezeichnung}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalFunktion" %}
-Amt {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
+Funktion {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
 {{entry.organisationseinheit_id}} ({{latestReferat.bezeichnung}}){% if entry.unterbereich_id %}, Unterbereich
 {{entry.unterbereich_id}} ({{latestUnterbereich.bezeichnung}}){% endif %}
 {% endif %}
@@ -28,7 +28,7 @@ Amt {{entry.id}} ({{entry.bezeichnung}}) in Organisationseinheit
 Recht {{entry.id}} ({{entry.bezeichnung}})
 {% endif %}
 {% if entry|to_class_name == "HistoricalFunktionRecht" %}
-Recht {{entry.recht_id}} ({{latestRecht.bezeichnung}}) zu Amt {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
+Recht {{entry.recht_id}} ({{latestRecht.bezeichnung}}) zu Funktion {{entry.funktion_id}} ({{latestAmt.bezeichnung}}
 {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}{{latestReferat.bezeichnung}})
 {% endif %}
 
