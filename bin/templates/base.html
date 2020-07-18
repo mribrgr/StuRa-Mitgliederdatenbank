@@ -37,7 +37,7 @@
                     {% if request.user.is_authenticated %}
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/mitglieder">Mitglieder</a></li>
-                        <li><a href="/aemter">Ämter</a></li>
+                        <li><a href="/aemter">Funktionen</a></li>
                         <li><a href="/checklisten">Checklisten</a></li>
                         {% if request.user.is_superuser %}
                         <li><a href="/admin/historie"><i class="material-icons">history</i></a></li>
@@ -53,7 +53,7 @@
       {% if request.user.is_authenticated %}
       <ul class="sidenav" id="mobile-demo">
         <li><a href="/mitglieder"><i class="material-icons">people</i>Mitglieder</a></li>
-        <li><a href="/aemter"><i class="material-icons">school</i>Ämter</a></li>
+        <li><a href="/aemter"><i class="material-icons">school</i>Funktionen</a></li>
         <li><a href="/checklisten"><i class="material-icons">done_all</i>Checklisten</a></li>
         {% if request.user.is_superuser %}
         <li><a href="/admin/historie"><i class="material-icons">history</i>Historie</a></li>
