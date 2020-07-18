@@ -196,27 +196,27 @@ def fetch_entries(request):
         for term in searchterms:
             data = data | Checkliste.history.filter(Q(id__icontains=term) 
                 | Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
-                | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
-                | Q(amt__organisationseinheit__bezeichnung__icontains=term)
-                | Q(amt__unterbereich__bezeichnung__icontains=term))
+                | Q(amt__funktion__id__icontains=term) | Q(amt__funktion__bezeichnung__icontains=term) 
+                | Q(amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(amt__funktion__unterbereich__bezeichnung__icontains=term))
     if selected_tab == "ChecklisteRecht":
         data = ChecklisteRecht.history.none()
         for term in searchterms:
             data = data | ChecklisteRecht.history.filter(Q(checkliste__id__icontains=term) 
                 | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term)
                 | Q(checkliste__mitglied__id__icontains=term) | Q(checkliste__mitglied__vorname__icontains=term) | Q(checkliste__mitglied__name__icontains=term) 
-                | Q(checkliste__amt__id__icontains=term) | Q(checkliste__amt__bezeichnung__icontains=term) 
-                | Q(checkliste__amt__organisationseinheit__bezeichnung__icontains=term)
-                | Q(checkliste__amt__unterbereich__bezeichnung__icontains=term))
+                | Q(checkliste__amt__funktion__id__icontains=term) | Q(checkliste__amt__funktion__bezeichnung__icontains=term) 
+                | Q(checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(checkliste__amt__funktion__unterbereich__bezeichnung__icontains=term))
     if selected_tab == "ChecklisteAufgabe":
         data = ChecklisteAufgabe.history.none()
         for term in searchterms:
             data = data | ChecklisteAufgabe.history.filter(Q(checkliste__id__icontains=term) 
                 | Q(aufgabe__id__icontains=term) | Q(aufgabe__bezeichnung__icontains=term)
                 | Q(checkliste__mitglied__id__icontains=term) | Q(checkliste__mitglied__vorname__icontains=term) | Q(checkliste__mitglied__name__icontains=term) 
-                | Q(checkliste__amt__id__icontains=term) | Q(checkliste__amt__bezeichnung__icontains=term) 
-                | Q(checkliste__amt__organisationseinheit__bezeichnung__icontains=term)
-                | Q(checkliste__amt__unterbereich__bezeichnung__icontains=term))
+                | Q(checkliste__amt__funktion__id__icontains=term) | Q(checkliste__amt__funktion__bezeichnung__icontains=term) 
+                | Q(checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(checkliste__amt__funktion__unterbereich__bezeichnung__icontains=term))
 
     if selected_tab == "User":
         data = User.history.none()
