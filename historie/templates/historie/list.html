@@ -21,14 +21,16 @@
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s4"><a class="tab-link active" data-tab="Mitglied" id="MitgliedTab" href="#mitgliederTab">Mitglieder</a></li>
-      <li class="tab col s4"><a class="tab-link" data-tab="Organisationseinheit" id="AmtTab" href="#aemterTab">Funktionen</a></li>
-      <li class="tab col s4"><a class="tab-link" data-tab="User" href="#nutzerTab">Systemnutzer</a></li>
+      <li class="tab col s3"><a class="tab-link active" data-tab="Mitglied" id="MitgliedTab" href="#mitgliederTab">Mitglieder</a></li>
+      <li class="tab col s3"><a class="tab-link" data-tab="Organisationseinheit" id="AmtTab" href="#aemterTab">Funktionen</a></li>
+      <li class="tab col s3"><a class="tab-link" data-tab="Checkliste" id="ChecklisteTab" href="#checklistenTab">Checklisten</a></li>
+      <li class="tab col s3"><a class="tab-link" data-tab="User" href="#nutzerTab">Systemnutzer</a></li>
     </ul>
   </div>
   {% include 'historie/tabs/mitgliederTab.html' %}
   {% include 'historie/tabs/aemterTab.html' %}
   {% include 'historie/tabs/nutzerTab.html' %}
+  {% include 'historie/tabs/checklistenTab.html '%}
 </div>
 
 <script>
