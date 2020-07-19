@@ -277,51 +277,8 @@ werden z.B. Vor- und Nachname des zugehörigen Mitglieds ermittelt, einmal zum a
 gehört, wird ebenfalls der Datensatz vor der Änderung mitsamt zusätzlichen Daten angezeigt.</p>
 </div>
 </div>
-<div class="section" id="module-historie.templatetags.to_class_name">
-<span id="template-tags"></span><h2>Template Tags<a class="headerlink" href="#module-historie.templatetags.to_class_name" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="historie.templatetags.to_class_name.to_class_name">
-<code class="sig-prename descclassname">historie.templatetags.to_class_name.</code><code class="sig-name descname">to_class_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.templatetags.to_class_name.to_class_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gibt den Namen der Klasse des übergebenen Objekts zurück.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>any</em>) – Das Objekt, von dem die Klasse ermittelt werden soll.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Den Namen der Klasse des Objekts.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<span class="target" id="module-historie.templatetags.get_associated_data"></span><dl class="py function">
-<dt id="historie.templatetags.get_associated_data.get_associated_data">
-<code class="sig-prename descclassname">historie.templatetags.get_associated_data.</code><code class="sig-name descname">get_associated_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">desiredInfo</span></em>, <em class="sig-param"><span class="n">queryType</span></em>, <em class="sig-param"><span class="n">primaryKey</span></em>, <em class="sig-param"><span class="n">timestamp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.templatetags.get_associated_data.get_associated_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ermittelt zu einem gegebenen Historien-Eintrag gehörige, zusätzliche Daten.</p>
-<p>Beispiel: Ein Historien-Eintrag zum Model mitglied.MitgliedMail enhält nur die ID des entsprechenden Mitglieds.
-Mit <code class="docutils literal notranslate"><span class="pre">get_associated_data</span></code> können sämtliche Daten des zur ID gehörenden Mitglieds (z.B. Name oder Anschrift) ermittelt werden,
-sowohl zum jetzigen Zeitpunkt als auch zu dem Zeitpunkt, zu dem der Historien-Eintrag angelegt wurde.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>desiredInfo</strong> (<em>str</em>) – Der Name des Models, aus welchem die zusätzlichen Daten ermittelt werden sollen.
-Zulässige Werte: “Mitglied”, “Funktion”, “Unterbereich”, “Organisationseinheit”, “Recht”</p></li>
-<li><p><strong>queryType</strong> (<em>str</em>) – Gibt an, ob die aktuellen Daten oder die Daten zum Zeitpunkt des Eintrags in die Historie ermittelt werden sollen.
-Zulässige Werte: “latest”, “historical”</p></li>
-<li><p><strong>primaryKey</strong> (<em>int</em>) – Die ID des betroffenen Datensatzes, für welchen die Daten ermittelt werden sollen; z.B. die ID des Mitglieds.</p></li>
-<li><p><strong>timestamp</strong> (<em>datetime</em><em>, </em><em>&quot;semi-optional&quot;</em>) – Der Zeitstempel, zu welchem der Historien-Eintrag angelegt wurde. Wird nur benötigt, falls die Daten zum Zeitpunkt
-des Erstellens des Historien-Eintrags ermittelt werden sollen.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Eine Instanz des mittels <cite>desiredInfo</cite> angegebenen Models, welche sämtliche Daten des Objekts mit der ID <cite>primaryKey</cite> zum mittels
-<cite>queryType</cite> und ggf. <cite>timestamp</cite> angegebenen Zeitpunkt enthält.</p>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="template-tags">
+<h2>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
