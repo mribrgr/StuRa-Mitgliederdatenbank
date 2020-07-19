@@ -33,8 +33,17 @@
         <h5>Ämter</h5>
         <br />
         <div id="div_aemter">
-        {% if mitglied.mitgliedamt_set.count %}
-          {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
+          <!-- derzeite Ämter -->
+        {% if curr_funktionen %}
+          {% for mitgliedamt in curr_funktionen %}
+          {% with mitgliedamt.funktion as funktion %}
+          {% with forloop.counter as amtid %}
+            {% include 'mitglieder/aemter.html' %}
+          {% endwith %}
+          {% endwith %}
+          {% endfor %}
+          <!-- ehemalige Ämter -->
+          {% for mitgliedamt in prev_funktionen %}
           {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
             {% include 'mitglieder/aemter.html' %}
@@ -46,6 +55,7 @@
           {% include 'mitglieder/aemter.html' %}
           {% endwith %}
         {% endif %}
+        
       </div>
         <!-- Button (weiteres Amt hinzufuegen) -->
           <div class="col s12">
@@ -412,9 +422,12 @@
                 today: 'heute',
                 clear: 'löschen',
                 cancel: 'abbrechen',
+                
             },
         });
   }
+
 </script>
+
 
 {% endblock %}

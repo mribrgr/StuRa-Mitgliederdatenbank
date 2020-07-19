@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Organisationseinheit, Unterbereich, Funktion
-from mitglieder.models import MitgliedAmt, PrevMitgliedAmt
+from mitglieder.models import MitgliedAmt
 
 # Create your views here.
 def main_screen(request):
@@ -25,7 +25,7 @@ def main_screen(request):
     aemter = Funktion.objects.filter(Q(organisationseinheit__id__in=referat_ids) | Q(unterbereich__id__in=unterbereiche))
     amt_ids = aemter.values_list('id', flat=True)
     mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids)
-    prev_mitglieder = PrevMitgliedAmt.objects.filter(funktion__id__in=amt_ids)
+    prev_mitglieder = MitgliedAmt.objects.filter(amtszeit_ende__isnull=False)
 
     context = {
         'referate': referate_page,

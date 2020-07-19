@@ -36,11 +36,11 @@
   </div>
     <div class="row">
       <div class="input-field col l2 m4">
-        <input id="beginn_kandidatur{{amtid}}" name="beginn_kandidatur{{amtid}}" type="text" class="datepicker" {% if funktion.beginn %}value="{{funktion.beginn}}"{% endif %}>
+        <input id="beginn_kandidatur{{amtid}}" name="beginn_kandidatur{{amtid}}" type="text" class="datepicker" {% if mitgliedamt.amtszeit_beginn %}value="{{mitgliedamt.amtszeit_beginn|date:'d.m.Y'}}"{% endif %}>
           <label id="beginn_kandidatur_label{{amtid}}" for="beginn_kandidatur{{amtid}}">Beginn Amtszeit</label>
       </div>
       <div class="input-field col l2">
-        <input id="ende_kandidatur{{amtid}}" name="ende_kandidatur{{amtid}}" type="text" class="datepicker" {% if funktion.ende %}value="{{funktion.ende}}"{% endif %}>
+        <input id="ende_kandidatur{{amtid}}" name="ende_kandidatur{{amtid}}" type="text" class="datepicker" {% if mitgliedamt.amtszeit_ende %}value="{{mitgliedamt.amtszeit_ende|date:'d.m.Y'}}"{% endif %}>
           <label id="ende_kandidatur_label{{amtid}}" for="ende_kandidatur{{amtid}}">Ende Amtszeit</label>
       </div>
   </div>

@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Funktion, Organisationseinheit, Unterbereich
+import datetime
 import simplejson, json
 # string splitting
 import re
@@ -63,7 +64,9 @@ def mitglied_laden(request):
     mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
     # Daten zum Mitglied mit dieser Id an Frontend senden
     mitglied = Mitglied.objects.get(pk=mitglied_id)
-    return render(request, 'mitglieder/modal.html', {'mitglied': mitglied})
+    curr_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=True)
+    prev_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=False)
+    return render(request, 'mitglieder/modal.html', {'mitglied': mitglied, 'curr_funktionen': curr_funktionen, 'prev_funktionen': prev_funktionen})
 
 # Entfernen von Mitgliedern aus der Datenbank
 def mitglieder_loeschen(request):
@@ -307,8 +310,18 @@ def erstellen(request):
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
-            print(request.POST['ende_kandidatur'+str(i)])
+            amtszeit_beginn_str = request.POST['beginn_kandidatur'+str(i)]
+            if amtszeit_beginn_str:
+                amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+            else: 
+                amtszeit_beginn = None
+            amtszeit_ende_str = request.POST['ende_kandidatur'+str(i)]
+            if amtszeit_ende_str:
+                amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+            else: 
+                amtszeit_ende = None
             print(request.POST['beginn_kandidatur'+str(i)])
+            print(request.POST['ende_kandidatur'+str(i)])
 
             # Check Max Members
             if funktion.max_members != (0 or None):
@@ -317,7 +330,12 @@ def erstellen(request):
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
                     return mitgliedBearbeitenView(request, mitglied.id)
 
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            prev_mitglieder = MitgliedAmt.objects.filter(funktion=funktion)
+            if prev_mitglieder:
+                amtszeit_count = prev_mitglieder.order_by('-amtszeit_count')[0] + 1
+            else:
+                amtszeit_count = 1
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende, amtszeit_count=amtszeit_count)
             mitgliedamt.save()
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
@@ -354,10 +372,12 @@ def mitgliedBearbeitenView(request, mitglied_id):
     aemternum = max(1, mitglied.mitgliedamt_set.all().count())
     emailnum = max(1, mitglied.mitgliedmail_set.all().count())
     referate = Organisationseinheit.objects.order_by('bezeichnung')
+    curr_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=True)
+    prev_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=False)
 
     return render(request=request,
                   template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-                  context = {'mitglied': mitglied, 'referate': referate})
+                  context = {'mitglied': mitglied, 'curr_funktionen': curr_funktionen, 'prev_funktionen': prev_funktionen, 'referate': referate})
 
 # Attribut attr (string) wird aus request (POST-Request) entnommen und zurueckgegeben
 # bei einem KeyError oder leerem String wird None zurueckgegeben
@@ -427,6 +447,17 @@ def speichern(request, mitglied_id):
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
+            # Beginn und Ende Amtszeit
+            amtszeit_beginn_str = request.POST['beginn_kandidatur'+str(i)]
+            if amtszeit_beginn_str:
+                amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+            else: 
+                amtszeit_beginn = None
+            amtszeit_ende_str = request.POST['ende_kandidatur'+str(i)]
+            if amtszeit_ende_str:
+                amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+            else: 
+                amtszeit_ende = None
 
             # Check Max Members
             if funktion.max_members != (0 or None):
@@ -435,7 +466,7 @@ def speichern(request, mitglied_id):
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
                     return mitgliedBearbeitenView(request, mitglied.id)
 
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
 

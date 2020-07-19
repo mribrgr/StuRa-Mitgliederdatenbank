@@ -5,10 +5,20 @@
         <p><b>Mitglieds-ID:</b> {{mitglied.id}}</p>
         {% if mitglied.mitgliedamt_set.all %}
         <p><b>Ämter:</b>
-            {% if mitglied.mitgliedamt_set.all %}
+            {% if curr_funktionen %}
                 <ul>
-                    {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
-                        <li>{{mitgliedamt.funktion}} ({{mitgliedamt.amtszeit_beginn|default:"unbekannt"}} - {{mitgliedamt.amtszeit_ende|default:"heute"}})</li>
+                    {% for mitgliedamt in curr_funktionen %}
+                        <li>{{mitgliedamt.funktion}} (seit {{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekannten Datum"}})</li>
+                    {% endfor %}
+                </ul>
+            {% else %}-
+            {% endif %}
+        </p>
+        <p><b>Ehemalige Ämter:</b>
+            {% if prev_funktionen %}
+                <ul>
+                    {% for mitgliedamt in prev_funktionen %}
+                        <li>{{mitgliedamt.funktion}} ({{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekannt"}} - {{mitgliedamt.amtszeit_ende|date:'d.m.Y'|default:"heute"}})</li>
                     {% endfor %}
                 </ul>
             {% else %}-
