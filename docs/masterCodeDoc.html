@@ -1,0 +1,2755 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code Documentation &mdash; StuRa - Mitgliederdatenbank  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Developer Documentation" href="masterDeveloperDoc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> StuRa - Mitgliederdatenbank
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterDeveloperDoc.html">Developer Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#amter">Ämter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-aemter.models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-aemter.views">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-screen-html">main_screen.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department-row-html">department_row.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#historie">Historie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abhangigkeiten">Abhängigkeiten</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#django-simple-history">django-simple-history</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Templates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-html">list.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tabs">tabs/*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tabs-pagination-html">tabs/_pagination.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#row-html">row.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rowcontent-html">rowContent.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#titlebuilder-html">_titleBuilder.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noresultsrow-html">_noResultsRow.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modaldataincludes-html">_modalDataIncludes.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modaldata">modalData/*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-historie.templatetags.to_class_name">Template Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mitglieder">Mitglieder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Abhängigkeiten</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simplejson">simplejson</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Templates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aemter-html">aemter.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amt-dropdown-list-options-html">amt_dropdown_list_options.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bereich-dropdown-list-options-html">bereich_dropdown_list_options.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email-html">email.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email-input-html">email_input.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglieder-html">mitglieder.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mitglied-erstellen-bearbeiten-html">mitglied_erstellen_bearbeiten.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modal-html">modal.html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">row.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#importscripts">Importscripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csv-data">CSV Data:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sources">Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selenium">selenium</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webdriver-for-firefox">Webdriver for Firefox</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mytestcase">MyTestCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#helper-functions">Helper Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-module-tests">Login Module Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-001">Testcase 001</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-002">Testcase 002</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mitglieder-module-tests">Mitglieder Module Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-003">Testcase 003</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-004">Testcase 004</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-005">Testcase 005</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-006">Testcase 006</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#aemter-module-tests">Aemter Module Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-007">Testcase 007</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-008">Testcase 008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testcase-009">Testcase 009</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#latest-test-coverage-report">Latest test coverage report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">StuRa - Mitgliederdatenbank</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Code Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/masterCodeDoc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="code-documentation">
+<h1>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="amter">
+<h2>Ämter<a class="headerlink" href="#amter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-aemter.models">
+<span id="models"></span><h3>Models<a class="headerlink" href="#module-aemter.models" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="aemter.models.Funktion">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">Funktion</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Funktion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datenbankmodel Funktion</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>bezeichnung</p></li>
+<li><p>workload</p></li>
+<li><p>max_members (Maximale Anzahl an Mitgliedern in der Funktion)</p></li>
+<li><p>organisationseinheit (Referenziert zugehörige Organisationseinheit)</p></li>
+<li><dl class="simple">
+<dt>unterbereich (Referenziert zugehörigen Unterbereich)</dt><dd><p>Unterbereich kann null sein</p>
+</dd>
+</dl>
+</li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt id="aemter.models.Funktion.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.Funktion.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.Funktion.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.Funktion.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.Funktion.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.funktionrecht_set">
+<code class="sig-name descname">funktionrecht_set</code><a class="headerlink" href="#aemter.models.Funktion.funktionrecht_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#aemter.models.Funktion.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.Funktion.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.max_members">
+<code class="sig-name descname">max_members</code><a class="headerlink" href="#aemter.models.Funktion.max_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.mitgliedamt_set">
+<code class="sig-name descname">mitgliedamt_set</code><a class="headerlink" href="#aemter.models.Funktion.mitgliedamt_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.Funktion.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.organisationseinheit">
+<code class="sig-name descname">organisationseinheit</code><a class="headerlink" href="#aemter.models.Funktion.organisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.organisationseinheit_id">
+<code class="sig-name descname">organisationseinheit_id</code><a class="headerlink" href="#aemter.models.Funktion.organisationseinheit_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.prevmitgliedamt_set">
+<code class="sig-name descname">prevmitgliedamt_set</code><a class="headerlink" href="#aemter.models.Funktion.prevmitgliedamt_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.Funktion.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Funktion.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.unterbereich">
+<code class="sig-name descname">unterbereich</code><a class="headerlink" href="#aemter.models.Funktion.unterbereich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.unterbereich_id">
+<code class="sig-name descname">unterbereich_id</code><a class="headerlink" href="#aemter.models.Funktion.unterbereich_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Funktion.workload">
+<code class="sig-name descname">workload</code><a class="headerlink" href="#aemter.models.Funktion.workload" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.FunktionRecht">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">FunktionRecht</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.FunktionRecht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datenbankmodell FunktionRecht</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>funktion</p></li>
+<li><p>recht</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt id="aemter.models.FunktionRecht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.FunktionRecht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.FunktionRecht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.FunktionRecht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.funktion">
+<code class="sig-name descname">funktion</code><a class="headerlink" href="#aemter.models.FunktionRecht.funktion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.funktion_id">
+<code class="sig-name descname">funktion_id</code><a class="headerlink" href="#aemter.models.FunktionRecht.funktion_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#aemter.models.FunktionRecht.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.FunktionRecht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.FunktionRecht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.recht">
+<code class="sig-name descname">recht</code><a class="headerlink" href="#aemter.models.FunktionRecht.recht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.FunktionRecht.recht_id">
+<code class="sig-name descname">recht_id</code><a class="headerlink" href="#aemter.models.FunktionRecht.recht_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.FunktionRecht.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.FunktionRecht.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.HistoricalFunktion">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalFunktion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">workload</span></em>, <em class="sig-param"><span class="n">max_members</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="aemter.models.HistoricalFunktion.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.HistoricalFunktion.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#aemter.models.Funktion" title="aemter.models.Funktion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Funktion</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.max_members">
+<code class="sig-name descname">max_members</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.max_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.HistoricalFunktion.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.organisationseinheit">
+<code class="sig-name descname">organisationseinheit</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.organisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.organisationseinheit_id">
+<code class="sig-name descname">organisationseinheit_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.organisationseinheit_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.unterbereich">
+<code class="sig-name descname">unterbereich</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.unterbereich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.unterbereich_id">
+<code class="sig-name descname">unterbereich_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.unterbereich_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktion.workload">
+<code class="sig-name descname">workload</code><a class="headerlink" href="#aemter.models.HistoricalFunktion.workload" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.HistoricalFunktionRecht">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalFunktionRecht</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">funktion</span></em>, <em class="sig-param"><span class="n">recht</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="aemter.models.HistoricalFunktionRecht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.HistoricalFunktionRecht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.funktion">
+<code class="sig-name descname">funktion</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.funktion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.funktion_id">
+<code class="sig-name descname">funktion_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.funktion_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#aemter.models.FunktionRecht" title="aemter.models.FunktionRecht"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunktionRecht</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.recht">
+<code class="sig-name descname">recht</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.recht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalFunktionRecht.recht_id">
+<code class="sig-name descname">recht_id</code><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.recht_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.HistoricalOrganisationseinheit">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalOrganisationseinheit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="aemter.models.HistoricalOrganisationseinheit.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.HistoricalOrganisationseinheit.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#aemter.models.Organisationseinheit" title="aemter.models.Organisationseinheit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Organisationseinheit</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.HistoricalRecht">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalRecht</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="aemter.models.HistoricalRecht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalRecht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.HistoricalRecht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.HistoricalRecht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalRecht.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#aemter.models.HistoricalRecht.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.HistoricalRecht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#aemter.models.HistoricalRecht.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#aemter.models.HistoricalRecht.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#aemter.models.Recht" title="aemter.models.Recht"><code class="xref py py-class docutils literal notranslate"><span class="pre">Recht</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#aemter.models.HistoricalRecht.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalRecht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.HistoricalRecht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#aemter.models.HistoricalRecht.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalRecht.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.HistoricalUnterbereich">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="aemter.models.HistoricalUnterbereich.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.HistoricalUnterbereich.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#aemter.models.Unterbereich" title="aemter.models.Unterbereich"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unterbereich</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.organisationseinheit">
+<code class="sig-name descname">organisationseinheit</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.organisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalUnterbereich.organisationseinheit_id">
+<code class="sig-name descname">organisationseinheit_id</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.organisationseinheit_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.Organisationseinheit">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">Organisationseinheit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Organisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datenbankmodel Organisationseinheit</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>bezeichnung</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt id="aemter.models.Organisationseinheit.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.Organisationseinheit.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.Organisationseinheit.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.Organisationseinheit.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.Organisationseinheit.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.funktion_set">
+<code class="sig-name descname">funktion_set</code><a class="headerlink" href="#aemter.models.Organisationseinheit.funktion_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#aemter.models.Organisationseinheit.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.Organisationseinheit.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.Organisationseinheit.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.Organisationseinheit.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Organisationseinheit.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.unterbereich_set">
+<code class="sig-name descname">unterbereich_set</code><a class="headerlink" href="#aemter.models.Organisationseinheit.unterbereich_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.Recht">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">Recht</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Recht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datenbankmodell Recht</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>bezeichnung</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt id="aemter.models.Recht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.Recht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.Recht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.Recht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Recht.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.Recht.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Recht.funktionrecht_set">
+<code class="sig-name descname">funktionrecht_set</code><a class="headerlink" href="#aemter.models.Recht.funktionrecht_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Recht.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#aemter.models.Recht.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Recht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.Recht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Recht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.Recht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.Recht.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Recht.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="aemter.models.Unterbereich">
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">Unterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Unterbereich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datenbankmodel Unterbereich</p>
+<p>Felder:</p>
+<ul class="simple">
+<li><p>bezeichnung</p></li>
+<li><p>organisationseinheit (Referenziert zugehörige Organisationseinheit)</p></li>
+<li><p>history</p></li>
+</ul>
+<dl class="py exception">
+<dt id="aemter.models.Unterbereich.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.Unterbereich.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="aemter.models.Unterbereich.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#aemter.models.Unterbereich.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.Unterbereich.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.funktion_set">
+<code class="sig-name descname">funktion_set</code><a class="headerlink" href="#aemter.models.Unterbereich.funktion_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#aemter.models.Unterbereich.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#aemter.models.Unterbereich.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#aemter.models.Unterbereich.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.organisationseinheit">
+<code class="sig-name descname">organisationseinheit</code><a class="headerlink" href="#aemter.models.Unterbereich.organisationseinheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Unterbereich.organisationseinheit_id">
+<code class="sig-name descname">organisationseinheit_id</code><a class="headerlink" href="#aemter.models.Unterbereich.organisationseinheit_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.Unterbereich.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Unterbereich.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-aemter.views">
+<span id="views"></span><h3>Views<a class="headerlink" href="#module-aemter.views" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="aemter.views.main_screen">
+<code class="sig-prename descclassname">aemter.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.views.main_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the Ämter-screen</p>
+</dd></dl>
+
+</div>
+<div class="section" id="templates">
+<h3>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h3>
+<p>Alle Templates sind unter <cite>aemter/templates/aemter</cite> zu finden.</p>
+<div class="section" id="main-screen-html">
+<h4>main_screen.html<a class="headerlink" href="#main-screen-html" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="department-row-html">
+<h4>department_row.html<a class="headerlink" href="#department-row-html" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="historie">
+<h2>Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h2>
+<p>Die Historie zeichnet sämtliche Änderungen (hinzufügen, bearbeiten, löschen) an den folgenden Models des Systems auf:</p>
+<ul class="simple">
+<li><p>django.contrib.auth.models.User (Systemnutzer)</p></li>
+<li><p>aemter.* (alle Models der App aemter)</p></li>
+<li><p>mitglieder.* (alle Models der App mitglieder)</p></li>
+</ul>
+<p>Diese Einträge können von Administratoren des Systems auf der entsprechenden Seite unter ./admin/historie eingesehen werden.</p>
+<div class="section" id="abhangigkeiten">
+<h3>Abhängigkeiten<a class="headerlink" href="#abhangigkeiten" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="django-simple-history">
+<h4>django-simple-history<a class="headerlink" href="#django-simple-history" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Installation: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">django-simple-history</span></code></p></li>
+<li><p>Dokumentation: <a class="reference external" href="https://django-simple-history.readthedocs.io/en/latest/">https://django-simple-history.readthedocs.io/en/latest/</a></p></li>
+</ul>
+<p>django-simple-history ermöglicht das automatische Aufzeichnen des Zustands eines Models beim Ausführen einer Änderungsoperation (hinzufügen, bearbeiten, löschen).</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Views<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-historie.views"></span><dl class="py function">
+<dt id="historie.views.fetch_entries">
+<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">fetch_entries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.fetch_entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mit <cite>fetch_entries</cite> kann eine Liste von Historien-Einträgen mitsamt passender Pagination angefordert werden, welche die Einträge enthält, die…</p>
+<ul class="simple">
+<li><p>…zum angegeben Tab bzw. Model gehören.</p></li>
+<li><p>…in denen die angegebenen Suchbegriffe vorkommen.</p></li>
+<li><p>…zur angeforderten Seite gehören.</p></li>
+</ul>
+<p>Folgende Aufgaben werden durch diese übernommen:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Bereitstellung von Daten: Die View stellt die gewünschte Seite der Historien-Einträge bereit, welche für das gewünschte Model zu den angegebenen Suchbegriffen gefunden wurden.</p></li>
+<li><p>Rendern der Liste mit den passenden Historien-Einträgen und der zugehörigen Pagination.</p></li>
+</ul>
+<p>Je nachdem, ob in der <cite>request</cite> Suchbegriffe mitgegeben wurden, werden entweder alle Einträge oder die nach den Suchbegriffen
+gefilterten Einträge bereitgestellt. Die Filterung funktioniert dabei folgendermaßen:</p>
+<ul class="simple">
+<li><p>Das gewünschte Model wird dahingehend untersucht, ob die wichtigsten Felder eines Eintrags (bei Mitgliedern z.B. ID, Vorname und Name) die Suchbegriffe enthalten.</p></li>
+<li><p>Hierfür werden die in Django integrierten <cite>Q Objects</cite> verwendet.</p></li>
+<li><p>Alle gefundenen Einträge werden in einem QuerySet zusammengefasst, welches anschließend an <code class="docutils literal notranslate"><span class="pre">render</span></code> übergeben wird.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat. 
+Enthält stets die gewünschte Seitenzahl, den Namen des Tabs und damit Models, zu dem das Ergebnis geliefert werden soll und optional Suchbegriffe, nach denen das Model durchsucht werden soll.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte Liste mit den entsprechenden Historien-Einträgen und der zugehörigen Pagination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="historie.views.list">
+<code class="sig-prename descclassname">historie.views.</code><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.views.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Die <cite>list</cite>-View wird aufgerufen, wenn der Nutzer über einen Link erstmalig die Historie aufruft (z.B. aus dem Menü heraus).</p>
+<p>Folgende Aufgaben werden von dieser übernommen:</p>
+<ul class="simple">
+<li><p>Bereitstellung von Daten: Es werden alle Historien-Einträge für alle Tabs geholt, anschließend in Seiten à 15 Elemente aufgeteilt und jeweils die erste Seite an die View übergeben.</p></li>
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Rendern des Templates der gesamten Seite.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>Templates<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Alle Templates sind unter <cite>historie/templates/historie</cite> zu finden.</p>
+<div class="section" id="list-html">
+<h4>list.html<a class="headerlink" href="#list-html" title="Permalink to this headline">¶</a></h4>
+<p>Enthält den Grundaufbau der Historie. Die Historie wird hier in die 3 Tabs “Mitglieder”, “Ämter” und “Nutzer” unterteilt.</p>
+</div>
+<div class="section" id="tabs">
+<h4>tabs/*<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h4>
+<p>Unterteilt die drei Tabs “Mitglieder”, “Ämter” und “Nutzer” ggf. in weitere Tabs, z.B. bei Mitglieder in “Stammdaten”, “E-Mail-Adressen” und “Ämter”.
+Für jedes Model wird für jeden Historien-Eintrag im entsprechenden (Unter-)Tab eine neue Listenzeile samt Modal generiert.</p>
+</div>
+<div class="section" id="tabs-pagination-html">
+<h4>tabs/_pagination.html<a class="headerlink" href="#tabs-pagination-html" title="Permalink to this headline">¶</a></h4>
+<p>Enthält das Template für die Pagination (die Unterteilung der Historien-Einträge in Seiten).</p>
+</div>
+<div class="section" id="row-html">
+<h4>row.html<a class="headerlink" href="#row-html" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">Je nachdem, zu welchem Model der Eintrag gehört, werden hier die zum Eintrag gehörenden zusätzlichen Daten inkludiert.</div>
+</div>
+<div class="line-block">
+<div class="line"><cite>Beispiel:</cite> Im Model MitgliedMails werden nur die IDs der Mitglieder gespeichert. Damit die Historie aber lesbarer und einfacher verständlich ist,
+werden z.B. Vor- und Nachname des zugehörigen Mitglieds ermittelt, einmal zum aktuellen und einmal zum Zeitpunkt der Erstellung des Historien-Eintrags.</div>
+</div>
+<div class="line-block">
+<div class="line">Falls der Historien-Eintrag zur Änderung eines Datensatzes gehört, werden außerdem die zusätzlichen Daten zum Vorher-Datensatz inkludiert.</div>
+</div>
+</div>
+<div class="section" id="rowcontent-html">
+<h4>rowContent.html<a class="headerlink" href="#rowcontent-html" title="Permalink to this headline">¶</a></h4>
+<p>Der eigentliche Inhalt eines Datensatzes. Hier wird der Grundaufbau der Zeile in der angezeigten Liste von Einträgen sowie des zugehörigen Modals beschrieben.</p>
+</div>
+<div class="section" id="titlebuilder-html">
+<h4>_titleBuilder.html<a class="headerlink" href="#titlebuilder-html" title="Permalink to this headline">¶</a></h4>
+<p>Beschreibt, wie der Titel, welcher in der Liste von Einträgen sowie auf dem Modal angezeigt wird, zusammengebaut wird.</p>
+</div>
+<div class="section" id="noresultsrow-html">
+<h4>_noResultsRow.html<a class="headerlink" href="#noresultsrow-html" title="Permalink to this headline">¶</a></h4>
+<p>Wird inkludiert, falls zu einer Suchanfrage bzw. zu einem Model keine Historien-Einträge vorhanden sind.</p>
+</div>
+<div class="section" id="modaldataincludes-html">
+<h4>_modalDataIncludes.html<a class="headerlink" href="#modaldataincludes-html" title="Permalink to this headline">¶</a></h4>
+<p>Je nachdem, zu welchem Model der Eintrag gehört, wird hier der entsprechende Inhalt des zugehörigen Modals inkludiert.</p>
+</div>
+<div class="section" id="modaldata">
+<h4>modalData/*<a class="headerlink" href="#modaldata" title="Permalink to this headline">¶</a></h4>
+<p>Für jedes Model wird hier beschrieben, welche Daten wie im zugehörigen Modal präsentiert werden sollen. Falls der Historien-Eintrag zur Änderung eines bestehenden Datensatzes
+gehört, wird ebenfalls der Datensatz vor der Änderung mitsamt zusätzlichen Daten angezeigt.</p>
+</div>
+</div>
+<div class="section" id="module-historie.templatetags.to_class_name">
+<span id="template-tags"></span><h3>Template Tags<a class="headerlink" href="#module-historie.templatetags.to_class_name" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="historie.templatetags.to_class_name.to_class_name">
+<code class="sig-prename descclassname">historie.templatetags.to_class_name.</code><code class="sig-name descname">to_class_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.templatetags.to_class_name.to_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt den Namen der Klasse des übergebenen Objekts zurück.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>any</em>) – Das Objekt, von dem die Klasse ermittelt werden soll.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Den Namen der Klasse des Objekts.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-historie.templatetags.get_associated_data"></span><dl class="py function">
+<dt id="historie.templatetags.get_associated_data.get_associated_data">
+<code class="sig-prename descclassname">historie.templatetags.get_associated_data.</code><code class="sig-name descname">get_associated_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">desiredInfo</span></em>, <em class="sig-param"><span class="n">queryType</span></em>, <em class="sig-param"><span class="n">primaryKey</span></em>, <em class="sig-param"><span class="n">timestamp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#historie.templatetags.get_associated_data.get_associated_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ermittelt zu einem gegebenen Historien-Eintrag gehörige, zusätzliche Daten.</p>
+<p>Beispiel: Ein Historien-Eintrag zum Model mitglied.MitgliedMail enhält nur die ID des entsprechenden Mitglieds.
+Mit <code class="docutils literal notranslate"><span class="pre">get_associated_data</span></code> können sämtliche Daten des zur ID gehörenden Mitglieds (z.B. Name oder Anschrift) ermittelt werden,
+sowohl zum jetzigen Zeitpunkt als auch zu dem Zeitpunkt, zu dem der Historien-Eintrag angelegt wurde.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desiredInfo</strong> (<em>str</em>) – Der Name des Models, aus welchem die zusätzlichen Daten ermittelt werden sollen.
+Zulässige Werte: “Mitglied”, “Funktion”, “Unterbereich”, “Organisationseinheit”, “Recht”</p></li>
+<li><p><strong>queryType</strong> (<em>str</em>) – Gibt an, ob die aktuellen Daten oder die Daten zum Zeitpunkt des Eintrags in die Historie ermittelt werden sollen.
+Zulässige Werte: “latest”, “historical”</p></li>
+<li><p><strong>primaryKey</strong> (<em>int</em>) – Die ID des betroffenen Datensatzes, für welchen die Daten ermittelt werden sollen; z.B. die ID des Mitglieds.</p></li>
+<li><p><strong>timestamp</strong> (<em>datetime</em><em>, </em><em>&quot;semi-optional&quot;</em>) – Der Zeitstempel, zu welchem der Historien-Eintrag angelegt wurde. Wird nur benötigt, falls die Daten zum Zeitpunkt
+des Erstellens des Historien-Eintrags ermittelt werden sollen.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Eine Instanz des mittels <cite>desiredInfo</cite> angegebenen Models, welche sämtliche Daten des Objekts mit der ID <cite>primaryKey</cite> zum mittels
+<cite>queryType</cite> und ggf. <cite>timestamp</cite> angegebenen Zeitpunkt enthält.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="mitglieder">
+<h2>Mitglieder<a class="headerlink" href="#mitglieder" title="Permalink to this headline">¶</a></h2>
+<p>Die Django-Applikation “mitglieder” dient zur Verwaltung (Anzeigen, Erstellen, Löschen, Bearbeiten) von Mitgliedern des StuRas. Nutzer, bei denen es sich nicht um Admins handelt, sind dabei nur zum Einsehen der Mitgliederdaten befugt.</p>
+<p>Zu jedem Mitglied werden folgende Attribute gespeichert:</p>
+<ul class="simple">
+<li><p>Vorname</p></li>
+<li><p>Nachname</p></li>
+<li><p>Spitzname (optional)</p></li>
+<li><p>Ämter (optional)</p></li>
+<li><p>E-Mail-Adresse(n) (optional)</p></li>
+<li><p>Anschrift (optional)</p></li>
+<li><p>Telefonnummer(n) (optional)</p></li>
+</ul>
+<div class="section" id="id3">
+<h3>Abhängigkeiten<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="simplejson">
+<h4>simplejson<a class="headerlink" href="#simplejson" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Installation: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">simplejson</span></code></p></li>
+<li><p>Dokumentation: <a class="reference external" href="https://simplejson.readthedocs.io/en/latest/">https://simplejson.readthedocs.io/en/latest/</a></p></li>
+</ul>
+<p>simplejson ist ein En- und Decoder für JSON.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Views<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-mitglieder.views"></span><dl class="py function">
+<dt id="mitglieder.views.aemter_html_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_html_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Formular.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.aemter_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.amt_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">amt_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.amt_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der Ämter</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.bereiche_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">bereiche_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.bereiche_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.email_html_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_html_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Rendern des Formulars</p></li>
+<li><p>Erfassen der Anzahl der E-Mails eines Mitglieds</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.email_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">email_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.email_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Erfassen der Anzahl der E-Mails</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.erstellen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">erstellen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.erstellen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speichert ein neues Mitglied in der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in die Datenbank eingefügt.</p></li>
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.getValue">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entnehmen des Attributs</p></li>
+<li><p>Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Eine POST-Request.</p></li>
+<li><p><strong>attr</strong> – Das Attribut, das aus Request entnommen werden soll.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.main_screen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.main_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt eine Tabelle mit Migliedern an und ermöglicht die Suche nach Mitgliedern mit bestimmten Namen.
+Admins wird zusätzlich das Löschen von einem oder mehreren Mitgliedern sowie das Wechseln zur View zum Erstellen oder zum Bearbeiten ermöglicht.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die View holt sämtliche Mitglieder-Einträge aus der Datenbank und stellt diese als Kontext bereit.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können Mitglieder erstellen, bearbeiten und löschen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitgliedBearbeitenView">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedBearbeitenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedBearbeitenView" title="Permalink to this definition">¶</a></dt>
+<dd><p>View zum Bearbeiten eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Bereitstellung der Daten: Die View holt Attribute eines Mitglieds aus der Datenbank und zeigt diese an.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p></li>
+<li><p><strong>mitglied_id</strong> – Id des Mitglieds, das bearbeitet werden soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitgliedErstellenView">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitgliedErstellenView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitgliedErstellenView" title="Permalink to this definition">¶</a></dt>
+<dd><p>View zum Erstellen eines Mitglieds.</p>
+<p>Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.</p>
+<p>Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
+Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Zugriffsbeschränkung: Zugriff wird nur gewährt, wenn der Nutzer angemeldet UND Administrator ist.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Speichern des Mitglieds in der Datenbank</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die HTML-Request, welche den Aufruf der View ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Die gerenderte View.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitglied_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglied_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglied_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.mitglieder_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">mitglieder_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.mitglieder_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Löscht ausgewählte Mitglieder aus der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTTP Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.speichern">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">speichern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.speichern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speichert ein bearbeitetes Mitglied in der Datenbank.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Speichern der Daten: Die Daten werden aus request gelesen und in der Datenbank gespeichert. Ämter und E-Mails werden gespeichert, indem zunächst alle bereits vorhandenen Instanzen gelöscht werden
+und anschließend alle Ämter und E-Mails aus request gespeichert werden.</p></li>
+<li><p>Weiterleitung zur Mitgliederanischt.</p></li>
+<li><p>Rechteeinschränkung: Nur Admins können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Die POST-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält alle Daten zu einem Mitglied.</p></li>
+<li><p><strong>mitglied_id</strong> – Die Id des Mitglieds, das bearbeitet wurde.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Weiterleitung zur Mitgliederansicht.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.suchen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">suchen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.suchen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anzeige von Mitgliedern, deren Namen auf die Sucheingabe passen.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Die Sucheingabe wird in mehrere Suchbegriffe unterteilt. Bei allen Mitgliedern der Datenbank wird überprüft, ob sie mindestens einen der Suchbegriffe
+im Vor- oder Nachnamen als Substring enthalten. Diese Mitglieder werden angezeigt und nach der Anzahl der Suchbegriffe, die auf den Vor- oder Nachnamen passen, sortiert.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können die Funktion auslösen.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Sucheingabe.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Templates mit den gefunden Mitgliedern.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>Templates<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Alle Templates sind unter <cite>mitglieder/templates/mitglieder</cite> zu finden.</p>
+<div class="section" id="aemter-html">
+<h4>aemter.html<a class="headerlink" href="#aemter-html" title="Permalink to this headline">¶</a></h4>
+<p>Enthält die Felder für den Kandidaturzeitraum und Dropdowns für Attribute eines Amts. Initial wird neben den Textfeldern nur das Dropwdown für ein Referat angezeigt. Die restlichen Dropdowns werden über die Auswahl eines Referats bzw. Bereichs angezeigt.</p>
+</div>
+<div class="section" id="amt-dropdown-list-options-html">
+<h4>amt_dropdown_list_options.html<a class="headerlink" href="#amt-dropdown-list-options-html" title="Permalink to this headline">¶</a></h4>
+<p>Dropdown zur Auswahl eines Amts. Die angezeigten Auswahlmöglichkeiten hängen vom gewählten Bereich ab.</p>
+</div>
+<div class="section" id="bereich-dropdown-list-options-html">
+<h4>bereich_dropdown_list_options.html<a class="headerlink" href="#bereich-dropdown-list-options-html" title="Permalink to this headline">¶</a></h4>
+<p>Dropdown zur Auswahl eines Bereichs. Die angezeigten Auswahlmöglichkeiten hängen vom gewählten Referat ab.</p>
+</div>
+<div class="section" id="email-html">
+<h4>email.html<a class="headerlink" href="#email-html" title="Permalink to this headline">¶</a></h4>
+<p>Enthält ein Textfeld zur Eingabe einer E-Mail-Adresse sowie einen Löschbutton zum Entfernen der jeweiligen E-Mail-Adresse.</p>
+</div>
+<div class="section" id="email-input-html">
+<h4>email_input.html<a class="headerlink" href="#email-input-html" title="Permalink to this headline">¶</a></h4>
+<p>Enthält 0 bis n Kopien von <cite>email.html</cite> sowie einen Button, um genau eine weitere Kopie hinzuzufügen.</p>
+</div>
+<div class="section" id="mitglieder-html">
+<h4>mitglieder.html<a class="headerlink" href="#mitglieder-html" title="Permalink to this headline">¶</a></h4>
+<p>Ansicht mit allen Mitgliedern, welche über eine Tabelle angezeigt werden. Über das Anklicken einer Zeile wird ein Modal mit allen Daten eines Mitglieds angezeigt.
+Auch die Suche nach Mitgliedsnamen, das Löschen von Mitgliedern und das Wechseln zur <cite>mitgliedErstellenView</cite> kann hier durchgeführt werden.</p>
+</div>
+<div class="section" id="mitglied-erstellen-bearbeiten-html">
+<h4>mitglied_erstellen_bearbeiten.html<a class="headerlink" href="#mitglied-erstellen-bearbeiten-html" title="Permalink to this headline">¶</a></h4>
+<p>Ermöglicht die Eingabe aller Attribute eines bereits existierenden oder neuen Mitglieds.</p>
+</div>
+<div class="section" id="modal-html">
+<h4>modal.html<a class="headerlink" href="#modal-html" title="Permalink to this headline">¶</a></h4>
+<p>Ein Modal, das alle Attribute eines Mitglieds mit einer bestimmten Id anzeigt.</p>
+</div>
+<div class="section" id="id6">
+<h4>row.html<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Eine Tabellenzeile, um Name, Vorname, Ämter, E-Mail-Adressen und die Telefonnummer eines Mitglieds anzuzeigen. Admins wird hier zusätzlich eine Checkbox und ein Button zum Bearbeiten des Mitglieds angezeigt.
+Wird von <cite>mitglieder.html</cite> inkludiert.</p>
+</div>
+</div>
+</div>
+<div class="section" id="importscripts">
+<h2>Importscripts<a class="headerlink" href="#importscripts" title="Permalink to this headline">¶</a></h2>
+<p>You can use the following script/scripts to import some date in your <em>db.sqlite3</em>
+Tese script/scripts are used in the funktional tests.</p>
+<div class="section" id="how-to-use">
+<h3>How to use:<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Change to the directory <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">importscrips</span></code> and execute <em>main.py</em> <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./main.py</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="csv-data">
+<h3>CSV Data:<a class="headerlink" href="#csv-data" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>ReferateUnterbereicheAemter.csv</dt><dd><ul>
+<li><p>contains basic data for the tables: “Organisationseinheit, Unterbereich und Funktion”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="functions">
+<h3>Functions:<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="py function">
+<dt>
+<code class="sig-prename descclassname">importscripts.main.</code><code class="sig-name descname">importAemter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span></dt>
+<dd><p><strong>!WARNING!</strong>
+This function clears following Tables in your Database:</p>
+<ul class="simple">
+<li><p>Organisationseinheit</p></li>
+<li><p>Unterbereich</p></li>
+<li><p>Funktion</p></li>
+</ul>
+<p>To use this funktion you need to have a file.csv with folowing structure:</p>
+<ul class="simple">
+<li><p>delimiter = ‘,’</p></li>
+<li><p>organisationseinheit,unterbereich,funktion,max_members</p></li>
+<li><p>First line is a heading and will not be imported</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>TextIO</em>) – File, that contains the data which had to be importet</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>This section contains the description of the functional UI test created with the selenium testframework. The Pagination
+and the Module historie are passively testet in the other Tests.</p>
+<div class="section" id="sources">
+<h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://django-testing-docs.readthedocs.io/en/latest/index.html">django-testing-docs</a></p></li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="selenium">
+<h4>selenium<a class="headerlink" href="#selenium" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Installation: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">selenium</span></code></p></li>
+<li><p>Documentation: <a class="reference external" href="https://www.selenium.dev/documentation/en/">www.selenium.dev</a></p></li>
+</ul>
+</div>
+<div class="section" id="webdriver-for-firefox">
+<h4>Webdriver for Firefox<a class="headerlink" href="#webdriver-for-firefox" title="Permalink to this headline">¶</a></h4>
+<p>Link to Mozilla’s site of the Gecko-Webdriver <a class="reference external" href="https://github.com/mozilla/geckodriver">geckodriver</a>.</p>
+</div>
+</div>
+<div class="section" id="mytestcase">
+<h3>MyTestCase<a class="headerlink" href="#mytestcase" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.MyTestCase.</code><code class="sig-name descname">MyTestCase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown funktions are specified here.
+The following Testcases inherit from this class.</p>
+<p>All Testcases Inherit from this class are testing the User Interface.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This Funktion is called before every testcase.</p>
+<p>It setup the webdriver and create 1 admin and 1 user.
+You can adjust the webdriver by changing the <em>options</em> parameter.
+The Importscripts from the folder <em>importscripts</em> are also called here.</p>
+<p>The Webdriver Instance is stored in <strong>self.browser</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This Funktion is called after every testcase.</p>
+<p>The Webdriver Instance that is stored in <strong>self.browser</strong> will be closed.
+:param self:
+:type self:
+:return: No return Value</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="helper-functions">
+<h3>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncLogin.</code><code class="sig-name descname">loginAsLukasAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Opens a Browser instance and login as admin with the account testlukasadmin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncLogin.</code><code class="sig-name descname">loginAsLukasUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Opens a Browser instance and login as user with the account testlukas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitglied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
+You need to be on the “mitglieder/” site to call this funktion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitgliedWithParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">vorname</span></em>, <em class="sig-param"><span class="n">nachname</span></em>, <em class="sig-param"><span class="n">spitzname</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
+You can change firstname, lastname and username.
+You need to be on the “mitglieder/” site to call this funktion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>vorname</strong> (<em>string</em>) – Firstname of the Member, that you want to create.</p></li>
+<li><p><strong>nachname</strong> (<em>string</em>) – Lastname of the Member, that you want to create.</p></li>
+<li><p><strong>spitzname</strong> (<em>string</em>) – Username of the Member, that you want to create.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createAmt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em>, <em class="sig-param"><span class="n">funktion</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Amtes über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem das Funktion zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Unterbereich des Referats</p></li>
+<li><p><strong>funktion</strong> (<em>string</em>) – Angabe des Namens, der das neue Funktion erhalten soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createReferat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Referates über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Name, wie das neue Organisationseinheit heißen soll</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-prename descclassname">tests.MyFuncAemter.</code><code class="sig-name descname">createUnterbereich</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">organisationseinheit</span></em>, <em class="sig-param"><span class="n">unterbereich</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Erstellen eines Unterbereiches über die GUI, benötigt ist ein login als AdminPanel
+Ausgang ist, dass der User Angemeldet ist und sich in der Mitglieder sicht
+befindet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – </p></li>
+<li><p><strong>organisationseinheit</strong> (<em>string</em>) – Organisationseinheit, dem der Unterbereich zugeordnet werden soll</p></li>
+<li><p><strong>unterbereich</strong> (<em>string</em>) – Name des Unterbereichs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>No return Value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="login-module-tests">
+<h3>Login Module Tests<a class="headerlink" href="#login-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “login” module.</p>
+<div class="section" id="testcase-001">
+<h4>Testcase 001<a class="headerlink" href="#testcase-001" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_001_admin.</code><code class="sig-name descname">TestAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Functions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_login_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can login as Admin and all sites are correct displayed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="testcase-002">
+<h4>Testcase 002<a class="headerlink" href="#testcase-002" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_002_user.</code><code class="sig-name descname">TestUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_login_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can login as User and all sites are correct displayed.
+But that you can not reach Admin-only content.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="mitglieder-module-tests">
+<h3>Mitglieder Module Tests<a class="headerlink" href="#mitglieder-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “mitglieder” module.</p>
+<div class="section" id="testcase-003">
+<h4>Testcase 003<a class="headerlink" href="#testcase-003" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>TODO: under Construction</p>
+</div></blockquote>
+</div>
+<div class="section" id="testcase-004">
+<h4>Testcase 004<a class="headerlink" href="#testcase-004" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_004_mitgliedHinzufuegen.</code><code class="sig-name descname">TestMitgliedHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1MitgliedHinzufügen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a new Member as Admin and if the
+Member is correct displayed in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_50MitgliederHinzufügen_AsSuperuser_lookAsUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a complex “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a multiple new Members (50) as Admin and if the
+Member is correct displayed in the table.
+We also want to check if the Pagination is working correctly.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member (as loop)</p></li>
+<li><p>check Pagination</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="testcase-005">
+<h4>Testcase 005<a class="headerlink" href="#testcase-005" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_005_mitgliedEntfernen.</code><code class="sig-name descname">TestMitgliedEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1MitgliedEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can delete a new Member as Admin and if the
+Member is correct deleted in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+<li><p>delete Member</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="testcase-006">
+<h4>Testcase 006<a class="headerlink" href="#testcase-006" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_006_mitgliedAendern.</code><code class="sig-name descname">TestMitgliedAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1MitgliedAendern_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change information of a Member as Admin and if the
+Member is correct changed in the table.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a Member</p></li>
+<li><p>change Member Data</p></li>
+<li><p>check if everything is correct displayed</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="aemter-module-tests">
+<h3>Aemter Module Tests<a class="headerlink" href="#aemter-module-tests" title="Permalink to this headline">¶</a></h3>
+<p>The System under test (SUT) is the “aemter” module.</p>
+<div class="section" id="testcase-007">
+<h4>Testcase 007<a class="headerlink" href="#testcase-007" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_007_aemtHinzufuegen.</code><code class="sig-name descname">TestAemtHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1FunktionHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a funktion as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a funktion</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1OrganisationseinheitHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a “organisationseingeit” as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a “organisationseinheit”</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1UnterbereichHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a “unterbereich” as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a “unterbereich”</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a complex “positive” Systemtest as Blackboxtest.
+Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.
+We also check if we can a new Member with the new data and if everything is displayed correctly
+in “/aemter/”.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a “organisationseinheit”</p></li>
+<li><p>add a “unterbereich”</p></li>
+<li><p>add a funktion</p></li>
+<li><p>create a Member</p></li>
+<li><p>navigate to aemteruebersicht “/aemter/”</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="testcase-008">
+<h4>Testcase 008<a class="headerlink" href="#testcase-008" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_008_aemtEntfernen.</code><code class="sig-name descname">TestAemtEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1AemtEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can delete a funktion as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a funktion</p></li>
+<li><p>delete the funktion</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1ReferatEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can delete a “organisationseingeit” as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a “organisationseinheit”</p></li>
+<li><p>delete the “organisationseinheit”</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1UnterbereichEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can delete a “unterbereich” as Admin.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>add a “unterbereich”</p></li>
+<li><p>delete the “unterbereich”</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="testcase-009">
+<h4>Testcase 009<a class="headerlink" href="#testcase-009" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">tests.test_009_aemtAendern.</code><code class="sig-name descname">TestAemtAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Setup and Teardown Funktions are specified in
+MyTestCase</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1AmtBezeichnungAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change information of a funktion as Admin.
+We change the name of the funktion by appending a “_1”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1AmtReferatAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change the “organisationseinheit” of a funktion as Admin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1AmtWorkloadAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change the workload of a funktion as Admin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1OrganisationseinheitBezeichnungAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change information of a “organisationseinheit” as Admin.
+We change the name of the “organisationseinheit” by appending a “_1”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1UnterbereichBezeichnungAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change information of a “unterbereich” as Admin.
+We change the name of the “unterbereich” by appending a “_1”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_1UnterbereichReferatAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This is a “positive” Systemtest as Blackboxtest.
+Here we want to check if you can change the “organisationseinheit” of a “unterbereich” as Admin.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="latest-test-coverage-report">
+<h3>Latest test coverage report<a class="headerlink" href="#latest-test-coverage-report" title="Permalink to this headline">¶</a></h3>
+<p>Commands to generate a coverage report:</p>
+<blockquote>
+<div><blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">coverage</span> <span class="pre">run</span> <span class="pre">--source=aemter,bin,checklisten,historie,login,mitglieder,tests</span> <span class="pre">--omit=*/migrations/*</span> <span class="pre">./manage.py</span> <span class="pre">test</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">coverage</span> <span class="pre">report</span></code></div>
+</div>
+</div></blockquote>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">coverage report</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Name                                           Stmts   Miss  Cover
+------------------------------------------------------------------
+aemter/__init__.py                                 <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/admin.py                                   <span class="m">26</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/apps.py                                     <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/models.py                                  <span class="m">35</span>      <span class="m">2</span>    <span class="m">94</span>%
+aemter/tests/__init__.py                           <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/tests/test_apps.py                          <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/tests/test_models.py                       <span class="m">17</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/tests/test_urls.py                          <span class="m">8</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/tests/test_views.py                        <span class="m">24</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/urls.py                                     <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+aemter/views.py                                   <span class="m">22</span>      <span class="m">0</span>   <span class="m">100</span>%
+bin/__init__.py                                    <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+bin/asgi.py                                        <span class="m">4</span>      <span class="m">4</span>     <span class="m">0</span>%
+bin/settings.py                                   <span class="m">19</span>      <span class="m">0</span>   <span class="m">100</span>%
+bin/urls.py                                        <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+bin/wsgi.py                                        <span class="m">4</span>      <span class="m">4</span>     <span class="m">0</span>%
+checklisten/__init__.py                            <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/admin.py                               <span class="m">1</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/apps.py                                <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/models.py                             <span class="m">10</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/tests/__init__.py                      <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/tests/test_apps.py                     <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/urls.py                                <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+checklisten/views.py                               <span class="m">8</span>      <span class="m">5</span>    <span class="m">38</span>%
+historie/__init__.py                               <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/apps.py                                   <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/models.py                                 <span class="m">4</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/templatetags/__init__.py                  <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/templatetags/get_associated_data.py      <span class="m">25</span>     <span class="m">19</span>    <span class="m">24</span>%
+historie/templatetags/to_class_name.py             <span class="m">5</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/tests/__init__.py                         <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/tests/test_apps.py                        <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/tests/test_urls.py                        <span class="m">8</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/tests/test_views.py                      <span class="m">22</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/urls.py                                   <span class="m">4</span>      <span class="m">0</span>   <span class="m">100</span>%
+historie/views.py                                <span class="m">101</span>     <span class="m">54</span>    <span class="m">47</span>%
+login/__init__.py                                  <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/apps.py                                      <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/tests/__init__.py                            <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/tests/test_apps.py                           <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/tests/test_urls.py                          <span class="m">11</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/tests/test_views.py                         <span class="m">35</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/urls.py                                      <span class="m">4</span>      <span class="m">0</span>   <span class="m">100</span>%
+login/views.py                                    <span class="m">27</span>      <span class="m">2</span>    <span class="m">93</span>%
+mitglieder/__init__.py                             <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/admin.py                                <span class="m">2</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/apps.py                                 <span class="m">3</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/models.py                              <span class="m">42</span>      <span class="m">1</span>    <span class="m">98</span>%
+mitglieder/tests/__init__.py                       <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/tests/test_apps.py                      <span class="m">7</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/tests/test_models.py                   <span class="m">17</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/tests/test_urls.py                     <span class="m">47</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/tests/test_views.py                    <span class="m">51</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/urls.py                                 <span class="m">4</span>      <span class="m">0</span>   <span class="m">100</span>%
+mitglieder/views.py                              <span class="m">205</span>     <span class="m">66</span>    <span class="m">68</span>%
+tests/MyFuncAemter.py                             <span class="m">34</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/MyFuncLogin.py                              <span class="m">33</span>      <span class="m">8</span>    <span class="m">76</span>%
+tests/MyFuncMitglieder.py                        <span class="m">103</span>     <span class="m">14</span>    <span class="m">86</span>%
+tests/MyTestCase.py                               <span class="m">31</span>      <span class="m">4</span>    <span class="m">87</span>%
+tests/__init__.py                                  <span class="m">0</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_001_admin.py                            <span class="m">6</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_002_user.py                             <span class="m">6</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_003_multiuser.py                        <span class="m">1</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_004_mitgliedHinzufuegen.py             <span class="m">38</span>      <span class="m">4</span>    <span class="m">89</span>%
+tests/test_005_mitgliedEntfernen.py               <span class="m">13</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_006_mitgliedAendern.py                 <span class="m">13</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_007_aemtHinzufuegen.py                 <span class="m">63</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_008_aemtEntfernen.py                   <span class="m">47</span>      <span class="m">0</span>   <span class="m">100</span>%
+tests/test_009_aemtAendern.py                     <span class="m">92</span>      <span class="m">0</span>   <span class="m">100</span>%
+------------------------------------------------------------------
+TOTAL                                           <span class="m">1339</span>    <span class="m">187</span>    <span class="m">86</span>%
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="masterDeveloperDoc.html" class="btn btn-neutral float-left" title="Developer Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Team T8
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

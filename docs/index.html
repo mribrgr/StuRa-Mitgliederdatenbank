@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -34,9 +29,13 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Ämter" href="aemter.html" /> 
+    <link rel="next" title="User Documentation" href="masterUserDoc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
+            <a href="#" class="icon icon-home"> StuRa - Mitgliederdatenbank
           
 
           
@@ -73,7 +72,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -83,16 +81,14 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="aemter.html">Ämter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mitglieder.html">Mitglieder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterDeveloperDoc.html">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterCodeDoc.html">Code Documentation</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -131,7 +127,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="#">Docs</a> &raquo;</li>
         
       <li>Welcome to StuRa - Mitgliederdatenbank’s documentation!</li>
     
@@ -163,81 +159,58 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="aemter.html">Ämter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aemter.html#module-aemter.models">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aemter.html#module-aemter.views">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aemter.html#templates">Templates</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aemter.html#main-screen-html">main_screen.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aemter.html#department-row-html">department_row.html</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterDeveloperDoc.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="masterDeveloperDoc.html#introduction-developement">Introduction Developement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#clone-the-git-repository-install-the-requirements-and-fire-up-the-webserver-for-developement">Clone the Git-Repository, install the requirements and fire up the Webserver for developement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="masterDeveloperDoc.html#deployment">Deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#sources">Sources:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#basic-configuration">Basic configuration:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#adjust-django-project-settings">Adjust Django Project Settings:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#configure-apache2">Configure Apache2:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterDeveloperDoc.html#solve-some-permission-issues">Solve some Permission Issues:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="historie.html">Historie</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="historie.html#abhangigkeiten">Abhängigkeiten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#django-simple-history">django-simple-history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masterCodeDoc.html">Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="masterCodeDoc.html#amter">Ämter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#module-aemter.models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#module-aemter.views">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#templates">Templates</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.views">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="historie.html#templates">Templates</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#list-html">list.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#tabs">tabs/*</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#tabs-pagination-html">tabs/_pagination.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#row-html">row.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#rowcontent-html">rowContent.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#titlebuilder-html">_titleBuilder.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#noresultsrow-html">_noResultsRow.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#modaldataincludes-html">_modalDataIncludes.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="historie.html#modaldata">modalData/*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masterCodeDoc.html#historie">Historie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#abhangigkeiten">Abhängigkeiten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#id1">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#id2">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#module-historie.templatetags.to_class_name">Template Tags</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="historie.html#module-historie.templatetags.to_class_name">Template Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masterCodeDoc.html#mitglieder">Mitglieder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#id3">Abhängigkeiten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#id4">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#id5">Templates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mitglieder.html">Mitglieder</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#abhangigkeiten">Abhängigkeiten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#simplejson">simplejson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masterCodeDoc.html#importscripts">Importscripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#how-to-use">How to use:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#csv-data">CSV Data:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#functions">Functions:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#module-mitglieder.views">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mitglieder.html#templates">Templates</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#aemter-html">aemter.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#amt-dropdown-list-options-html">amt_dropdown_list_options.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#bereich-dropdown-list-options-html">bereich_dropdown_list_options.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#email-html">email.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#email-input-html">email_input.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglieder-html">mitglieder.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#mitglied-erstellen-bearbeiten-html">mitglied_erstellen_bearbeiten.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#modal-html">modal.html</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mitglieder.html#row-html">row.html</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#abhangigkeiten">Abhängigkeiten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#selenium">selenium</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#einen-funktionierenden-webdriver">einen funktionierenden Webdriver</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.MyTestCase">MyTestCase</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_001_admin">Testfall 001</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_002_user">Testfall 002</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#tests-zu-mitglieder">Tests zu Mitglieder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.MyFuncMitglieder">MyFuncMitglieder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_003_multiuser">Testfall 003</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_004_mitgliedHinzufuegen">Testfall 004</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_005_mitgliedEntfernen">Testfall 005</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_006_mitgliedAendern">Testfall 006</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#tests-zu-aemter">Tests zu Aemter</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.MyFuncAemter">MyFuncAemter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_007_aemtHinzufuegen">Testfall 007</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.test_008_aemtEntfernen">Testfall 008</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#testfall-009">Testfall 009</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masterCodeDoc.html#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#sources">Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#mytestcase">MyTestCase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#helper-functions">Helper Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#login-module-tests">Login Module Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#mitglieder-module-tests">Mitglieder Module Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#aemter-module-tests">Aemter Module Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masterCodeDoc.html#latest-test-coverage-report">Latest test coverage report</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +228,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aemter.html" class="btn btn-neutral float-right" title="Ämter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="masterUserDoc.html" class="btn btn-neutral float-right" title="User Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -265,19 +238,11 @@
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, Team T8
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -288,6 +253,7 @@
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

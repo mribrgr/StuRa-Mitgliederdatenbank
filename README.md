@@ -5,9 +5,14 @@
 ![doc_sphinx](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/doc_sphinx/badge.svg)
 ![doc_projectbericht](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/doc_projectbericht/badge.svg)
 
-## Documentation
+## Dokumentation
 
-[https://mribrgr.github.io/StuRa-Mitgliederdatenbank/](https://mribrgr.github.io/StuRa-Mitgliederdatenbank/)
+[Website der Dokumentation](https://mribrgr.github.io/StuRa-Mitgliederdatenbank/)
+
+- [Anforderungsanalyse](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/tree/master/docs/anforderung)
+- [Projektbericht](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/tree/master/docs/projektbericht)
+- [Dokumentation](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/tree/master/docs/sphinx)
+
 
 ## Nützliches
 

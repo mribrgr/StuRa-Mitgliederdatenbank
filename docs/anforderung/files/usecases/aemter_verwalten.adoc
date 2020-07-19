@@ -16,7 +16,7 @@ Mitglied der internen Verwaltung ist eingeloggt
 
 ==== Funktion hinzufügen
 . Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein Funktion hinzufügen möchte
-. Eingabe der Daten
+. Eingabe der funktionsspezifischen Daten
 . Bestätigung
 . Der Use Case ist abgeschlossen.
 

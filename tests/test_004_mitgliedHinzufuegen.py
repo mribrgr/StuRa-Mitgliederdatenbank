@@ -10,15 +10,23 @@ from tests.MyFuncAemter import createAmt
 
 class TestMitgliedHinzufuegen(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
     # Tests
     def test_1MitgliedHinzufügen_AsSuperuser(self):
         """
-            Hier wird getestet, ob man als Admin ein Mitglied Hinzufügen kann.
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a new Member as Admin and if the
+            Member is displayed correctly in the table.
+
+            Steps:
+
+            * login as Admin
+            * add a Member
         """
+
         # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)
@@ -26,8 +34,18 @@ class TestMitgliedHinzufuegen(MyTestCase):
 
     def test_50MitgliederHinzufügen_AsSuperuser_lookAsUser(self):
         """
-            Hier wird getestet, ob man als Admin 50 Mitglieder Hinzufügen kann und ob die Pagination Funktioniert.
+            This is a complex "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can add a multiple new Members (50) as Admin and if the
+            Member is displayed correctly in the table.
+            We also want to check if the Pagination is working correctly.
+
+            Steps:
+
+            * login as Admin
+            * add a Member (as loop)
+            * check Pagination
         """
+
         # Login as Admin
         loginAsLukasAdmin(self)
 
