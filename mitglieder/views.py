@@ -203,6 +203,7 @@ def aemter_html_laden(request):
 
 # Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
+    print("wurde aufgerufen")
     """
     Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
 
@@ -320,8 +321,6 @@ def erstellen(request):
                 amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
             else: 
                 amtszeit_ende = None
-            print(request.POST['beginn_kandidatur'+str(i)])
-            print(request.POST['ende_kandidatur'+str(i)])
 
             # Check Max Members
             if funktion.max_members != (0 or None):
@@ -330,12 +329,7 @@ def erstellen(request):
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
                     return mitgliedBearbeitenView(request, mitglied.id)
 
-            prev_mitglieder = MitgliedAmt.objects.filter(funktion=funktion)
-            if prev_mitglieder:
-                amtszeit_count = prev_mitglieder.order_by('-amtszeit_count')[0] + 1
-            else:
-                amtszeit_count = 1
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende, amtszeit_count=amtszeit_count)
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))

@@ -34,7 +34,7 @@
         <br />
         <div id="div_aemter">
           <!-- derzeite Ämter -->
-        {% if curr_funktionen %}
+        {% if mitglied %}
           {% for mitgliedamt in curr_funktionen %}
           {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
@@ -132,6 +132,18 @@
   </div>
 </div>
 </form>
+
+<!-- Modal für Löschbestätigung von Ämtern-->
+<div id="modal-delete-amt" class="modal">
+  <div class="modal-content">
+    <h4>Hinweis</h4>
+    <p id="bestaetigungsfrage">Die Löschfunktion dient nur zum Entfernen fehlerhaft gespeicherter Funktionen und entfernt diese endgülitg.<br>Fortfahren?</p>
+  </div>
+  <div class="modal-footer">
+    <a id="delamtconfirm" data-url="{% url 'mitglieder:amt_loeschen' %}" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+    <a class="left modal-action modal-close waves-effect waves-red btn-flat ">Abbrechen</a>
+  </div>
+</div>
 
 <style>
   a.space{
@@ -351,8 +363,28 @@
 
     // Amt loeschen Button
     $(document).on("click", '.amtdelbtn', function(){
-      var url = $("#" + this.id).attr("data-url");
       amtid = this.id.substr(10);
+      // pruefen, ob Funktion bereits in DB gespeichert wurde, wenn ja Modal oeffnen
+      var saved = parseInt($("#" + this.id).attr("data-saved"));
+      if (saved==1){
+        //Modal oeffnen 
+        var modal = $("#modal-delete-amt");
+        var instance = M.Modal.getInstance(modal);
+        $("#delamtconfirm").attr("data-amtid", amtid);
+        instance.open();
+      } else {
+        amt_loeschen(amtid);
+      }
+    });
+
+    // Loeschen im Modal bestaetigt
+    $('#delamtconfirm').click(function(){
+      var amtid = $('#delamtconfirm').attr("data-amtid");
+      amt_loeschen(amtid);
+    });
+
+    function amt_loeschen(amtid){
+      var url = "{% url 'mitglieder:amt_loeschen' %}";
       $("#funktion" + amtid).remove();
 
       // Veraendern von ids, for- und label-Attributen
@@ -380,7 +412,7 @@
       $.ajax({
           url: url,
       });
-    });
+    };
 
     // E-Mail loeschen
     $(document).on("click", '.emaildelbtn', function(){
@@ -427,6 +459,9 @@
         });
   }
 
+  // Initialisieren des Modals
+  var elems = document.querySelectorAll('.modal');
+  var instance = M.Modal.init(elems, {dismissible: true});
 </script>
 
 

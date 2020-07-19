@@ -1,4 +1,4 @@
-<div id="funktion{{amtid}}" >
+<div id="funktion{{amtid}}">
 <div class="row">
     <div id="div_selectreferat{{amtid}}" class="input-field col s10 m8 l4">
       <!-- Organisationseinheit -->
@@ -19,7 +19,7 @@
 
     <!-- Loeschbutton klein -->
     <div class="col s2 hide-on-large-only" style="padding-top: 16px">
-      <a  id="amtdelbtns{{amtid}}" data-url="{% url 'mitglieder:amt_loeschen' %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="amtdelbtns{{amtid}}" data-saved="{% if funktion %}1{% else %}0{% endif %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
 
     <!-- Amt -->
@@ -31,7 +31,7 @@
 
     <!-- Loeschbutton klein -->
     <div class="col l1 hide-on-med-and-down" style="padding-top: 16px">
-      <a  id="amtdelbtnl{{amtid}}" data-url="{% url 'mitglieder:amt_loeschen' %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
+      <a  id="amtdelbtnl{{amtid}}" data-saved="{% if funktion %}1{% else %}0{% endif %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
   </div>
     <div class="row">
