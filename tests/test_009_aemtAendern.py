@@ -6,7 +6,7 @@ from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtAendern(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 

@@ -13,15 +13,15 @@ class MyTestCase(StaticLiveServerTestCase):
         Setup and Teardown funktions are specified here.
         The following Testcases inherit from this class.
 
-        All Testcases Inherit from this class are testing the User Interface.
+        All testcases inheriting from this class are testing the User Interface.
     """
     # befor every test funktion
 
     def setUp(self):
         """
-            This Funktion is called before every testcase.
+            This function is called before every testcase.
 
-            It setup the webdriver and create 1 admin and 1 user.
+            It sets up the webdriver and creates 1 admin and 1 user.
             You can adjust the webdriver by changing the *options* parameter.
             The Importscripts from the folder *importscripts* are also called here.
 
@@ -78,7 +78,7 @@ class MyTestCase(StaticLiveServerTestCase):
     # after every test funktion
     def tearDown(self):
         """
-            This Funktion is called after every testcase.
+            This function is called after every testcase.
 
             The Webdriver Instance that is stored in **self.browser** will be closed.
             :param self:

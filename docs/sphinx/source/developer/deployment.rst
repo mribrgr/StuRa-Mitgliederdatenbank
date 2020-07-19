@@ -2,7 +2,7 @@ Deployment
 ----------
 
 This section contains a step-by-step guidance how to deploy this software.
-It`s based on an deployment of Django with Apache2 and mod_wsgi on a raspberry pi 4.
+It`s based on a deployment of Django with Apache2 and mod_wsgi on a raspberry pi 4.
 
 Sources:
 ~~~~~~~~
@@ -33,7 +33,7 @@ You also need to install virtualenv, to seperate Python from your system's pytho
   ``sudo pip install virtualenv``
 
 Now we need to clone the Git-Repository and setup the virtualenv for Python.
-First you need to change in the directory where you want to clone this Webapplication.
+First you need to change to the directory that you want to clone this web application to.
 Then:
 
   ``git clone https://github.com/mribrgr/StuRa-Mitgliederdatenbank.git``
@@ -44,7 +44,7 @@ Now create a virtual environment and activate it.
   ``virtualenv venv``
   ``source venv/bin/activate``
 
-If you successfully activatet your virtual ennvironement than your Promt should
+If you have successfully activated your virtual ennvironment than your prompt should
 look something like this ``(venv) user@host:StuRa-Mitgliederdatenbank``. The last
 step is to install the requirements.txt in the virtual environement.
 
@@ -54,7 +54,7 @@ Adjust Django Project Settings:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First we need to configure ``StuRa-Mitgliederdatenbank/bin/settings.py``:
-We opening the file first (based on the previous chapter)
+We open the file first (based on the previous chapter)
 
   ``nano bin/settings.py``
 
@@ -82,11 +82,11 @@ Configure Apache2:
 ~~~~~~~~~~~~~~~~~~
 
 To enable Apache2 as front end we need to configure WSGI pass.
-To archive this we need to edit the default virtual host file:
+To achieve this we need to edit the default virtual host file:
 
   ``sudo nano /etc/apache2/sites-available/000-default.conf``
 
-We can keep everything what is present in this file and add our config above
+We can keep everything that is present in this file and add our config above
 the last ``</VirtualHost>`` tag. What we first specify is the static directory
 and the path to the wsgi.py.
 (In this Example I have cloned the directory in ~/StuRa-Mitgliederdatenbank)
@@ -142,7 +142,7 @@ Solve some Permission Issues:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to change the permissions of the database, so that group owner
-can read and write. Then we need to give some files the ownership to Apache2
+can read and write. Then we need to the ownership of some files to Apache2
 group and user ``www-data``.
 
   | ``chmod 664 ~/StuRa-Mitgliederdatenbank/db.sqlite3``

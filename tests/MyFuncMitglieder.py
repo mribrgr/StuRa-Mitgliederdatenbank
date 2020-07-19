@@ -5,7 +5,7 @@ from django.urls import reverse
 def addMitglied(self):
     """
         Add a member with default parameters over the "mitglieder/erstellen" view.
-        You need to be on the "mitglieder/" site to call this funktion.
+        You need to be on the "mitglieder/" site to call this function.
 
         :param self:
         :type self:
@@ -104,7 +104,7 @@ def addMitgliedWithParameters(self,
     """
         Add a member with default parameters over the "mitglieder/erstellen" view.
         You can change firstname, lastname and username.
-        You need to be on the "mitglieder/" site to call this funktion.
+        You need to be on the "mitglieder/" site to call this function.
 
         :param self:
         :type self:

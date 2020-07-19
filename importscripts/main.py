@@ -18,14 +18,14 @@ def importAemter(file):
         * Unterbereich
         * Funktion
 
-        To use this funktion you need to have a file.csv with folowing structure:
+        To use this function you need to have a file.csv with following structure:
 
         * delimiter = ','
         * organisationseinheit,unterbereich,funktion,max_members
         * First line is a heading and will not be imported
 
 
-        :param file: File, that contains the data which had to be importet
+        :param file: File containing the data to be imported
         :type file: TextIO
         :return: No return Value
     """

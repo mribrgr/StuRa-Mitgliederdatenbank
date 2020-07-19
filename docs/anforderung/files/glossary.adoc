@@ -48,6 +48,6 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |===
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
-|Mitgliedsdaten |Zusammensetung von Name, Vorname, Legislatur(Funktion), Adresse |classe | belegte Funktion muss vorhanden sein |xx
-|Daten (funktionsspezifisch) |Referenzierung der Organisationseinheit und des Unterbereiches, der die Funktion untergeordnet ist. Zusammensetung von Bezeichnung, Workload, Maximalmitgliedern |classe |xx |xx
+|Mitgliedsdaten |Zusammensetung von Name, Vorname, Legislatur(Funktion), Adresse |Klasse | belegte Funktion muss vorhanden sein |xx
+|Daten (funktionsspezifisch) |Referenzierung der Organisationseinheit und des Unterbereiches, der die Funktion untergeordnet ist. Zusammensetung von Bezeichnung, Workload, Maximalmitgliedern |Klasse |xx |xx
 |===

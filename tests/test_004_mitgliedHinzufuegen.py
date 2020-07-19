@@ -10,7 +10,7 @@ from tests.MyFuncAemter import createAmt
 
 class TestMitgliedHinzufuegen(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
@@ -19,7 +19,7 @@ class TestMitgliedHinzufuegen(MyTestCase):
         """
             This is a "positive" Systemtest as Blackboxtest.
             Here we want to check if you can add a new Member as Admin and if the
-            Member is correct displayed in the table.
+            Member is displayed correctly in the table.
 
             Steps:
 
@@ -36,7 +36,7 @@ class TestMitgliedHinzufuegen(MyTestCase):
         """
             This is a complex "positive" Systemtest as Blackboxtest.
             Here we want to check if you can add a multiple new Members (50) as Admin and if the
-            Member is correct displayed in the table.
+            Member is displayed correctly in the table.
             We also want to check if the Pagination is working correctly.
 
             Steps:

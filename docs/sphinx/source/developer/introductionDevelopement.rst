@@ -1,7 +1,7 @@
-Introduction Developement
+Introduction Development
 -------------------------
 
-This and the folowing sections deal with developement specific themes.
+This and the following sections deal with development specific topics.
 
 Clone the Git-Repository, install the requirements and fire up the Webserver for developement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,7 +22,7 @@ Next we change the directory to the pulled Git-Repository with:
     ``cd StuRa-Mitgliederdatenbank/``
 
 Now we need to install all python requirements (optional: install it in a virtualenviroment).
-You can use the requirements.txt, it contains all requirements we yoused.
+You can use the requirements.txt, it contains all requirements we used.
 
     ``pip install -r requirements.txt``
 
@@ -33,8 +33,8 @@ makemigrations and the migrate command from the manage.py.
     | ``python3 ./manage.py migrate``
 
 If the Database was successfully created there must be a db.sqlite3 in the directory.
-As last step, before we can fire up the server, we need to create with the command createsuperuser a
-admin account so that we can login into the application.
+As last step, before we can fire up the server, we need to create an admin account
+using the command superuser so that we can login into the application.
 
     ``python3 ./manage.py createsuperuser``
 

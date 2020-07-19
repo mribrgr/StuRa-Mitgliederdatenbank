@@ -5,20 +5,20 @@ from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtEntfernen(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
     def test_1ReferatEntfernen_AsSuperuser(self):
         """
             This is a "positive" Systemtest as Blackboxtest.
-            Here we want to check if you can delete a "organisationseingeit" as Admin.
+            Here we want to check if you can delete a "Organisationseinheit" as Admin.
 
             Steps:
 
             * login as Admin
-            * add a "organisationseinheit"
-            * delete the "organisationseinheit"
+            * add a "Organisationseinheit"
+            * delete the "Organisationseinheit"
         """
 
         # Login as Admin

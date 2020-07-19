@@ -5,7 +5,7 @@ from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedEntfernen(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
@@ -14,7 +14,7 @@ class TestMitgliedEntfernen(MyTestCase):
         """
             This is a "positive" Systemtest as Blackboxtest.
             Here we want to check if you can delete a new Member as Admin and if the
-            Member is correct deleted in the table.
+            Member is deleted correctly in the table.
 
             Steps:
 

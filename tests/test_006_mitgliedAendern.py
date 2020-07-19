@@ -5,7 +5,7 @@ from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedAendern(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
@@ -14,7 +14,7 @@ class TestMitgliedAendern(MyTestCase):
         """
             This is a "positive" Systemtest as Blackboxtest.
             Here we want to check if you can change information of a Member as Admin and if the
-            Member is correct changed in the table.
+            Member is changed correctly in the table.
 
             Steps:
 

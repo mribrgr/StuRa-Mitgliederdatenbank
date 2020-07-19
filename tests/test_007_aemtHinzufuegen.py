@@ -6,19 +6,19 @@ from django.urls import reverse
 
 class TestAemtHinzufuegen(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
     def test_1OrganisationseinheitHinzufuegen_AsSuperuser(self):
         """
             This is a "positive" Systemtest as Blackboxtest.
-            Here we want to check if you can add a "organisationseingeit" as Admin.
+            Here we want to check if you can add a "Organisationseinheit" as Admin.
 
             Steps:
 
             * login as Admin
-            * add a "organisationseinheit"
+            * add a "Organisationseinheit"
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -71,7 +71,7 @@ class TestAemtHinzufuegen(MyTestCase):
         """
             This is a complex "positive" Systemtest as Blackboxtest.
             Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.
-            We also check if we can a new Member with the new data and if everything is displayed correctly
+            We also check if we can add a new Member with the new data and if everything is displayed correctly
             in "/aemter/".
 
             Steps:
