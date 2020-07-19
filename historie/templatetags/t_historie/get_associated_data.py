@@ -2,6 +2,7 @@ from django import template
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, FunktionRecht
+from checklisten.models import Checkliste, ChecklisteAufgabe, ChecklisteRecht, Aufgabe
 
 register = template.Library()
 
@@ -33,10 +34,15 @@ def get_associated_data(desiredInfo, queryType, primaryKey, timestamp):
         `queryType` und ggf. `timestamp` angegebenen Zeitpunkt enthält.
     """
     if(desiredInfo == "Mitglied"): foreignClass = Mitglied
+    if(desiredInfo == "MitgliedAmt"): foreignClass = MitgliedAmt
     if(desiredInfo == "Funktion"): foreignClass = Funktion
     if(desiredInfo == "Unterbereich"): foreignClass = Unterbereich
     if(desiredInfo == "Organisationseinheit"): foreignClass = Organisationseinheit
     if(desiredInfo == "Recht"): foreignClass = Recht
+    if(desiredInfo == "Checkliste"): foreignClass = Checkliste
+    if(desiredInfo == "ChecklisteAufgabe"): foreignClass = ChecklisteAufgabe
+    if(desiredInfo == "ChecklisteRecht"): foreignClass = ChecklisteRecht
+    if(desiredInfo == "Aufgabe"): foreignClass = Aufgabe
 
     if primaryKey == "": return None
 

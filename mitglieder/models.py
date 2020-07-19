@@ -17,6 +17,9 @@ class Mitglied(models.Model):
 
     def __str__(self):
         return self.vorname + " " + self.name
+    class Meta:
+        verbose_name = "Mitglied"
+        verbose_name_plural = "Mitglieder"
 
 
 class MitgliedAmt(models.Model):
@@ -25,6 +28,9 @@ class MitgliedAmt(models.Model):
     history = HistoricalRecords()
     def __str__(self):
         return self.mitglied.__str__() + ", " + self.funktion.__str__()
+    class Meta:
+        verbose_name = "Zuordnung Mitglied-Amt"
+        verbose_name_plural = "Zuordnungen Mitglied-Amt"
 
 @receiver(post_delete, sender=MitgliedAmt)
 def delete_MitgliedAmt_hook(sender, instance, using, **kwargs):
@@ -57,3 +63,6 @@ class MitgliedMail(models.Model):
     history = HistoricalRecords()
     def __str__(self):
         return self.email + " " + self.mitglied.__str__()
+    class Meta:
+        verbose_name = "Zuordnung Mitglied-Mail"
+        verbose_name_plural = "Zuordnungen Mitglied-Mail"

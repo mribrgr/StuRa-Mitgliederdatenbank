@@ -8,5 +8,9 @@ from django.conf.urls.static import static
 app_name = 'checklisten'  # here for namespacing of urls.
 
 urlpatterns = [
-    path("", views.main_screen, name="homepage"),
+    path("", views.main_screen, name="main_screen"),
+    path("abhaken", views.abhaken, name="abhaken"),
+    path("loeschen", views.loeschen, name="loeschen"),
+    path("erstellen", views.erstellen, name="erstellen"),
+    path("get_funktionen", views.get_funktionen, name="get_funktionen")
 ]
