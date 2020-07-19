@@ -1,8 +1,8 @@
 Tests
 -----
 
-This section contains the description of the functional UI test created with the selenium testframework. The Pagination
-and the Module historie are passively testet in the other Tests.
+This section contains the description of the functional UI tests created with the Selenium testing framework. The Pagination
+and the Module historie are passively tested in the other Tests.
 
 Sources
 ~~~~~~~

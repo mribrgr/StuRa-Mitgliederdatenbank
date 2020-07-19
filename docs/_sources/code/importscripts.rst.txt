@@ -1,8 +1,8 @@
 Importscripts
 -------------
 
-You can use the following script/scripts to import some date in your *db.sqlite3*
-Tese script/scripts are used in the funktional tests.
+You can use the following script/scripts to import some data in your *db.sqlite3*
+Tese script/scripts are used in the functional tests.
 
 How to use:
 ~~~~~~~~~~~

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -48,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> StuRa - Mitgliederdatenbank
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
           
 
           
@@ -71,6 +72,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,6 +90,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -126,7 +129,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Deployment</li>
     
@@ -150,7 +153,7 @@
   <div class="section" id="deployment">
 <h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
 <p>This section contains a step-by-step guidance how to deploy this software.
-It`s based on an deployment of Django with Apache2 and mod_wsgi on a raspberry pi 4.</p>
+It`s based on a deployment of Django with Apache2 and mod_wsgi on a raspberry pi 4.</p>
 <div class="section" id="sources">
 <h2>Sources:<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -181,7 +184,7 @@ It`s based on an deployment of Django with Apache2 and mod_wsgi on a raspberry p
 <div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></code></p>
 </div></blockquote>
 <p>Now we need to clone the Git-Repository and setup the virtualenv for Python.
-First you need to change in the directory where you want to clone this Webapplication.
+First you need to change to the directory that you want to clone this web application to.
 Then:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/mribrgr/StuRa-Mitgliederdatenbank.git</span></code>
@@ -192,7 +195,7 @@ Then:</p>
 <div><p><code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">venv</span></code>
 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">venv/bin/activate</span></code></p>
 </div></blockquote>
-<p>If you successfully activatet your virtual ennvironement than your Promt should
+<p>If you have successfully activated your virtual ennvironment than your prompt should
 look something like this <code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">user&#64;host:StuRa-Mitgliederdatenbank</span></code>. The last
 step is to install the requirements.txt in the virtual environement.</p>
 <blockquote>
@@ -202,7 +205,7 @@ step is to install the requirements.txt in the virtual environement.</p>
 <div class="section" id="adjust-django-project-settings">
 <h2>Adjust Django Project Settings:<a class="headerlink" href="#adjust-django-project-settings" title="Permalink to this headline">¶</a></h2>
 <p>First we need to configure <code class="docutils literal notranslate"><span class="pre">StuRa-Mitgliederdatenbank/bin/settings.py</span></code>:
-We opening the file first (based on the previous chapter)</p>
+We open the file first (based on the previous chapter)</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">bin/settings.py</span></code></p>
 </div></blockquote>
@@ -232,11 +235,11 @@ The last step is to do initial commands:</p>
 <div class="section" id="configure-apache2">
 <h2>Configure Apache2:<a class="headerlink" href="#configure-apache2" title="Permalink to this headline">¶</a></h2>
 <p>To enable Apache2 as front end we need to configure WSGI pass.
-To archive this we need to edit the default virtual host file:</p>
+To achieve this we need to edit the default virtual host file:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/apache2/sites-available/000-default.conf</span></code></p>
 </div></blockquote>
-<p>We can keep everything what is present in this file and add our config above
+<p>We can keep everything that is present in this file and add our config above
 the last <code class="docutils literal notranslate"><span class="pre">&lt;/VirtualHost&gt;</span></code> tag. What we first specify is the static directory
 and the path to the wsgi.py.
 (In this Example I have cloned the directory in ~/StuRa-Mitgliederdatenbank)
@@ -292,7 +295,7 @@ and the path to the wsgi.py.
 <div class="section" id="solve-some-permission-issues">
 <h2>Solve some Permission Issues:<a class="headerlink" href="#solve-some-permission-issues" title="Permalink to this headline">¶</a></h2>
 <p>The first step is to change the permissions of the database, so that group owner
-can read and write. Then we need to give some files the ownership to Apache2
+can read and write. Then we need to the ownership of some files to Apache2
 group and user <code class="docutils literal notranslate"><span class="pre">www-data</span></code>.</p>
 <blockquote>
 <div><div class="line-block">
@@ -328,11 +331,19 @@ service:</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Team T8
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -343,7 +354,6 @@ service:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

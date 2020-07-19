@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Developer Documentation" href="masterDeveloperDoc.html" /> 
@@ -49,7 +50,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> StuRa - Mitgliederdatenbank
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
           
 
           
@@ -72,6 +73,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -178,6 +180,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -216,7 +219,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Code Documentation</li>
     
@@ -501,6 +504,13 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="aemter.models.HistoricalFunktion.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="aemter.models.HistoricalFunktion.get_history_type_display">
 <code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktion.get_history_type_display" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -691,6 +701,13 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="aemter.models.HistoricalFunktionRecht.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="aemter.models.HistoricalFunktionRecht.get_history_type_display">
 <code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalFunktionRecht.get_history_type_display" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -838,6 +855,13 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="aemter.models.HistoricalOrganisationseinheit.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="aemter.models.HistoricalOrganisationseinheit.get_history_type_display">
 <code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.get_history_type_display" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -967,6 +991,13 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="aemter.models.HistoricalRecht.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="aemter.models.HistoricalRecht.get_history_type_display">
 <code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalRecht.get_history_type_display" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1093,6 +1124,13 @@ object the first time, the query is executed.</p>
 <code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.bezeichnung" title="Permalink to this definition">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aemter.models.HistoricalUnterbereich.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalUnterbereich.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2040,8 +2078,8 @@ Wird von <cite>mitglieder.html</cite> inkludiert.</p>
 </div>
 <div class="section" id="importscripts">
 <h2>Importscripts<a class="headerlink" href="#importscripts" title="Permalink to this headline">¶</a></h2>
-<p>You can use the following script/scripts to import some date in your <em>db.sqlite3</em>
-Tese script/scripts are used in the funktional tests.</p>
+<p>You can use the following script/scripts to import some data in your <em>db.sqlite3</em>
+Tese script/scripts are used in the functional tests.</p>
 <div class="section" id="how-to-use">
 <h3>How to use:<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h3>
 <blockquote>
@@ -2075,7 +2113,7 @@ This function clears following Tables in your Database:</p>
 <li><p>Unterbereich</p></li>
 <li><p>Funktion</p></li>
 </ul>
-<p>To use this funktion you need to have a file.csv with folowing structure:</p>
+<p>To use this function you need to have a file.csv with following structure:</p>
 <ul class="simple">
 <li><p>delimiter = ‘,’</p></li>
 <li><p>organisationseinheit,unterbereich,funktion,max_members</p></li>
@@ -2083,7 +2121,7 @@ This function clears following Tables in your Database:</p>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<em>TextIO</em>) – File, that contains the data which had to be importet</p>
+<dd class="field-odd"><p><strong>file</strong> (<em>TextIO</em>) – File containing the data to be imported</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>No return Value</p>
@@ -2096,8 +2134,8 @@ This function clears following Tables in your Database:</p>
 </div>
 <div class="section" id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<p>This section contains the description of the functional UI test created with the selenium testframework. The Pagination
-and the Module historie are passively testet in the other Tests.</p>
+<p>This section contains the description of the functional UI tests created with the Selenium testing framework. The Pagination
+and the Module historie are passively tested in the other Tests.</p>
 <div class="section" id="sources">
 <h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -2126,12 +2164,12 @@ and the Module historie are passively testet in the other Tests.</p>
 <em class="property">class </em><code class="sig-prename descclassname">tests.MyTestCase.</code><code class="sig-name descname">MyTestCase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
 <dd><p>Setup and Teardown funktions are specified here.
 The following Testcases inherit from this class.</p>
-<p>All Testcases Inherit from this class are testing the User Interface.</p>
+<p>All testcases inheriting from this class are testing the User Interface.</p>
 <dl class="py method">
 <dt>
 <code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>This Funktion is called before every testcase.</p>
-<p>It setup the webdriver and create 1 admin and 1 user.
+<dd><p>This function is called before every testcase.</p>
+<p>It sets up the webdriver and creates 1 admin and 1 user.
 You can adjust the webdriver by changing the <em>options</em> parameter.
 The Importscripts from the folder <em>importscripts</em> are also called here.</p>
 <p>The Webdriver Instance is stored in <strong>self.browser</strong>.</p>
@@ -2148,7 +2186,7 @@ The Importscripts from the folder <em>importscripts</em> are also called here.</
 <dl class="py method">
 <dt>
 <code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>This Funktion is called after every testcase.</p>
+<dd><p>This function is called after every testcase.</p>
 <p>The Webdriver Instance that is stored in <strong>self.browser</strong> will be closed.
 :param self:
 :type self:
@@ -2194,7 +2232,7 @@ The Importscripts from the folder <em>importscripts</em> are also called here.</
 <dt>
 <code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitglied</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
-You need to be on the “mitglieder/” site to call this funktion.</p>
+You need to be on the “mitglieder/” site to call this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> – </p>
@@ -2210,7 +2248,7 @@ You need to be on the “mitglieder/” site to call this funktion.</p>
 <code class="sig-prename descclassname">tests.MyFuncMitglieder.</code><code class="sig-name descname">addMitgliedWithParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">vorname</span></em>, <em class="sig-param"><span class="n">nachname</span></em>, <em class="sig-param"><span class="n">spitzname</span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a member with default parameters over the “mitglieder/erstellen” view.
 You can change firstname, lastname and username.
-You need to be on the “mitglieder/” site to call this funktion.</p>
+You need to be on the “mitglieder/” site to call this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2297,13 +2335,11 @@ befindet.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_001_admin.</code><code class="sig-name descname">TestAdmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Functions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_login_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
-Here we want to check if you can login as Admin and all sites are correct displayed.</p>
+Here we want to check if you can login as Admin and all sites are displayed correctly.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2316,13 +2352,11 @@ Here we want to check if you can login as Admin and all sites are correct displa
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_002_user.</code><code class="sig-name descname">TestUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_login_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
-Here we want to check if you can login as User and all sites are correct displayed.
+Here we want to check if you can login as User and all sites are displayed correctly.
 But that you can not reach Admin-only content.</p>
 </dd></dl>
 
@@ -2346,14 +2380,12 @@ But that you can not reach Admin-only content.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_004_mitgliedHinzufuegen.</code><code class="sig-name descname">TestMitgliedHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1MitgliedHinzufügen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
 Here we want to check if you can add a new Member as Admin and if the
-Member is correct displayed in the table.</p>
+Member is displayed correctly in the table.</p>
 <p>Steps:</p>
 <ul class="simple">
 <li><p>login as Admin</p></li>
@@ -2366,7 +2398,7 @@ Member is correct displayed in the table.</p>
 <code class="sig-name descname">test_50MitgliederHinzufügen_AsSuperuser_lookAsUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a complex “positive” Systemtest as Blackboxtest.
 Here we want to check if you can add a multiple new Members (50) as Admin and if the
-Member is correct displayed in the table.
+Member is displayed correctly in the table.
 We also want to check if the Pagination is working correctly.</p>
 <p>Steps:</p>
 <ul class="simple">
@@ -2386,14 +2418,12 @@ We also want to check if the Pagination is working correctly.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_005_mitgliedEntfernen.</code><code class="sig-name descname">TestMitgliedEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1MitgliedEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
 Here we want to check if you can delete a new Member as Admin and if the
-Member is correct deleted in the table.</p>
+Member is deleted correctly in the table.</p>
 <p>Steps:</p>
 <ul class="simple">
 <li><p>login as Admin</p></li>
@@ -2412,14 +2442,12 @@ Member is correct deleted in the table.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_006_mitgliedAendern.</code><code class="sig-name descname">TestMitgliedAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1MitgliedAendern_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
 Here we want to check if you can change information of a Member as Admin and if the
-Member is correct changed in the table.</p>
+Member is changed correctly in the table.</p>
 <p>Steps:</p>
 <ul class="simple">
 <li><p>login as Admin</p></li>
@@ -2443,9 +2471,7 @@ Member is correct changed in the table.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_007_aemtHinzufuegen.</code><code class="sig-name descname">TestAemtHinzufuegen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1FunktionHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
@@ -2461,11 +2487,11 @@ Here we want to check if you can add a funktion as Admin.</p>
 <dt>
 <code class="sig-name descname">test_1OrganisationseinheitHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
-Here we want to check if you can add a “organisationseingeit” as Admin.</p>
+Here we want to check if you can add a “Organisationseinheit” as Admin.</p>
 <p>Steps:</p>
 <ul class="simple">
 <li><p>login as Admin</p></li>
-<li><p>add a “organisationseinheit”</p></li>
+<li><p>add a “Organisationseinheit”</p></li>
 </ul>
 </dd></dl>
 
@@ -2486,7 +2512,7 @@ Here we want to check if you can add a “unterbereich” as Admin.</p>
 <code class="sig-name descname">test_ReferatUnterbereichAmtHinzufuegen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a complex “positive” Systemtest as Blackboxtest.
 Here we want to check if you can add a organisationseinheit, unterbereich and funktion as Admin.
-We also check if we can a new Member with the new data and if everything is displayed correctly
+We also check if we can add a new Member with the new data and if everything is displayed correctly
 in “/aemter/”.</p>
 <p>Steps:</p>
 <ul class="simple">
@@ -2509,9 +2535,7 @@ in “/aemter/”.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_008_aemtEntfernen.</code><code class="sig-name descname">TestAemtEntfernen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1AemtEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
@@ -2528,12 +2552,12 @@ Here we want to check if you can delete a funktion as Admin.</p>
 <dt>
 <code class="sig-name descname">test_1ReferatEntfernen_AsSuperuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
-Here we want to check if you can delete a “organisationseingeit” as Admin.</p>
+Here we want to check if you can delete a “Organisationseinheit” as Admin.</p>
 <p>Steps:</p>
 <ul class="simple">
 <li><p>login as Admin</p></li>
-<li><p>add a “organisationseinheit”</p></li>
-<li><p>delete the “organisationseinheit”</p></li>
+<li><p>add a “Organisationseinheit”</p></li>
+<li><p>delete the “Organisationseinheit”</p></li>
 </ul>
 </dd></dl>
 
@@ -2560,9 +2584,7 @@ Here we want to check if you can delete a “unterbereich” as Admin.</p>
 <div><dl class="py class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">tests.test_009_aemtAendern.</code><code class="sig-name descname">TestAemtAendern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
-<dd><p>Setup and Teardown Funktions are specified in
-MyTestCase</p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt>
 <code class="sig-name descname">test_1AmtBezeichnungAendern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This is a “positive” Systemtest as Blackboxtest.
@@ -2723,11 +2745,19 @@ TOTAL                                           <span class="m">1339</span>    <
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Team T8
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -2738,7 +2768,6 @@ TOTAL                                           <span class="m">1339</span>    <
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
