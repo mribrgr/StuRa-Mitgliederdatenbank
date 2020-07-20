@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'bin',
     'aemter',
     'historie',
-    'historie.templatetags',
+    'historie.templatetags.t_historie',
     'login',
     'mitglieder',
-    'checklisten'
+    'checklisten',
+    'checklisten.templatetags.t_checklisten'
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'de-de'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 

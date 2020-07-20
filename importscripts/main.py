@@ -8,7 +8,28 @@ django.setup()
 from aemter.models import Organisationseinheit, Funktion, Unterbereich
 import csv
 
+
 def importAemter(file):
+    """
+        **!WARNING!**
+        This function clears following Tables in your Database:
+
+        * Organisationseinheit
+        * Unterbereich
+        * Funktion
+
+        To use this function you need to have a file.csv with following structure:
+
+        * delimiter = ','
+        * organisationseinheit,unterbereich,funktion,max_members
+        * First line is a heading and will not be imported
+
+
+        :param file: File containing the data to be imported
+        :type file: TextIO
+        :return: No return Value
+    """
+
     # Delete existing Data
     Organisationseinheit.objects.all().delete()
     Unterbereich.objects.all().delete()

@@ -5,12 +5,24 @@ from tests.MyFuncMitglieder import addMitglied
 
 class TestMitgliedAendern(MyTestCase):
     """
-        Setup and Teardown Funktions are specified in
+        Setup and Teardown functions are specified in
         MyTestCase
     """
 
     # Tests
     def test_1MitgliedAendern_AsSuperuser(self):
+        """
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a Member as Admin and if the
+            Member is changed correctly in the table.
+
+            Steps:
+
+            * login as Admin
+            * add a Member
+            * change Member Data
+            * check if everything is correct displayed
+        """
         # Login as Admin
         loginAsLukasAdmin(self)
         addMitglied(self)

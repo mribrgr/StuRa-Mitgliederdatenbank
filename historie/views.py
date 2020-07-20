@@ -8,6 +8,7 @@ from datetime import datetime
 
 from mitglieder.models import Mitglied, MitgliedMail, MitgliedAmt
 from aemter.models import Organisationseinheit, Unterbereich, Funktion, Recht, FunktionRecht
+from checklisten.models import Checkliste, ChecklisteAufgabe, ChecklisteRecht
 from django.contrib.auth.models import User
 from django.db.models import Q
 
@@ -43,6 +44,10 @@ def list(request):
     rechte = Recht.history.all()
     aemterRechte = FunktionRecht.history.all()
 
+    checklisten = Checkliste.history.all()
+    checklistenRechte = ChecklisteRecht.history.all()
+    checklistenAufgaben = ChecklisteAufgabe.history.all()
+
     users = User.history.all()
 
     # Paginate results
@@ -51,21 +56,34 @@ def list(request):
     mitgliederPaginator = Paginator(mitglieder, 15)
     mitgliederMailsPaginator = Paginator(mitgliederMails, 15)
     mitgliederAemterPaginator = Paginator(mitgliederAemter, 15)
+
     referatePaginator = Paginator(referate, 15)
     unterbereichePaginator = Paginator(unterbereiche, 15)
     aemterPaginator = Paginator(aemter, 15)
     rechtePaginator = Paginator(rechte, 15)
     aemterRechtePaginator = Paginator(aemterRechte, 15)
+
+    checklistenPaginator = Paginator(checklisten, 15)
+    checklistenRechtePaginator = Paginator(checklistenRechte, 15)
+    checklistenAufgabenPaginator = Paginator(checklistenAufgaben, 15)
+
     usersPaginator = Paginator(users, 15)
 
+    # Get first page for each tab
     mitgliederPage = mitgliederPaginator.get_page(page_number)
     mitgliederMailsPage = mitgliederMailsPaginator.get_page(page_number)
     mitgliederAemterPage = mitgliederAemterPaginator.get_page(page_number)
+
     referatePage = referatePaginator.get_page(page_number)
     unterbereichePage = unterbereichePaginator.get_page(page_number)
     aemterPage = aemterPaginator.get_page(page_number)
     rechtePage = rechtePaginator.get_page(page_number)
     aemterRechtePage = aemterRechtePaginator.get_page(page_number)
+
+    checklistenPage = checklistenPaginator.get_page(page_number)
+    checklistenRechtePage = checklistenRechtePaginator.get_page(page_number)
+    checklistenAufgabenPage = checklistenAufgabenPaginator.get_page(page_number)
+
     usersPage = usersPaginator.get_page(page_number)
 
     return render(request=request,
@@ -78,6 +96,9 @@ def list(request):
                            "aemter": aemterPage,
                            "rechte": rechtePage,
                            "aemterRechte": aemterRechtePage,
+                           "checklisten": checklistenPage,
+                           "checklistenRechte": checklistenRechtePage,
+                           "checklistenAufgaben": checklistenAufgabenPage,
                            "users": usersPage})
 
 def fetch_entries(request):
@@ -115,7 +136,7 @@ def fetch_entries(request):
     searchterm = request.GET.get('search')
     page_number = request.GET.get('page')
     selected_tab = request.GET.get('tab')
-    
+
     # Get indvidiual search terms
     searchterms = None
     if searchterm:
@@ -139,10 +160,11 @@ def fetch_entries(request):
     if selected_tab == "MitgliedAmt":
         data = MitgliedAmt.history.none()
         for term in searchterms:
-             data = data | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
-                | Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term) 
-                | Q(amt__referat__bezeichnung__icontains=term)
-                | Q(amt__unterbereich__bezeichnung__icontains=term))
+            data = data | MitgliedAmt.history.filter(Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
+                | Q(funktion__id__icontains=term) | Q(funktion__bezeichnung__icontains=term) 
+                | Q(funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(funktion__unterbereich__bezeichnung__icontains=term))
+
     if selected_tab == "Organisationseinheit":
         data = Organisationseinheit.history.none()
         for term in searchterms:
@@ -150,24 +172,52 @@ def fetch_entries(request):
     if selected_tab == "Unterbereich":
         data = Unterbereich.history.none()
         for term in searchterms:
-            data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term))
-    if selected_tab == "Funktion":
+            data = data | Unterbereich.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term) | Q(organisationseinheit__id__icontains=term) | Q(organisationseinheit__bezeichnung__icontains=term))
+    if selected_tab == "Amt":
         data = Funktion.history.none()
         for term in searchterms:
             data = data | Funktion.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term)
-                                                  | Q(referat__id__icontains=term) | Q(referat__bezeichnung__icontains=term)
-                                                  | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
+                | Q(organisationseinheit__id__icontains=term) | Q(organisationseinheit__bezeichnung__icontains=term)
+                | Q(unterbereich__id__icontains=term) | Q(unterbereich__bezeichnung__icontains=term))
     if selected_tab == "Recht":
         data = Recht.history.none()
         for term in searchterms:
             data = data | Recht.history.filter(Q(id__icontains=term) | Q(bezeichnung__icontains=term))
-    if selected_tab == "FunktionRecht":
+    if selected_tab == "AmtRecht":
         data = FunktionRecht.history.none()
         for term in searchterms:
-            data = data | FunktionRecht.history.filter(Q(amt__id__icontains=term) | Q(amt__bezeichnung__icontains=term)
-                                                       | Q(amt__referat__bezeichnung__icontains=term)
-                                                       | Q(amt__unterbereich__bezeichnung__icontains=term)
-                                                       | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term))
+            data = data | FunktionRecht.history.filter(Q(funktion__id__icontains=term) | Q(funktion__bezeichnung__icontains=term)
+                | Q(funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(funktion__unterbereich__bezeichnung__icontains=term)
+                | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term))
+    
+    if selected_tab == "Checkliste":
+        data = Checkliste.history.none()
+        for term in searchterms:
+            data = data | Checkliste.history.filter(Q(id__icontains=term) 
+                | Q(mitglied__id__icontains=term) | Q(mitglied__vorname__icontains=term) | Q(mitglied__name__icontains=term) 
+                | Q(amt__funktion__id__icontains=term) | Q(amt__funktion__bezeichnung__icontains=term) 
+                | Q(amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(amt__funktion__unterbereich__bezeichnung__icontains=term))
+    if selected_tab == "ChecklisteRecht":
+        data = ChecklisteRecht.history.none()
+        for term in searchterms:
+            data = data | ChecklisteRecht.history.filter(Q(checkliste__id__icontains=term) 
+                | Q(recht__id__icontains=term) | Q(recht__bezeichnung__icontains=term)
+                | Q(checkliste__mitglied__id__icontains=term) | Q(checkliste__mitglied__vorname__icontains=term) | Q(checkliste__mitglied__name__icontains=term) 
+                | Q(checkliste__amt__funktion__id__icontains=term) | Q(checkliste__amt__funktion__bezeichnung__icontains=term) 
+                | Q(checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(checkliste__amt__funktion__unterbereich__bezeichnung__icontains=term))
+    if selected_tab == "ChecklisteAufgabe":
+        data = ChecklisteAufgabe.history.none()
+        for term in searchterms:
+            data = data | ChecklisteAufgabe.history.filter(Q(checkliste__id__icontains=term) 
+                | Q(aufgabe__id__icontains=term) | Q(aufgabe__bezeichnung__icontains=term)
+                | Q(checkliste__mitglied__id__icontains=term) | Q(checkliste__mitglied__vorname__icontains=term) | Q(checkliste__mitglied__name__icontains=term) 
+                | Q(checkliste__amt__funktion__id__icontains=term) | Q(checkliste__amt__funktion__bezeichnung__icontains=term) 
+                | Q(checkliste__amt__funktion__organisationseinheit__bezeichnung__icontains=term)
+                | Q(checkliste__amt__funktion__unterbereich__bezeichnung__icontains=term))
+
     if selected_tab == "User":
         data = User.history.none()
         for term in searchterms:

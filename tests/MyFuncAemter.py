@@ -12,7 +12,6 @@ def createReferat(self, organisationseinheit):
         :param organisationseinheit: Name, wie das neue Organisationseinheit heißen soll
         :type organisationseinheit: string
         :return: No return Value
-        :rtype: None
     """
 
     # Navigieren zum Admin Pannel
@@ -50,7 +49,6 @@ def createUnterbereich(self, organisationseinheit, unterbereich):
         :param unterbereich: Name des Unterbereichs
         :type unterbereich: string
         :return: No return Value
-        :rtype: None
     """
 
     # Navigieren zum Admin Pannel
@@ -96,7 +94,6 @@ def createAmt(self, organisationseinheit, unterbereich, funktion):
         :param funktion: Angabe des Namens, der das neue Funktion erhalten soll
         :type funktion: string
         :return: No return Value
-        :rtype: None
     """
     workload = "5"
     max_members = "60"

@@ -1,7 +1,7 @@
 <p><b>Unterbereich-ID: </b> {{entry.id}}</p>
 <p><b>Bezeichnung: </b> {{entry.bezeichnung}}</p>
 
-<p><b>Organisationseinheit: </b> {{entry.referat_id}}
+<p><b>Organisationseinheit: </b> {{entry.organisationseinheit_id}}
     (aktuell {{latestReferat.bezeichnung}}, damals {{historicalReferat.bezeichnung}})
 </p>
 
@@ -12,7 +12,7 @@
     <p><b>Unterbereich-ID: </b> {{entry.prev_record.id}}</p>
     <p><b>Bezeichnung: </b> {{entry.prev_record.bezeichnung}}</p>
 
-    <p><b>Organisationseinheit: </b> {{entry.prev_record.referat_id}}
+    <p><b>Organisationseinheit: </b> {{entry.prev_record.organisationseinheit_id}}
         (aktuell {{latestReferatAlt.bezeichnung}}, damals {{historicalReferatAlt.bezeichnung}})
     </p>
 {% endif %}
