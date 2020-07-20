@@ -70,7 +70,7 @@
         <h5>E-Mail-Adressen</h5>
         <br />
         <div id="div_emails">
-        {% if mitglied and mitglied.mitgliedmail_set.count %}
+        {% if mitglied %}
           {% for email in mitglied.mitgliedmail_set.all %}
             {% include 'mitglieder/email.html' %}
           {% endfor %}
@@ -185,7 +185,7 @@
 
   // Selects und Date Picker initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
-  initDatePicker();
+  for (var i=1; i<=amt_num; i++) initDatePicker(i);
   addReferatEventListener();
   addBereichEventListener();
 
@@ -257,7 +257,7 @@
           // Einfuegen des HTML-Codes
           $("#div_aemter").append(data);
           initSelect();
-          initDatePicker();
+          initDatePicker(amt_num);
           addReferatEventListener();
         }
       });
@@ -443,9 +443,10 @@
     var instances = M.FormSelect.init(elems, options);
   }
     // Date Picker initialisieren
-  function initDatePicker(){
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', defaultDate: "11.01.2000", showClearBtn: true, i18n: {
+  function initDatePicker(amtid){
+    var beginn_datepicker = document.querySelectorAll('#beginn_kandidatur' + amtid);
+    var ende_datepicker = document.querySelectorAll('#ende_kandidatur' + amtid);
+    var init_settings = {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', showClearBtn: true, i18n: {
                 months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
                 monthsShort: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
                 weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
@@ -454,9 +455,24 @@
                 today: 'heute',
                 clear: 'löschen',
                 cancel: 'abbrechen',
-                
             },
-        });
+            onSelect: function(selectedDate) {
+              alert("click");
+              var instance = M.Datepicker.getInstance($('#ende_kandidatur' + amtid));
+              instance.options.minDate = new Date(selectedDate);
+            }
+    };
+    M.Datepicker.init(beginn_datepicker, init_settings);
+    delete init_settings['onSelect'];
+    // wenn Datepicker fuer Beginn Datum enthalt, dieses Datum als Minimum fuer das Ende der Amtszeit festlegen
+    var datum_beginn = $("#beginn_kandidatur" + amtid).val();
+    // dd.mm.yyyy -> mm/dd/yyyy
+    var dd = datum_beginn.substr(0,2);
+    var mm = datum_beginn.substr(3,2);
+    var yyyy = datum_beginn.substr(6,4);
+    datum_beginn = mm + '\/' + dd + '\/' + yyyy;
+    init_settings['minDate'] = new Date(datum_beginn);
+    M.Datepicker.init(ende_datepicker, init_settings);
   }
 
   // Initialisieren des Modals
