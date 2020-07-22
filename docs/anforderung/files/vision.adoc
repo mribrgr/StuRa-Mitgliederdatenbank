@@ -27,10 +27,10 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 === Problem Statement
 
 |===
-|Das Problem |	Die Excel-Tabelle ist unübersichtlich und die Bearbeitung erfordert zu viel Aufwand
+|Das Problem | Es fehlt die Übersicht, welches Mitglied welche Funktion belegt.
 |betrifft |	die interne Verwaltung
-|die Auswirkung davon ist |	zu viel unnötiger Arbeitsaufwand
-|eine erfolgreiche Lösung wäre |	Über eine Webseite könnte das Bearbeiten nur über das Aufüllen von ein paar Textfeldern ermöglicht werden
+|die Auswirkung davon ist |	Unwichtige Funktionen bleiben unbesetzt (nicht auffallen), man kann nicht effizient schauen wer in welcher Funktion tätig ist.
+|eine erfolgreiche Lösung wäre | Zusätzlich anstatt nach Mitgliedern, nach Funktionen zu sortieren.
 |===
 
 |===
@@ -50,7 +50,6 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 
 === Positionierung des Produkts 
 //Ein Positionierung des Produkts beschreibt das Einsatzziel der Anwendung und die Bedeutung das Projekts an alle beteiligten Mitarbeiter.
-
 //Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 |===

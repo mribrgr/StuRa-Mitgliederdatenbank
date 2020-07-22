@@ -3,7 +3,7 @@
     (aktuell {{latestMitglied.vorname}} {{latestMitglied.name}}, 
     damals {{historicalMitglied.vorname}} {{historicalMitglied.name}})</p>
 <p><b>Funktion: </b>
-    {{entry.amt_id}}
+    {{entry.funktion_id}}
     (aktuell {{latestAmt.bezeichnung}} 
         {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
         {{latestReferat.bezeichnung}}{% if historicalAmt %}, damals 
@@ -20,7 +20,7 @@
         (aktuell {{latestMitgliedAlt.vorname}} {{latestMitgliedAlt.name}}, 
         damals {{historicalMitgliedAlt.vorname}} {{historicalMitgliedAlt.name}})</p>
     <p><b>Funktion: </b>
-        {{entry.prev_record.amt_id}}
+        {{entry.prev_record.funktion_id}}
         (aktuell {{latestAmtAlt.bezeichnung}} 
             {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}
             {{latestReferatAlt.bezeichnung}}{% if historicalAmtAlt %}, damals 

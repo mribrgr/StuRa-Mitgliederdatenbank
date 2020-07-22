@@ -24,7 +24,7 @@ Selbsterklärend.
 
 ==== Mitglied bearbeiten
 . Der Use Case beginnt, wenn der Nutzer dem System mitteilt, dass er ein ausgewähltes Mitglied bearbeiten möchte.
-. Der Nutzer kann bestehende Daten einsehen und verändern (Namen oder Legislatur bearbeiten, Legislatur und Wahl hinzufügen)
+. Der Nutzer kann bestehende Mitgliedsdaten einsehen und verändern
 . Die veränderten Daten werden bestätigt
 . Der Use Case ist abgeschlossen.
 
