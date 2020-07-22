@@ -457,13 +457,16 @@
                 cancel: 'abbrechen',
             },
             onSelect: function(selectedDate) {
-              alert("click");
               var instance = M.Datepicker.getInstance($('#ende_kandidatur' + amtid));
               instance.options.minDate = new Date(selectedDate);
             }
     };
     M.Datepicker.init(beginn_datepicker, init_settings);
     delete init_settings['onSelect'];
+    init_settings['onSelect'] = function(selectedDate){
+      var instance = M.Datepicker.getInstance($('#beginn_kandidatur' + amtid));
+      instance.options.maxDate = new Date(selectedDate);
+    };
     // wenn Datepicker fuer Beginn Datum enthalt, dieses Datum als Minimum fuer das Ende der Amtszeit festlegen
     var datum_beginn = $("#beginn_kandidatur" + amtid).val();
     // dd.mm.yyyy -> mm/dd/yyyy

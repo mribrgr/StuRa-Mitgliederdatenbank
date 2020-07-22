@@ -38,6 +38,7 @@ def main_screen(request):
         return redirect("/")
     # Paginate data
     queryset = Mitglied.objects.order_by(Lower('vorname'), Lower('name'))
+
     paginator = Paginator(queryset, 15) # Show 15 entries per page
     queryset_page = paginator.get_page(1) # Get entries for the first page
 
@@ -203,7 +204,6 @@ def aemter_html_laden(request):
 
 # Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
 def amt_loeschen(request):
-    print("wurde aufgerufen")
     """
     Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
 
@@ -325,9 +325,10 @@ def erstellen(request):
             # Check Max Members
             if funktion.max_members != (0 or None):
                 # Maximale Member der Funktion sind begrenzt
-                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                if funktion.max_members <= MitgliedAmt.objects.filter(Q(funktion=funktion) &
+                    ((Q(amtszeit_beginn__lt=amtszeit_beginn) | Q(amtszeit_beginn__lt=amtszeit_ende)) & (Q(amtszeit_ende__gt=amtszeit_beginn) | Q(amtszeit_ende__gt=amtszeit_ende)))).count():
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
-                    return mitgliedBearbeitenView(request, mitglied.id)
+                    return mitgliedErstellenView(request)
 
             mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
@@ -431,13 +432,10 @@ def speichern(request, mitglied_id):
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
         mitglied.save()
 
-        mitglied.mitgliedmail_set.all().delete()
-        for i in range(1, emailnum+1):
-            email = request.POST['email'+str(i)]
-            mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
-            mitgliedmail.save()
-
-        mitglied.mitgliedamt_set.all().delete()
+        # alle Aemter des Mitglieds loeschen, vorher kurzzeitiges Backup anlegen
+        backup_mitgliedamt_set = mitglied.mitgliedamt_set.all()
+        for mitgliedamt in backup_mitgliedamt_set:
+            mitgliedamt.delete()
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
@@ -455,13 +453,25 @@ def speichern(request, mitglied_id):
 
             # Check Max Members
             if funktion.max_members != (0 or None):
-                # Maximale Member der Funktion sind begrenzt
-                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
+                # Zaehlen der Instanzen von Mitgliedamt, die sich überschneiden, und Vergleich mit der Maximalanzahl der Mitglieder der Funktion
+                if funktion.max_members <= MitgliedAmt.objects.filter(Q(funktion=funktion) &
+                    ((Q(amtszeit_beginn__lt=amtszeit_beginn) | Q(amtszeit_beginn__lt=amtszeit_ende)) & (Q(amtszeit_ende__gt=amtszeit_beginn) | Q(amtszeit_ende__gt=amtszeit_ende)))).count():
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
+                    # geloeschte Aemter wieder speichern
+                    for mitgliedamt in backup_mitgliedamt_set:
+                        mitgliedamt.save()
                     return mitgliedBearbeitenView(request, mitglied.id)
 
             mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
+
+        # alle Mails loeschen und im Formular angegebene Mails angeben
+        mitglied.mitgliedmail_set.all().delete()
+        for i in range(1, emailnum+1):
+            email = request.POST['email'+str(i)]
+            mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
+            mitgliedmail.save()
+
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
 
 # Suche in der Mitgliederanzeige

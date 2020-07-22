@@ -24,7 +24,7 @@ def main_screen(request):
     unterbereiche = Unterbereich.objects.filter(organisationseinheit__id__in=referat_ids)
     aemter = Funktion.objects.filter(Q(organisationseinheit__id__in=referat_ids) | Q(unterbereich__id__in=unterbereiche))
     amt_ids = aemter.values_list('id', flat=True)
-    mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids)
+    mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids, amtszeit_ende__isnull=True)
     prev_mitglieder = MitgliedAmt.objects.filter(amtszeit_ende__isnull=False)
 
     context = {
@@ -32,6 +32,7 @@ def main_screen(request):
         'unterbereiche': unterbereiche,
         'aemter': aemter,
         'mitglieder': mitglieder,
+        # type: MitgliedAmt
         'prev_mitglieder': prev_mitglieder
     }
 
