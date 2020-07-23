@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
@@ -65,8 +66,10 @@ def mitglied_laden(request):
     mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
     # Daten zum Mitglied mit dieser Id an Frontend senden
     mitglied = Mitglied.objects.get(pk=mitglied_id)
-    curr_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=True)
-    prev_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=False)
+    curr_funktionen = mitglied.mitgliedamt_set\
+        .filter(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today()))
+    prev_funktionen = mitglied.mitgliedamt_set\
+        .filter(Q(amtszeit_ende__isnull=False) & Q(amtszeit_ende__lt=date.today()))
     return render(request, 'mitglieder/modal.html', {'mitglied': mitglied, 'curr_funktionen': curr_funktionen, 'prev_funktionen': prev_funktionen})
 
 # Entfernen von Mitgliedern aus der Datenbank
