@@ -1,7 +1,6 @@
 from datetime import date
 from django.db import models
-from django.db.models.signals import post_delete
-from django.dispatch import receiver
+from django.db.models import Q
 from simple_history.models import HistoricalRecords
 from aemter.models import Funktion
 
@@ -23,15 +22,21 @@ class Mitglied(models.Model):
         """
         Funktion that returns the number of the current funktions of the member.
         """
-        return self.mitgliedamt_set.filter(amtszeit_ende__gte=date.today()).count()
+        return self.mitgliedamt_set\
+            .filter(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today()))\
+            .count()
 
     def curr_funktion_first(self):
         """
         Funktion that returns the first of the current funktions of the member
         or None if the member has no current funktion.
         """
-        if self.mitgliedamt_set.filter(amtszeit_ende__gte=date.today()):
-            return self.mitgliedamt_set.filter(amtszeit_ende__gte=date.today()).first().funktion
+        if self.mitgliedamt_set\
+                .filter(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today())):
+            return self.mitgliedamt_set\
+                .filter(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today()))\
+                .first()\
+                .funktion
         else:
             return None
 

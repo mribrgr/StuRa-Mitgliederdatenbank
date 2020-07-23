@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -24,8 +25,9 @@ def main_screen(request):
     unterbereiche = Unterbereich.objects.filter(organisationseinheit__id__in=referat_ids)
     aemter = Funktion.objects.filter(Q(organisationseinheit__id__in=referat_ids) | Q(unterbereich__id__in=unterbereiche))
     amt_ids = aemter.values_list('id', flat=True)
-    mitglieder = MitgliedAmt.objects.filter(funktion__id__in=amt_ids, amtszeit_ende__isnull=True)
-    prev_mitglieder = MitgliedAmt.objects.filter(amtszeit_ende__isnull=False)
+    mitglieder = MitgliedAmt.objects.filter(Q(funktion__id__in=amt_ids) &
+                                            Q(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today())))
+    prev_mitglieder = MitgliedAmt.objects.filter(amtszeit_ende__lt=date.today())
 
     context = {
         'referate': referate_page,
