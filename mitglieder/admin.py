@@ -1,4 +1,8 @@
 from django.contrib import admin
-from .models import MitgliedAmt
+from simple_history.admin import SimpleHistoryAdmin
 
-# Register your models here.
+from .models import Mitglied, MitgliedMail, MitgliedAmt
+
+admin.site.register(Mitglied, SimpleHistoryAdmin)
+admin.site.register(MitgliedMail, SimpleHistoryAdmin)
+admin.site.register(MitgliedAmt, SimpleHistoryAdmin)
