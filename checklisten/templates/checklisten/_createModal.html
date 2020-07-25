@@ -11,7 +11,7 @@
                     <select id="mitgliedSelect" name="mitgliedSelect" required onChange="populateFunktionSelect();">
                         <option value="" disabled selected>Bitte auswählen</option>
                         {% for mitglied in mitglieder %}
-                            <option value="{{mitglied.id}}">{{mitglied.vorname}} "{{mitglied.spitzname}}" {{mitglied.name}}</option>
+                            <option value="{{mitglied.id}}">{{mitglied.vorname}}{% if mitglied.spitzname %}"{{mitglied.spitzname}}" {% endif %}{{mitglied.name}}</option>
                         {% endfor %}
                     </select>
                     <label>Mitglied</label>
