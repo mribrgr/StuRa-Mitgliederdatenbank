@@ -150,7 +150,9 @@ def bereiche_laden(request):
     referat_id = request.GET.get('organisationseinheit')
     amtnum = request.GET.get('amtnum')
     bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
-    return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum})
+    funktionen_ohne_unterbereich_count = Organisationseinheit.objects.get(pk=referat_id).funktionen_ohne_unterbereich_count
+
+    return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum, 'funktionen_ohne_unterbereich_count': funktionen_ohne_unterbereich_count})
 
 # Aemter eines Bereichs an das Frontend senden
 def aemter_laden(request):
