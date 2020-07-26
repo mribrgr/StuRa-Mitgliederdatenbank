@@ -21,9 +21,10 @@
                         {% if request.user.is_superuser %}
                         <form method="post" style="margin-bottom: 0px; margin-top: 4px; padding-left: 7px; padding-right: 7px;">
                             {% csrf_token %}
-                            <label for="chk-{{entry.id}}"/>
-                            <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
-                            <span style="padding-left: 7px; padding-right: 7px;"></span>
+                            <label for="chk-{{entry.id}}">
+                                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
+                                <span style="padding-left: 7px; padding-right: 7px;"></span>
+                            </label>
                         </form>
                         {% endif %}
                     </td>
