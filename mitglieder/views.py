@@ -9,12 +9,14 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Funktion, Organisationseinheit, Unterbereich
+from mitglieder.forms import MitgliedForm
 import datetime
 import simplejson, json
 # string splitting
 import re
 from django.template import RequestContext
 from django.db.models import Q
+from .forms import MitgliedForm
 
 # Anzahl der Aemter bzw. E-Mails die gespeichert werden muessen
 aemternum = 0
@@ -274,6 +276,10 @@ def email_loeschen(request):
 
 # Mitglied erstellen
 def erstellen(request):
+
+    form = MitgliedForm(request.POST)
+    print(form)
+
     """
     Speichert ein neues Mitglied in der Datenbank.
 
