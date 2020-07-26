@@ -151,7 +151,14 @@ def erstellen(request):
                 # Maximale Member der Funktion sind begrenzt
                 mitglieder_count = 0
                 for ma in MitgliedAmt.objects.filter(funktion=funktion):
-                    if (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn, amtszeit_ende)) and (is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende, ma.amtszeit_ende)):
+                    # Mitglieder ohne Datum zählen mit rein
+                    if (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
+                        mitglieder_count += 1
+                    # Mitglieder ohne Enddatum, aber Anfangsdatum <= derzeitiges Datum zählen mit rein
+                    elif (ma.amtszeit_beginn <= date.today()) & (ma.amtszeit_ende is None):
+                        mitglieder_count += 1
+                    elif (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn, amtszeit_ende)) \
+                            and (is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende, ma.amtszeit_ende)):
                         mitglieder_count +=1
                 if funktion.max_members <= mitglieder_count:
                     messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
