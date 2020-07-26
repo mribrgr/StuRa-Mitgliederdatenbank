@@ -184,8 +184,8 @@ def aemter_laden(request):
     # Laden aller Aemter fuer gewaehlten Unterbereich
     else:
         aemter = Unterbereich.objects.get(pk=bereich_id).funktion_set.all()
-        print(bereich_id)
-        print(aemter)
+        # print(bereich_id)
+        # print(aemter)
     return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter, 'amtid': amtnum})
 
 # Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
