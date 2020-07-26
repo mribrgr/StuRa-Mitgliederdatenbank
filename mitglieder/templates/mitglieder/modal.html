@@ -8,7 +8,7 @@
             {% if curr_funktionen %}
                 <ul>
                     {% for mitgliedamt in curr_funktionen %}
-                        <li>{{mitgliedamt.funktion}} (seit {{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekannten Datum"}})</li>
+                        <li>{{mitgliedamt.funktion}} (seit {{mitgliedamt.amtszeit_beginn|date:'d.m.Y'|default:"unbekanntem Datum"}})</li>
                     {% endfor %}
                 </ul>
             {% else %}-

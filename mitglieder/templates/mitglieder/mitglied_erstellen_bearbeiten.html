@@ -178,11 +178,12 @@
 </style>
 
 <script>
-  var referat_bez;
-  var amt_num = {{mitglied.mitgliedamt_set.count|default:1}};
-  var email_num = {{mitglied.mitgliedmail_set.count|default:1}};
   $(document).ready(function(){
-
+    var referat_bez;
+    var amt_num = {% if mitglied %}{{mitglied.mitgliedamt_set.count}}{% else %}1{% endif %};
+    var email_num = {% if mitglied %}{{mitglied.mitgliedmail_set.count}}{% else %}1{% endif %};
+  
+    console.log(email_num);
   // Selects und Date Picker initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
   for (var i=1; i<=amt_num; i++) initDatePicker(i);
@@ -206,6 +207,7 @@
       valid_input = false;
     }
     // Pruefen, ob alle E-Mail- und Amtfelder ausgefuellt sind
+    console.log("anzahl emails: " + email_num.toString());
     for (var i=1; i<=email_num; i++){
       var email = $("#email"+i.toString()).val();
       if (isEmail(email)==false) {
