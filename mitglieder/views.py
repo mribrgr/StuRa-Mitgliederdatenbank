@@ -277,9 +277,6 @@ def email_loeschen(request):
 # Mitglied erstellen
 def erstellen(request):
 
-    form = MitgliedForm(request.POST)
-    print(form)
-
     """
     Speichert ein neues Mitglied in der Datenbank.
 
