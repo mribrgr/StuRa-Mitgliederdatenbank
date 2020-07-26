@@ -147,24 +147,6 @@ def erstellen(request):
             else:
                 amtszeit_ende = None
 
-            # Check Max Members
-            if funktion.max_members != (0 or None):
-                # Maximale Member der Funktion sind begrenzt
-                mitglieder_count = 0
-                for ma in MitgliedAmt.objects.filter(funktion=funktion):
-                    # Mitglieder ohne Datum zählen mit rein
-                    if (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
-                        mitglieder_count += 1
-                    # Mitglieder ohne Enddatum, aber Anfangsdatum <= derzeitiges Datum zählen mit rein
-                    elif (ma.amtszeit_beginn <= date.today()) & (ma.amtszeit_ende is None):
-                        mitglieder_count += 1
-                    elif (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn, amtszeit_ende)) \
-                            and (is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende, ma.amtszeit_ende)):
-                        mitglieder_count +=1
-                if funktion.max_members <= mitglieder_count:
-                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
-                    return mitgliedErstellenView(request)
-
             mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
 
@@ -250,10 +232,9 @@ def speichern(request, mitglied_id):
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
         mitglied.save()
 
-        # alle Aemter des Mitglieds loeschen, vorher kurzzeitiges Backup anlegen
-        backup_mitgliedamt_set = mitglied.mitgliedamt_set.all()
-        for mitgliedamt in backup_mitgliedamt_set:
-            mitgliedamt.delete()
+        # alle Aemter des Mitglieds loeschen
+        mitglied.mitgliedamt_set.all().delete()
+
         for i in range(1, aemternum + 1):
             amt_id = request.POST['selectamt' + str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
@@ -268,23 +249,6 @@ def speichern(request, mitglied_id):
                 amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
             else:
                 amtszeit_ende = None
-
-            # Check Max Members
-            if funktion.max_members != (0 or None):
-                # Zaehlen der Instanzen von Mitgliedamt, die sich überschneiden, und Vergleich mit der Maximalanzahl der Mitglieder der Funktion
-                # Maximale Member der Funktion sind begrenzt
-                mitglieder_count = 0
-                for ma in MitgliedAmt.objects.filter(funktion=funktion):
-                    if (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn,
-                                                                                        amtszeit_ende)) and (
-                            is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende,
-                                                                                          ma.amtszeit_ende)):
-                        mitglieder_count += 1
-                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
-                    # geloeschte Aemter wieder speichern
-                    for mitgliedamt in backup_mitgliedamt_set:
-                        mitgliedamt.save()
-                    return mitgliedBearbeitenView(request, mitglied.id)
 
             mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn,
                                       amtszeit_ende=amtszeit_ende)
@@ -512,8 +476,6 @@ def funktionen_max_member_ueberpruefen(request):
         return JsonResponse({'isValid': True})
     else:
         return JsonResponse({'isValid': False, 'funktion': list_funktion})
-
-
 
 
 # Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
