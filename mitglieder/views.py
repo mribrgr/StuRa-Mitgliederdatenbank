@@ -1,9 +1,10 @@
 from datetime import date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.views import generic
+from django.core import serializers
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
@@ -458,6 +459,61 @@ def funktionen_html_laden(request):
             'referate': referate,
             'amtid': aemternum
         })
+
+
+# Überprüfen ob Max-Members in einer Funktion schon erreicht ist
+def funktionen_max_member_ueberpruefen(request):
+    """
+
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    funktion = None
+    list_funktion = []
+    amtszeit_beginn = None
+    amtszeit_ende = None
+    retbool = False
+
+    # Funktion
+    for i in range(1, aemternum + 1):
+        amt_id = request.POST['selectamt' + str(i)]
+        funktion = Funktion.objects.get(pk=amt_id)
+        amtszeit_beginn_str = request.POST['beginn_kandidatur' + str(i)]
+        if amtszeit_beginn_str:
+            amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+        else:
+            amtszeit_beginn = None
+        amtszeit_ende_str = request.POST['ende_kandidatur' + str(i)]
+        if amtszeit_ende_str:
+            amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+        else:
+            amtszeit_ende = None
+
+        # Check Max Members
+        if funktion.max_members != (0 or None):
+            # Maximale Member der Funktion sind begrenzt
+            mitglieder_count = 0
+            for ma in MitgliedAmt.objects.filter(funktion=funktion):
+                # Mitglieder ohne Datum zählen mit rein
+                if (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
+                    mitglieder_count += 1
+                # Mitglieder ohne Enddatum, aber Anfangsdatum <= derzeitiges Datum zählen mit rein
+                elif (ma.amtszeit_beginn <= date.today()) & (ma.amtszeit_ende is None):
+                    mitglieder_count += 1
+                elif (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn, amtszeit_ende)) \
+                        and (
+                        is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende, ma.amtszeit_ende)):
+                    mitglieder_count += 1
+            if funktion.max_members <= mitglieder_count:
+                list_funktion.append(funktion.__str__())
+
+    if not list_funktion:
+        return JsonResponse({'isValid': True})
+    else:
+        return JsonResponse({'isValid': False, 'funktion': list_funktion})
+
+
 
 
 # Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)

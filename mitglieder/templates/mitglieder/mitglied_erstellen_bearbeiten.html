@@ -145,6 +145,18 @@
   </div>
 </div>
 
+<!-- Modal für Max-Members in einer Funktion erreicht-->
+<div id="modal-max-members" class="modal">
+  <div class="modal-content">
+      <h4>Hinweis</h4>
+      <p>Die folgende/n Funktion/en hat/ben das Limit für die maximale Mitgliederanzahl erreicht.</p>
+      <ul id="list-max-members"></ul>
+  </div>
+  <div class="modal-footer">
+    <a id="confirm-max-members" class="left modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+  </div>
+</div>
+
 <style>
   a.space{
     margin-right:20px;
@@ -242,8 +254,35 @@
 
     }
     // bei gueltigen Eingaben Daten an Server schicken
-    if (valid_input) $('#mitgliedForm').submit();
-    else window.scrollTo(0,0);
+    if (valid_input) {
+        // check if MaxMembers is reached
+        $.ajax({
+            type: "POST",
+            url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' %}",
+            data: $('#mitgliedForm').serialize(),
+        success: function(data){
+          var ret = data['isValid'];
+          if(ret == true) {
+              $('#mitgliedForm').submit();
+          }
+          else {
+              window.scrollTo(0,0);
+              var modal = $("#modal-max-members");
+              var instance = M.Modal.getInstance(modal);
+              $("#list-max-members").html("");
+              var funktionen = data['funktion'];
+              console.log(funktionen);
+              funktionen.forEach(function appendtolist(currval) {
+                  $("#list-max-members").append("<li>" + currval + "</li>");
+              });
+              instance.open();
+          }
+        }
+        });
+    }
+    else {
+        window.scrollTo(0,0);
+    }
   });
 
     // Amt hinzufuegen
