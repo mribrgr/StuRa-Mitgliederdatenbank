@@ -1,6 +1,7 @@
 Code Documentation
 ==================
 
+.. include:: code/login.rst
 .. include:: code/aemter.rst
 .. include:: code/historie.rst
 .. include:: code/mitglieder.rst
