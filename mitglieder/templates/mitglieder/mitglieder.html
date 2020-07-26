@@ -92,7 +92,10 @@
 
         // Mitgliedersuche ueber Enter-Taste
         $("#search").keyup("enterKey", function(e){
-          if (e.keyCode == 13) search();
+          if (e.keyCode == 13) {
+            page = 1;
+            search();
+          } 
         });
         
         function search(){
@@ -189,7 +192,7 @@
           var modal = $("#modal-delete");
           var instance = M.Modal.getInstance(modal)
           $("#mitglieder-modal-delete").html("");
-          $('input[type=checkbox').each(function() {
+          $('input[type=checkbox]').each(function() {
             if (this.checked){
               var mitgliedid = this.id.substr(4);
               var mitgliedname = $("#mitgliedname-"+mitgliedid).text();
