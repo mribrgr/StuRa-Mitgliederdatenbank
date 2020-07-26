@@ -178,12 +178,10 @@
 </style>
 
 <script>
-  $(document).ready(function(){
-    var referat_bez;
+  var referat_bez;
     var amt_num = {% if mitglied %}{{mitglied.mitgliedamt_set.count}}{% else %}1{% endif %};
     var email_num = {% if mitglied %}{{mitglied.mitgliedmail_set.count}}{% else %}1{% endif %};
-  
-    console.log(email_num);
+  $(document).ready(function(){
   // Selects und Date Picker initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
   for (var i=1; i<=amt_num; i++) initDatePicker(i);

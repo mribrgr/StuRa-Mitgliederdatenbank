@@ -59,7 +59,7 @@ def importAemter(file):
             new_referat = Organisationseinheit.objects.get(bezeichnung=organisationseinheit)
 
         # Erstelle den Unterbereich
-        if not Unterbereich.objects.filter(bezeichnung=unterbereich).exists():
+        if not Unterbereich.objects.filter(bezeichnung=unterbereich, organisationseinheit=new_referat).exists():
             new_unterbereich = None
             if (unterbereich != 'None'):
                 new_unterbereich = Unterbereich(
@@ -68,7 +68,7 @@ def importAemter(file):
                 )
                 new_unterbereich.save()
         else:
-            new_unterbereich = Unterbereich.objects.get(bezeichnung=unterbereich)
+            new_unterbereich = Unterbereich.objects.get(bezeichnung=unterbereich, organisationseinheit=new_referat)
 
         # Erstelle das Funktion
         new_amt = Funktion(
