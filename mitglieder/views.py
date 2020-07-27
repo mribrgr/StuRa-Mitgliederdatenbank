@@ -426,7 +426,7 @@ def funktionen_html_laden(request):
 
 
 # Überprüfen ob Max-Members in einer Funktion schon erreicht ist
-def funktionen_max_member_ueberpruefen(request):
+def funktionen_max_member_ueberpruefen(request, mitglied_id):
     """
 
     """
@@ -438,6 +438,7 @@ def funktionen_max_member_ueberpruefen(request):
     amtszeit_beginn = None
     amtszeit_ende = None
     retbool = False
+
 
     # Funktion
     for i in range(1, aemternum + 1):
@@ -459,8 +460,12 @@ def funktionen_max_member_ueberpruefen(request):
             # Maximale Member der Funktion sind begrenzt
             mitglieder_count = 0
             for ma in MitgliedAmt.objects.filter(funktion=funktion):
+                # Kein selbstzählen
+                if (mitglied_id != 0):
+                    if ma.mitglied == Mitglied.objects.get(pk=mitglied_id):
+                        continue
                 # Mitglieder ohne Datum zählen mit rein
-                if (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
+                elif (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
                     mitglieder_count += 1
                 # Mitglieder ohne Enddatum, aber Anfangsdatum <= derzeitiges Datum zählen mit rein
                 elif (ma.amtszeit_beginn <= date.today()) & (ma.amtszeit_ende is None):

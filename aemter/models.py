@@ -76,6 +76,7 @@ class Funktion(models.Model):
         verbose_name = "Funktion"
         verbose_name_plural = "Funktionen"
 
+"""
 # Ueberpruefen, ob es eine Funktion ohne Unterbereich gibt, wenn ja, entsprechenden Wert bei Organisationseinheit setzen
 def funktion_post_init(**kwargs):
     instance = kwargs.get('instance')
@@ -93,6 +94,7 @@ def funktion_post_delete(**kwargs):
 
 post_init.connect(funktion_post_init, Funktion)
 post_delete.connect(funktion_post_delete, Funktion)
+"""
 
 class Recht(models.Model):
     """

@@ -44,14 +44,14 @@ def importAemter(file):
         max_members = row[3]
 
         # Print Current Line for Debug
-        print(organisationseinheit + " | " + unterbereich + " | " + funktion + " | " + max_members)
+        # print(organisationseinheit + " | " + unterbereich + " | " + funktion + " | " + max_members)
 
         if (organisationseinheit == 'Organisationseinheit'):
             continue
 
         # Erstelle das Organisationseinheit
         if not Organisationseinheit.objects.filter(bezeichnung=organisationseinheit).exists():
-            print(organisationseinheit + " wurde erstellt")
+            # print(organisationseinheit + " wurde erstellt")
             new_referat = Organisationseinheit(
                 bezeichnung = organisationseinheit
             )
@@ -63,7 +63,7 @@ def importAemter(file):
         if not Unterbereich.objects.filter(bezeichnung=unterbereich, organisationseinheit=new_referat).exists():
             new_unterbereich = None
             if (unterbereich != 'None'):
-                print(unterbereich + " wurde erstellt")
+                # print(unterbereich + " wurde erstellt")
                 new_unterbereich = Unterbereich(
                     bezeichnung = unterbereich,
                     organisationseinheit = new_referat
@@ -73,7 +73,7 @@ def importAemter(file):
             new_unterbereich = Unterbereich.objects.get(bezeichnung=unterbereich, organisationseinheit=new_referat)
 
         # Erstelle das Funktion
-        print(funktion + " wurde erstellt")
+        # print(funktion + " wurde erstellt")
         new_amt = Funktion(
             bezeichnung = funktion,
             workload = 5,

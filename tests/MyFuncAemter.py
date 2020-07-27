@@ -105,8 +105,24 @@ def createAmt(self, organisationseinheit, unterbereich, funktion):
     # Navigieren zu Funktion Hinzufügen
     self.browser.find_element_by_xpath(
         "//a[@href='/admin/aemter/unterbereich/']").click()
-    self.browser.find_element_by_xpath(
-        "//a[contains(text(), '%s')]" % unterbereich).click()
+
+    # schauen ob Unterbereich auf anderer seite liegt
+    i = 1
+    while (True):
+        try:
+            # print(f"Durchsucht wird Seite {i}")
+            self.browser.find_element_by_xpath(
+                "//a[contains(text(), '%s')]" % unterbereich).click()
+        except:
+            try:
+                i = i + 1
+                self.browser.find_element_by_xpath("//a[contains(text(), '%d')]" % i).click()
+            except:
+                # print("Etwas ist schief gegangen\n")
+                pass
+            continue
+        break
+
     self.browser.find_element_by_xpath(
         "//a[contains(text(), 'Funktion hinzufügen')]").click()
 

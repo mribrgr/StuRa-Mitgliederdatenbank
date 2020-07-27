@@ -258,8 +258,13 @@
         // check if MaxMembers is reached
         $.ajax({
             type: "POST",
-            url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' %}",
+            {% if mitglied %}
+                url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=mitglied.id %}",
+                {% else %}
+                url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=0 %}",
+            {% endif %}
             data: $('#mitgliedForm').serialize(),
+
         success: function(data){
           var ret = data['isValid'];
           if(ret == true) {
