@@ -34,14 +34,25 @@
       <a  id="amtdelbtnl{{amtid}}" data-saved="{% if funktion %}1{% else %}0{% endif %}" class="amtdelbtn waves-effect waves-light btn-floating amber"><i class="material-icons black-text">delete</i>Entfernen</a>
     </div>
   </div>
-    <div class="row">
-      <div class="input-field col l2 m4">
-        <input id="beginn_kandidatur{{amtid}}" name="beginn_kandidatur{{amtid}}" type="text" class="datepicker" {% if mitgliedamt.amtszeit_beginn %}value="{{mitgliedamt.amtszeit_beginn|date:'d.m.Y'}}"{% endif %}>
+    <div class="hide-on-med-and-down">
+      <div class="input-field col l2">
+        <input id="beginn_kandidatur{{amtid}}" name="beginn_kandidatur" type="text" class="validate" {% if funktion.beginn %}value="{{funktion.beginn}}"{% endif %}>
           <label id="beginn_kandidatur_label{{amtid}}" for="beginn_kandidatur{{amtid}}">Beginn Amtszeit</label>
       </div>
       <div class="input-field col l2">
-        <input id="ende_kandidatur{{amtid}}" name="ende_kandidatur{{amtid}}" type="text" class="datepicker" {% if mitgliedamt.amtszeit_ende %}value="{{mitgliedamt.amtszeit_ende|date:'d.m.Y'}}"{% endif %}>
+        <input id="ende_kandidatur{{amtid}}" name="ende_kandidatur" type="text" class="validate" {% if funktion.ende %}value="{{funktion.ende}}"{% endif %}>
           <label id="ende_kandidatur_label{{amtid}}" for="ende_kandidatur{{amtid}}">Ende Amtszeit</label>
       </div>
+    </div>
+  </div>
+  <div class="row hide-on-large-only">
+    <div class="input-field col m4">
+      <input id="beginn_kandidaturs{{amtid}}" type="text" class="validate" {% if funktion.beginn %}value="{{funktion.beginn}}"{% endif %}>
+        <label id="beginn_kandidaturs_label{{amtid}}" for="beginn_kandidaturs{{amtid}}">Beginn Amtszeit</label>
+    </div>
+    <div class="input-field col m4">
+      <input id="ende_kandidaturs{{amtid}}" type="text" class="validate" {% if funktion.ende %}value="{{funktion.ende}}"{% endif %}>
+        <label id="ende_kandidaturs_label{{amtid}}" for="ende_kandidaturs{{amtid}}">Ende Amtszeit</label>
+    </div>
   </div>
 </div>

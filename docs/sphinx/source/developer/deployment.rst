@@ -41,8 +41,8 @@ Then:
 
 Now create a virtual environment and activate it.
 
-  ``virtualenv venv``
-  ``source venv/bin/activate``
+  | ``virtualenv venv``
+  | ``source venv/bin/activate``
 
 If you have successfully activated your virtual ennvironment than your prompt should
 look something like this ``(venv) user@host:StuRa-Mitgliederdatenbank``. The last
