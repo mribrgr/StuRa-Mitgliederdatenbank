@@ -260,21 +260,6 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <code class="sig-name descname">organisationseinheit_id</code><a class="headerlink" href="#aemter.models.Funktion.organisationseinheit_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
-<dt id="aemter.models.Funktion.prevmitgliedamt_set">
-<code class="sig-name descname">prevmitgliedamt_set</code><a class="headerlink" href="#aemter.models.Funktion.prevmitgliedamt_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor to the related objects manager on the reverse side of a
-many-to-one relation.</p>
-<p>In the example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
-<p>Most of the implementation is delegated to a dynamically defined manager
-class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt id="aemter.models.Funktion.save_without_historical_record">
 <code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.Funktion.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
@@ -749,7 +734,7 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 
 <dl class="py class">
 <dt id="aemter.models.HistoricalOrganisationseinheit">
-<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalOrganisationseinheit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">aemter.models.</code><code class="sig-name descname">HistoricalOrganisationseinheit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">funktionen_ohne_unterbereich_count</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py exception">
 <dt id="aemter.models.HistoricalOrganisationseinheit.DoesNotExist">
 <em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.DoesNotExist" title="Permalink to this definition">¶</a></dt>
@@ -763,6 +748,13 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dl class="py attribute">
 <dt id="aemter.models.HistoricalOrganisationseinheit.bezeichnung">
 <code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.HistoricalOrganisationseinheit.funktionen_ohne_unterbereich_count">
+<code class="sig-name descname">funktionen_ohne_unterbereich_count</code><a class="headerlink" href="#aemter.models.HistoricalOrganisationseinheit.funktionen_ohne_unterbereich_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
@@ -1181,6 +1173,7 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <ul class="simple">
 <li><p>bezeichnung</p></li>
 <li><p>history</p></li>
+<li><p>funktionen_ohne_unterbereich_count</p></li>
 </ul>
 <dl class="py exception">
 <dt id="aemter.models.Organisationseinheit.DoesNotExist">
@@ -1212,6 +1205,13 @@ many-to-one relation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
 <p>Most of the implementation is delegated to a dynamically defined manager
 class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="aemter.models.Organisationseinheit.funktionen_ohne_unterbereich_count">
+<code class="sig-name descname">funktionen_ohne_unterbereich_count</code><a class="headerlink" href="#aemter.models.Organisationseinheit.funktionen_ohne_unterbereich_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1429,7 +1429,7 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dl class="py function">
 <dt id="aemter.views.main_screen">
 <code class="sig-prename descclassname">aemter.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#aemter.views.main_screen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Displays the Ämter-screen</p>
+<dd><p>Displays the Funktionen-screen</p>
 </dd></dl>
 
 </div>

@@ -177,65 +177,6 @@
 <div class="section" id="module-mitglieder.views">
 <span id="views"></span><h2>Views<a class="headerlink" href="#module-mitglieder.views" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="mitglieder.views.aemter_html_laden">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_html_laden" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
-<p>Aufgaben:</p>
-<ul class="simple">
-<li><p>Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</p></li>
-<li><p>Rendern des Templates</p></li>
-<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Das gerenderte Formular.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="mitglieder.views.aemter_laden">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">aemter_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.aemter_laden" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
-<p>Aufgaben:</p>
-<ul class="simple">
-<li><p>Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</p></li>
-<li><p>Rendern des Templates</p></li>
-<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Das gerenderte Dropdown.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="mitglieder.views.amt_loeschen">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">amt_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.amt_loeschen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
-<p>Aufgaben:</p>
-<ul class="simple">
-<li><p>Erfassen der Anzahl der Ämter</p></li>
-<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>HTTP Response</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="mitglieder.views.bereiche_laden">
 <code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">bereiche_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.bereiche_laden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
@@ -315,26 +256,68 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="mitglieder.views.getValue">
-<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">attr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.getValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.</p>
+<dt id="mitglieder.views.funktion_loeschen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">funktion_loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.funktion_loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.</p>
 <p>Aufgaben:</p>
 <ul class="simple">
-<li><p>Entnehmen des Attributs</p></li>
-<li><p>Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben</p></li>
+<li><p>Erfassen der Anzahl der Ämter</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>request</strong> – Eine POST-Request.</p></li>
-<li><p><strong>attr</strong> – Das Attribut, das aus Request entnommen werden soll.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist</p>
+<dd class="field-even"><p>HTTP Response</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.funktionen_html_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">funktionen_html_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.funktionen_html_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Formular.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.funktionen_laden">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">funktionen_laden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.funktionen_laden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.</p>
+<p>Aufgaben:</p>
+<ul class="simple">
+<li><p>Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.</p></li>
+<li><p>Rendern des Templates</p></li>
+<li><p>Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Das gerenderte Dropdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mitglieder.views.funktionen_max_member_ueberpruefen">
+<code class="sig-prename descclassname">mitglieder.views.</code><code class="sig-name descname">funktionen_max_member_ueberpruefen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">mitglied_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mitglieder.views.funktionen_max_member_ueberpruefen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt id="mitglieder.views.main_screen">
