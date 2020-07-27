@@ -15,9 +15,7 @@
         <!-- Filter prev_people that aren't assigned to the department -->
         {% for prev_mitglied in prev_mitglieder %}
             {% if prev_mitglied.funktion.id == funktion.id %}
-              {% for member in prev_mitglied.members.all %}
-                  {{member.vorname}} {{member.name}}
-                {% endfor %}
+                  {{prev_mitglied.mitglied.vorname}} {{prev_mitglied.mitglied.name}}
             {% endif %}
         {% endfor %}
         )
