@@ -57,6 +57,7 @@
                 csrfmiddlewaretoken: '{{ csrf_token }}'
             },
             success: function(data) {
+                // Add options to select and re-initialize the select object
                 $("#funktionSelect").append(data);
                 M.FormSelect.init(funktionSelect, null);
             }
@@ -66,6 +67,7 @@
     function updateGeneralTasksCheckbox() {
         var funktionSelect = document.getElementById("funktionSelect");
         var generalTasksCheckbox = document.getElementById("generalTasksCheckbox");
+        // Force check and disable general tasks checkbox to prevent empty checklists
         if(funktionSelect.value == "-1") {
             generalTasksCheckbox.checked = true;
             generalTasksCheckbox.disabled = true;

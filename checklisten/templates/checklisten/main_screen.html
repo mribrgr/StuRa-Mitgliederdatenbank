@@ -68,6 +68,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Initialize modals and selects
     var modalElems = document.querySelectorAll('.modal');
     var modalInstances = M.Modal.init(modalElems, null);
 
@@ -75,6 +76,7 @@
     var selectInstances = M.FormSelect.init(selectElems, null);
   });
 
+  // POST task completion to backend
   function abhaken(task_id, task_type) {
     $.ajax({
       type: 'POST',
@@ -88,8 +90,10 @@
   }
 
   function loeschen() {
+    // Get the Checkliste ID that should be deleted
     var checkliste_id = $("#deleteModal").attr("data-checkliste");
 
+    // POST Checkliste removal to backend
     $.ajax({
       type: 'POST',
       url: '/checklisten/loeschen',
@@ -98,12 +102,14 @@
         csrfmiddlewaretoken: '{{ csrf_token }}'
       },
       success: function() {
+        // Remove deleted Checkliste from DOM
         $("#checkliste" + checkliste_id).remove();
       }
     });
   }
 
   function updateDeleteModal(checkliste_id) {
+    // Set the Checkliste ID that should be deleted
     $("#deleteModal").attr("data-checkliste", checkliste_id);
   }
 </script>
