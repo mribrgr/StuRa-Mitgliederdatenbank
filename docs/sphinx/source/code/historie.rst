@@ -88,10 +88,10 @@ gehört, wird ebenfalls der Datensatz vor der Änderung mitsamt zusätzlichen Da
 Template Tags
 ~~~~~~~~~~~~~
 
-.. automodule:: historie.templatetags.to_class_name
+.. automodule:: historie.templatetags.t_historie.to_class_name
     :members:
     :undoc-members:
 
-.. automodule:: historie.templatetags.get_associated_data
+.. automodule:: historie.templatetags.t_historie.get_associated_data
     :members:
     :undoc-members:
