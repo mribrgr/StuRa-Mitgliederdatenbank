@@ -1,6 +1,8 @@
 Login
 -----
 
+This app is responsible for authenticating users.
+
 Views
 ~~~~~
 
@@ -11,7 +13,7 @@ Views
 Templates
 ~~~~~~~~~
 
-All templates can be found under /login/templates/login.
+All templates can be found under ``/login/templates/login.``
 
 login.html
 """"""""""
