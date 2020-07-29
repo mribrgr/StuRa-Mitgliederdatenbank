@@ -36,8 +36,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull
           git add -A
+          git pull
           git commit -m "Add changes (Projektbericht)" -a
 
       - name: Push changes
@@ -53,7 +53,7 @@ jobs:
 
       # install Ascidoctor
       - name: install asciidoctor
-        run: gem install asciidoctor
+        run: sudo gem install asciidoctor
 
       # show ascitoctor version
       - name: show version
@@ -61,7 +61,7 @@ jobs:
 
       # install Ascidoctor-pdf
       - name: install asciidoctor-pdf
-        run: gem install asciidoctor-pdf --pre
+        run: sudo gem install asciidoctor-pdf --pre
 
       # show Ascidoctor-pdf version
       - name: show version
@@ -76,8 +76,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull
           git add -A
+          git pull
           git commit -m "Add changes (Anforderungsanalyse)" -a
 
       - name: Push changes
