@@ -1,41 +1,47 @@
-# Projektbericht
-<!-- Ziel: Planung, Durchführung und Ergebnisse der Projektarbeit nachvollziehbar machen -->
-<!-- Hinweise:
+= Projektbericht
+// --- 2. Teammitglieder -----------------------
+Theresa Schüttig <s79136@htw-dresden.de>; Benjamin Hempel <s79132@htw-dresden.de>; Marc Michel <s77201@htw-dresden.de>; Mauritius Berger <s79149@htw-dresden.de>; Lukas Hirsch <s79199@htw-dresden.de>
+// --- 3. Abgabedatum --------------------------
+14. August 2020
+// ---------------------------------------------
+:doctype: book
+:toc:
+:toclevels: 2
+:toc-title: Inhaltsverzeichnis
+
+////
+      Ziel: Planung, Durchführung und Ergebnisse der Projektarbeit nachvollziehbar machen
+      Hinweise:
       ▪Redundanzen mit den anderen Dokumenten vermeiden: Was an anderer Stelle schon steht, sollte nicht wiederholt werden (Verweis reicht!)
       ▪Kennzeichnung der Autorenschaft auf der 1. oder 2. Gliederungsebene (z.B. durch Kürzel in der Überschrift)
       ▪Nutzen Sie Entwürfe, Modelle, Listen, Screenshots, ... die Sie im Rahmen des Projekts erstellt haben; sinnvoll sind insbesondere Zwischenergebnisse und deren Bewertung / Weiterbearbeitung
       ▪Gliederung kann frei gewählt werden, solange o.g. Inhalte abgedeckt werden
       ▪Keine „Lehrbuchinhalte“ oder Produkt-/ Toolbeschreibungen einfügen, Verweis auf Quellen oder URL reicht!
       ▪Keine Code-Listings ausdrucken, sondern auf Git-Repository verweisen (ausgewählte Code-Ausschnitte können aber bei Bedarf in die Dokumente integriert werden)
--->
-
-# Inhaltstabelle
-1. [Planung](#planung)
-2. [Durchführung](#durchführung)
-3. [Ergebnisse](#ergebnisse)
+////
 
 
 
-# Planung
-<!-- (~ 4 Seiten) -->
-<!--
+= Planung
+////
+      (~ 4 Seiten)
       −Aufgabenstellung und Auftraggeber (AG) sowieAusgangssituation zum Semesterbeginn
       −Projektorganisation, d.h. Team, Rollen, Kommunikation im Team und zum Auftraggeber, eingesetzte Tools in der Projektarbeit, z.B. für Planung, Kommunikation, Dokumentation
       −Eingesetzte Techniken und Praktiken im Projekt: Welche wurden ausgewählt und warum?
--->
+////
 
-# Durchführung
-<!-- (~ 20 Seiten) -->
-<!--
+= Durchführung
+////
+      (~ 20 Seiten)
       −Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Projektphasen oder Iterationen, dabei Berücksichtigung des Zusammenspiels zwischen den einzelnen Rollen
       −Hauptaktivitäten: Anforderungserhebung und -analyse, Entwurf, Implementierung, Test, Übergabe und Dokumentation
       −Darstellung der wesentlichen Entscheidungen mit kurzer Begründung
       −Diskussion der aufgetretenen Probleme und ihr Umgang damit
--->
+////
 
-# Ergebnisse
-<!-- (~ 6 Seiten) -->
-<!--
+= Ergebnisse
+////
+      (~ 6 Seiten)
       −Projektergebnisse mit Bezug auf die Ziele / Aufgabenstellung: Was haben wir erreicht und was nicht? Was waren die Gründe für Abweichungen?
       −Reflexion pro Teammitglied: Was habe ich gelernt? Worauf bin ich stolz? Was hat gut funktioniert? Was würde ich beim nächsten Projekt anders machen?
--->
+////
