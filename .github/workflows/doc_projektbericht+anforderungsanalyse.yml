@@ -13,7 +13,7 @@ jobs:
 
       # install Ascidoctor
       - name: install asciidoctor
-        run: gem install asciidoctor
+        run: sudo gem install asciidoctor
 
       # show ascitoctor version
       - name: show version
@@ -21,7 +21,7 @@ jobs:
 
       # install Ascidoctor-pdf
       - name: install asciidoctor-pdf
-        run: gem install asciidoctor-pdf --pre
+        run: sudo gem install asciidoctor-pdf --pre
 
       # show Ascidoctor-pdf version
       - name: show version
