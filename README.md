@@ -1,8 +1,8 @@
 # StuRa-Mitgliederdatenbank
 <!-- Badges -->
 ![Test_Linux](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/Test_Linux/badge.svg)
+![build_documentation](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/build_documentation/badge.svg)
 ![flake8](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/flake8/badge.svg)
-![doc_sphinx](https://github.com/mribrgr/StuRa-Mitgliederdatenbank/workflows/doc_sphinx/badge.svg)
 
 ## Dokumentation
 
