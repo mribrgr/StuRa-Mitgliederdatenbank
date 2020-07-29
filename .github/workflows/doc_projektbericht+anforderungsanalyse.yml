@@ -31,6 +31,11 @@ jobs:
       - name: Build
         run: asciidoctor-pdf --out-file=./docs/projektbericht/projektbericht.pdf ./docs/projektbericht/README.adoc
 
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+
       # commit
       - name: Commit files
         run: |
