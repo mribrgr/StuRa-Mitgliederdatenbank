@@ -8,3 +8,4 @@ Code Documentation
 .. include:: code/checklisten.rst
 .. include:: code/importscripts.rst
 .. include:: code/tests.rst
+.. include:: code/commands.rst
