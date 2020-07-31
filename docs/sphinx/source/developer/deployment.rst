@@ -16,6 +16,7 @@ Requirements:
 
 * a web server
 * basic knowledge of bash
+* Python 3
 
 Basic configuration:
 ~~~~~~~~~~~~~~~~~~~~
@@ -28,9 +29,11 @@ Install Dependencies for the deployment. (We use Python3)
 
   ``sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3``
 
-You also need to install virtualenv, to seperate Python from your system's python
+You also need to install virtualenv, to seperate Python from your system's python.
+Important is that you use python 3 because we use the Apache mod_wsgi for
+python 3.
 
-  ``sudo pip install virtualenv``
+  ``sudo pip3 install virtualenv``
 
 Now we need to clone the Git-Repository and setup the virtualenv for Python.
 First you need to change to the directory that you want to clone this web application to.
@@ -59,6 +62,7 @@ We open the file first (based on the previous chapter)
   ``nano bin/settings.py``
 
 Here we need to register our server's public IP address or domain name.
+Replace "IP_or_DOMAIN" with your personal IP address or domain name.
 
   ``ALLOWED_HOSTS = ["IP_or_DOMAIN"]``
 
@@ -67,6 +71,11 @@ At the bottom of the settings.py we need to define a static directory for our st
   ``STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic/')``
 
 Now we can close and save the file.
+After this you need to crate the folder static in the directory StuRa-Mitgliederdatenbank
+with the command.
+
+  ``mkdir static``
+
 The last step is to do initial commands:
 
   | ``python ./manage.py makemigrations``
@@ -113,6 +122,7 @@ and the path to the wsgi.py.
   </VirtualHost>
 
 Now we add the recommended deamon mode to the WSGI process.
+To do it you need to append the folowing lines to the Apache config.
 
 .. code-block:: bash
   :caption: /etc/apache2/sites-available/000-default.conf
@@ -120,17 +130,6 @@ Now we add the recommended deamon mode to the WSGI process.
   <VirtualHost *:80>
 
     . . .
-
-    Alias /static /home/pi/StuRa-Mitgliederdatenbank/mystatic
-    <Directory /home/pi/StuRa-Mitgliederdatenbank/mystatic>
-        Require all granted
-    </Directory>
-
-    <Directory /home/pi/StuRa-Mitgliederdatenbank/bin>
-      <Files wsgi.py>
-        Require all granted
-      </Files>
-    </Directory>
 
     WSGIDaemonProcess StuRa-Mitgliederdatenbank python-home=/home/pi/StuRa-Mitgliederdatenbank/venv python-path=/home/pi/StuRa-Mitgliederdatenbank
     WSGIProcessGroup StuRa-Mitgliederdatenbank
@@ -146,8 +145,8 @@ can read and write. Then we need to the ownership of some files to Apache2
 group and user ``www-data``.
 
   | ``chmod 664 ~/StuRa-Mitgliederdatenbank/db.sqlite3``
-  | ``sudo chown www-data:www-data ~/myproject/db.sqlite3``
-  | ``sudo chown www-data:www-data ~/myproject``
+  | ``sudo chown www-data:www-data ~/StuRa-Mitgliederdatenbank/db.sqlite3``
+  | ``sudo chown www-data:www-data ~/StuRa-Mitgliederdatenbank``
 
 If you got firewall issues, allow Apache to acces the firewall example:
 
