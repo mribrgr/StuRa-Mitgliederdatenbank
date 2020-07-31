@@ -121,12 +121,15 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_13_plan.adoc[Iteration 13]
-| -
+|
+* Präsentation
+* Deployment an Kunden
 | 20.07.2020 - 02.08.2020
 | -
 
 |link:iteration-plans/iteration_14_plan.adoc[Iteration 14]
-| -
+|
+* Finale Abgabe
 | 03.08.2020 - 16.08.2020
 | -
 
