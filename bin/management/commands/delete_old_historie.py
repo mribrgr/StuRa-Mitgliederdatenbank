@@ -23,7 +23,7 @@ class Command(BaseCommand):
         mitglied_history = Mitglied.history.filter(history_date__lte=timezone.now()-timedelta(days=365))
         mitglied_counter = 0
         for entry in mitglied_history:
-            if not Mitglied.objects.get(id=mitglied.id):
+            if not Mitglied.objects.get(id=entry.mitglied.id):
                 entry.delete()
                 mitglied_counter += 1
         self.stdout.write('Deleted ' + str(mitglied_counter) + ' entries from Mitglied Historie older than 1 year')
@@ -35,7 +35,7 @@ class Command(BaseCommand):
         mitglied_amt_history = MitgliedAmt.history.filter(history_date__lte=timezone.now()-timedelta(days=365))
         mitglied_amt_counter = 0
         for entry in mitglied_amt_history:
-            if not Mitglied.objects.get(id=mitglied_id):
+            if not Mitglied.objects.get(id=entry.mitglied_id):
                 entry.delete()
                 mitglied_amt_counter += 1
         self.stdout.write('Deleted ' + str(mitglied_amt_counter) + ' entries from MitgliedAmt Historie older than 1 year')
@@ -47,7 +47,7 @@ class Command(BaseCommand):
         mitglied_mail_history = MitgliedMail.history.filter(history_date__lte=timezone.now()-timedelta(days=365))
         mitglied_mail_counter = 0
         for entry in mitglied_mail_history:
-            if not Mitglied.objects.get(id=mitglied_id):
+            if not Mitglied.objects.get(id=entry.mitglied_id):
                 entry.delete()
                 mitglied_mail_counter += 1
         self.stdout.write('Deleted ' + str(mitglied_mail_counter) + ' entries from MitgliedMail Historie older than 1 year')
