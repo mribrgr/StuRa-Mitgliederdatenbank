@@ -1,6 +1,13 @@
 User Documentation
 ==================
 
+Working with Members (Mitglieder)
+---------------------------------
+createNewMitglied.rst
+alterMitglied.rst
+deleteMitglied.rst
+
+
 Working with Organizational units (Organisationseinheiten)
 ----------------------------------------------------------
 .. include:: user/createNewOrganisationseinheit.rst
@@ -20,3 +27,17 @@ Working with Functions (Funktionen)
 .. include:: user/createNewFunktion.rst
 .. include:: user/alterFunktion.rst
 .. include:: user/deleteFunktion.rst
+
+
+Working with Checklists (Checklisten)
+-------------------------------------
+createAllgemeineAufgaben.rst
+createFunktionRechte.rst
+createCheckliste.rst
+deleteCheckliste.rst
+
+
+Working with Users and Admins
+-----------------------------
+.. include:: user/createUser.rst
+.. include:: user/createAdmin.rst
