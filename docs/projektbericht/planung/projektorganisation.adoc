@@ -1,0 +1,82 @@
+Projektorganisation (BHe)
+=========================
+
+Team und Rollen 
+---------------
+
+Backup-Rollen sind in eckigen Klammern angegeben.
+
+|===
+| **Name** | **Kürzel** | **E-Mail** | **Rolle(n)**
+| Mauritius Berger | MBe | s79149@htw-dresden.de | Projektleiter, [Developer]
+| Lukas Hirsch | LHi | s79199@htw-dresden.de | Tester, Technical Writer
+| Theresa Schüttig | TSc | s79136@htw-dresden.de | Developer, [Tester]
+| Benjamin Hempel | BHe | s79132@htw-dresden.de | Developer
+| Marc Michel | MMi | s77201@htw-dresden.de | Architekt, [Developer] (SE II)
+| Stefan Holland | - | - | Architekt, [Analyst] (SE I)
+| Lucie Jill Urbons | - | - | Analyst (SE I)
+| Helene Uhlig | - | - | Analyst (SE I)
+|===
+
+Kommunikation
+-------------
+
+Innerhalb des Teams
+~~~~~~~~~~~~~~~~~~~
+
+Innerhalb des Teams haben wir zwei Kommunikationswerkzeuge benutzt. 
+
+Zur schnellen Kommunikation bei auftretenden Problemen oder Fragen sowie zum Vereinbaren von Treffen - sowohl persönlich als auch remote - haben wir eine WhatsApp-Gruppe erstellt. Wir haben uns für WhatsApp entschieden, da es bereits von allen Teammitgliedern vor dem Projekt verwendet wurde und damit eine hohe Erreichbarkeit gewährleistet.
+
+Aufgrund der COVID-19-Pandemie waren wir gezwungen, nahezu alle Treffen in Software Engineering II remote abzuhalten. Zur Durchführung der Meetings haben wir einen eigenen Discord-Server aufgesetzt. Die Wahl fiel auf Discord, da es bereits von einigen Teammitgliedern vor dem Projekt verwendet wurde, umfangreiche Möglichkeiten zum Teilen des eigenen Bildschirms bereitstellt und eine gute Audioqualität bietet.
+
+Mit den Stakeholdern
+~~~~~~~~~~~~~~~~~~~~
+
+Die Kommunikation mit dem StuRa erfolgte primär ebenfalls über die oben erwähnte WhatsApp-Gruppe und den Discord-Server. Das hat den Vorteil, dass alle Teammitglieder die Kommunikation in Echtzeit mitverfolgen konnten und es keinen "Mittelsmann" gab, welcher die Informationen anschließend an alle verteilen musste.
+
+Vereinzelt wurden außerdem der StuRa-eigene Discord-Server sowie E-Mails als Kommunikationsmittel genutzt.
+
+Eingesetzte Werkzeuge
+---------------------
+
+Kommunikation
+~~~~~~~~~~~~~
+
+__siehe Projektorganisation -> Kommunikation__
+
+* WhatsApp
+* Discord
+* E-Mail
+
+Planung
+~~~~~~~
+
+Trello
+^^^^^^
+
+Trello ermöglicht es, Kanban-artige Boards zur Organisation von Aufgaben zu erstellen und gemeinsam in Echtzeit an diesen zu arbeiten. Wir haben das Tool verwendet, um den aktuellen Status jedes Work Items (z.B. offen, in Arbeit, Review benötigt, Tests benötigt, ...) abzubilden und auf einen Blick ersichtlich zu machen. Für jedes Work Item gab es eine Karte, in welcher sich Details zu diesem befanden (z.B. Akzeptanzkriterien oder Screenshots bei Bugs).
+
+Wir haben uns auf folgenden Gründen für Trello entschieden:
+
+* zahlreiche Elemente zur Ausgestaltung von Work Items (Checklisten, Text, Bilder, ...)
+* Hinzufügen von Fristen und Teammitgliedern zu Work Items möglich
+* Work Items können kommentiert werden; ermöglicht Diskussion unter Teammitgliedern
+* Integration mit GitHub, um z.B. Commits, Issues oder Pull Requests zu einem Work Item hinzuzufügen
+* Work Items können mit Labels (z.B. Bug, Feature, wichtig) versehen werden, um diese zu klassifizieren
+
+Weitere
+^^^^^^^
+
+* GitHub Issues
+* Essence Navigator
+
+Dokumentation 
+~~~~~~~~~~~~~
+
+__siehe Durchführung -> Hauptaktivitäten -> Dokumentation__
+
+* Sphinx
+* AsciiDoc
+* Visual Paradigm
+* diagrams.net
