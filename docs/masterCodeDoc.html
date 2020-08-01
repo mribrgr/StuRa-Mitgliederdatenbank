@@ -194,6 +194,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#latest-test-coverage-report">Latest test coverage report</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-bin.management.commands.delete_old_historie">delete_old_historie</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3974,6 +3978,34 @@ TOTAL                                           <span class="m">1339</span>    <
 </div>
 </div>
 </div></blockquote>
+</div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-bin.management.commands.delete_old_historie">
+<span id="delete-old-historie"></span><h3>delete_old_historie<a class="headerlink" href="#module-bin.management.commands.delete_old_historie" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="bin.management.commands.delete_old_historie.Command">
+<em class="property">class </em><code class="sig-prename descclassname">bin.management.commands.delete_old_historie.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stdout</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stderr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">no_color</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">force_color</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="bin.management.commands.delete_old_historie.Command.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command deletes all entries from the Historie of Mitglied, MitgliedAmt and MitgliedMail that</p>
+<ul class="simple">
+<li><p>are at least 1 year old if the referenced Mitglied does not exist in the database anymore</p></li>
+<li><p>are at least 5 years old otherwise</p></li>
+</ul>
+<p>Please note that 1 year is equivalent to 365 days, so leap years are not accounted for.</p>
+<p>It can be called using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">delete_old_historie</span></code> and can thus be automated, for example by setting up a cronjob.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bin.management.commands.delete_old_historie.Command.help">
+<code class="sig-name descname">help</code><em class="property"> = 'Deletes all entries concerning Mitglieder from the Historie older than 5 years. If the associated Mitglied is not in the database anymore, the entry will be deleted if it is older than 1 year.'</em><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command.help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 </div>
