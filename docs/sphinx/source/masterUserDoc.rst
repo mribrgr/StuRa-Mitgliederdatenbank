@@ -3,9 +3,9 @@ User Documentation
 
 Working with Members (Mitglieder)
 ---------------------------------
-createNewMitglied.rst
-alterMitglied.rst
-deleteMitglied.rst
+.. include:: user/createNewMitglied.rst
+.. include:: user/alterMitglied.rst
+.. include:: user/deleteMitglied.rst
 
 
 Working with Organizational units (Organisationseinheiten)
