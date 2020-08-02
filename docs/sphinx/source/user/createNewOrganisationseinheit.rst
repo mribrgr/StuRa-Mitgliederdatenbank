@@ -18,7 +18,7 @@ Now to add a new Organizational unit we need to click on the Button
 
 TODO: Screenshot von Organisationseinheit hinzufügen
 
-You can fill in the appearing form and add on the fly new functions and/or
+You can fill in the appearing form and add on new functions and/or
 subsections of this Organizational unit. At last you need to Save everything
 with the Button "Sichern" on the lower right of the form.
 
@@ -26,4 +26,4 @@ with the Button "Sichern" on the lower right of the form.
 
 If you are Prompted
 "Organisationseinheit „<Your Organisational unit>“ wurde erfolgreich hinzugefügt."
-then everything succeded and you are finished.
+then everything succeeded and you are finished.
