@@ -71,7 +71,7 @@ At the bottom of the settings.py we need to define a static directory for our st
   ``STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic/')``
 
 Now we can close and save the file.
-After this you need to crate the folder static in the directory StuRa-Mitgliederdatenbank
+After this you need to create the folder static in the directory StuRa-Mitgliederdatenbank
 with the command.
 
   ``mkdir static``
