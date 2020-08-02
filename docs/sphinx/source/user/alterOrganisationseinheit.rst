@@ -16,7 +16,7 @@ Organizational unit.
 
 .. image:: img\alterOrganisationseinheit.png
 
-To confirm our modifications you have to click on the Button "sichern".
+To confirm your modifications you have to click on the Button "sichern".
 If you are Prompted
 "Organisationseinheit „<Your Organisational unit>“ wurde erfolgreich geändert."
 then everything succeded and you are finished.
