@@ -17,8 +17,8 @@ First Option via Organizational units
 Navigate and click on the Organizational unit the Subsection belongs to.
 Now we can start to add a new Subsection, first we click on the Button
 "Unterbereich hinzufügen". Second we need to name the new Subsection and
-if its finished we can save our changes with the Button "Sichern und weiter bearbeiten".
-At last if you are prompted like 4th shows everything succeed.
+save our changes with the Button "Sichern und weiter bearbeiten".
+If you are prompted with a success message everything succeded.
 
 .. image:: img/createUnterbereicheOrganisationseinheiten.png
 
