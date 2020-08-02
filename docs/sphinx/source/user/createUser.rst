@@ -10,7 +10,7 @@ Now you have to go to the User section of the admin page.
 
 .. image:: img/UserSection.png
 
-Now you see a overview of all Users of the Software. To add an
+Now you see a overview of all Users of the Software. To add a
 new User you can click on the Button "Benutzer hinzufügen" on the
 upper right of the page. You have to fill in the form and accept your input
 with the Button "Sichern und weiter bearbeiten"
