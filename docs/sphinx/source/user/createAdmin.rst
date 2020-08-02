@@ -1,4 +1,4 @@
-Create an User (with Admin rights)
+Create a User (with Admin rights)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Pre-conditions:
@@ -9,7 +9,7 @@ Pre-conditions:
 If you successfully created a User with the section above you can Upgrade
 the User account to an Admin account. First you need to navigate to the
 User you want to give administrative privileges and then you have to simply check
-the Checkboxes "Mitarbeiter-Status" "Administrator-Status"
+the Checkboxes "Mitarbeiter-Status" and "Administrator-Status"
 
 .. image:: img/createUserAdmin.png
 
