@@ -17,7 +17,7 @@ include::csv/team.csv[]
 == Praktiken und Bewertung 
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 * Wir arbeiten in Iterationen, welche 2 Wochen andauern.
-* Aus dem ersten Treffen hat sich herausgestellt, dass wir folgende Tools nutzen wollen:
+* Folgende Tools nutzen wir:
 
 ** Protokollierung:
 *** link:https://pentapad.c3d2.de/[Pentapad]
@@ -29,6 +29,9 @@ include::csv/team.csv[]
 ** Tickets aka. WorkItemList:
 *** link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues[Github Issues]
 *** Trello
+** Testen
+*** Selenium
+
 // TODO: Link zum Trelloboard
 
 == Meilesteine und Ziele
