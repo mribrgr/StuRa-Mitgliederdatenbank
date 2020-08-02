@@ -75,7 +75,8 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_4_plan.adoc[Iteration 4]
-| -
+|
+* Beginn Implementierung durch Prototypenbau
 | 16.03.2020 - 29.03.2020
 | -
 
