@@ -5,7 +5,7 @@ Pre-conditions:
 
 * login as Admin
 
-If you made a mistake or a Member is leaving the StuRa you can delete delete
+If you made a mistake or a Member is leaving the StuRa you can delete
 the Member in a few steps.
 
 1. Check the Members you want to delete
@@ -17,4 +17,4 @@ the Member in a few steps.
 .. image:: img/deleteMember2.png
 .. image:: img/deleteMember3.png
 
-Now you deleted successfully the Member/s.
+Now you successfully deleted the Member/s.
