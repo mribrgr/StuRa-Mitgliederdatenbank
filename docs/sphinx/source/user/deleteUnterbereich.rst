@@ -13,6 +13,6 @@ organizational unit. At last we can save the modifications with the Button
 
 .. image:: img/deleteUnterbereiche.png
 
-Check the success message if everything was working.
+Check the success message to ensure that the Subsection was deleted successfully.
 
 .. image:: img/deleteUnterbereiche2.png
