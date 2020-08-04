@@ -16,7 +16,7 @@ Then we have to move to the correct section to manage our Organizational units.
 Now to add a new Organizational unit we need to click on the Button
 "Organisationseinheit hinzufügen".
 
-TODO: Screenshot von Organisationseinheit hinzufügen
+.. image:: img/alterOrganisationseinheit.png
 
 You can fill in the appearing form and add on new functions and/or
 subsections of this Organizational unit. At last you need to Save everything
