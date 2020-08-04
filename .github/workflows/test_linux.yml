@@ -50,4 +50,4 @@ jobs:
 
     # Run Tests
     - name: Run all tests
-      run: python manage.py test --verbosity=3 --parallel 2 --failfast
+      run: python manage.py test --verbosity=3 --failfast

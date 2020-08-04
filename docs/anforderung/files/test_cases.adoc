@@ -1,4 +1,4 @@
-= Test-Cases 
+= Test-Cases
 
 //# <project> Test Cases: <optional: use-case name>
 //[The Test Case ID should be unique. In addition, the name of each Test Case should reflect the intent of the test case, ideally expressed as a Boolean condition.]
@@ -6,11 +6,5 @@
 
 // [Identify the type of data required for this Test Case.]
 // Einfügen aller Testcases per Include
-//include::usecases/....adoc[Mitglieder verwalten]
 
-include::testcases/001-mehrbenutzerstress.adoc[]
-
-== Test-Cases: Mitglieder Verwalten
-include::testcases/002-einneuesmitglied.adoc[leveloffset=+1]
-include::testcases/003-einmitgliedlöschen.adoc[leveloffset=+1]
-include::testcases/004-einmitgliedändern.adoc[leveloffset=+1]
+https://mribrgr.github.io/StuRa-Mitgliederdatenbank/masterCodeDoc.html#tests[Zu den Testcases in der Developer Dokumentation]
