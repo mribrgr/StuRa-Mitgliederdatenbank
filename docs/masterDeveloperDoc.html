@@ -231,6 +231,7 @@ It`s based on a deployment of Django with Apache2 and mod_wsgi on a raspberry pi
 <ul class="simple">
 <li><p>a web server</p></li>
 <li><p>basic knowledge of bash</p></li>
+<li><p>Python 3</p></li>
 </ul>
 </div>
 <div class="section" id="basic-configuration">
@@ -243,9 +244,11 @@ It`s based on a deployment of Django with Apache2 and mod_wsgi on a raspberry pi
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">python3-pip</span> <span class="pre">apache2</span> <span class="pre">libapache2-mod-wsgi-py3</span></code></p>
 </div></blockquote>
-<p>You also need to install virtualenv, to seperate Python from your system’s python</p>
+<p>You also need to install virtualenv, to seperate Python from your system’s python.
+Important is that you use python 3 because we use the Apache mod_wsgi for
+python 3.</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">virtualenv</span></code></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">virtualenv</span></code></p>
 </div></blockquote>
 <p>Now we need to clone the Git-Repository and setup the virtualenv for Python.
 First you need to change to the directory that you want to clone this web application to.
@@ -275,7 +278,8 @@ We open the file first (based on the previous chapter)</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">bin/settings.py</span></code></p>
 </div></blockquote>
-<p>Here we need to register our server’s public IP address or domain name.</p>
+<p>Here we need to register our server’s public IP address or domain name.
+Replace “IP_or_DOMAIN” with your personal IP address or domain name.</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span> <span class="pre">=</span> <span class="pre">[&quot;IP_or_DOMAIN&quot;]</span></code></p>
 </div></blockquote>
@@ -284,7 +288,12 @@ We open the file first (based on the previous chapter)</p>
 <div><p><code class="docutils literal notranslate"><span class="pre">STATIC_ROOT</span> <span class="pre">=</span> <span class="pre">os.path.join(BASE_DIR,</span> <span class="pre">'mystatic/')</span></code></p>
 </div></blockquote>
 <p>Now we can close and save the file.
-The last step is to do initial commands:</p>
+After this you need to create the folder static in the directory StuRa-Mitgliederdatenbank
+with the command.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">static</span></code></p>
+</div></blockquote>
+<p>The last step is to do initial commands:</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./manage.py</span> <span class="pre">makemigrations</span></code></div>
@@ -331,23 +340,13 @@ and the path to the wsgi.py.
 </pre></div>
 </div>
 </div>
-<p>Now we add the recommended deamon mode to the WSGI process.</p>
+<p>Now we add the recommended deamon mode to the WSGI process.
+To do it you need to append the folowing lines to the Apache config.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">/etc/apache2/sites-available/000-default.conf</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
 
   . . .
-
-  Alias /static /home/pi/StuRa-Mitgliederdatenbank/mystatic
-  &lt;Directory /home/pi/StuRa-Mitgliederdatenbank/mystatic&gt;
-      Require all granted
-  &lt;/Directory&gt;
-
-  &lt;Directory /home/pi/StuRa-Mitgliederdatenbank/bin&gt;
-    &lt;Files wsgi.py&gt;
-      Require all granted
-    &lt;/Files&gt;
-  &lt;/Directory&gt;
 
   WSGIDaemonProcess StuRa-Mitgliederdatenbank python-home<span class="o">=</span>/home/pi/StuRa-Mitgliederdatenbank/venv python-path<span class="o">=</span>/home/pi/StuRa-Mitgliederdatenbank
   WSGIProcessGroup StuRa-Mitgliederdatenbank
@@ -366,8 +365,8 @@ group and user <code class="docutils literal notranslate"><span class="pre">www-
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">664</span> <span class="pre">~/StuRa-Mitgliederdatenbank/db.sqlite3</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">www-data:www-data</span> <span class="pre">~/myproject/db.sqlite3</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">www-data:www-data</span> <span class="pre">~/myproject</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">www-data:www-data</span> <span class="pre">~/StuRa-Mitgliederdatenbank/db.sqlite3</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">www-data:www-data</span> <span class="pre">~/StuRa-Mitgliederdatenbank</span></code></div>
 </div>
 </div></blockquote>
 <p>If you got firewall issues, allow Apache to acces the firewall example:</p>

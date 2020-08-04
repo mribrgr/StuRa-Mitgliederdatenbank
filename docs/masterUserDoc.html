@@ -84,7 +84,53 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">User Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-members-mitglieder">Working with Members (Mitglieder)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-member">Create a Member</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-a-member">Alter a Member</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-member">Delete a Member</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-organizational-units-organisationseinheiten">Working with Organizational units (Organisationseinheiten)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-new-organizational-unit">Add a new Organizational unit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-an-organizational-unit">Alter an Organizational unit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-an-organizational-unit">Delete an Organizational unit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-subsections-unterbereiche">Working with Subsections (Unterbereiche)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-subsection">Create a new Subsection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-option-via-organizational-units">First Option via Organizational units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-option-via-subsections">Second Option via Subsections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-a-subsection">Alter a Subsection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-subsection">Delete a Subsection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-functions-funktionen">Working with Functions (Funktionen)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-new-function">Add a new Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-function-that-belongs-directly-to-an-organizational-unit">Create a Function that belongs directly to an Organizational unit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-function-that-belongs-to-a-subsection-of-an-organizational-unit">Create a Function that belongs to a Subsection of an Organizational unit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-a-function">Alter a Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-function">Delete a Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-checklists-checklisten">Working with Checklists (Checklisten)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-general-task">Create a new General Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-right-for-a-function">Create Right for a Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-checklist">Create a new Checklist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-checklist">Delete a Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-users-and-admins">Working with Users and Admins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-an-user">Create an User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-user-with-admin-rights">Create a User (with Admin rights)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="masterDeveloperDoc.html">Developer Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="masterCodeDoc.html">Code Documentation</a></li>
 </ul>
@@ -154,6 +200,349 @@
             
   <div class="section" id="user-documentation">
 <h1>User Documentation<a class="headerlink" href="#user-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="working-with-members-mitglieder">
+<h2>Working with Members (Mitglieder)<a class="headerlink" href="#working-with-members-mitglieder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-member">
+<h3>Create a Member<a class="headerlink" href="#create-a-member" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>To manage Members of the StuRa-Mitgliederdatenbank you first have to navigate
+to the Member section of the application.</p>
+<img alt="img/navigateMitglieder.png" src="img/navigateMitglieder.png" />
+<p>Now you have to click on the Button “+ Hinzufügen”</p>
+<img alt="img/createMitglied1.png" src="img/createMitglied1.png" />
+<img alt="img/createMitglied2.png" src="img/createMitglied2.png" />
+<p>With that example form you see above you can fill in personal data for
+each member of the StuRa. You can add multiple functions the Member belongs to
+and the legislative period for that function. You can also add multiple
+E-Mails for the User. You can save the new Member by clicking on the Button
+“Speichern”. You will then be redirected to the Member-View and your
+new Member should appear in the table.</p>
+</div>
+<div class="section" id="alter-a-member">
+<h3>Alter a Member<a class="headerlink" href="#alter-a-member" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>If you are in the Member section you can simply modify a Member by
+clicking on the pen on the right in the row of a Member.</p>
+<img alt="img/alterMitglieder.png" src="img/alterMitglieder.png" />
+<p>Now you can modify all data just like if you would create a Member.
+To save your changes click the Button “Speichern”.</p>
+</div>
+<div class="section" id="delete-a-member">
+<h3>Delete a Member<a class="headerlink" href="#delete-a-member" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>If you made a mistake or a Member is leaving the StuRa you can delete
+the Member in a few steps.</p>
+<ol class="arabic simple">
+<li><p>Check the Members you want to delete</p></li>
+<li><p>Click on the Button “Entfernen”</p></li>
+<li><p>Check the Dialog and accept it</p></li>
+<li><p>Check success prompt</p></li>
+</ol>
+<img alt="img/deleteMember.png" src="img/deleteMember.png" />
+<img alt="img/deleteMember2.png" src="img/deleteMember2.png" />
+<img alt="img/deleteMember3.png" src="img/deleteMember3.png" />
+<p>Now you successfully deleted the Member/s.</p>
+</div>
+</div>
+<div class="section" id="working-with-organizational-units-organisationseinheiten">
+<h2>Working with Organizational units (Organisationseinheiten)<a class="headerlink" href="#working-with-organizational-units-organisationseinheiten" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-a-new-organizational-unit">
+<h3>Add a new Organizational unit<a class="headerlink" href="#add-a-new-organizational-unit" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.</p>
+<img alt="img/navigateAdminPanel.png" src="img/navigateAdminPanel.png" />
+<p>Then we have to move to the correct section to manage our Organizational units.</p>
+<img alt="img/navigateOrganisationseinheiten.png" src="img/navigateOrganisationseinheiten.png" />
+<p>Now to add a new Organizational unit we need to click on the Button
+“Organisationseinheit hinzufügen”.</p>
+<img alt="img/alterOrganisationseinheit.png" src="img/alterOrganisationseinheit.png" />
+<p>You can fill in the appearing form and add on new functions and/or
+subsections of this Organizational unit. At last you need to Save everything
+with the Button “Sichern” on the lower right of the form.</p>
+<img alt="img/OrganisationseinheitSuccess.png" src="img/OrganisationseinheitSuccess.png" />
+<p>If you are Prompted
+“Organisationseinheit „&lt;Your Organisational unit&gt;“ wurde erfolgreich hinzugefügt.”
+then everything succeeded and you are finished.</p>
+</div>
+<div class="section" id="alter-an-organizational-unit">
+<h3>Alter an Organizational unit<a class="headerlink" href="#alter-an-organizational-unit" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application and
+then we have to move to the correct section to manage our Organizational units.</p>
+<img alt="img/navigateOrganisationseinheiten.png" src="img/navigateOrganisationseinheiten.png" />
+<p>Now we have to click on the Organizational unit we want to alter, in the
+following form you can modify everything you want corresponding to the
+Organizational unit.</p>
+<img alt="imgalterOrganisationseinheit.png" src="imgalterOrganisationseinheit.png" />
+<p>To confirm your modifications you have to click on the Button “sichern”.
+If you are Prompted
+“Organisationseinheit „&lt;Your Organisational unit&gt;“ wurde erfolgreich geändert.”
+then everything succeded and you are finished.</p>
+</div>
+<div class="section" id="delete-an-organizational-unit">
+<h3>Delete an Organizational unit<a class="headerlink" href="#delete-an-organizational-unit" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application and
+then we have to move to the correct section to manage our Organizational units.</p>
+<img alt="img/navigateOrganisationseinheiten.png" src="img/navigateOrganisationseinheiten.png" />
+<p>Now we have to check the Checkbox of the Organizational unit we want to delete.
+After this we need to select in Aktion “Ausgewählte Organisationseinheiten löschen”
+and click on the Button “Ausführen”.</p>
+<img alt="img/OrganisationseinheitDelete.png" src="img/OrganisationseinheitDelete.png" />
+<p>To confirm our delete command you have to click on the Button “Ja, ich bin sicher”.
+If you are prompted “Erfolgreich &lt;Number of Organizational units&gt; Organisationseinheit gelöscht.”
+everything succeeded.</p>
+</div>
+</div>
+<div class="section" id="working-with-subsections-unterbereiche">
+<h2>Working with Subsections (Unterbereiche)<a class="headerlink" href="#working-with-subsections-unterbereiche" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-new-subsection">
+<h3>Create a new Subsection<a class="headerlink" href="#create-a-new-subsection" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.
+Now we have 2 Options to create a new Subsection of an Organizational unit.</p>
+<img alt="img/createUnterbereiche2Options.png" src="img/createUnterbereiche2Options.png" />
+<div class="section" id="first-option-via-organizational-units">
+<h4>First Option via Organizational units<a class="headerlink" href="#first-option-via-organizational-units" title="Permalink to this headline">¶</a></h4>
+<p>Navigate and click on the Organizational unit the Subsection belongs to.
+Now we can start to add a new Subsection, first we click on the Button
+“Unterbereich hinzufügen”. Second we need to name the new Subsection and
+save our changes with the Button “Sichern und weiter bearbeiten”.
+If you are prompted with a success message everything succeded.</p>
+<img alt="img/createUnterbereicheOrganisationseinheiten.png" src="img/createUnterbereicheOrganisationseinheiten.png" />
+</div>
+<div class="section" id="second-option-via-subsections">
+<h4>Second Option via Subsections<a class="headerlink" href="#second-option-via-subsections" title="Permalink to this headline">¶</a></h4>
+<p>Navigate to the Subsection section and then click on the Button “Unterbereich hinzufügen”.</p>
+<img alt="img/createUnterbereiche.png" src="img/createUnterbereiche.png" />
+<p>Now we can give our new Subsection a name and choose the Organizational unit
+the Subsection belongs to.</p>
+<img alt="img/createUnterbereicheForm.png" src="img/createUnterbereicheForm.png" />
+<p>If you are prompted with a success message everything succeded.</p>
+</div>
+</div>
+<div class="section" id="alter-a-subsection">
+<h3>Alter a Subsection<a class="headerlink" href="#alter-a-subsection" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>To Alter a Subsection you can navigate to the Subsection section. There you can choose
+the Subsection you want to modify. Now you can:</p>
+<ol class="arabic simple">
+<li><p>Change the name of the subsection</p></li>
+<li><p>Change the Organizational unit the subsection belongs to</p></li>
+</ol>
+<img alt="img/alterUnterbereich.png" src="img/alterUnterbereich.png" />
+<p>To save your modifications click the Button “Sichern und weiter bearbeiten”
+and don’t forget to check the success message.</p>
+</div>
+<div class="section" id="delete-a-subsection">
+<h3>Delete a Subsection<a class="headerlink" href="#delete-a-subsection" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.
+Navigate and click on the Organizational unit the Subsection you want to delete
+belongs to. Now we can check the subsections we want to delete from the
+organizational unit. At last we can save the modifications with the Button
+“Sichern und weiter bearbeiten”.</p>
+<img alt="img/deleteUnterbereiche.png" src="img/deleteUnterbereiche.png" />
+<p>Check the success message to ensure that the Subsection was deleted successfully.</p>
+<img alt="img/deleteUnterbereiche2.png" src="img/deleteUnterbereiche2.png" />
+</div>
+</div>
+<div class="section" id="working-with-functions-funktionen">
+<h2>Working with Functions (Funktionen)<a class="headerlink" href="#working-with-functions-funktionen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-a-new-function">
+<h3>Add a new Function<a class="headerlink" href="#add-a-new-function" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.
+Now we have 2 different Options to create a new Function.</p>
+<div class="section" id="create-a-function-that-belongs-directly-to-an-organizational-unit">
+<span id="createfunctionorganizationalunit"></span><h4>Create a Function that belongs directly to an Organizational unit<a class="headerlink" href="#create-a-function-that-belongs-directly-to-an-organizational-unit" title="Permalink to this headline">¶</a></h4>
+<p>To create a Function of a Organizational unit you first have to navigate
+to the Organizational unit you want to add the Function to. Then follow these
+steps to create a new Function:</p>
+<ol class="arabic simple">
+<li><p>Click on the Button “Funktion hinzufügen”</p></li>
+<li><p>Name the new Function</p></li>
+<li><p>Set a Workload for the Function</p></li>
+<li><p>Set the maximum of allowed Members in the Function</p></li>
+<li><p>Save your changes with the Button “Sichern und weiter bearbeiten”</p></li>
+<li><p>Check the success message</p></li>
+</ol>
+<img alt="img/createFunktionOrganisationseinheiten.png" src="img/createFunktionOrganisationseinheiten.png" />
+</div>
+<div class="section" id="create-a-function-that-belongs-to-a-subsection-of-an-organizational-unit">
+<h4>Create a Function that belongs to a Subsection of an Organizational unit<a class="headerlink" href="#create-a-function-that-belongs-to-a-subsection-of-an-organizational-unit" title="Permalink to this headline">¶</a></h4>
+<p>To create a Function of a Subsection you first have to navigate to the Subsection
+you want to add the Function to. Then follow these steps to create a new Function:</p>
+<p>You can follow the same steps like in <span class="xref std std-ref">_createFunctionOrganizationalUnit</span>.</p>
+<img alt="img/createFunktionOrganisationseinheiten.png" src="img/createFunktionOrganisationseinheiten.png" />
+</div>
+</div>
+<div class="section" id="alter-a-function">
+<h3>Alter a Function<a class="headerlink" href="#alter-a-function" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>To alter a Function you first need to know which Organizational unit or
+Subsection the Function belongs to. If you found it you can navigate to it
+through the admin section of the application. Now you can:</p>
+<ol class="arabic simple">
+<li><p>Change the name of the Function</p></li>
+<li><p>Change the workload of a Function or</p></li>
+<li><p>Change the maximum ammount of Members in the Function</p></li>
+</ol>
+<p>To save your modifications click the button “Sichern und weiter bearbeiten”
+and don’t forget to check the success message.</p>
+</div>
+<div class="section" id="delete-a-function">
+<h3>Delete a Function<a class="headerlink" href="#delete-a-function" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>To alter a Function you first need to know which Organizational unit or
+Subsection the Function belongs to. If you found it you can navigate to it
+through the admin section of the application. Now we can check the Functions
+we want to delete from the Organizational unit or Subsection.
+At last we can save the modifications with the Button
+“Sichern und weiter bearbeiten”.
+Check the success message to see the changes have been made successfully</p>
+</div>
+</div>
+<div class="section" id="working-with-checklists-checklisten">
+<h2>Working with Checklists (Checklisten)<a class="headerlink" href="#working-with-checklists-checklisten" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-new-general-task">
+<h3>Create a new General Task<a class="headerlink" href="#create-a-new-general-task" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.</p>
+<img alt="img/navigateAdminPanel.png" src="img/navigateAdminPanel.png" />
+<p>Now you have to move to the Tasks section of the application.</p>
+<img alt="img/Aufgaben.png" src="img/Aufgaben.png" />
+<p>If you now click on the Button “Aufgabe hinzufügen” you can add the new Task.
+You have to name the new Task and save it with the Button “Sichern”</p>
+<img alt="img/newAufgaben.png" src="img/newAufgaben.png" />
+<p>At last check the success message.</p>
+</div>
+<div class="section" id="create-right-for-a-function">
+<h3>Create Right for a Function<a class="headerlink" href="#create-right-for-a-function" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.</p>
+<img alt="img/navigateAdminPanel.png" src="img/navigateAdminPanel.png" />
+<p>Now you have to move to the rights section of the application.
+You can simply create a new right like in “Create a new General Task”.
+If you created a right you now need to link it with a Function.
+To do it, first you need to navigate in the admin section to the Function-Right
+Subsection.</p>
+<img alt="img/Funktion-Recht.png" src="img/Funktion-Recht.png" />
+<p>If you are there you can add a new link with the Button
+“Zuordnung Funktion-Recht hinzufügen”.</p>
+<img alt="img/createFunktion-Recht.png" src="img/createFunktion-Recht.png" />
+<p>There you have to select a Function and a right you want to link with and save
+by clicking the button “Sichern”.</p>
+</div>
+<div class="section" id="create-a-new-checklist">
+<h3>Create a new Checklist<a class="headerlink" href="#create-a-new-checklist" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>Rights for a Function</p></li>
+<li><p>__optional:__ General Tasks have been created through the admin panel</p></li>
+</ul>
+<p>To manage Checklisten you have to go to the Checklisten-View of the Application.</p>
+<img alt="img/Checklisten.png" src="img/Checklisten.png" />
+<p>If you are there click on the big panel with the label “+” to add a new
+checklist.</p>
+<img alt="img/createChecklisten.png" src="img/createChecklisten.png" />
+<p>You have to select the Member which belongs to the Checklist and optionally a
+Function the Member is associated with. The checkbox General
+Tasks can only be deselected if you choose a function. Create a new Checklist by
+clicking on the Button “Erstellen”.</p>
+<img alt="img/createdChecklisten.png" src="img/createdChecklisten.png" />
+</div>
+<div class="section" id="delete-a-checklist">
+<h3>Delete a Checklist<a class="headerlink" href="#delete-a-checklist" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>To delete a Checklist you need to click on the garbage can on the lower left
+of a checklist and accept the dialog.</p>
+<img alt="img/deleteChecklisten.png" src="img/deleteChecklisten.png" />
+</div>
+</div>
+<div class="section" id="working-with-users-and-admins">
+<h2>Working with Users and Admins<a class="headerlink" href="#working-with-users-and-admins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-an-user">
+<h3>Create an User<a class="headerlink" href="#create-an-user" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+</ul>
+<p>First step is to get into the admin section of the application.
+Now you have to go to the User section of the admin page.</p>
+<img alt="img/UserSection.png" src="img/UserSection.png" />
+<p>Now you see a overview of all Users of the Software. To add a
+new User you can click on the Button “Benutzer hinzufügen” on the
+upper right of the page. You have to fill in the form and accept your input
+with the Button “Sichern und weiter bearbeiten”</p>
+<img alt="img/createUser.png" src="img/createUser.png" />
+<p>Now you can add some more personal information to the user account if you want
+and you can give the user some more rights for the Page. (More in the section
+create an admin)</p>
+<img alt="img/createUserMore.png" src="img/createUserMore.png" />
+</div>
+<div class="section" id="create-a-user-with-admin-rights">
+<h3>Create a User (with Admin rights)<a class="headerlink" href="#create-a-user-with-admin-rights" title="Permalink to this headline">¶</a></h3>
+<p>Pre-conditions:</p>
+<ul class="simple">
+<li><p>login as Admin</p></li>
+<li><p>successfully created User</p></li>
+</ul>
+<p>If you successfully created a User with the section above you can Upgrade
+the User account to an Admin account. First you need to navigate to the
+User you want to give administrative privileges and then you have to simply check
+the Checkboxes “Mitarbeiter-Status” and “Administrator-Status”</p>
+<img alt="img/createUserAdmin.png" src="img/createUserAdmin.png" />
+<p>Finally you need to save your changes with a click on the Button
+“Sichern und weiter bearbeiten”</p>
+</div>
+</div>
 </div>
 
 
