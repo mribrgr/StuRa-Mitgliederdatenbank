@@ -9,16 +9,16 @@ Pre-conditions:
 
 To manage Checklisten you have to go to the Checklisten-View of the Application.
 
-.. image:: img/Checklisten.png
+.. image:: user/img/Checklisten.png
 
 If you are there click on the big panel with the label "+" to add a new
 checklist.
 
-.. image:: img/createChecklisten.png
+.. image:: user/img/createChecklisten.png
 
 You have to select the Member which belongs to the Checklist and optionally a
 Function the Member is associated with. The checkbox General
 Tasks can only be deselected if you choose a function. Create a new Checklist by
 clicking on the Button "Erstellen".
 
-.. image:: img/createdChecklisten.png
+.. image:: user/img/createdChecklisten.png

@@ -8,7 +8,7 @@ Pre-conditions:
 First step is to get into the admin section of the application.
 Now we have 2 Options to create a new Subsection of an Organizational unit.
 
-.. image:: img/createUnterbereiche2Options.png
+.. image:: user/img/createUnterbereiche2Options.png
 
 
 First Option via Organizational units
@@ -20,7 +20,7 @@ Now we can start to add a new Subsection, first we click on the Button
 save our changes with the Button "Sichern und weiter bearbeiten".
 If you are prompted with a success message everything succeded.
 
-.. image:: img/createUnterbereicheOrganisationseinheiten.png
+.. image:: user/img/createUnterbereicheOrganisationseinheiten.png
 
 
 Second Option via Subsections
@@ -28,11 +28,11 @@ Second Option via Subsections
 
 Navigate to the Subsection section and then click on the Button "Unterbereich hinzufügen".
 
-.. image:: img/createUnterbereiche.png
+.. image:: user/img/createUnterbereiche.png
 
 Now we can give our new Subsection a name and choose the Organizational unit
 the Subsection belongs to.
 
-.. image:: img/createUnterbereicheForm.png
+.. image:: user/img/createUnterbereicheForm.png
 
 If you are prompted with a success message everything succeded.

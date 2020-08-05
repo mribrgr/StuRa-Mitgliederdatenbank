@@ -24,7 +24,7 @@ steps to create a new Function:
 5. Save your changes with the Button "Sichern und weiter bearbeiten"
 6. Check the success message
 
-.. image:: img/createFunktionOrganisationseinheiten.png
+.. image:: user/img/createFunktionOrganisationseinheiten.png
 
 
 Create a Function that belongs to a Subsection of an Organizational unit
@@ -35,4 +35,4 @@ you want to add the Function to. Then follow these steps to create a new Functio
 
 You can follow the same steps like in :ref:`_createFunctionOrganizationalUnit`.
 
-.. image:: img/createFunktionOrganisationseinheiten.png
+.. image:: user/img/createFunktionOrganisationseinheiten.png
