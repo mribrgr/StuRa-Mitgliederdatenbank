@@ -1,1 +1,51 @@
 # Test (LHi)
+
+Im folgendem Abschitt wird die durchführung und organisation der Tests von der
+Software StuRa-Mitgliederdatenbank aufgeführt.
+
+## Organisation
+
+Unser Testkonzept beatand im groben aus 5 wesentlichen Bestandteilen + den
+Akzeptanztests durch den Kunden.
+
+. Grober Test der neu implementierten Funktion vor dem merge des Branches.
+. Erstellen von Unittests für die neue Funktion
+. Wenn es möglich ist abdekung eines Usecases durch einen Automatisierten Tests
+mit Selenium (Happy Path)
+. Refactoring der Tests (wenn möglich zu parametisierbaren Funktionen)
+. Aus den Funktionen erstellen von Robustheitstests
+. Akzeptanztests
+
+Wir haben uns auf das Testframework Selenium entschieden für unsere UI-Tests,
+da dieses Framework auch in anderen Programmiersprachen verwendet werden kann
+und so lernen wir quasi nachhaltig. Weiterhin gab es sehr ausführliche Tutorials
+und eine sehr gute Dokumentation.
+
+Die Priorität der Tests lag auf das Testen des Happy Path, da wir hier die
+Usecases abdecken konnten und somit erstmal die Basisfunktionalität der Software
+gewärleisten konnten. Außerdem wurden weitere Funktionen wie die Historie
+und die Pagination in den Tests pasiv mit eingebaut und wurden somit nicht
+explicit getestet.
+
+Das Ergebniss der Tests (ob alle Tests ohne Fehler durchgelaufen sind) wurde über
+eine extra dafür erstellte GitHub-Action in unserer README.md festgehalten
+und vor jedem merge wurden auch diese automatisierten Tests ausgeführt.
+
+Der Kunde bekam außerdem schon 1 Monat vor dem eigentlichen release eine Testinstanz
+von unserem Team bereitgestellt indem er Testen konnte wie er lustig war,
+leider wurde es jedoch nicht so intensiv genutzt, wie wir uns es erhofft hätten.
+
+
+## Schwirigkeiten
+
+Eine große Hürde bei den UI-Tests mit Selenium war der unterschätzte Arbeitsaufwand,
+diese Tests waren sehr zeitintensiv, und da der Tester mit beim Entwickeln
+kurzzeitig geholfen hat ist viel wertfolle Zeit verloren gegangen und somit
+wurden die geplanten automatisierten Robustheitstest ausgelagert und nur teilweise
+manuell durch uns durchgeführt.
+
+Es war auch nervend bzw zum Teil sogar penetrant, dass die UI-Tests bei der
+kleinsten UI-Änderung  angepasst werden mussten. Wir hatten dieses Problem
+in unserem Team besprochen, und unsere Strategie dahingehend geändert, dass
+UI-Tests nur für fertige Gesammtmodule geschrieben werden. Somit konnten wir das
+Problem ein wenig in den Griff bekommen.

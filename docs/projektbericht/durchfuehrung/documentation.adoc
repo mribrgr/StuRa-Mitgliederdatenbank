@@ -1,1 +1,13 @@
 # Dokumentation (LHi)
+
+Unsere Dokumentation ist in 3 Bestandteile gegliedert.
+
+. Anforderungsanalyse
+. Projektbericht (Zusammenfassung, Reflexion)
+. "eigentliche" Dokumentation
+
+## Anforderungsanalyse
+
+## Projektbericht
+
+## "eigentliche" Dokumentation
