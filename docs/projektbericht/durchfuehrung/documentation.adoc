@@ -6,8 +6,42 @@ Unsere Dokumentation ist in 3 Bestandteile gegliedert.
 . Projektbericht (Zusammenfassung, Reflexion)
 . "eigentliche" Dokumentation
 
-## Anforderungsanalyse
 
-## Projektbericht
+### Anforderungsanalyse
 
-## "eigentliche" Dokumentation
+Die Anforderungsanalyse ist im AsciiDoc Format geschrieben und wird auf dem
+Master-Branch automatisch durch eine GitHub Action erstellt, somit hat
+jeder auf dem Master-Branch die aktuellste Version besitzt.
+
+In der Anforderungsanalyse stehen unsrer grundlegenen überlegungen für den
+Entwurf der StuRa-Mitgliederdatenbank.
+
+
+### Projektbericht
+
+Der Projektbericht wurde auch im AsciiDoc Format geschrieben, da man hier andere
+AsciiDoc Dateien includieren kann. Somit wird das collaborative Arbeiten mit
+Github gut unterstützt.
+
+Hier stehen unsere nachüberlegungen zur StuRa-Mitgliederdatenbank und
+unsere Lesson-Learned.
+
+
+### "eigentliche" Dokumentation
+
+Dieser Dokumentationabschnitt enthält:
+
+* Benutzerdocumentation
+* Entwicklerdokumentation + Testdokumentation
+
+Diese Documentation wird mit dem für Python entwickelten documentationstool
+Sphinx. Die entscheidung viel auf Sphinx, da es aus dem code heraus eine
+Documentation erzeugen kann und durch Tipp und Empfehlung unseres Coaches
+haben uns dazu gebracht. Weiterhin können wir mit Sphinx die documentation
+in html oder pdf erstellen. Die erstellung zu html haben wir direkt genutzt
+um eine Github-Page für die Documentation zu erstellen. Dammit der Kunde
+schnellen und einfachen zugriff auf diese Documentation hat.
+
+Die nicht Coddokumentierenden bestandteile der Dokumentation, wie z.B. die
+Benutzerdocumentation, haben wir in reStructuredText Dateiformat geschrieben,
+das sich dieses Dateiformat gut in Sphinx implementieren lässt.
