@@ -11,7 +11,7 @@ the User account to an Admin account. First you need to navigate to the
 User you want to give administrative privileges and then you have to simply check
 the Checkboxes "Mitarbeiter-Status" and "Administrator-Status"
 
-.. image:: img/createUserAdmin.png
+.. image:: user/img/createUserAdmin.png
 
 Finally you need to save your changes with a click on the Button
 "Sichern und weiter bearbeiten"
