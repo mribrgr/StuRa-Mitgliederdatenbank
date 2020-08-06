@@ -1,0 +1,27 @@
+# Wesentliche Entscheidungen (BHe)
+
+### Python als Skript-/Programmiersprache
+
+Wir haben uns für Python als Skript-/Programmiersprache entschieden. Hierfür gibt es mehrere Gründe: Zu einen wurde Python vom Kunden für eine eventuelle Weiterentwicklung bevorzugt, und zum anderen hatten einige Teammitglieder bereits Erfahrung mit Python. Weiterhin ist Python relativ leicht erlernbar, wenn man bereits mit anderen prozeduralen Programmiersprachen Erfahrung hat. Die im Vergleich zu anderen Sprachen geringere Performance war hierbei vernachlässigbar, da das Softwaresystem nur wenige gleichzeitige Nutzer bedienen muss.
+
+### Django als Web-Framework
+
+https://www.djangoproject.com/[Zur offiziellen Webseite]
+
+Wir haben uns für Django als Web-Framework entschieden. Hauptgrund für diese Entscheidung war die Popularität von Django, wodurch die Wahrscheinlichkeit hoch ist, dass bei einer Weiterentwicklung der Software bereits Erfahrung mit dem Framework besteht. Außerdem ist Django sehr gut dokumentiert und es existieren viele Anleitungen und eine große Community rund um das Framework.
+
+### Materialize als UI-Framework
+
+https://materializecss.com/[Zur offiziellen Webseite]
+
+Wir haben uns für Materialize als Frontend-Framework entschieden. Der Hauptgrund hierfür ist, dass einige Teammitglieder bereits Erfahrungen mit Materialize haben. Außerdem ermöglicht das Material-Design ein modernes User Interface und lässt sich leicht auf eigene Bedürfnisse anpassen, z.B. was die eingesetzten Farben angeht. Es werden zahlreiche UI-Elemente, wie Formulare, Karten, Buttons und viele mehr mitgeliefert, die einfach eingesetzt werden können. Weiterhin ist Materialize gut dokumentiert und unabhängig von anderen Bibliotheken.
+
+### SQLite als Datenbanksystem
+
+Wir haben uns für SQLite als Datenbanksystem entschieden. SQLite wird von Django standardmäßig als Datenbanksystem eingesetzt und ist für die Zwecke unseres Softwaresystems ausreichend, da zum einen die Daten aktuell nicht von anderen Systemen verwendet werden sollen und zum anderen die Performance-Einbußen bei wenigen gleichzeitigen Nutzern vernachlässigbar sind. SQLite hat den Vorteil, dass kein zusätzlicher Datenbank-Server aufgesetzt werden muss und die Daten durch die Ablage als Datei einfach zu portieren und zu sichern sind. Sollten die Daten später auch in anderen Systemen benötigt werden, ist eine Portierung von SQLite zu anderen SQL-Datenbanksystemen einfach umzusetzen.
+
+### Verwendung der integrierten Admin-Oberfläche
+
+### Sphinx zur Code-Dokumentation
+
+### Verwendung von Asciidoc zur Dokumentation
