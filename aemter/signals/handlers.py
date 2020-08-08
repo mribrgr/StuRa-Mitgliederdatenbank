@@ -9,7 +9,6 @@ def funktion_post_init(**kwargs):
         organisationseinheit = instance.organisationseinheit
         organisationseinheit.funktionen_ohne_unterbereich_count +=1
         organisationseinheit.save()
-        print("post save")
 
 @receiver(post_delete, sender=Funktion)
 def funktion_post_delete(**kwargs):
