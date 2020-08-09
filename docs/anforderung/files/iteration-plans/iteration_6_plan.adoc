@@ -38,7 +38,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 // wie immer
 | Essence Navigator | niedrig | 2 | erledigt | link:../../img/essenceNavigator[Essence Navigator Bilder], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/25[Issue #25], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/26[Issue #26] | mribrgr | 2 | 0
-| Iterationsplan 6 erstellen | hoch | 3 | erledigt | x | mribrgr | 3 | 0
+| Iterationsplan 7 erstellen | hoch | 3 | erledigt | x | mribrgr | 3 | 0
 
 // alte Aufgaben
 
