@@ -58,8 +58,8 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 [%header, cols="2,1,3"]
 |===
-|Problem	| Status |	Notizen |
-|Corona	| unlösbar | Treffen nicht mehr möglich |
+|Problem	| Status |	Notizen
+|Corona	| unlösbar | Treffen nicht mehr möglich
 |===
 		
 
