@@ -43,7 +43,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 // neue Aufgaben
 // thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, redifity
-| Aufgabenstellung, Auftraggeber, Ausgangssituation | sehr hoch | 5 | erledigt | x | mribrgr | 8 | 0
+| Aufgabenstellung, Auftraggeber, Ausgangssituation | sehr hoch | 3 | erledigt | x | mribrgr | 5 | 0
 | Eingesetzte Techniken und Praktiken | sehr hoch | 5 | erledigt | x | redifity | 8 | 0
 | Ziele, Aktivitäten, Ergebnisse der Iterationen | sehr hoch | 5 | erledigt | x | mribrgr | 8 | 0
 | Anforderungserhebung und -analyse | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
@@ -53,11 +53,11 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Dokumentation | sehr hoch | 5 | erledigt | x | yoshinonxkun | 8 | 0
 | Probleme und Umgang mit diesen | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
 | Projektergebnisse | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
-| Reflexion pro Teammitglied | sehr hoch | 5 | erledigt | x | alle | 8 | 0
 | Projektorganisation | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Implementierung | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Wesentliche Entscheidungen | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Iterationspläne erneut überprüfen | sehr hoch | 3 | erledigt | x | redifity | 5 | 0
+| Reflexion pro Teammitglied | sehr hoch | 5 | erledigt | x | alle | 8 | 0
 
 |===
 								
