@@ -46,7 +46,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 // thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, reditify
 | Tab Navigation in der Historie hinzufügen | mittel | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Bugfixes | hoch | 5 | erledigt | x | thrs79136, yoshinonxkun | 8 | 0
-| Einarbeitung Architektur | mittel | 5 | erledigt | x | reditify | 8 | 0
+| Einarbeitung Architektur | mittel | 5 | erledigt | x | redifity | 8 | 0
 | Mitgliederverwaltung | mittel | 5 | erledigt | x | thrs79136 | 8 | 0
 | Einarbeitung Testen | mittel | 3 | erledigt | x | yoshinonxkun | 5 | 0
 
