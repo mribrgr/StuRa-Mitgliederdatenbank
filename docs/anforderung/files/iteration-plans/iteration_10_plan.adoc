@@ -72,7 +72,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 [%header, cols="1,3"]
 |===
 |Assessment Ziel	| Iteration 10 fertigstellen
-|Assessment Datum | 10.05.2020
+|Assessment Datum | 21.06.2020
 |Teilnehmer	| alle
 |Projektstatus	| grün
 |===
