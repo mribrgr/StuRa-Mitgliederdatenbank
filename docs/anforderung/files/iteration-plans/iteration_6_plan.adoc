@@ -43,11 +43,10 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 // alte Aufgaben
 
 // neue Aufgaben
-// thrs79136, yoshinonxkun, mribrgr, benjamin-hempel
-| In Selenium einarbeiten, erste Tests erstellen | mittel | 5 | erledigt | x | yoshinonxkun | 8 | 0
-| Erstellung Mitgliederanzeige | hoch | 5 | erledigt | x | thrs79136 | 8 | 0
-| Erstellung Permission System | hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
-| Risks.csv überarbeiten | hoch | 3 | erledigt | x | mribrgr | 3 | 0
+// thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, reditify
+| Tab Navigation in der Historie hinzufügen | mittel | 5 | erledigt | x | benjamin-hempel | 8 | 0
+| Bugfixes | hoch | 5 | erledigt | x | thrs79136, yoshinonxkun | 8 | 0
+| Einarbeitung | mittel | 5 | erledigt | x | reditify | 8 | 0
 
 |===
 								
@@ -57,7 +56,8 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 [%header, cols="2,1,3"]
 |===
-|Problem	| Status |	Notizen
+|Problem	| Status |	Notizen |
+|Corona	| unlösbar | Treffen nicht mehr möglich |
 |===
 		
 
@@ -71,7 +71,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 [%header, cols="1,3"]
 |===
 |Assessment Ziel	| Iteration 6 fertigstellen
-|Assessment Datum | 29.03.2020
+|Assessment Datum | 26.04.2020
 |Teilnehmer	| alle
 |Projektstatus	| grün
 |===
