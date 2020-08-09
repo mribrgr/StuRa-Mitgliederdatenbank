@@ -48,6 +48,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Erstellung Mitgliederanzeige | hoch | 5 | erledigt | x | thrs79136 | 8 | 0
 | Erstellung Permission System | hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Risks.csv überarbeiten | hoch | 3 | erledigt | x | mribrgr | 3 | 0
+| Eigene Einarbeitung | mittel | 5 | erledigt | x | redifity | 8 | 0
 
 |===
 								
