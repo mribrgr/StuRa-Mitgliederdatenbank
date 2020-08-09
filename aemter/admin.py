@@ -27,6 +27,7 @@ class InLineFunktionUnterbereich(admin.TabularInline):
 
 
 class OrganisationseinheitAdmin(SimpleHistoryAdmin):
+    exclude = ('funktionen_ohne_unterbereich_count',)
     inlines = [
         InLineFunktionOrganisationseinheit,
         InLineUnterbereich
