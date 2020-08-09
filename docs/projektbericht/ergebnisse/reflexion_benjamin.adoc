@@ -1,4 +1,8 @@
 Benjamin Hempel (BHe)
 =====================
 
-// Was habe ich gelernt? Worauf bin ich stolz? Was hat gut funktioniert? Was würde ich beim nächsten Projekt anders machen?
+// Was hat gut funktioniert? Was würde ich beim nächsten Projekt anders machen?
+
+Insgesamt bin ich mit dem Projektverlauf zufrieden. Besonders stolz bin ich darauf, dass unser Softwaresystem vom Kunden so gut aufgenommen wurde und wahrscheinlich sogar in den Produktiveinsatz kommen wird. Ich bin auch stolz darauf, dass das Endprodukt bezüglich der Nutzererfahrung und des User Interface relativ hochwertig und sogar mobile-friendly geworden ist.
+
+Im Rahmen des Projekts bin ich erstmals mit Python und dem Web-Framework Django in Berührung gekommen. Ich hatte damit die Möglichkeit (und auch die Aufgabe), eine neue Programmiersprache in Verbindung mit einem neuen Web-Framework zu erlernen, auch wenn mir das von Django eingesetzte MVC-Pattern bereits von Ruby on Rails bekannt war. Die größere Erfahrung für mich war jedoch, erstmals in einem größeren Team zu arbeiten. Bisher habe ich, sowohl auf Arbeit als auch privat, nur allein oder mit einer anderen Person zusammen an einem Projekt gearbeitet. Im Rahmen des Projekts konnte ich somit erstmals die Vorzüge (wie z.B. die Möglichkeit, von mehreren Personen Feedback oder Hilfe zu einem Problem erhalten zu können), als auch die Nachteile (wie z.B. Merge-Konflikte oder unterschiedliche Meinungen zu einem Thema) von Teamarbeit erleben.
