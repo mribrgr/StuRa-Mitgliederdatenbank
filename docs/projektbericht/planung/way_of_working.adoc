@@ -1,0 +1,11 @@
+
+Techniken/Praktiken (MMi)
+=========================
+
+Der Ablauf des Projekts richtete sich nach dem Open Unified Process. Durch die definierten Rollen mit ihren Zuständigkeiten war klar wer nach der Einteilung für welche Bereiche zuständig war. Im Verlauf des Projekts zählte dazu auch, Aufgaben zu delegieren, falls der Zuständige sehr viele oder komplizierte Work Items zu bearbeiten haben sollte.
+
+In der Regel fand in jeder Iteration mindestens zwei Meetings statt, wobei je Woche ein Meeting vorgesehen war. Aufgrund der Coronapandemie mussten diese zuerst ausschließlich online stattfinden. Da dies gut funktionierte wurden die Onlinemeetings nach den dafür nötigen Lockerungen weiter fortgesetzt. Zusätzlich kam es zu außerordentlichen Meetings, wenn zum Beispiel ein Problem (zum Beispiel technisch, organisiatorisch) aufkam, dass nicht alleine gelöst werden konnte oder dringend gelöst werden musste. Meetings mit den Stakeholdern oder des Coaches waren oft ebenfalls außerordentlich.
+
+Abgesehen von wenigen Ausnahmen wurden alle Daten versioniert. Wenn ein Work Item angefangen wurde so wurde aus dem Grundrepository ein neuer Branch erstellt, in diesem gearbeitet und am Ende, nachdem mindestens ein Teammitglied die vorgenommenen Änderungen nach Korrektheit überprüft hat, wieder zusammengeführt, damit alle zum Einen immer aus den neuesten Stand branchen können und zum Anderen den Vortei hat, dass keiner sich, im Gegensatz zu einer zentralen Lösung, in den Weg kommen kann, wobei natürlich beim Zusammenführen Konflikte entstehen, die aus dem Weg geräumt werden müssen, was aber nur in seltenen Fällen geschehen ist, wodurch der Vorteil erhalten geblieben und deshalb eine Ersparnis von Ärger und Frustration blieb.
+
+Die Iterationspläne wurden ordnungsgemäß vom Projektleiter erstellt und nach Fertigstellung dieser an den Architekten für die Sichtung zur Verfügung gestellt. Jeder hat nach bestem Gewissen die darin enthaltenen Aufgaben nach dem im Absatz über Diesem erwähnten Muster bearbeitet. Das Gruppenmeeting kurz nach Iterationsbeginn wurde ebenfalls zum diskutieren dieser verwendet.
