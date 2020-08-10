@@ -1,12 +1,12 @@
 # Übergabe (LHi)
 
 Die Übergabe des entwickelten Systems lief ein wenig holprig ab, da wir leider
-vom StuRa keine instanz auf ihrem Server bekommen hatten. Kurzer hand haben wir
+vom StuRa keine Instanz auf ihrem Server bekommen hatten. Kurzer hand haben wir
 uns dafür Entschieden die Software auf einen eigenem Server (Raspberry Pi 4)
 zu Deployen. Wir hatten uns dafür entschieden, weil wir dem Stakeholder auch
-mind. 1 Monat vor abgabe schonmal eine Testinstanz geben wollten. Geeinigt
+mind. 1 Monat vor Abgabe schonmal eine Testinstanz geben wollten. Geeinigt
 haben wir uns dann mit dem StuRa darauf, das wir ihnen trozdem noch für einen
-Zeitraum von 30 Tagen danach bei einem deployment auf Ihrem Server helfen können.
+Zeitraum von 30 Tagen danach bei einem Deployment auf Ihrem Server helfen können.
 Außerdem haben wir uns dafür entschlossen, in einem Zeitraum von 90 Tagen
 einen Administrator und/oder Entwickler tiefergehend in die Software
 einzuarbeiten.
