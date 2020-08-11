@@ -1,0 +1,62 @@
+# Aufgabenstellung und Auftraggeber (AG) sowie Ausgangssituation zum
+ Semesterbeginn
+
+## Aufgabenstellung
+
+Es soll eine Datenbank erstellt werden, in der die relevanten Informationen
+ (Personen, Ämter, Amtszeiten,…) gespeichert sind. +
+Die Verwaltungsoberfläche sollte webbasierte und anwendungsfreundlich sein.
+Bei den ersten Gesprächen hat sich herausgestellt, dass zwischen Nutzern
+ unterschieden werden muss, da nicht jeder Nutzer alles bearbeiten oder sehen
+ darf.
+
+### Folgende Anforderungen wurden uns gestellt:
+
+#### Funktionale Anforderungen
+
+* Anlegen von neuen Mitgliedern und Verwaltung bestehender Legislatur
+ (von, bis, Bezeichnung)
+* Ämter (inkl. Workload)-nochmal dazwischengeschaltet: Amt ID, Mitglieder ID
+ oder Leitung oder Stellvertretung
+* Wahlen (ID, Kandidatur Datum, Wahl Datum, Beschluss Nummer, Amt,
+ Rücktrittsdatum)
+* Aufwandsentschädigung (Erfüllungsgrad der Aufgaben, Mitglieder ID, Amt ID,
+ Periode)
+* Historie (alle Änderungen)
+* Ausgabe eines Arbeitsleitfadens für die interne Verwaltung (Checkliste)
+* Generierung Checkliste: Emailverteiler, Schlüsselkasten, Zugangsschließsystem,
+ Berechtigung Website/Dateiverwaltung/Aufgabenverwaltung, notwendige
+ Unterschriften
+* Generierung vom Organigramm (https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019 )
+
+#### Technische und organisatorische Rahmenbedingungen
+
+* als Webanwendung und anwenderfreundlich
+* kein Java und möglichst kein PHP
+* freie Lizenz benutzen (z.B GPL, MIT, Apache)
+* muss auf Linux/Unix laufen
+* Gern auch in einem bekannten Webframework
+
+#### Dokumentation
+Für die Entwicklung sind entsprechende Dokumente anzufertigen.
+
+* Entwickler‐ und Benutzerdokumentation
+* Testdokumentation
+* Projektdokumentation
+* Änderungen der Anforderungen
+
+Für die Entwicklung durften wir nach Absprache Werkzeuge und Technologien unserer
+ Wahl nutzen, sofern sie den Anforderungen aus Kundensicht entsprechen.
+
+## Auftraggeber
+
+Der StuRa ist eine Teilkörperschaft öffentlichen Rechts, in der großer
+ Mitgliederzahlen mit hoher Fluktuation verwaltet werden müssen. Bisher läuft
+ die Organisation über eine Tabelle, die der heutigen Zeit nicht gerecht wird.
+
+## Ausgangssituation zum Semesterbeginn
+
+Zum Semesterbeginn war durch die Zusammenarbeit aus dem letzten Semester der
+ Kontakt mit den Auftraggebern schon geknüpft und trotz Semesterwechsel gab es
+ keine weiteren Probleme bezüglich der Kommunikation.
+
