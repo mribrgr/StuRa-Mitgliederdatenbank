@@ -27,9 +27,9 @@ gewärleisten konnten. Außerdem wurden weitere Funktionen wie die Historie
 und die Pagination in den Tests pasiv mit eingebaut und wurden somit nicht
 explicit getestet.
 
-Das Ergebniss der Tests (ob alle Tests ohne Fehler durchgelaufen sind) wurde über
-eine extra dafür erstellte GitHub-Action in unserer README.md festgehalten
-und vor jedem merge wurden auch diese automatisierten Tests ausgeführt.
+Das Ergebnis der Tests (ob alle Tests ohne Fehler durchgelaufen sind) wurde über
+eine extra dafür erstellte GitHub-Action in unserer README.md festgehalten.
+Vor jedem Merge wurden auch diese automatisierten Tests ausgeführt.
 
 Der Kunde bekam außerdem schon 1 Monat vor dem eigentlichen release eine Testinstanz
 von unserem Team bereitgestellt indem er Testen konnte wie er lustig war,
@@ -40,8 +40,8 @@ leider wurde es jedoch nicht so intensiv genutzt, wie wir uns es erhofft hätten
 
 Eine große Hürde bei den UI-Tests mit Selenium war der unterschätzte Arbeitsaufwand,
 diese Tests waren sehr zeitintensiv, und da der Tester mit beim Entwickeln
-kurzzeitig geholfen hat ist viel wertfolle Zeit verloren gegangen und somit
-wurden die geplanten automatisierten Robustheitstest ausgelagert und nur teilweise
+kurzzeitig geholfen hat ist viel wertvolle Zeit verloren gegangen. Somit
+wurden die geplanten automatisierten Robustheitstests ausgelagert und nur teilweise
 manuell durch uns durchgeführt.
 
 Es war auch nervend bzw zum Teil sogar penetrant, dass die UI-Tests bei der

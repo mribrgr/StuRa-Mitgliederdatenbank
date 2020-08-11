@@ -48,5 +48,5 @@ um eine Github-Page für die Dokumentation zu erstellen. Damit der Kunde einen
 schnellen und einfachen Zugriff auf diese Dokumentation hat.
 
 Die Dokumetation die nicht aus dem Code heraus erzeugt werden kann, wie z.B. die
-Benutzerdokumentation, haben wir in reStructuredText Dateiformat geschrieben,
+Benutzerdokumentation, haben wir im Dateiformat reStructuredText geschrieben,
 da sich dieses Dateiformat gut in Sphinx implementieren lässt.
