@@ -4,7 +4,7 @@ Unsere Dokumentation ist in 3 Bestandteile gegliedert.
 
 . Anforderungsanalyse
 . Projektbericht (Zusammenfassung, Reflexion)
-. "eigentliche" Dokumentation
+. Softwaredokumentation
 
 Unsere Dokumentation ist ein iteratives Ergebnis unserer Arbeit,
 wir haben zuerst die grundlegenden Informationen zum Softwaresystem dokumentiert
