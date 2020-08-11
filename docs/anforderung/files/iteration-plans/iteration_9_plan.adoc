@@ -46,7 +46,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Pagination hinzufügen | mittel | 5 | erledigt | x | benjamin-hempel | 8 | 0
 | Diagramme überarbeiten | mittel | 3 | erledigt | x | redifity | 5 | 0
 | Bug fixes | mittel | 5 | erledigt | x | thrs79136 | 8 | 0
-| Unit Tests schreiben für Mitglieder Modul | mittel | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Unit Tests schreiben für Mitglieder und Ämter Modul | mittel | 3 | erledigt | x | yoshinonxkun | 5 | 0
 
 |===
 								
@@ -58,6 +58,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 |===
 |Problem	| Status |	Notizen
 |Corona	| unlösbar | Treffen nicht mehr möglich
+|Internetproblem | in Arbeit | Theresa hat durch Umzug kein Internet
 |===
 		
 
