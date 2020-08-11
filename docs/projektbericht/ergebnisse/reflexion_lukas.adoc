@@ -24,4 +24,4 @@ Wir haben uns alle, auch mit unseren Stakeholdern, gut verstanden,
 was zu einem angenehmen Klima beisteuerte.
 
 Zum Schluss möchte ich mich bei Ihnen als Professor und der HTW-Dresden für
-diese Möglichkeit ein Softwaresystem colaborativ zu entwickeln bedanken.
+diese Möglichkeit ein Softwaresystem kollaborativ zu entwickeln bedanken.
