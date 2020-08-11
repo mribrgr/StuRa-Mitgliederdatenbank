@@ -7,7 +7,7 @@ mich mit der MVC-Architektur von Django als Webframework außeinanderzusetzen
 und ihre Besonderheiten zu erlernen.
 
 Aus Neugier hatte ich mich für die Rolle Tester entschieden, da ich mich auch
-dafür interresiert habe, wie die Tests in einem Softwareprojekt ablaufen,
+dafür interesiert habe, wie die Tests in einem Softwareprojekt ablaufen,
 da ich in meinem Werkstudentenjob auch die Rolle Tester besetzen durfte.
 Für mich war das Schwierigste in meiner Rolle, die UI-Tests mit Selenium
 so zu konzipieren, dass sie längerfristig bestand haben und ich diese nicht
