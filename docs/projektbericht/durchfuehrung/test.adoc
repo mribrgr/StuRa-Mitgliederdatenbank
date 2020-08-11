@@ -5,7 +5,7 @@ Software StuRa-Mitgliederdatenbank aufgeführt.
 
 ## Organisation
 
-Unser Testkonzept beatand im groben aus 5 wesentlichen Bestandteilen + den
+Unser Testkonzept bestand im Groben aus fünf wesentlichen Bestandteilen und den
 Akzeptanztests durch den Kunden.
 
 . Grober Test der neu implementierten Funktion vor dem merge des Branches.
