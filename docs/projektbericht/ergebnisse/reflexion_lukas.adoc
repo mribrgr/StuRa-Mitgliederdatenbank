@@ -1,7 +1,7 @@
 Lukas Hirsch (LHi)
 ==================
 
-Am Anfang des Projektes, besaß ich nur mittelmäßige Python kenntnisse, die
+Am Anfang des Projektes, besaß ich nur mittelmäßige Kenntnisse in Python, die
 ich in diesem Projekt gut vertiefen konnte. Weiterhin fande ich es gut
 mich mit der MVC-Architektur von Django als Webframework außeinanderzusetzen
 und ihre besonderheiten zu erlernen.
