@@ -16,7 +16,7 @@ mit Selenium (Happy Path)
 . Erstellen von Robustheitstests aus den Funktionen
 . Akzeptanztests
 
-Wir haben uns auf das Testframework Selenium entschieden für unsere UI-Tests,
+Wir haben uns für das Testframework Selenium entschieden für unsere UI-Tests,
 da dieses Framework auch in anderen Programmiersprachen verwendet werden kann
 und so lernen wir quasi nachhaltig. Weiterhin gab es sehr ausführliche Tutorials
 und eine sehr gute Dokumentation.
