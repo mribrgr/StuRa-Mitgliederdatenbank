@@ -23,7 +23,6 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
 * Essence Navigator weiterhin auf dem Laufenden halten
-* Implementationsbeginn mit Prototypen
 
 
 == Aufgabenzuordnung
