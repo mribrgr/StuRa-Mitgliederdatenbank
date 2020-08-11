@@ -8,9 +8,9 @@ Workflow
 --------
 Im Team bestand der Konsens grafische Modelle textuellen vorzuziehen, wobei sich für die Unified Modelling Language (kurz: UML) entschieden wurde, da jeder im Team durch das Studium und/oder der Arbeit damit in Berührung gekommen ist. Dadurch kann gewährleistet werden, dass die Diagramme sich selbst beschreiben können.
 
-Aufgrund des Einarbeitungsaufwandes des neuen Architekten und der Größe des Projekts wurde beschlossen, dass die Diagramme parallel oder hinterher an den Stand des Quellcodes angepasst werden, wodurch die Developer ungebremst arbeiten konnten. Das half dabei alle Aufgaben in der vorgegebenen Zeit abschliesen zu können.
+Aufgrund des Einarbeitungsaufwandes des neuen Architekten und der Größe des Projekts wurde beschlossen, dass die Diagramme parallel oder hinterher an den Stand des Quellcodes angepasst werden, wodurch die Developer ungebremst arbeiten konnten. Das half dabei alle Aufgaben in der vorgegebenen Zeit abschließen zu können.
 
-Die Diagramme selbst wurden mit dem Programm *draw.io* erstellt. Es ist vielseitig, kostenlos und bietet UML-Bausteine an. Um alle Diagramme auf einen Blick haben zu können befindet sich jedes Diagramm in der selben Projektdatei. Wenn die Aufgaben zu den Diagrammen abgeschlossen waren, wurden diese im nächsten Teammeeting vorgestellt sowie eine Pullrequest erstellt. Mehr dazu weiter unten im Feedback. Um auch die Diagramme für diejenigen einsehbar zu machen, die *draw.io* nicht benutzen wollen, wurden alle Diagramme als einzelne Vektorgrafiken (SVG-Format) exportiert.
+Die Diagramme selbst wurden mit dem Programm *draw.io* erstellt. Es ist vielseitig, kostenlos und bietet UML-Bausteine an. Um alle Diagramme auf einen Blick haben zu können befindet sich jedes Diagramm in der selben Projektdatei. Wenn die Aufgaben zu den Diagrammen abgeschlossen waren, wurden diese im nächsten Teammeeting vorgestellt sowie eine Pull Request erstellt. Mehr dazu weiter unten im Feedback. Um auch die Diagramme für diejenigen einsehbar zu machen, die *draw.io* nicht benutzen wollen, wurden alle Diagramme als einzelne Vektorgrafiken (SVG-Format) exportiert.
 
 Feedback
 --------
