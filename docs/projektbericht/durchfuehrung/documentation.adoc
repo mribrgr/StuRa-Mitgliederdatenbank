@@ -6,8 +6,8 @@ Unsere Dokumentation ist in 3 Bestandteile gegliedert.
 . Projektbericht (Zusammenfassung, Reflexion)
 . Softwaredokumentation
 
-Unsere Dokumentation ist ein iteratives Ergebnis unserer Arbeit,
-wir haben zuerst die grundlegenden Informationen zum Softwaresystem dokumentiert
+Unsere Dokumentation ist ein iteratives Ergebnis unserer Arbeit.
+Wir haben zuerst die grundlegenden Informationen zum Softwaresystem dokumentiert
 und später, als wir noch ein wenig Zeit hatten, sind wir immer mehr ins Detail
  gegangen.
 
