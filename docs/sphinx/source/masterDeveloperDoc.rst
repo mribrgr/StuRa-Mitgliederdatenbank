@@ -2,9 +2,6 @@ Developer Documentation
 =======================
 
 .. include:: developer/database.rst
-
-- Datenbankshema
-- Systemarchitektur
-- Zusammenarbeit zwischen den komponenteb
-
+.. include:: developer/systemarchitekture.rst
+.. include:: developer/komponents.rst
 .. include:: developer/introductionDevelopement.rst
