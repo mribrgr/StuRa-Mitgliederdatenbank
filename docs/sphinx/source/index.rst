@@ -20,6 +20,7 @@ Requirements:
    :caption: Contents:
 
    masterUserDoc
+   masterAdminDoc
    masterDeveloperDoc
    masterCodeDoc
 
