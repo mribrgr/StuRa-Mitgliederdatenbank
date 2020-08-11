@@ -44,8 +44,8 @@ kurzzeitig geholfen hat ist viel wertvolle Zeit verloren gegangen und somit
 wurden die geplanten automatisierten Robustheitstests ausgelagert und nur teilweise
 manuell durch uns durchgeführt.
 
-Es war auch nervend bzw zum Teil sogar penetrant, dass die UI-Tests bei der
-kleinsten UI-Änderung  angepasst werden mussten. Wir hatten dieses Problem
+Es war allerdings auch anstrengend und zum Teil frustrierend, dass die UI-Tests bei der
+kleinsten UI-Änderung angepasst werden mussten. Wir hatten dieses Problem
 in unserem Team besprochen, und unsere Strategie dahingehend geändert, dass
 UI-Tests nur für fertige Gesammtmodule geschrieben werden. Somit konnten wir das
 Problem ein wenig in den Griff bekommen.
