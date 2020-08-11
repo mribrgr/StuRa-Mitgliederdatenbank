@@ -40,8 +40,8 @@ Leider wurde es jedoch nicht so intensiv genutzt, wie wir uns es erhofft hatten.
 
 Eine große Hürde bei den UI-Tests mit Selenium war der unterschätzte Arbeitsaufwand,
 diese Tests waren sehr zeitintensiv, und da der Tester mit beim Entwickeln
-kurzzeitig geholfen hat ist viel wertfolle Zeit verloren gegangen und somit
-wurden die geplanten automatisierten Robustheitstest ausgelagert und nur teilweise
+kurzzeitig geholfen hat ist viel wertvolle Zeit verloren gegangen und somit
+wurden die geplanten automatisierten Robustheitstests ausgelagert und nur teilweise
 manuell durch uns durchgeführt.
 
 Es war auch nervend bzw zum Teil sogar penetrant, dass die UI-Tests bei der
