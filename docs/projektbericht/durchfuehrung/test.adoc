@@ -10,7 +10,7 @@ Akzeptanztests durch den Kunden.
 
 . Grober Test der neu implementierten Funktion vor dem Mergen des Branches.
 . Erstellen von Unittests für die neue Funktion
-. Wenn es möglich ist abdekung eines Usecases durch einen Automatisierten Tests
+. Wenn möglich, Abdeckung eines Usecases durch einen automatisierten Test
 mit Selenium (Happy Path)
 . Refactoring der Tests (wenn möglich zu parametisierbaren Funktionen)
 . Aus den Funktionen erstellen von Robustheitstests
