@@ -36,7 +36,7 @@ von unserem Team bereitgestellt, in der er testen konnte wie er lustig war.
 Leider wurde es jedoch nicht so intensiv genutzt, wie wir uns es erhofft hatten.
 
 
-## Schwirigkeiten
+## Schwierigkeiten
 
 Eine große Hürde bei den UI-Tests mit Selenium war der unterschätzte Arbeitsaufwand,
 diese Tests waren sehr zeitintensiv, und da der Tester mit beim Entwickeln
