@@ -109,6 +109,7 @@ venv.bak/
 # Visual Studio directories
 .vs/
 .vscode/
+*.code-workspace
 
 # Databese
 db.*
