@@ -1,1 +1,52 @@
 # Dokumentation (LHi)
+
+Unsere Dokumentation ist in 3 Bestandteile gegliedert.
+
+. Anforderungsanalyse
+. Projektbericht (Zusammenfassung, Reflexion)
+. Softwaredokumentation
+
+Unsere Dokumentation ist ein iteratives Ergebnis unserer Arbeit.
+Wir haben zuerst die grundlegenden Informationen zum Softwaresystem dokumentiert
+und später, als wir noch ein wenig Zeit hatten, sind wir immer mehr ins Detail
+ gegangen.
+
+
+### Anforderungsanalyse
+
+Die Anforderungsanalyse ist im AsciiDoc Format geschrieben und wird auf dem
+Master-Branch automatisch durch eine GitHub Action erstellt, somit hat
+jeder auf dem Master-Branch die aktuellste Version.
+
+In der Anforderungsanalyse stehen unsere grundsätzlichen Überlegungen für den
+Entwurf der StuRa-Mitgliederdatenbank.
+
+
+### Projektbericht
+
+Der Projektbericht wurde auch im AsciiDoc Format geschrieben, da man hier andere
+AsciiDoc Dateien includieren kann. Somit wird das kollaborative Arbeiten mit
+Github gut unterstützt. Hier stehen unsere Nachüberlegungen zur StuRa-Mitgliederdatenbank und
+unsere Lesson-Learned.
+
+
+### Softwaredokumentation
+
+Dieser Dokumentationabschnitt enthält:
+
+* Benutzerdokumentation
+* Administratordokumentation
+* Entwicklerdokumentation
+* Testdokumentation
+
+Diese Dokumentation wird mit dem für Python entwickelten Dokumentationstool
+Sphinx erstellt. Die Entscheidung fiel auf Sphinx, da es aus dem Code heraus eine
+Dokumentation erzeugen kann und unser Coach hat uns dabei einen Tipp gegeben.
+ Weiterhin können wir mit Sphinx die Dokumentation
+in html oder pdf erstellen. Die Erstellung zu html haben wir direkt genutzt
+um eine Github-Page für die Dokumentation zu erstellen. Damit der Kunde einen
+schnellen und einfachen Zugriff auf diese Dokumentation hat.
+
+Die Dokumetation die nicht aus dem Code heraus erzeugt werden kann, wie z.B. die
+Benutzerdokumentation, haben wir im Dateiformat reStructuredText geschrieben,
+da sich dieses Dateiformat gut in Sphinx implementieren lässt.
