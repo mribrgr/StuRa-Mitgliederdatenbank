@@ -1,7 +1,7 @@
 # Test (LHi)
 
-Im folgendem Abschitt wird die durchführung und organisation der Tests von der
-Software StuRa-Mitgliederdatenbank aufgeführt.
+Im folgenden Abschnitt wird die Durchführung und Organisation der Tests der
+Software **StuRa-Mitgliederdatenbank** aufgeführt.
 
 ## Organisation
 
