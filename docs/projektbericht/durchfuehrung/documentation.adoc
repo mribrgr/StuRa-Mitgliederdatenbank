@@ -25,7 +25,7 @@ Entwurf der StuRa-Mitgliederdatenbank.
 ### Projektbericht
 
 Der Projektbericht wurde auch im AsciiDoc Format geschrieben, da man hier andere
-AsciiDoc Dateien includieren kann. Somit wird das collaborative Arbeiten mit
+AsciiDoc Dateien includieren kann. Somit wird das kollaborative Arbeiten mit
 Github gut unterstützt.
 
 Hier stehen unsere Nachüberlegungen zur StuRa-Mitgliederdatenbank und
