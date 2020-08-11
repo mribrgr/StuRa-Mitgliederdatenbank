@@ -12,7 +12,7 @@ Akzeptanztests durch den Kunden.
 . Erstellen von Unittests für die neue Funktion
 . Wenn möglich, Abdeckung eines Usecases durch einen automatisierten Test
 mit Selenium (Happy Path)
-. Refactoring der Tests (wenn möglich zu parametisierbaren Funktionen)
+. Refactoring der Tests (wenn möglich zu parametrisierbaren Funktionen)
 . Aus den Funktionen erstellen von Robustheitstests
 . Akzeptanztests
 
