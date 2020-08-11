@@ -45,7 +45,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 // neue Aufgaben
 // thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, redifity
 | Suchfunktion hinzufügen | mittel | 5 | erledigt | x | benjamin-hempel | 8 | 0
-| Ämteransicht | mittel | 5 | erledigt | x | redifity | 8 | 0
+| Ämteransicht implementiert | mittel | 5 | erledigt | x | redifity | 8 | 0
 | Mitgliederverwaltung | mittel | 5 | erledigt | x | thrs79136 | 8 | 0
 | Erste Tests schreiben | mittel | 3 | erledigt | x | yoshinonxkun | 5 | 0
 
