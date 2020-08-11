@@ -34,7 +34,8 @@ def main_screen(request):
 
     # get prev mitglieder funktionen
     prev_mitglieder = MitgliedAmt.objects\
-        .filter(amtszeit_ende__lt=date.today())
+        .raw('SELECT * From (SELECT funktion_id, MAX(amtszeit_ende) as max_time FROM mitglieder_mitgliedamt GROUP BY funktion_id) u INNER JOIN mitglieder_mitgliedamt m ON m.funktion_id = u.funktion_id AND  m.amtszeit_ende = u.max_time')
+        #.filter(amtszeit_ende__lt=date.today())
 
     context = {
         'referate': organisationseinheit_page,
