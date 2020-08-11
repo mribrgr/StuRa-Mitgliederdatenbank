@@ -30,7 +30,7 @@ Github gut unterstützt. Hier stehen unsere Nachüberlegungen zur StuRa-Mitglied
 unsere Lesson-Learned.
 
 
-### Software Dokumentation
+### Softwaredokumentation
 
 Dieser Dokumentationabschnitt enthält:
 
