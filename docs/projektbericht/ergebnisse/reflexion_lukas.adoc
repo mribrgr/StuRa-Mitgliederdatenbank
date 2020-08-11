@@ -6,9 +6,9 @@ ich in diesem Projekt gut vertiefen konnte. Weiterhin fande ich es gut
 mich mit der MVC-Architektur von Django als Webframework außeinanderzusetzen
 und ihre Besonderheiten zu erlernen.
 
-Aus neugier hatte ich mich für die Rolle Tester entschieden, da ich mich auch
-dafür interresiert habe, wie die Tests in einem Softwareprojekt ablaufen
-und da ich in meinem Werkstudentenjob auch die Rolle Tester besetzen durfte.
+Aus Neugier hatte ich mich für die Rolle Tester entschieden, da ich mich auch
+dafür interresiert habe, wie die Tests in einem Softwareprojekt ablaufen,
+da ich in meinem Werkstudentenjob auch die Rolle Tester besetzen durfte.
 Für mich das Schwierigste in meiner Rolle war es, die UI-Tests mit Selenium
 so zu konzipieren, dass sie längerfristig bestand haben und ich diese nicht
 mit jedem kleinen Update anpassen muss.
