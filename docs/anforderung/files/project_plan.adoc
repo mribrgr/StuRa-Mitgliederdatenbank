@@ -86,7 +86,7 @@ include::csv/team.csv[]
 
 
 |link:iteration-plans/iteration_5_plan.adoc[Iteration 5]
-| -
+|
 * Beginn Mitgliedscreen
 * Erstellung Permission System
 * Erste Tests schreiben
@@ -95,20 +95,20 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_6_plan.adoc[Iteration 6]
-| -
+|
 * Ämterübersicht
 * Historie bauen
 | 13.04.2020 - 26.04.2020
 | -
 
 |link:iteration-plans/iteration_7_plan.adoc[Iteration 7]
-| -
+|
 * Ergänzung der Suchfunktion in der Historie
 | 27.04.2020 - 10.05.2020
 | -
 
 |link:iteration-plans/iteration_8_plan.adoc[Iteration 8]
-| -
+|
 * Weiterführen automatisierter Tests
 * Bugfixing
 * Dokumentation weiterführen
@@ -116,27 +116,27 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_9_plan.adoc[Iteration 9]
-| -
+|
 * Erstellung Pagination
 * Mitgliedermodul Unittests
 | 25.05.2020 - 07.06.2020
 | -
 
 |link:iteration-plans/iteration_10_plan.adoc[Iteration 10]
-| -
+|
 * Aufbau Raspberry Umgebung für erstes eigenes Deployment
 | 08.06.2020 - 21.06.2020
 | -
 
 |link:iteration-plans/iteration_11_plan.adoc[Iteration 11]
-| -
+|
 * Umbenennung Ämter -> Funktion
 * Ergänzung Date Picker
 | 22.06.2020 - 05.07.2020
 | -
 
 |link:iteration-plans/iteration_12_plan.adoc[Iteration 12]
-| -
+|
 * Optimierung für mobile Geräte
 | 06.07.2020 - 19.07.2020
 | -
