@@ -8,7 +8,7 @@ Software **StuRa-Mitgliederdatenbank** aufgeführt.
 Unser Testkonzept bestand im Groben aus fünf wesentlichen Bestandteilen und den
 Akzeptanztests durch den Kunden.
 
-. Grober Test der neu implementierten Funktion vor dem merge des Branches.
+. Grober Test der neu implementierten Funktion vor dem Mergen des Branches.
 . Erstellen von Unittests für die neue Funktion
 . Wenn es möglich ist abdekung eines Usecases durch einen Automatisierten Tests
 mit Selenium (Happy Path)
