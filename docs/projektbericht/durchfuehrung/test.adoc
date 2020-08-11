@@ -13,7 +13,7 @@ Akzeptanztests durch den Kunden.
 . Wenn möglich, Abdeckung eines Usecases durch einen automatisierten Test
 mit Selenium (Happy Path)
 . Refactoring der Tests (wenn möglich zu parametrisierbaren Funktionen)
-. Aus den Funktionen erstellen von Robustheitstests
+. Erstellen von Robustheitstests aus den Funktionen
 . Akzeptanztests
 
 Wir haben uns auf das Testframework Selenium entschieden für unsere UI-Tests,
