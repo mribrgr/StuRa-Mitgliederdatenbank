@@ -14,7 +14,7 @@ so zu konzipieren, dass sie längerfristig bestand haben und ich diese nicht
 mit jedem kleinen Update anpassen muss.
 
 Außerdem fande ich es gut mal an einem Softwareprojekt in einer größeren Gruppe
-mitzuwirken, was ich für mich als sehr angenehm empfand. Im vergleich zu meinen
+mitzuwirken, was ich für mich als sehr angenehm empfand. Im Vergleich zu meinen
 privaten Softwareprojekten empfand ich den entstandenen Code um einiges
 qualitativ hochwertiger und vorallem lesbarer.
 
