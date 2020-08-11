@@ -26,27 +26,27 @@ Entwurf der StuRa-Mitgliederdatenbank.
 
 Der Projektbericht wurde auch im AsciiDoc Format geschrieben, da man hier andere
 AsciiDoc Dateien includieren kann. Somit wird das kollaborative Arbeiten mit
-Github gut unterstützt.
-
-Hier stehen unsere Nachüberlegungen zur StuRa-Mitgliederdatenbank und
+Github gut unterstützt. Hier stehen unsere Nachüberlegungen zur StuRa-Mitgliederdatenbank und
 unsere Lesson-Learned.
 
 
-### "eigentliche" Dokumentation
+### Software Dokumentation
 
 Dieser Dokumentationabschnitt enthält:
 
-* Benutzerdocumentation
-* Entwicklerdokumentation + Testdokumentation
+* Benutzerdokumentation
+* Administratordokumentation
+* Entwicklerdokumentation
+* Testdokumentation
 
-Diese Documentation wird mit dem für Python entwickelten Dokumentationstool
+Diese Dokumentation wird mit dem für Python entwickelten Dokumentationstool
 Sphinx erstellt. Die Entscheidung fiel auf Sphinx, da es aus dem Code heraus eine
 Dokumentation erzeugen kann und unser Coach hat uns dabei einen Tipp gegeben.
- Weiterhin können wir mit Sphinx die Documentation
+ Weiterhin können wir mit Sphinx die Dokumentation
 in html oder pdf erstellen. Die Erstellung zu html haben wir direkt genutzt
-um eine Github-Page für die Documentation zu erstellen. Dammit der Kunde einen
-schnellen und einfachen Zugriff auf diese Documentation hat.
+um eine Github-Page für die Dokumentation zu erstellen. Damit der Kunde einen
+schnellen und einfachen Zugriff auf diese Dokumentation hat.
 
 Die Dokumetation die nicht aus dem Code heraus erzeugt werden kann, wie z.B. die
-Benutzerdocumentation, haben wir in reStructuredText Dateiformat geschrieben,
+Benutzerdokumentation, haben wir in reStructuredText Dateiformat geschrieben,
 da sich dieses Dateiformat gut in Sphinx implementieren lässt.
