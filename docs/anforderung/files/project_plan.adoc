@@ -111,6 +111,7 @@ include::csv/team.csv[]
 | -
 * Weiterführen automatisierter Tests
 * Bugfixing
+* Dokumentation weiterführen
 | 11.05.2020 - 24.05.2020
 | -
 
