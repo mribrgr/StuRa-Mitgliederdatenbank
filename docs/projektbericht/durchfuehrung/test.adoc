@@ -23,9 +23,9 @@ und eine sehr gute Dokumentation.
 
 Die Priorität der Tests lag auf das Testen des Happy Path, da wir hier die
 Usecases abdecken konnten und somit erstmal die Basisfunktionalität der Software
-gewärleisten konnten. Außerdem wurden weitere Funktionen wie die Historie
-und die Pagination in den Tests pasiv mit eingebaut und wurden somit nicht
-explicit getestet.
+gewährleisten konnten. Außerdem wurden weitere Funktionen wie die Historie
+und die Pagination in den Tests passiv mit eingebaut und wurden somit nicht
+explizit getestet.
 
 Das Ergebniss der Tests (ob alle Tests ohne Fehler durchgelaufen sind) wurde über
 eine extra dafür erstellte GitHub-Action in unserer README.md festgehalten
