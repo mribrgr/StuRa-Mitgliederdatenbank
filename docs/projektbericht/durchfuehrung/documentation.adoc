@@ -18,7 +18,7 @@ Die Anforderungsanalyse ist im AsciiDoc Format geschrieben und wird auf dem
 Master-Branch automatisch durch eine GitHub Action erstellt, somit hat
 jeder auf dem Master-Branch die aktuellste Version.
 
-In der Anforderungsanalyse stehen unsere grundlegenen Überlegungen für den
+In der Anforderungsanalyse stehen unsere grundsätzlichen Überlegungen für den
 Entwurf der StuRa-Mitgliederdatenbank.
 
 
