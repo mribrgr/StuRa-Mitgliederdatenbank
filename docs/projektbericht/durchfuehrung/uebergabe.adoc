@@ -1,8 +1,8 @@
 # Übergabe (LHi)
 
 Die Übergabe des entwickelten Systems lief ein wenig holprig ab, da wir leider
-vom StuRa keine Instanz auf ihrem Server bekommen hatten. Kurzer hand haben wir
-uns dafür Entschieden die Software auf einen eigenem Server (Raspberry Pi 4)
+vom StuRa keine Instanz auf ihrem Server bekommen hatten. Kurzerhand haben wir
+uns dafür entschieden die Software auf einen eigenem Server (Raspberry Pi 4)
 zu Deployen. Wir hatten uns dafür entschieden, weil wir dem Stakeholder auch
 mind. 1 Monat vor Abgabe schonmal eine Testinstanz geben wollten. Mit dem StuRa
 haben wir uns dann darauf geeinigt, dass wir ihnen trozdem noch für einen
