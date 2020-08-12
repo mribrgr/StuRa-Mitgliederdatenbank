@@ -6,12 +6,6 @@
 Welcome to StuRa - Mitgliederdatenbank's documentation!
 =======================================================
 
-Requirements:
--------------
-
-* Django
-* ...
-
 
 .. look for files like <file>.rst
 
