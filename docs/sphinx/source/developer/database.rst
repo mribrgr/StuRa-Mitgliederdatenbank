@@ -1,4 +1,4 @@
-Database Struckture
+Database Structure
 -------------------
 
 The Database is a SQLite3 Database, the Tables are specified in each Packages
