@@ -1,0 +1,7 @@
+= Ergebnisse (TSc)
+
+Die allgemeine Problematik des Kunden konnte durch die Software beseitigt werden und nahezu alle Use Cases konnten befriedigt werden. Ausnahme war die Implementierung der Organigrammerzeugung, welche aus zeitlichen Gründen nicht mehr realisierbar war, was aber als durchaus vertretbar angesehen werden kann, da dessen Priorität sehr gering war und wir von Anfang an erwartet und offengelegt hatten, dass dieser Fall eintreten würde.
+
+Das Domänenmodell und der Ablauf der Abarbeitung einiger Use Cases veränderte sich während der Arbeit an der Software, entweder weil Änderungen vom Stakeholder gewünscht waren, oder weil sich andere Implementierungen als sinnvoller herausstellten.
+
+Zudem konnten die in der Anforderungsanalyse aufgeführten Qualitätsanforderungen und zusätzlichen Anforderungen komplett erfüllt werden. 

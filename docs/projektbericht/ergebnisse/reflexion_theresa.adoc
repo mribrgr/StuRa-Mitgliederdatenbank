@@ -1,0 +1,7 @@
+= Theresa Schüttig (TSc)
+
+Durch das Projekt konnte ich meine Kenntnisse in Python, Javascript und Git vertiefen und erstmals lernen, mit den Frameworks Django und Materialize zu arbeiten. Zudem war es mir eine neue Erfahrung, gemeinsam in einem Team an einer umfangreichen Software zu arbeiten und zu sehen, welche Vor- und Nachteile dies bietet. Die gute und regelmäßige Kommunikation innerhalb des Teams, die gegenseitige Unterstützung bei Problemen sowie die Arbeitsteilung stachen in meinen Augen besonders als positive Faktoren heraus.
+
+Stolz bin ich auf die von uns entwickelte funktionsfähige, intuitiv bedienbare und optisch ansprechende Webanwendung, welche dem StuRa viel unnötige mühsame Arbeit abnehmen sollte.
+
+Im nächsten Projekt würde ich im Team eine Person für den Aufbau des GUI einsetzen, um sich als Entwickler mehr mit der Funktionalität befassen zu können. Zudem würde ich zu Zeiten arbeiten, zu denen auch andere Teammitglieder für Absprachen erreichbar sind, mich vor der Implementierung mehr mit mir unbekannten Thematiken befassen und versuchen, den Code besser zu strukturieren.

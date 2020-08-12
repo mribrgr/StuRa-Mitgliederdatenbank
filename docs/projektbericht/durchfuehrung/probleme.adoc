@@ -1,9 +1,6 @@
-= Aufgetretene Probleme und Umgang mit diesen
-TSc
+= Aufgetretene Probleme und Umgang mit diesen (TSc)
 
 == Kommunikationsprobleme mit dem Auftragsgeber
-
-Trotz erfolgter Absprache stellte der Auftraggeber keinen LXC zur Verfügung. Um das Deployment dennoch fristgemäß durchzuführen, wurde der private Server eines Team-Mitglieds eingesetzt.
 
 Die bereitgestellte Testversion wurde nicht vom Auftraggeber verwendet, so dass keine Garantie für dessen Zufriedenstellung gegeben ist. Potentielle Unzufriedenheit des Auftraggebers liegt daher in seiner Eigenverantwortung und kann, falls vorhanden, durch selbst eingeleitete Weiterentwicklung der Software beseitigt werden.
 
@@ -11,7 +8,7 @@ Ein weiteres Problem stellten lange Wartezeiten auf Antworten des Auftraggebers 
 
 == Datenbankänderungen
 
-Während der Softwareentwicklung kam es mehrfach zur Änderungen der Datenbank, die meist Folgen von Anforderungsveränderungen waren. Beispielsweise verlangte der Auftraggeber zusätzlich die Zuordnung einer beliebigen Anzahl von Telefonnummern und E-Mail-Adressen zu jedem StuRa-Mitglied, sowie  die Änderung einzelner domänenspezifischer Begriffe. Für Entwickler und Tester bedeutete dies die Aufnahme zusätzlichen, nicht unerheblichen Aufwands, da daraus auch zahlreiche Änderungen am Quellcode folgten.
+Während der Softwareentwicklung kam es mehrfach zur Änderungen der Datenbank, die meist Folgen von Anforderungsveränderungen waren. Für Entwickler und Tester bedeutete dies die Aufnahme zusätzlichen, nicht unerheblichen Aufwands, da daraus auch zahlreiche Änderungen am Quellcode folgten.
 
 == Kurzfristiger Ausfall eines Mitglieds durch fehlende Internetanbindung
 
