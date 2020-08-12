@@ -1,7 +1,7 @@
 Cronjobs
 --------
 
-In the folowing lines there is an explanation how to create cronjobs to
+In the following lines there is an explanation how to create cronjobs to
 schedule tasks. These tasks help to cleanup the database of the application.
 
 First make sure you have installed cron than you can add cronjobs
@@ -36,9 +36,9 @@ Now you can see a file like this:
   #
   # m h  dom mon dow   command
 
-At the bottom of the File you can add your personal cronjobs.
-To keep it simple our recomandation is to create a script with all commands you
-want (described in the commands section of the Code-Documentation).
-This script you can easily schedule once a week with cronjob.
+At the bottom of the file you can add your personal cronjobs.
+To keep it simple our recommendation is to create a script with all commands you
+want (described in the commands section of the code documentation).
+You can easily schedule this script to run once a week with cronjob.
 
   ``0 0 * * 0 bash /path/to/script``
