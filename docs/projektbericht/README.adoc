@@ -30,7 +30,6 @@ Theresa Schüttig <s79136@htw-dresden.de>; Benjamin Hempel <s79132@htw-dresden.d
       −Eingesetzte Techniken und Praktiken im Projekt: Welche wurden ausgewählt und warum?
 ////
 include::master_planung.adoc[]
-<<<
 
 = Durchführung
 ////
@@ -41,7 +40,6 @@ include::master_planung.adoc[]
       −Diskussion der aufgetretenen Probleme und ihr Umgang damit
 ////
 include::master_durchfuehrung.adoc[]
-<<<
 
 = Ergebnisse
 ////
@@ -50,4 +48,3 @@ include::master_durchfuehrung.adoc[]
       −Reflexion pro Teammitglied: Was habe ich gelernt? Worauf bin ich stolz? Was hat gut funktioniert? Was würde ich beim nächsten Projekt anders machen?
 ////
 include::master_ergebnisse.adoc[]
-<<<
