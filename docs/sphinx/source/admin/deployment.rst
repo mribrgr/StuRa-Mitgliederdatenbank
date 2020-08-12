@@ -61,7 +61,7 @@ We open the file first (based on the previous chapter)
 
   ``nano bin/settings.py``
 
-For an productive enviroment set the debug output of false.
+For a productive enviroment set the debug output to false.
 
   ``DEBUG = False``
 
@@ -93,7 +93,7 @@ to the StuRa of the HTW-Dresden.
   | ``cd importscripts``
   | ``python main.py``
 
-Now wait a little moment and than you can change to the parent directory.
+Now wait a little moment and then you can change to the parent directory.
 
   ``cd ..``
 
@@ -136,7 +136,7 @@ and the path to the wsgi.py.
   </VirtualHost>
 
 Now we add the recommended deamon mode to the WSGI process.
-To do it you need to append the folowing lines to the Apache config.
+To do it you need to append the following lines to the Apache config.
 
 .. code-block:: bash
   :caption: /etc/apache2/sites-available/000-default.conf
@@ -155,7 +155,7 @@ Solve some Permission Issues:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to change the permissions of the database, so that group owner
-can read and write. Then we need to the ownership of some files to Apache2
+can read and write. Then we need to transfer the ownership of some files to Apache2
 group and user ``www-data``.
 
   | ``chmod 664 ~/StuRa-Mitgliederdatenbank/db.sqlite3``
