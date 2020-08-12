@@ -30,7 +30,7 @@ Theresa Schüttig <s79136@htw-dresden.de>; Benjamin Hempel <s79132@htw-dresden.d
       −Projektorganisation, d.h. Team, Rollen, Kommunikation im Team und zum Auftraggeber, eingesetzte Tools in der Projektarbeit, z.B. für Planung, Kommunikation, Dokumentation
       −Eingesetzte Techniken und Praktiken im Projekt: Welche wurden ausgewählt und warum?
 ////
-include::master_planung.adoc[]
+include::master_planung.adoc[lines=1..1;4..-1]
 
 = Durchführung
 ////
@@ -40,7 +40,7 @@ include::master_planung.adoc[]
       −Darstellung der wesentlichen Entscheidungen mit kurzer Begründung
       −Diskussion der aufgetretenen Probleme und ihr Umgang damit
 ////
-include::master_durchfuehrung.adoc[]
+include::master_durchfuehrung.adoc[lines=1..1;4..-1]
 
 = Ergebnisse
 ////
@@ -48,4 +48,4 @@ include::master_durchfuehrung.adoc[]
       −Projektergebnisse mit Bezug auf die Ziele / Aufgabenstellung: Was haben wir erreicht und was nicht? Was waren die Gründe für Abweichungen?
       −Reflexion pro Teammitglied: Was habe ich gelernt? Worauf bin ich stolz? Was hat gut funktioniert? Was würde ich beim nächsten Projekt anders machen?
 ////
-include::master_ergebnisse.adoc[]
+include::master_ergebnisse.adoc[lines=1..1;4..-1]
