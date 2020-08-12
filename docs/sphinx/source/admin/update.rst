@@ -1,7 +1,7 @@
 Update the Application
 ----------------------
 
-This section describes how to update the application from a existing deployment.
+This section describes how to update the application from an existing deployment.
 
 
 Update From GitHub with no changes in migrations:
@@ -18,7 +18,7 @@ Now we need to stash our changes we have done during our config.
 
   ``git stash``
 
-We can pull now the latest version from the git Repository
+We can now pull the latest version from the git Repository
 
   ``git pull``
 
