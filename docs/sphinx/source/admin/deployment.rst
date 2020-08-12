@@ -61,6 +61,10 @@ We open the file first (based on the previous chapter)
 
   ``nano bin/settings.py``
 
+For an productive enviroment set the debug output of false.
+
+  ``DEBUG = False``
+
 Here we need to register our server's public IP address or domain name.
 Replace "IP_or_DOMAIN" with your personal IP address or domain name.
 
@@ -83,7 +87,17 @@ The last step is to do initial commands:
   | ``python ./manage.py collectstatic``
   | ``python ./manage.py createsuperuser``
 
-And deactivate the virtual environment
+An optional step that can be done is to fill in some functions that are common
+to the StuRa of the HTW-Dresden.
+
+  | ``cd importscripts``
+  | ``python main.py``
+
+Now wait a little moment and than you can change to the parent directory.
+
+  ``cd ..``
+
+And deactivate the virtual environment:
 
   ``deactivate``
 
