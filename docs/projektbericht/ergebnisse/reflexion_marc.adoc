@@ -1,0 +1,14 @@
+
+# Marc Michel (MMi)
+
+Da ich mich an diesem Modul bereits offensichtlicherweise erfolglos versucht habe, erlaube ich es mir Vergleiche zwischen beiden Durchläufen ziehen zu können. Zuerst muss gesagt sein, dass dieser Versuch unter bisher in Deutschland untypischen Umständen erfolgt ist, nämlich der Coronapandemie. Durch die Maßnahmen zur Bekämpfung dieser waren wir dazu forciert, alle zum Projekt gehörenden Sachen ausschließlich online durchzuführen.
+
+Das führt mich zur Lehre aus dem ersten Versuch: "Kommunikation ist das wichtigste in einem Projekt". Dies hat hier viel besser funktioniert, was zum einen zu einer besseren Arbeitsatmosphäre geführt hat und zum anderen das Arbeiten von zu Hause, was bei mir grundsätzlich schlechter funktioniert, etwas vereinfachte.
+
+Meine Hauptaktivität war die des Architekten. Diese wurde mir zugeweisen, auch wenn es "nur" meine zweite Wahl war. Trotzdem hat es mir Spaß gemacht, da es für mich ein neues Feld war und gerne Herausforderungen annehme. Außerdem interessierte mich das Entwickeln von Diagrammen sehr, zugegebenermaßen hab ich das bei meinen privaten Projekten stark vernachlässigt. Nach einem Jahr Pause musste ich mich erstmal in alle UML-Features sowie in den Open Unified Process einarbeiten, was am Anfang viel Zeit erforderte. Zusätzlich habe ich bei der Implementierung ausgeholfen, hauptsächlich bei den Funktionen des StuRa.
+
+Etwas unwohl fühlte ich mich am Anfang als ich in Erfahrung gebracht habe, dass es sich bei Django um ein MVC-Framework handelt, da ich mit diesem Pattern im ersten Versuch Verständnisprobleme hatte. Mit Python wurde ich mit einer Sprache konfrontiert, die von mit vorher nicht verwendet wurde. Ehrlich gesagt gefällt mir Python deutlich besser als PHP, ohne es geneauer begründen zu können.
+
+Ich habe mir viel Gedanken darüber gemacht ob ich es im Nachhinein gut finde es nochmal Versuchen zu dürfen. Die Erkenntnis, dass eine Teamarbeit auch funktionieren kann, ich hab vorher nur im Erstversuch ein größeres Projekt im Team bearbeitet, ist es denke ich Wert gewesen.
+
+Zum Abschluss möchte ich loswerden, dass dieses Projekt trotz der Umstände gut verlaufen ist. Die Tatsache, ein funktionierendes System auf die Beine gestellt zu haben ist erfreulich. Die Gegensätze bezüglich des Verlaufs der beiden Versuche werden mir definitv im weiteren Leben zu Nutze kommen. Den Schlusssatz möchte ich dazu nutzen, mich bei meinem Team für ihre Arbeit und Zusammenhalt zu bedanken.
