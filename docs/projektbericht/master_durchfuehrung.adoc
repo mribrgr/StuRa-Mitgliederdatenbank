@@ -1,11 +1,6 @@
 include::durchfuehrung/implementierung.adoc[leveloffset=+1]
-
 include::durchfuehrung/entwurf.adoc[leveloffset=+1]
-
 include::durchfuehrung/test.adoc[leveloffset=+1]
-
 include::durchfuehrung/uebergabe.adoc[leveloffset=+1]
-
 include::durchfuehrung/documentation.adoc[leveloffset=+1]
-
 include::durchfuehrung/wesentliche_entscheidungen.adoc[leveloffset=+1]
