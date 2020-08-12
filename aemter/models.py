@@ -1,6 +1,7 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 from django.db.models.signals import post_init, post_delete
+from django.dispatch import receiver
 
 class Organisationseinheit(models.Model):
     """
@@ -15,6 +16,7 @@ class Organisationseinheit(models.Model):
     bezeichnung = models.CharField(max_length=50, null=False)
     history = HistoricalRecords()
     funktionen_ohne_unterbereich_count = models.IntegerField(default=0)
+
     def __str__(self):
         return self.bezeichnung
     def __unicode__(self):
@@ -64,7 +66,7 @@ class Funktion(models.Model):
     organisationseinheit = models.ForeignKey(Organisationseinheit, on_delete=models.CASCADE, null=True, blank=True)
     unterbereich = models.ForeignKey(Unterbereich, on_delete=models.CASCADE, null=True, blank=True)
     history = HistoricalRecords()
-        
+
     def __str__(self):
         if self.unterbereich is None:
             return self.bezeichnung + " (" + self.organisationseinheit.__str__() + ")"
@@ -79,6 +81,7 @@ class Funktion(models.Model):
 """
 # Ueberpruefen, ob es eine Funktion ohne Unterbereich gibt, wenn ja, entsprechenden Wert bei Organisationseinheit setzen
 def funktion_post_init(**kwargs):
+    print("post init")
     instance = kwargs.get('instance')
     if instance.unterbereich is None:
         organisationseinheit = instance.organisationseinheit

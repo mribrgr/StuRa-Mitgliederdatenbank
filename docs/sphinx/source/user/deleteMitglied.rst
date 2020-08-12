@@ -13,8 +13,8 @@ the Member in a few steps.
 3. Check the Dialog and accept it
 4. Check success prompt
 
-.. image:: img/deleteMember.png
-.. image:: img/deleteMember2.png
-.. image:: img/deleteMember3.png
+.. image:: user/img/deleteMember.png
+.. image:: user/img/deleteMember2.png
+.. image:: user/img/deleteMember3.png
 
 Now you successfully deleted the Member/s.

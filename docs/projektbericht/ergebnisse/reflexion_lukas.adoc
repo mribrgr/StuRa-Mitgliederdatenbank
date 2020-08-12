@@ -1,0 +1,27 @@
+Lukas Hirsch (LHi)
+==================
+
+Am Anfang des Projektes, besaß ich nur mittelmäßige Kenntnisse in Python, die
+ich in diesem Projekt gut vertiefen konnte. Weiterhin fande ich es gut
+mich mit der MVC-Architektur von Django als Webframework außeinanderzusetzen
+und ihre Besonderheiten zu erlernen.
+
+Aus Neugier hatte ich mich für die Rolle Tester entschieden, da ich mich auch
+dafür interesiert habe, wie die Tests in einem Softwareprojekt ablaufen,
+da ich in meinem Werkstudentenjob auch die Rolle Tester besetzen durfte.
+Für mich war das Schwierigste in meiner Rolle, die UI-Tests mit Selenium
+so zu konzipieren, dass sie längerfristig bestand haben und ich diese nicht
+mit jedem kleinen Update anpassen muss.
+
+Außerdem fande ich es gut mal an einem Softwareprojekt in einer größeren Gruppe
+mitzuwirken, was ich für mich als sehr angenehm empfand. Im Vergleich zu meinen
+privaten Softwareprojekten empfand ich den entstandenen Code um einiges
+qualitativ hochwertiger und vorallem lesbarer.
+
+Ich bin mit dem Projektverlauf sehr zufrieden. Trotz Corona-Pandemie haben
+wir meiner Meinung nach ein soliedes Softwaresystem auf die Beine gestellt.
+Wir haben uns alle, auch mit unseren Stakeholdern, gut verstanden,
+was zu einem angenehmen Klima beisteuerte.
+
+Zum Schluss möchte ich mich bei Ihnen als Professor und der HTW-Dresden für
+diese Möglichkeit ein Softwaresystem kollaborativ zu entwickeln bedanken.

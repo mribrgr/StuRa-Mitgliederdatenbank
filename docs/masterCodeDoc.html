@@ -196,6 +196,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-bin.management.commands.delete_old_historie">delete_old_historie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-duplicate-history">clean_duplicate_history</a></li>
 </ul>
 </li>
 </ul>
@@ -4006,6 +4007,15 @@ TOTAL                                           <span class="m">1339</span>    <
 
 </dd></dl>
 
+</div>
+<div class="section" id="clean-duplicate-history">
+<h3>clean_duplicate_history<a class="headerlink" href="#clean-duplicate-history" title="Permalink to this headline">¶</a></h3>
+<p>django-simple-history includes a command that can be used to remove all duplicate entries in the Historie.
+For example, an entry is created in MitgliedMail and MitgliedAmt when the associated Mitglied is changed, even though no changes
+have been made to MitgliedMail and MitgliedAmt. To get rid of these entries, you can use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">clean_duplicate_history</span> <span class="pre">[-m</span> <span class="pre">...]</span> <span class="pre">--auto</span></code></p>
+<p>The -m flag is optional and is used to specify the amount of minutes to go back when searching for duplicate entries. This command can
+be automated, e.g. by running a cronjob.</p>
 </div>
 </div>
 </div>

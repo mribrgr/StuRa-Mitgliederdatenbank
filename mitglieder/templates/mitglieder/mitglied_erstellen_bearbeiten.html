@@ -33,17 +33,8 @@
         <h5>Funktionen </h5>
         <br />
         <div id="div_aemter">
-          <!-- derzeite Ämter -->
         {% if mitglied %}
-          {% for mitgliedamt in curr_funktionen %}
-          {% with mitgliedamt.funktion as funktion %}
-          {% with forloop.counter as amtid %}
-            {% include 'mitglieder/aemter.html' %}
-          {% endwith %}
-          {% endwith %}
-          {% endfor %}
-          <!-- ehemalige Ämter -->
-          {% for mitgliedamt in prev_funktionen %}
+          {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
           {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
             {% include 'mitglieder/aemter.html' %}

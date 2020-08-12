@@ -11,8 +11,8 @@ belongs to. Now we can check the subsections we want to delete from the
 organizational unit. At last we can save the modifications with the Button
 "Sichern und weiter bearbeiten".
 
-.. image:: img/deleteUnterbereiche.png
+.. image:: user/img/deleteUnterbereiche.png
 
 Check the success message to ensure that the Subsection was deleted successfully.
 
-.. image:: img/deleteUnterbereiche2.png
+.. image:: user/img/deleteUnterbereiche2.png
