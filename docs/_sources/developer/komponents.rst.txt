@@ -3,19 +3,19 @@ Components
 
 A brief overview over the Packages
 
-.. image:: developer/img/diagramm_package_classes.svg
-  :target: _images/diagramm_package_classes.svg
+.. image:: developer/img/diagramm_package_classes.png
+  :target: _images/diagramm_package_classes.png
 
 
 
 A brief overview over the Components of a Package
 
-.. image:: developer/img/diagramm_package_components.svg
-  :target: _images/diagramm_package_components.svg
+.. image:: developer/img/diagramm_package_components.png
+  :target: _images/diagramm_package_components.png
 
 
 
 A brief overview over the connections between the Classes
 
-.. image:: developer/img/diagramm_class.svg
-  :target: _images/diagramm_class.svg
+.. image:: developer/img/diagramm_class.png
+  :target: _images/diagramm_class.png
