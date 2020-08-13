@@ -1,0 +1,24 @@
+// Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen
+//  Projektphasen oder Iterationen, dabei Berücksichtigung des Zusammenspiels
+//  zwischen den einzelnen Rollen
+
+# Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Iterationen
+
+## Erstes Semester: Der Beginn
+
+### Die Anforderungsanalyse
+
+### Die Systemspezifikation
+
+### Der Architektur-Entwurf
+
+## Zweites Semester: Die produktive Phase
+
+### Die Implementierung
+
+### Die Integration und Test-Phase
+
+### Die Inbetriebnahme
+
+## Jetzt: Das Ende
+// Drama pur
