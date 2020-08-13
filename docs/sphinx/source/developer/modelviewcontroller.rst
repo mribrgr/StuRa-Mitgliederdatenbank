@@ -6,17 +6,17 @@ module.
 
 A generic Example:
 
-.. image:: developer/img/diagramm_activity_django_view.svg
-  :target: _images/diagramm_activity_django_views.svg
+.. image:: developer/img/diagramm_activity_django_view.png
+  :target: _images/diagramm_activity_django_view.png
   
   
 The generic sequence diagram from the Example above:
 
-.. image:: developer/img/diagramm_sequence_django_view.svg
-  :target: _images/diagramm_sequence_django_view.svg
+.. image:: developer/img/diagramm_sequence_django_view.png
+  :target: _images/diagramm_sequence_django_view.png
 
 
 A example for the *mitglieder/views.py*:
 
-.. image:: developer/img/diagramm_activity_django_view_example.svg
-  :target: _images/diagramm_activity_django_views_example.svg
+.. image:: developer/img/diagramm_activity_django_view_example.png
+  :target: _images/diagramm_activity_django_view_example.png
