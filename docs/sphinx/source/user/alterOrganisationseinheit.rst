@@ -14,7 +14,7 @@ Now we have to click on the Organizational unit we want to alter, in the
 following form you can modify everything you want corresponding to the
 Organizational unit.
 
-.. image:: user/img\alterOrganisationseinheit.png
+.. image:: user/img/alterOrganisationseinheit.png
 
 To confirm your modifications you have to click on the Button "sichern".
 If you are Prompted
