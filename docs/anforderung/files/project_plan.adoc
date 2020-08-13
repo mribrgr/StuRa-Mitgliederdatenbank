@@ -14,7 +14,7 @@ Der Projektplan enthält Informationen über den allgemeinen Ablauf des Projekte
 include::csv/team.csv[]
 |===
 
-== Praktiken und Bewertung 
+== Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 * Wir arbeiten in Iterationen, welche 2 Wochen andauern.
 * Aus dem ersten Treffen hat sich herausgestellt, dass wir folgende Tools nutzen wollen:
@@ -31,7 +31,7 @@ include::csv/team.csv[]
 *** Trello
 // TODO: Link zum Trelloboard
 
-== Meilesteine und Ziele
+== Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
 [%header, cols="1,3a,2,1"]
@@ -53,25 +53,25 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_2_plan.adoc[Iteration 2]
-|	
+|
 * Veranschaulichung (Wireframes)
 |	06.01.2020 - 17.01.2020
 | -
 
 |link:iteration-plans/iteration_3_plan.adoc[Iteration 3]
-|	
+|
 * LCA
 |	20.01.2020 - 31.01.2020
 | -
 
-|Wintersemester Ende 
-| - 
-| - 
+|Wintersemester Ende
+| -
+| -
 | -
 
-|Sommersemester Beginn 
-| - 
-| - 
+|Sommersemester Beginn
+| -
+| -
 | -
 
 |link:iteration-plans/iteration_4_plan.adoc[Iteration 4]

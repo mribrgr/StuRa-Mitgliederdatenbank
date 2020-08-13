@@ -11,7 +11,7 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäte
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf die StuRa-Mitgliederdatenbank, das vom in dieser link:../documentation.pdf[Datei] aufgelisteten Team entwickelt wird. Das System wird es Mitgliedern der Referate Verwaltung und Präsidium sowie Mitarbeitern des StuRas erlauben, Daten von Mitgliedern des StuRas über eine Webanwendung zu verwalten, um Informationen zu Mitgliedern, Ämtern und Wahlen zu speichern und einzusehen, einen Arbeitsleitfaden für die interne Verwaltung sowie eine Checkliste zu generieren. Im Idealfall sollte die Anwendung auch das https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[hier] veröffentlichte Organigramm erzeugen können. 
+Dieses Visions-Dokument bezieht sich auf die StuRa-Mitgliederdatenbank, das vom in dieser link:../documentation.pdf[Datei] aufgelisteten Team entwickelt wird. Das System wird es Mitgliedern der Referate Verwaltung und Präsidium sowie Mitarbeitern des StuRas erlauben, Daten von Mitgliedern des StuRas über eine Webanwendung zu verwalten, um Informationen zu Mitgliedern, Ämtern und Wahlen zu speichern und einzusehen, einen Arbeitsleitfaden für die interne Verwaltung sowie eine Checkliste zu generieren. Im Idealfall sollte die Anwendung auch das https://www.stura.htw-dresden.de/stura/ref/personal/posten/plenum/stellenplan-organigramm-2019[hier] veröffentlichte Organigramm erzeugen können.
 
 === Definitionen, Akronyme und Abkürzungen
 siehe link:glossary.adoc[Glossar]
@@ -41,21 +41,21 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 |===
 
 |===
-|Das Problem |	Das Erteilen von Zugängerechten ist unorganisiert
+|Das Problem |	Das Erteilen von Zugangsrechten ist unorganisiert
 |betrifft |	die interne Verwaltung, StuRa-Mitglieder
 |die Auswirkung davon ist |	die Verwaltung hat einen schlechten Überblick über noch zu erteilende Zugängge und StuRa-Mitglieder müssen auf Zugänge länger warten als nötig
 |eine erfolgreiche Lösung wäre |	das Erstellen eines Arbeitsleitfadens für die interne Verwaltung
 |===
 
 
-=== Positionierung des Produkts 
+=== Positionierung des Produkts
 //Ein Positionierung des Produkts beschreibt das Einsatzziel der Anwendung und die Bedeutung das Projekts an alle beteiligten Mitarbeiter.
 //Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 |===
 |Für|	Organisationseinheit Verwaltung (StuRa)
 |welchem|	das Verwalten der Mitglieder deutlich erleichtert wird
-|Die Lösung ist eine | Webanwedung zur Mitgliederverwaltung
+|Die Lösung ist eine | Webanwendung zur Mitgliederverwaltung
 |Die / Das	|das Verwalten übersichtlicher gestaltet und eine Historie speichert
 |Im Gegensatz zu	|Excel-Tabelle
 |Unser Produkt|	zeigt nur abgefragte Daten an und ermöglicht das Hinzufügen und Bearbeiten in kürzerer Zeit
@@ -63,7 +63,7 @@ Derzeit werden Mitgliederdaten des StuRas über eine Excel-Tabelle verwaltet. Di
 
 
 ==	Stakeholder Beschreibungen
-===	Zusammenfassung der Stakeholder 
+===	Zusammenfassung der Stakeholder
 
 [%header]
 |===

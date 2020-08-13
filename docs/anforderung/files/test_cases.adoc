@@ -7,4 +7,5 @@
 // [Identify the type of data required for this Test Case.]
 // Einfügen aller Testcases per Include
 
-https://mribrgr.github.io/StuRa-Mitgliederdatenbank/masterCodeDoc.html#tests[Zu den Testcases in der Developer Dokumentation]
+https://mribrgr.github.io/StuRa-Mitgliederdatenbank/index.html#tests[Zu den Testcases in der Developer Dokumentation]
+https://mribrgr.github.io/StuRa-Mitgliederdatenbank/index.html#latest-test-coverage-report[Zum Test-Coverage Report]
