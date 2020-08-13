@@ -55,7 +55,7 @@ jobs:
           pip install -r requirements.txt
 
       # Change directory and Build
-      - name: Change directory + build
+      - name: Change directory + build sphinx
         run: |
           cd ./docs/
           ls -l
@@ -63,6 +63,13 @@ jobs:
           sphinx-build -b pdf ./sphinx/source/ ./sphinx/
           sphinx-build -b latex ./sphinx/source/ ./sphinx/latex/
           ls -l
+          
+      # Build pdf from sphinx/latex
+      - name: Build PDF from latex
+        uses: dante-ev/latex-action@master
+        with:
+          working_directory: ./docs/sphinx/latex/
+          root_file: stura-mitgliederdatenbank.tex
 
       #
       # commit
