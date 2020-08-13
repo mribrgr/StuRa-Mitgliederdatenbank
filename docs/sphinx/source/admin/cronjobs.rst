@@ -12,6 +12,7 @@ with the command:
 Now you can see a file like this:
 
 .. code-block:: bash
+
   # Edit this file to introduce tasks to be run by cron.
   #
   # Each task to run has to be defined through a single line
