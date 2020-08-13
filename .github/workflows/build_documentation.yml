@@ -60,10 +60,9 @@ jobs:
           cd ./docs/
           ls -l
           sphinx-build ./sphinx/source/ .
-          sphinx-build -b pdf ./sphinx/source/ ./sphinx/
           sphinx-build -b latex ./sphinx/source/ ./sphinx/latex/
           ls -l
-          
+
       # Build pdf from sphinx/latex
       - name: Build PDF from latex
         uses: dante-ev/latex-action@master

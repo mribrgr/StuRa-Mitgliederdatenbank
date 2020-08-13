@@ -4,5 +4,3 @@ simplejson
 selenium
 sphinx
 sphinx_rtd_theme
-rst2pdf
-svglib
