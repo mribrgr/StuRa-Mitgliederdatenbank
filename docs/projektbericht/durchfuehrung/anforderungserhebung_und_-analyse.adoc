@@ -1,4 +1,4 @@
-= Anforderungserhebung und -analyse
+= Anforderungserhebung und -analyse (TSc)
 
 Im Verlauf des Sommersemesters 2019/20 bekamen wir von den Stakeholdern eine pdf-Datei zu Verfügung gestellt, welche alle wesentlichen Anforderungen enthielt. Nach Herausarbeitung der Anforderungen wurden entstandene Unklarheiten und fehlende Informationen bei persönlichen Treffen mit diesen geklärt.
 
