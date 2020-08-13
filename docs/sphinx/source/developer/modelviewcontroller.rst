@@ -6,7 +6,7 @@ module.
 
 A generic Example:
 
-.. image:: developer/img/diagramm_activity_django_views.svg
+.. image:: developer/img/diagramm_activity_django_view.svg
   :target: _images/diagramm_activity_django_views.svg
 
 
