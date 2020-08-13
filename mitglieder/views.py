@@ -237,7 +237,9 @@ def speichern(request, mitglied_id):
 
         for i in range(1, aemternum + 1):
             amt_id = request.POST['selectamt' + str(i)]
+            # print(amt_id)
             funktion = Funktion.objects.get(pk=amt_id)
+            # print(funktion)
             # Beginn und Ende Amtszeit
             amtszeit_beginn_str = request.POST['beginn_kandidatur' + str(i)]
             if amtszeit_beginn_str:
@@ -411,7 +413,7 @@ def funktionen_html_laden(request):
     """
     if not request.user.is_authenticated:
         return HttpResponse("Permission denied")
-    
+
     global aemternum
     aemternum += 1
     referate = Organisationseinheit.objects.order_by('bezeichnung')
@@ -611,8 +613,8 @@ def suchen(request):
     mitglieder_matches = []
     mitglied = lambda pk : Mitglied.objects.get(id=pk)
     for mitid in matches_sorted :
-        print(str(mitid) + " " + str(matches[mitid]))
-        print(mitglied(mitid))
+        # print(str(mitid) + " " + str(matches[mitid]))
+        # print(mitglied(mitid))
         mitglieder_matches.insert(0, mitglied(mitid))
 
     # Paginate data
