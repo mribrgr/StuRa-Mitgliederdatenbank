@@ -36,7 +36,8 @@ author = 'Team T8'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    'rst2pdf.pdfbuilder'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -47,6 +48,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# -- Options for rst2pdf output ----------------------------------------------
+pdf_documents = [('index', u'softwaredoc', u'StuRa - Mitgliederdatenbank', u'Team T8')]
 
 # -- Options for HTML output -------------------------------------------------
 
