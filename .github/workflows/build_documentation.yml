@@ -60,6 +60,7 @@ jobs:
           cd ./docs/
           ls -l
           sphinx-build ./sphinx/source/ .
+          sphinx-build -b pdf ./sphinx/source/ ./sphinx/
           ls -l
 
       #

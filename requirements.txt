@@ -1,6 +1,7 @@
 django
-selenium
+django-simple-history
 simplejson
+selenium
 sphinx
 sphinx_rtd_theme
-django-simple-history
+rst2pdf
