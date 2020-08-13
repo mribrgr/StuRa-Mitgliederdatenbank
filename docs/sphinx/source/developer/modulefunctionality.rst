@@ -4,7 +4,7 @@ Activity Diagrams
 Here you can see two examples for activity diagrams. The first one is based
 on all workflows we wanted to cover with our software.
 
-.. image:: developer/img/diagramm_activity_mitglieder_verwalten.svg
+.. image:: developer/img/diagramm_activity_mitglieder_verwalten..svg
   :target: _images/diagramm_activity_mitglieder_verwalten.svg
 
 
