@@ -19,24 +19,67 @@ Aktivitäten:
 * Informationen gesammelt, durchdacht aber auch niedergeschrieben
 
 Ergebnisse:
+* Veranschaulichung durch Wireframes
 * Fundament für spätere Entscheidungen gelegt
 * Grundhintergedanken des Projektes aus Sicht der Stakeholder bekommen
 
 Zusammenspiel:
 * in dieser Phase wurde besonders eng zusammengearbeitet, es war allen beteiligten Personen zu jedem Zeitpunkt klar, was gerade gemacht wird
 * Viele Aktivitäten Rollenübergreifend
-
-### Der Architektur-Entwurf
-
+* 4-Augen-Prinzip für Commits
 
 
 ## Zweites Semester: Die Realisierungsphase
 
-### Die Implementierung
+### Die Implementierung in Verbindung mit der Integration- und Test-Phase
 
-### Die Integration und Test-Phase
+Ziel:
+* Umsetzung des zuvor geplanten Projektes mit dynamischer, iterativer Veränderung
+* Akzeptanz der Auftraggeber
+
+Aktivitäten:
+* Prototypenbau
+* Implementation und testen der einzelnen Teile
+* Zusammenführen und testen des Gesamtbildes
+* Auslieferung an Auftraggeber
+* Herstellung der Betriebstauglichkeit
+* Kontinuierliches Bugfixing
+* Schreiben der Dokumentation
+
+Ergebnisse:
+* Auftraggeber sind zufrieden
+* Implementation fertiggestellt
+
+Zusammenspiel:
+* weiterhin 4-Augen-Prinzip
+* Developer wenden sich bei strukturellen Fragen an Architekten
+* Tester steht im engen Kontakt mit Developern
+* Architekt überprüft Aktivitäten des Projekt Managers
+
+
+
 
 ### Die Inbetriebnahme
 
+
+Ziel:
+* Zukünftige Nutzer werden eingearbeitet
+* Kunde testet im laufenden Betrieb
+
+Aktivitäten:
+* 
+
+Ergebnisse:
+* 
+
+Zusammenspiel:
+* Verantwortliche auf Seite der Kunden stehen im engen Kontakt mit den Entwicklern bei Problemen.
+
+
 ## Jetzt: Das Ende
 // Drama pur
+
+
+### Das haben wir gelernt:
+
+// Reflexionen verlinken?
