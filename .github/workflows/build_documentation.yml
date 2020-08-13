@@ -61,6 +61,7 @@ jobs:
           ls -l
           sphinx-build ./sphinx/source/ .
           sphinx-build -b pdf ./sphinx/source/ ./sphinx/
+          sphinx-build -b latex ./sphinx/source/ ./sphinx/latex/
           ls -l
 
       #
