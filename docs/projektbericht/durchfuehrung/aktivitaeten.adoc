@@ -55,11 +55,11 @@ Zusammenspiel:
 * Developer wenden sich bei strukturellen Fragen an Architekten
 * Tester steht im engen Kontakt mit Developern
 * Architekt überprüft Aktivitäten des Projekt Managers
+* Verantwortliche auf Seite der Kunden stehen im engen Kontakt mit den Entwicklern bei Problemen.
 
 
 
-
-### Die Inbetriebnahme
+### Die Inbetriebnahme (läuft noch)
 
 
 Ziel:
@@ -67,13 +67,16 @@ Ziel:
 * Kunde testet im laufenden Betrieb
 
 Aktivitäten:
-* 
+* Kunde nutzt die Applikation regelmäßig
 
 Ergebnisse:
-* 
+* Kunde hat Mehrwert durch die gebaute Applikation
 
 Zusammenspiel:
-* Verantwortliche auf Seite der Kunden stehen im engen Kontakt mit den Entwicklern bei Problemen.
+* Dokumentation hilft dem Kunden bei Problemen
+
+
+
 
 
 ## Jetzt: Das Ende
