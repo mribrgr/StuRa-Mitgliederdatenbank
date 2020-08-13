@@ -59,7 +59,7 @@ jobs:
         run: |
           cd ./docs/
           ls -l
-          sphinx-build ./sphinx/source/ .
+          sphinx-build -b singlehtml ./sphinx/source/ .
           sphinx-build -b latex ./sphinx/source/ ./sphinx/latex/
           ls -l
 
