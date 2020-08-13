@@ -8,14 +8,13 @@
 
 ### Die Anforderungsanalyse und Systemspezifikation
 
-Ziel:
-* Anforderungen ermitteln, konkretisieren, strukturieren und prüfen
+Unser Projekt begann mit der Anforderungsanalyse und Systemspezifikation, in welcher unser Ziel war, die Anforderungen zu ermitteln. Diese werden im nächsten Schritt konkretisiert, strukturiert und prüft. +
+Um diese Ziele zu erreichen mussten wir uns zuerst kennenlernen. Dies war vor allem notwendig, da wir in dieser Phase besonders intensiv zusammenarbeiten mussten. +
+Wir haben jeder für sich uns in unsere Rollen hineingearbeitet und haben dieses Wissen genutzt um unsere Aufgaben zu verstehen. Es folgten erste Modellierungen und konnten somit schnell einschätzen, wie weit das Projekt machbar ist. Dies haben wir in Kommunikation mit den Auftraggebern abgestimmt. +
+Die Ergebnisse, welche wir erforscht haben waren:
+*
 
 Aktivitäten:
-* Aufgaben und Rollen verstehen
-* Einschätzen, wie weit es sinnvoll und machbar ist
-* Kennenlernen
-* Erste Modellierungen
 * Informationen gesammelt, durchdacht aber auch niedergeschrieben
 
 Ergebnisse:
@@ -24,7 +23,6 @@ Ergebnisse:
 * Grundhintergedanken des Projektes aus Sicht der Stakeholder bekommen
 
 Zusammenspiel:
-* in dieser Phase wurde besonders eng zusammengearbeitet, es war allen beteiligten Personen zu jedem Zeitpunkt klar, was gerade gemacht wird
 * Viele Aktivitäten Rollenübergreifend
 * 4-Augen-Prinzip für Commits
 
