@@ -10,5 +10,5 @@ on all workflows we wanted to cover with our software.
 
 The second one describes the workflow Django covers with its admin panel.
 
-.. image:: developer/img/diagramm_activity_nutzer_verwalten.svg
+.. image:: developer/img/diagramm_activity_nutzer_verwalten..svg
   :target: _images/diagramm_activity_nutzer_verwalten.svg
