@@ -37,91 +37,91 @@
 \contentsline {subsection}{\numberline {2.1.5}Configure Apache2:}{23}{subsection.2.1.5}%
 \contentsline {subsection}{\numberline {2.1.6}Solve some Permission Issues:}{23}{subsection.2.1.6}%
 \contentsline {section}{\numberline {2.2}Cronjobs}{24}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Update the Application}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Update From GitHub with no changes in migrations:}{24}{subsection.2.3.1}%
-\contentsline {chapter}{\numberline {3}Developer Documentation}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction Development}{25}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Clone the Git\sphinxhyphen {}Repository, install the requirements and fire up the Webserver for developement}{25}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}System Architecture}{26}{section.3.2}%
-\contentsline {section}{\numberline {3.3}The V in MVC}{27}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Components}{31}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Database Structure}{33}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Activity Diagrams}{34}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Code Documentation}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Login}{37}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Views}{37}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Templates}{37}{subsection.4.1.2}%
-\contentsline {subsubsection}{login.html}{38}{subsubsection*.9}%
-\contentsline {section}{\numberline {4.2}Ämter}{38}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Models}{38}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Views}{50}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Templates}{50}{subsection.4.2.3}%
-\contentsline {subsubsection}{main\_screen.html}{50}{subsubsection*.194}%
-\contentsline {subsubsection}{department\_row.html}{50}{subsubsection*.195}%
-\contentsline {section}{\numberline {4.3}Historie}{50}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Abhängigkeiten}{51}{subsection.4.3.1}%
-\contentsline {subsubsection}{django\sphinxhyphen {}simple\sphinxhyphen {}history}{51}{subsubsection*.196}%
-\contentsline {subsection}{\numberline {4.3.2}Views}{51}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Templates}{52}{subsection.4.3.3}%
-\contentsline {subsubsection}{list.html}{52}{subsubsection*.200}%
-\contentsline {subsubsection}{tabs/*}{52}{subsubsection*.201}%
-\contentsline {subsubsection}{tabs/\_pagination.html}{52}{subsubsection*.202}%
-\contentsline {subsubsection}{row.html}{52}{subsubsection*.203}%
-\contentsline {subsubsection}{rowContent.html}{52}{subsubsection*.204}%
-\contentsline {subsubsection}{\_titleBuilder.html}{53}{subsubsection*.205}%
-\contentsline {subsubsection}{\_noResultsRow.html}{53}{subsubsection*.206}%
-\contentsline {subsubsection}{\_modalDataIncludes.html}{53}{subsubsection*.207}%
-\contentsline {subsubsection}{modalData/*}{53}{subsubsection*.208}%
-\contentsline {subsection}{\numberline {4.3.4}Template Tags}{53}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Mitglieder}{54}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Abhängigkeiten}{54}{subsection.4.4.1}%
-\contentsline {subsubsection}{simplejson}{54}{subsubsection*.212}%
-\contentsline {subsection}{\numberline {4.4.2}Views}{54}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Templates}{59}{subsection.4.4.3}%
-\contentsline {subsubsection}{aemter.html}{59}{subsubsection*.229}%
-\contentsline {subsubsection}{amt\_dropdown\_list\_options.html}{59}{subsubsection*.230}%
-\contentsline {subsubsection}{bereich\_dropdown\_list\_options.html}{59}{subsubsection*.231}%
-\contentsline {subsubsection}{email.html}{59}{subsubsection*.232}%
-\contentsline {subsubsection}{email\_input.html}{59}{subsubsection*.233}%
-\contentsline {subsubsection}{mitglieder.html}{59}{subsubsection*.234}%
-\contentsline {subsubsection}{mitglied\_erstellen\_bearbeiten.html}{59}{subsubsection*.235}%
-\contentsline {subsubsection}{modal.html}{59}{subsubsection*.236}%
-\contentsline {subsubsection}{row.html}{60}{subsubsection*.237}%
-\contentsline {section}{\numberline {4.5}Checklisten}{60}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Models}{60}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Views}{70}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Templates}{71}{subsection.4.5.3}%
-\contentsline {subsubsection}{main\_screen.html}{71}{subsubsection*.390}%
-\contentsline {subsubsection}{\_createModal.html}{71}{subsubsection*.391}%
-\contentsline {subsubsection}{\_deleteModal.html}{72}{subsubsection*.392}%
-\contentsline {subsubsection}{\_funktionSelectOptions.html}{72}{subsubsection*.393}%
-\contentsline {subsection}{\numberline {4.5.4}Template Tags}{72}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}Importscripts}{72}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}How to use:}{72}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}CSV Data:}{72}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Functions:}{73}{subsection.4.6.3}%
-\contentsline {section}{\numberline {4.7}Tests}{73}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Sources}{73}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Dependencies}{73}{subsection.4.7.2}%
-\contentsline {subsubsection}{selenium}{73}{subsubsection*.398}%
-\contentsline {subsubsection}{Webdriver for Firefox}{73}{subsubsection*.399}%
-\contentsline {subsection}{\numberline {4.7.3}MyTestCase}{74}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}Helper Functions}{74}{subsection.4.7.4}%
-\contentsline {subsection}{\numberline {4.7.5}Login Module Tests}{75}{subsection.4.7.5}%
-\contentsline {subsubsection}{Testcase 001}{75}{subsubsection*.400}%
-\contentsline {subsubsection}{Testcase 002}{76}{subsubsection*.401}%
-\contentsline {subsection}{\numberline {4.7.6}Mitglieder Module Tests}{76}{subsection.4.7.6}%
-\contentsline {subsubsection}{Testcase 003}{76}{subsubsection*.402}%
-\contentsline {subsubsection}{Testcase 004}{76}{subsubsection*.403}%
-\contentsline {subsubsection}{Testcase 005}{76}{subsubsection*.404}%
-\contentsline {subsubsection}{Testcase 006}{77}{subsubsection*.405}%
-\contentsline {subsection}{\numberline {4.7.7}Aemter Module Tests}{77}{subsection.4.7.7}%
-\contentsline {subsubsection}{Testcase 007}{77}{subsubsection*.406}%
-\contentsline {subsubsection}{Testcase 008}{78}{subsubsection*.407}%
-\contentsline {subsubsection}{Testcase 009}{78}{subsubsection*.408}%
-\contentsline {subsection}{\numberline {4.7.8}Latest test coverage report}{79}{subsection.4.7.8}%
-\contentsline {section}{\numberline {4.8}Commands}{80}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}delete\_old\_historie}{80}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}clean\_duplicate\_history}{81}{subsection.4.8.2}%
-\contentsline {chapter}{Python Module Index}{83}{section*.412}%
-\contentsline {chapter}{Index}{85}{section*.413}%
+\contentsline {section}{\numberline {2.3}Update the Application}{25}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Update From GitHub with no changes in migrations:}{25}{subsection.2.3.1}%
+\contentsline {chapter}{\numberline {3}Developer Documentation}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction Development}{27}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Clone the Git\sphinxhyphen {}Repository, install the requirements and fire up the Webserver for developement}{27}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}System Architecture}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The V in MVC}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Components}{33}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Database Structure}{35}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Activity Diagrams}{36}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Code Documentation}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Login}{39}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Views}{39}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Templates}{39}{subsection.4.1.2}%
+\contentsline {subsubsection}{login.html}{40}{subsubsection*.9}%
+\contentsline {section}{\numberline {4.2}Ämter}{40}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Models}{40}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Views}{52}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Templates}{52}{subsection.4.2.3}%
+\contentsline {subsubsection}{main\_screen.html}{52}{subsubsection*.194}%
+\contentsline {subsubsection}{department\_row.html}{52}{subsubsection*.195}%
+\contentsline {section}{\numberline {4.3}Historie}{52}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Abhängigkeiten}{53}{subsection.4.3.1}%
+\contentsline {subsubsection}{django\sphinxhyphen {}simple\sphinxhyphen {}history}{53}{subsubsection*.196}%
+\contentsline {subsection}{\numberline {4.3.2}Views}{53}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Templates}{54}{subsection.4.3.3}%
+\contentsline {subsubsection}{list.html}{54}{subsubsection*.200}%
+\contentsline {subsubsection}{tabs/*}{54}{subsubsection*.201}%
+\contentsline {subsubsection}{tabs/\_pagination.html}{54}{subsubsection*.202}%
+\contentsline {subsubsection}{row.html}{54}{subsubsection*.203}%
+\contentsline {subsubsection}{rowContent.html}{54}{subsubsection*.204}%
+\contentsline {subsubsection}{\_titleBuilder.html}{55}{subsubsection*.205}%
+\contentsline {subsubsection}{\_noResultsRow.html}{55}{subsubsection*.206}%
+\contentsline {subsubsection}{\_modalDataIncludes.html}{55}{subsubsection*.207}%
+\contentsline {subsubsection}{modalData/*}{55}{subsubsection*.208}%
+\contentsline {subsection}{\numberline {4.3.4}Template Tags}{55}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Mitglieder}{56}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Abhängigkeiten}{56}{subsection.4.4.1}%
+\contentsline {subsubsection}{simplejson}{56}{subsubsection*.212}%
+\contentsline {subsection}{\numberline {4.4.2}Views}{56}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Templates}{61}{subsection.4.4.3}%
+\contentsline {subsubsection}{aemter.html}{61}{subsubsection*.229}%
+\contentsline {subsubsection}{amt\_dropdown\_list\_options.html}{61}{subsubsection*.230}%
+\contentsline {subsubsection}{bereich\_dropdown\_list\_options.html}{61}{subsubsection*.231}%
+\contentsline {subsubsection}{email.html}{61}{subsubsection*.232}%
+\contentsline {subsubsection}{email\_input.html}{61}{subsubsection*.233}%
+\contentsline {subsubsection}{mitglieder.html}{61}{subsubsection*.234}%
+\contentsline {subsubsection}{mitglied\_erstellen\_bearbeiten.html}{61}{subsubsection*.235}%
+\contentsline {subsubsection}{modal.html}{61}{subsubsection*.236}%
+\contentsline {subsubsection}{row.html}{62}{subsubsection*.237}%
+\contentsline {section}{\numberline {4.5}Checklisten}{62}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Models}{62}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Views}{72}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Templates}{73}{subsection.4.5.3}%
+\contentsline {subsubsection}{main\_screen.html}{73}{subsubsection*.390}%
+\contentsline {subsubsection}{\_createModal.html}{73}{subsubsection*.391}%
+\contentsline {subsubsection}{\_deleteModal.html}{74}{subsubsection*.392}%
+\contentsline {subsubsection}{\_funktionSelectOptions.html}{74}{subsubsection*.393}%
+\contentsline {subsection}{\numberline {4.5.4}Template Tags}{74}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Importscripts}{74}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}How to use:}{74}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}CSV Data:}{74}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Functions:}{75}{subsection.4.6.3}%
+\contentsline {section}{\numberline {4.7}Tests}{75}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Sources}{75}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Dependencies}{75}{subsection.4.7.2}%
+\contentsline {subsubsection}{selenium}{75}{subsubsection*.398}%
+\contentsline {subsubsection}{Webdriver for Firefox}{75}{subsubsection*.399}%
+\contentsline {subsection}{\numberline {4.7.3}MyTestCase}{76}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}Helper Functions}{76}{subsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.7.5}Login Module Tests}{77}{subsection.4.7.5}%
+\contentsline {subsubsection}{Testcase 001}{77}{subsubsection*.400}%
+\contentsline {subsubsection}{Testcase 002}{78}{subsubsection*.401}%
+\contentsline {subsection}{\numberline {4.7.6}Mitglieder Module Tests}{78}{subsection.4.7.6}%
+\contentsline {subsubsection}{Testcase 003}{78}{subsubsection*.402}%
+\contentsline {subsubsection}{Testcase 004}{78}{subsubsection*.403}%
+\contentsline {subsubsection}{Testcase 005}{78}{subsubsection*.404}%
+\contentsline {subsubsection}{Testcase 006}{79}{subsubsection*.405}%
+\contentsline {subsection}{\numberline {4.7.7}Aemter Module Tests}{79}{subsection.4.7.7}%
+\contentsline {subsubsection}{Testcase 007}{79}{subsubsection*.406}%
+\contentsline {subsubsection}{Testcase 008}{80}{subsubsection*.407}%
+\contentsline {subsubsection}{Testcase 009}{80}{subsubsection*.408}%
+\contentsline {subsection}{\numberline {4.7.8}Latest test coverage report}{81}{subsection.4.7.8}%
+\contentsline {section}{\numberline {4.8}Commands}{83}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}delete\_old\_historie}{83}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}clean\_duplicate\_history}{83}{subsection.4.8.2}%
+\contentsline {chapter}{Python Module Index}{85}{section*.412}%
+\contentsline {chapter}{Index}{87}{section*.413}%

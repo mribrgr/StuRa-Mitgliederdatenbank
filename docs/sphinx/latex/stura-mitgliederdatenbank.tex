@@ -876,6 +876,32 @@ with the command:
 
 Now you can see a file like this:
 
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Edit this file to introduce tasks to be run by cron.}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Each task to run has to be defined through a single line}
+\PYG{c+c1}{\PYGZsh{} indicating with different fields when the task will be run}
+\PYG{c+c1}{\PYGZsh{} and what command to run for the task}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} To define the time you can provide concrete values for}
+\PYG{c+c1}{\PYGZsh{} minute (m), hour (h), day of month (dom), month (mon),}
+\PYG{c+c1}{\PYGZsh{} and day of week (dow) or use \PYGZsq{}*\PYGZsq{} in these fields (for \PYGZsq{}any\PYGZsq{}).}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Notice that tasks will be started based on the cron\PYGZsq{}s system}
+\PYG{c+c1}{\PYGZsh{} daemon\PYGZsq{}s notion of time and timezones.}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Output of the crontab jobs (including errors) is sent through}
+\PYG{c+c1}{\PYGZsh{} email to the user the crontab file belongs to (unless redirected).}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} For example, you can run a backup of all your user accounts}
+\PYG{c+c1}{\PYGZsh{} at 5 a.m every week with:}
+\PYG{c+c1}{\PYGZsh{} 0 5 * * 1 tar \PYGZhy{}zcf /var/backups/home.tgz /home/}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} For more information see the manual pages of crontab(5) and cron(8)}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} m h  dom mon dow   command}
+\end{sphinxVerbatim}
+
 At the bottom of the file you can add your personal cronjobs.
 To keep it simple our recommendation is to create a script with all commands you
 want (described in the commands section of the code documentation).
@@ -5896,79 +5922,92 @@ Commands to generate a coverage report:
 \sphinxSetupCaptionForVerbatim{coverage report}
 \def\sphinxLiteralBlockLabel{\label{\detokenize{masterCodeDoc:id14}}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Name                                           Stmts   Miss  Cover
-\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
-aemter/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                 \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/admin.py                                   \PYG{l+m}{26}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/apps.py                                     \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/models.py                                  \PYG{l+m}{35}      \PYG{l+m}{2}    \PYG{l+m}{94}\PYGZpc{}
-aemter/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                           \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/tests/test\PYGZus{}apps.py                          \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/tests/test\PYGZus{}models.py                       \PYG{l+m}{17}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/tests/test\PYGZus{}urls.py                          \PYG{l+m}{8}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/tests/test\PYGZus{}views.py                        \PYG{l+m}{24}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/urls.py                                     \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-aemter/views.py                                   \PYG{l+m}{22}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-bin/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                    \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-bin/asgi.py                                        \PYG{l+m}{4}      \PYG{l+m}{4}     \PYG{l+m}{0}\PYGZpc{}
-bin/settings.py                                   \PYG{l+m}{19}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-bin/urls.py                                        \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-bin/wsgi.py                                        \PYG{l+m}{4}      \PYG{l+m}{4}     \PYG{l+m}{0}\PYGZpc{}
-checklisten/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                            \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/admin.py                               \PYG{l+m}{1}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/apps.py                                \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/models.py                             \PYG{l+m}{10}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                      \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/tests/test\PYGZus{}apps.py                     \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/urls.py                                \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-checklisten/views.py                               \PYG{l+m}{8}      \PYG{l+m}{5}    \PYG{l+m}{38}\PYGZpc{}
-historie/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                               \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/apps.py                                   \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/models.py                                 \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/templatetags/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                  \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/templatetags/get\PYGZus{}associated\PYGZus{}data.py      \PYG{l+m}{25}     \PYG{l+m}{19}    \PYG{l+m}{24}\PYGZpc{}
-historie/templatetags/to\PYGZus{}class\PYGZus{}name.py             \PYG{l+m}{5}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                         \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/tests/test\PYGZus{}apps.py                        \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/tests/test\PYGZus{}urls.py                        \PYG{l+m}{8}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/tests/test\PYGZus{}views.py                      \PYG{l+m}{22}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/urls.py                                   \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-historie/views.py                                \PYG{l+m}{101}     \PYG{l+m}{54}    \PYG{l+m}{47}\PYGZpc{}
-login/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                  \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/apps.py                                      \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                            \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/tests/test\PYGZus{}apps.py                           \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/tests/test\PYGZus{}urls.py                          \PYG{l+m}{11}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/tests/test\PYGZus{}views.py                         \PYG{l+m}{35}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/urls.py                                      \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-login/views.py                                    \PYG{l+m}{27}      \PYG{l+m}{2}    \PYG{l+m}{93}\PYGZpc{}
-mitglieder/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                             \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/admin.py                                \PYG{l+m}{2}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/apps.py                                 \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/models.py                              \PYG{l+m}{42}      \PYG{l+m}{1}    \PYG{l+m}{98}\PYGZpc{}
-mitglieder/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                       \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/tests/test\PYGZus{}apps.py                      \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/tests/test\PYGZus{}models.py                   \PYG{l+m}{17}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/tests/test\PYGZus{}urls.py                     \PYG{l+m}{47}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/tests/test\PYGZus{}views.py                    \PYG{l+m}{51}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/urls.py                                 \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-mitglieder/views.py                              \PYG{l+m}{205}     \PYG{l+m}{66}    \PYG{l+m}{68}\PYGZpc{}
-tests/MyFuncAemter.py                             \PYG{l+m}{34}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/MyFuncLogin.py                              \PYG{l+m}{33}      \PYG{l+m}{8}    \PYG{l+m}{76}\PYGZpc{}
-tests/MyFuncMitglieder.py                        \PYG{l+m}{103}     \PYG{l+m}{14}    \PYG{l+m}{86}\PYGZpc{}
-tests/MyTestCase.py                               \PYG{l+m}{31}      \PYG{l+m}{4}    \PYG{l+m}{87}\PYGZpc{}
-tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                  \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}001\PYGZus{}admin.py                            \PYG{l+m}{6}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}002\PYGZus{}user.py                             \PYG{l+m}{6}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}003\PYGZus{}multiuser.py                        \PYG{l+m}{1}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}004\PYGZus{}mitgliedHinzufuegen.py             \PYG{l+m}{38}      \PYG{l+m}{4}    \PYG{l+m}{89}\PYGZpc{}
-tests/test\PYGZus{}005\PYGZus{}mitgliedEntfernen.py               \PYG{l+m}{13}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}006\PYGZus{}mitgliedAendern.py                 \PYG{l+m}{13}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}007\PYGZus{}aemtHinzufuegen.py                 \PYG{l+m}{63}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}008\PYGZus{}aemtEntfernen.py                   \PYG{l+m}{47}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-tests/test\PYGZus{}009\PYGZus{}aemtAendern.py                     \PYG{l+m}{92}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
-\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
-TOTAL                                           \PYG{l+m}{1339}    \PYG{l+m}{187}    \PYG{l+m}{86}\PYGZpc{}
+Name                                                      Stmts   Miss  Cover
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+aemter/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                            \PYG{l+m}{1}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/admin.py                                              \PYG{l+m}{26}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/apps.py                                                \PYG{l+m}{6}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/models.py                                             \PYG{l+m}{59}      \PYG{l+m}{4}    \PYG{l+m}{93}\PYGZpc{}
+aemter/signals/handlers.py                                   \PYG{l+m}{17}      \PYG{l+m}{3}    \PYG{l+m}{82}\PYGZpc{}
+aemter/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                      \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/tests/test\PYGZus{}apps.py                                     \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/tests/test\PYGZus{}models.py                                  \PYG{l+m}{17}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/tests/test\PYGZus{}urls.py                                     \PYG{l+m}{8}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/tests/test\PYGZus{}views.py                                   \PYG{l+m}{24}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/urls.py                                                \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+aemter/views.py                                              \PYG{l+m}{23}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                               \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/asgi.py                                                   \PYG{l+m}{4}      \PYG{l+m}{4}     \PYG{l+m}{0}\PYGZpc{}
+bin/management/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                    \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/management/commands/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                           \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/management/commands/delete\PYGZus{}old\PYGZus{}historie.py               \PYG{l+m}{37}     \PYG{l+m}{37}     \PYG{l+m}{0}\PYGZpc{}
+bin/settings.py                                              \PYG{l+m}{19}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/urls.py                                                   \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+bin/wsgi.py                                                   \PYG{l+m}{4}      \PYG{l+m}{4}     \PYG{l+m}{0}\PYGZpc{}
+checklisten/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                       \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/admin.py                                          \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/apps.py                                           \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/models.py                                        \PYG{l+m}{41}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/templatetags/t\PYGZus{}checklisten/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py            \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/templatetags/t\PYGZus{}checklisten/get\PYGZus{}perms.py           \PYG{l+m}{7}      \PYG{l+m}{2}    \PYG{l+m}{71}\PYGZpc{}
+checklisten/templatetags/t\PYGZus{}checklisten/get\PYGZus{}tasks.py           \PYG{l+m}{7}      \PYG{l+m}{2}    \PYG{l+m}{71}\PYGZpc{}
+checklisten/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                 \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/tests/test\PYGZus{}apps.py                                \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/tests/test\PYGZus{}models.py                             \PYG{l+m}{30}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/tests/test\PYGZus{}urls.py                               \PYG{l+m}{20}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/tests/test\PYGZus{}views.py                              \PYG{l+m}{29}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/urls.py                                           \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+checklisten/views.py                                         \PYG{l+m}{92}     \PYG{l+m}{75}    \PYG{l+m}{18}\PYGZpc{}
+historie/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                          \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/apps.py                                              \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/models.py                                            \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/templatetags/t\PYGZus{}historie/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                  \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/templatetags/t\PYGZus{}historie/get\PYGZus{}associated\PYGZus{}data.py      \PYG{l+m}{31}     \PYG{l+m}{24}    \PYG{l+m}{23}\PYGZpc{}
+historie/templatetags/t\PYGZus{}historie/to\PYGZus{}class\PYGZus{}name.py             \PYG{l+m}{5}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                    \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/tests/test\PYGZus{}apps.py                                   \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/tests/test\PYGZus{}urls.py                                   \PYG{l+m}{8}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/tests/test\PYGZus{}views.py                                 \PYG{l+m}{22}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/urls.py                                              \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+historie/views.py                                           \PYG{l+m}{123}     \PYG{l+m}{66}    \PYG{l+m}{46}\PYGZpc{}
+login/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                             \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/apps.py                                                 \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                       \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/tests/test\PYGZus{}apps.py                                      \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/tests/test\PYGZus{}urls.py                                     \PYG{l+m}{11}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/tests/test\PYGZus{}views.py                                    \PYG{l+m}{35}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/urls.py                                                 \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+login/views.py                                               \PYG{l+m}{27}      \PYG{l+m}{2}    \PYG{l+m}{93}\PYGZpc{}
+mitglieder/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                        \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/apps.py                                            \PYG{l+m}{3}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/forms.py                                          \PYG{l+m}{12}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/funktions.py                                      \PYG{l+m}{13}      \PYG{l+m}{7}    \PYG{l+m}{46}\PYGZpc{}
+mitglieder/models.py                                         \PYG{l+m}{46}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/templatetags/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                           \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/templatetags/mitglieder\PYGZus{}extras.py                  \PYG{l+m}{7}      \PYG{l+m}{3}    \PYG{l+m}{57}\PYGZpc{}
+mitglieder/tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                  \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/tests/test\PYGZus{}apps.py                                 \PYG{l+m}{7}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/tests/test\PYGZus{}models.py                              \PYG{l+m}{17}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/tests/test\PYGZus{}urls.py                                \PYG{l+m}{50}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/tests/test\PYGZus{}views.py                               \PYG{l+m}{51}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/urls.py                                            \PYG{l+m}{4}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+mitglieder/views.py                                         \PYG{l+m}{249}     \PYG{l+m}{70}    \PYG{l+m}{72}\PYGZpc{}
+tests/MyFuncAemter.py                                        \PYG{l+m}{44}      \PYG{l+m}{3}    \PYG{l+m}{93}\PYGZpc{}
+tests/MyFuncLogin.py                                         \PYG{l+m}{33}      \PYG{l+m}{8}    \PYG{l+m}{76}\PYGZpc{}
+tests/MyFuncMitglieder.py                                   \PYG{l+m}{103}     \PYG{l+m}{14}    \PYG{l+m}{86}\PYGZpc{}
+tests/MyTestCase.py                                          \PYG{l+m}{31}      \PYG{l+m}{4}    \PYG{l+m}{87}\PYGZpc{}
+tests/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py                                             \PYG{l+m}{0}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}001\PYGZus{}admin.py                                       \PYG{l+m}{6}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}002\PYGZus{}user.py                                        \PYG{l+m}{6}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}003\PYGZus{}multiuser.py                                   \PYG{l+m}{1}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}004\PYGZus{}mitgliedHinzufuegen.py                        \PYG{l+m}{38}      \PYG{l+m}{4}    \PYG{l+m}{89}\PYGZpc{}
+tests/test\PYGZus{}005\PYGZus{}mitgliedEntfernen.py                          \PYG{l+m}{13}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}006\PYGZus{}mitgliedAendern.py                            \PYG{l+m}{13}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}007\PYGZus{}aemtHinzufuegen.py                            \PYG{l+m}{63}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}008\PYGZus{}aemtEntfernen.py                              \PYG{l+m}{47}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+tests/test\PYGZus{}009\PYGZus{}aemtAendern.py                                \PYG{l+m}{92}      \PYG{l+m}{0}   \PYG{l+m}{100}\PYGZpc{}
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+TOTAL                                                      \PYG{l+m}{1752}    \PYG{l+m}{336}    \PYG{l+m}{81}\PYGZpc{}
 \end{sphinxVerbatim}
 \end{quote}
 

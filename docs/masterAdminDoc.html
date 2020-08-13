@@ -367,6 +367,31 @@ with the command:</p>
 <div><p><code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
 </div></blockquote>
 <p>Now you can see a file like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit this file to introduce tasks to be run by cron.</span>
+<span class="c1">#</span>
+<span class="c1"># Each task to run has to be defined through a single line</span>
+<span class="c1"># indicating with different fields when the task will be run</span>
+<span class="c1"># and what command to run for the task</span>
+<span class="c1">#</span>
+<span class="c1"># To define the time you can provide concrete values for</span>
+<span class="c1"># minute (m), hour (h), day of month (dom), month (mon),</span>
+<span class="c1"># and day of week (dow) or use &#39;*&#39; in these fields (for &#39;any&#39;).</span>
+<span class="c1">#</span>
+<span class="c1"># Notice that tasks will be started based on the cron&#39;s system</span>
+<span class="c1"># daemon&#39;s notion of time and timezones.</span>
+<span class="c1">#</span>
+<span class="c1"># Output of the crontab jobs (including errors) is sent through</span>
+<span class="c1"># email to the user the crontab file belongs to (unless redirected).</span>
+<span class="c1">#</span>
+<span class="c1"># For example, you can run a backup of all your user accounts</span>
+<span class="c1"># at 5 a.m every week with:</span>
+<span class="c1"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span>
+<span class="c1">#</span>
+<span class="c1"># For more information see the manual pages of crontab(5) and cron(8)</span>
+<span class="c1">#</span>
+<span class="c1"># m h  dom mon dow   command</span>
+</pre></div>
+</div>
 <p>At the bottom of the file you can add your personal cronjobs.
 To keep it simple our recommendation is to create a script with all commands you
 want (described in the commands section of the code documentation).
