@@ -2,17 +2,35 @@
 //  Projektphasen oder Iterationen, dabei Berücksichtigung des Zusammenspiels
 //  zwischen den einzelnen Rollen
 
-# Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Iterationen
+# Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Phasen
 
 ## Erstes Semester: Der Beginn
 
-### Die Anforderungsanalyse
+### Die Anforderungsanalyse und Systemspezifikation
 
-### Die Systemspezifikation
+Ziel:
+* Anforderungen ermitteln, konkretisieren, strukturieren und prüfen
+
+Aktivitäten:
+* Aufgaben und Rollen verstehen
+* Einschätzen, wie weit es sinnvoll und machbar ist
+* Kennenlernen
+* Erste Modellierungen
+* Informationen gesammelt, durchdacht aber auch niedergeschrieben
+
+Ergebnisse:
+* Fundament für spätere Entscheidungen gelegt
+* Grundhintergedanken des Projektes aus Sicht der Stakeholder bekommen
+
+Zusammenspiel:
+* in dieser Phase wurde besonders eng zusammengearbeitet, es war allen beteiligten Personen zu jedem Zeitpunkt klar, was gerade gemacht wird
+* Viele Aktivitäten Rollenübergreifend
 
 ### Der Architektur-Entwurf
 
-## Zweites Semester: Die produktive Phase
+
+
+## Zweites Semester: Die Realisierungsphase
 
 ### Die Implementierung
 
