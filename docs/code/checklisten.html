@@ -1,0 +1,1382 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Checklisten &mdash; StuRa - Mitgliederdatenbank  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterAdminDoc.html">Admin Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterDeveloperDoc.html">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterCodeDoc.html">Code Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">StuRa - Mitgliederdatenbank</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Checklisten</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/checklisten.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="checklisten">
+<h1>Checklisten<a class="headerlink" href="#checklisten" title="Permalink to this headline">¶</a></h1>
+<p>Checklisten allow administrators to keep track of which tasks need to be completed in order to welcome a new member (Mitglied) to StuRa or a new Funktion inside of the StuRa.
+A Checkliste may consist of a set of general tasks (Aufgaben) and/or, if a Funktion was selected, all permissions (Rechte) that have to be granted to the member (Mitglied).</p>
+<div class="section" id="module-checklisten.models">
+<span id="models"></span><h2>Models<a class="headerlink" href="#module-checklisten.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="checklisten.models.Aufgabe">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">Aufgabe</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Aufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a general task that can be added to a checklist.</p>
+<ul class="simple">
+<li><p>bezeichnung: The task’s title that will be shown in the UI. May contain up to 50 characters and must not be null.</p></li>
+<li><p>history: Contains a log of all changes made to the model. Provided by django-simple-history.</p></li>
+</ul>
+<dl class="py exception">
+<dt id="checklisten.models.Aufgabe.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.Aufgabe.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.Aufgabe.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.Aufgabe.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Aufgabe.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#checklisten.models.Aufgabe.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Aufgabe.checklisteaufgabe_set">
+<code class="sig-name descname">checklisteaufgabe_set</code><a class="headerlink" href="#checklisten.models.Aufgabe.checklisteaufgabe_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Aufgabe.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#checklisten.models.Aufgabe.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Aufgabe.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.Aufgabe.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Aufgabe.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.Aufgabe.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.Aufgabe.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Aufgabe.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.Checkliste">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">Checkliste</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Checkliste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a checklist.</p>
+<ul class="simple">
+<li><p>mitglied: The Mitglied the checklist was created for. Must not be null.</p></li>
+<li><p>amt: The Funktion the checklist was created for. Can be null.</p></li>
+<li><p>history: Contains a log of all changes made to the model. Provided by django-simple-history.</p></li>
+</ul>
+<p>Note that the checklist will be deleted if the associated Mitglied or Funktion is deleted (cascade).</p>
+<dl class="py exception">
+<dt id="checklisten.models.Checkliste.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.Checkliste.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.Checkliste.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.Checkliste.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.amt">
+<code class="sig-name descname">amt</code><a class="headerlink" href="#checklisten.models.Checkliste.amt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.amt_id">
+<code class="sig-name descname">amt_id</code><a class="headerlink" href="#checklisten.models.Checkliste.amt_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.checklisteaufgabe_set">
+<code class="sig-name descname">checklisteaufgabe_set</code><a class="headerlink" href="#checklisten.models.Checkliste.checklisteaufgabe_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.checklisterecht_set">
+<code class="sig-name descname">checklisterecht_set</code><a class="headerlink" href="#checklisten.models.Checkliste.checklisterecht_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#checklisten.models.Checkliste.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.Checkliste.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.mitglied">
+<code class="sig-name descname">mitglied</code><a class="headerlink" href="#checklisten.models.Checkliste.mitglied" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.mitglied_id">
+<code class="sig-name descname">mitglied_id</code><a class="headerlink" href="#checklisten.models.Checkliste.mitglied_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.Checkliste.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.Checkliste.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.Checkliste.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.Checkliste.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.ChecklisteAufgabe">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">ChecklisteAufgabe</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a general task inside of a specific checklist.</p>
+<ul class="simple">
+<li><p>checkliste: The checklist that this task belongs to. Must not be null.</p></li>
+<li><p>aufgabe: The task that was assigned to the checklist. Must not be null.</p></li>
+<li><p>abgehakt: Whether or not the task has been completed for this specific checklist. Must not be null and is false by default.</p></li>
+<li><p>history: Contains a log of all changes made to the model. Provided by django-simple-history.</p></li>
+</ul>
+<p>Please note that the entry is deleted if the associated Checkliste or Aufgabe is deleted (cascade).</p>
+<dl class="py exception">
+<dt id="checklisten.models.ChecklisteAufgabe.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.ChecklisteAufgabe.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.abgehakt">
+<code class="sig-name descname">abgehakt</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.abgehakt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.aufgabe">
+<code class="sig-name descname">aufgabe</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.aufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.aufgabe_id">
+<code class="sig-name descname">aufgabe_id</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.aufgabe_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.checkliste">
+<code class="sig-name descname">checkliste</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.checkliste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.checkliste_id">
+<code class="sig-name descname">checkliste_id</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.checkliste_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteAufgabe.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.ChecklisteAufgabe.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteAufgabe.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.ChecklisteRecht">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">ChecklisteRecht</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteRecht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a Recht to be given inside of a specific checklist.</p>
+<ul class="simple">
+<li><p>checkliste: The checklist that this Recht was assigned to. Must not be null.</p></li>
+<li><p>recht: The Recht that was assigned to the checklist. Must not be null.</p></li>
+<li><p>abgehakt: Whether or not the Recht has been given for this specific checklist. Must not be null and is false by default.</p></li>
+<li><p>history: Contains a log of all changes made to the model. Provided by django-simple-history.</p></li>
+</ul>
+<p>Please note that the entry is deleted if the associated Checkliste or Recht is deleted (cascade).</p>
+<dl class="py exception">
+<dt id="checklisten.models.ChecklisteRecht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.ChecklisteRecht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.abgehakt">
+<code class="sig-name descname">abgehakt</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.abgehakt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.checkliste">
+<code class="sig-name descname">checkliste</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.checkliste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.checkliste_id">
+<code class="sig-name descname">checkliste_id</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.checkliste_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.history">
+<code class="sig-name descname">history</code><em class="property"> = &lt;simple_history.manager.HistoryManager object&gt;</em><a class="headerlink" href="#checklisten.models.ChecklisteRecht.history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.ChecklisteRecht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.recht">
+<code class="sig-name descname">recht</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.recht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.ChecklisteRecht.recht_id">
+<code class="sig-name descname">recht_id</code><a class="headerlink" href="#checklisten.models.ChecklisteRecht.recht_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.ChecklisteRecht.save_without_historical_record">
+<code class="sig-name descname">save_without_historical_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.ChecklisteRecht.save_without_historical_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model without saving a historical record</p>
+<p>Make sure you know what you’re doing before you use this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.HistoricalAufgabe">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">HistoricalAufgabe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">bezeichnung</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="checklisten.models.HistoricalAufgabe.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.HistoricalAufgabe.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.bezeichnung">
+<code class="sig-name descname">bezeichnung</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.bezeichnung" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../masterCodeDoc.html#checklisten.models.Aufgabe" title="checklisten.models.Aufgabe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aufgabe</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalAufgabe.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalAufgabe.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalAufgabe.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.HistoricalCheckliste">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">HistoricalCheckliste</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">mitglied</span></em>, <em class="sig-param"><span class="n">amt</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="checklisten.models.HistoricalCheckliste.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.HistoricalCheckliste.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.amt">
+<code class="sig-name descname">amt</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.amt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.amt_id">
+<code class="sig-name descname">amt_id</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.amt_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../masterCodeDoc.html#checklisten.models.Checkliste" title="checklisten.models.Checkliste"><code class="xref py py-class docutils literal notranslate"><span class="pre">Checkliste</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.mitglied">
+<code class="sig-name descname">mitglied</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.mitglied" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.mitglied_id">
+<code class="sig-name descname">mitglied_id</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.mitglied_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalCheckliste.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalCheckliste.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalCheckliste.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">HistoricalChecklisteAufgabe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">abgehakt</span></em>, <em class="sig-param"><span class="n">checkliste</span></em>, <em class="sig-param"><span class="n">aufgabe</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.abgehakt">
+<code class="sig-name descname">abgehakt</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.abgehakt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.aufgabe">
+<code class="sig-name descname">aufgabe</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.aufgabe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.aufgabe_id">
+<code class="sig-name descname">aufgabe_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.aufgabe_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.checkliste">
+<code class="sig-name descname">checkliste</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.checkliste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.checkliste_id">
+<code class="sig-name descname">checkliste_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.checkliste_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../masterCodeDoc.html#checklisten.models.ChecklisteAufgabe" title="checklisten.models.ChecklisteAufgabe"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecklisteAufgabe</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteAufgabe.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteAufgabe.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="checklisten.models.HistoricalChecklisteRecht">
+<em class="property">class </em><code class="sig-prename descclassname">checklisten.models.</code><code class="sig-name descname">HistoricalChecklisteRecht</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">abgehakt</span></em>, <em class="sig-param"><span class="n">checkliste</span></em>, <em class="sig-param"><span class="n">recht</span></em>, <em class="sig-param"><span class="n">history_id</span></em>, <em class="sig-param"><span class="n">history_date</span></em>, <em class="sig-param"><span class="n">history_change_reason</span></em>, <em class="sig-param"><span class="n">history_type</span></em>, <em class="sig-param"><span class="n">history_user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py exception">
+<dt id="checklisten.models.HistoricalChecklisteRecht.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="checklisten.models.HistoricalChecklisteRecht.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.abgehakt">
+<code class="sig-name descname">abgehakt</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.abgehakt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.checkliste">
+<code class="sig-name descname">checkliste</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.checkliste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.checkliste_id">
+<code class="sig-name descname">checkliste_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.checkliste_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.get_default_history_user">
+<em class="property">static </em><code class="sig-name descname">get_default_history_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_default_history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user specified by <cite>get_user</cite> method for manually creating
+historical objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.get_history_type_display">
+<code class="sig-name descname">get_history_type_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: history_type&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_history_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.get_next_by_history_date">
+<code class="sig-name descname">get_next_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_next_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.get_previous_by_history_date">
+<code class="sig-name descname">get_previous_by_history_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: history_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.get_previous_by_history_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_change_reason">
+<code class="sig-name descname">history_change_reason</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_change_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_date">
+<code class="sig-name descname">history_date</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_id">
+<code class="sig-name descname">history_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_object">
+<code class="sig-name descname">history_object</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_type">
+<code class="sig-name descname">history_type</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_user">
+<code class="sig-name descname">history_user</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.history_user_id">
+<code class="sig-name descname">history_user_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.history_user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.instance">
+<em class="property">property </em><code class="sig-name descname">instance</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.instance_type">
+<code class="sig-name descname">instance_type</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.instance_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../masterCodeDoc.html#checklisten.models.ChecklisteRecht" title="checklisten.models.ChecklisteRecht"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecklisteRecht</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.next_record">
+<em class="property">property </em><code class="sig-name descname">next_record</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.next_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next history record for the instance. <cite>None</cite> if last.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.prev_record">
+<em class="property">property </em><code class="sig-name descname">prev_record</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.prev_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the previous history record for the instance. <cite>None</cite> if first.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.recht">
+<code class="sig-name descname">recht</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.recht" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="checklisten.models.HistoricalChecklisteRecht.recht_id">
+<code class="sig-name descname">recht_id</code><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.recht_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="checklisten.models.HistoricalChecklisteRecht.revert_url">
+<code class="sig-name descname">revert_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.models.HistoricalChecklisteRecht.revert_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for this change in the default admin site.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-checklisten.views">
+<span id="views"></span><h2>Views<a class="headerlink" href="#module-checklisten.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="checklisten.views.abhaken">
+<code class="sig-prename descclassname">checklisten.views.</code><code class="sig-name descname">abhaken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.views.abhaken" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view is responsible for checking or unchecking a task from the checklist.
+It first checks if the user is allowed to check a task, i.e. is auhenticated and superuser.
+Next, the parameters task_type and task_id are fetched from the request. They are used to determine if an Aufgabe or a Recht was checked, and to get the correct task.
+Finally, the task is checked or unchecked depending on its current state and the changes are saved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view, including parameters task_type and task_id.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An empty HttpResponse if the operation was successful.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An HttpResponse indicitang the error if an error has occured or if the user is not allowed to perform the operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="checklisten.views.erstellen">
+<code class="sig-prename descclassname">checklisten.views.</code><code class="sig-name descname">erstellen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.views.erstellen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view is responsible for creating a new checklist.
+It first checks if the user is allowed to create a new checklist (i.e. is authenticated and superuser).
+Next, the Mitglied’s and Funktion’s IDs as well as whether general tasks shall be included are fetched from the request.
+The view then tries to find the Mitglied and Funktion with the specified ID, and returns an error message if at least one of them could not be found.
+After that, the view checks if a checklist for this Mitglied and Funktion already exists. If that is the case, an error message is shown to the user.
+Finally, the new checklist is created and all Aufgaben and Rechte are added to it according to the specified parameters in the request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view, including parameters mitgliedSelect, funktionSelect and generalTasksCheckbox.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A HttpResponse, if an error has occured, indicating the error to the user.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A redirect to /checklisten if creating the checklist was successful or a checklist for the same Mitglied and Funktion already exists.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="checklisten.views.get_funktionen">
+<code class="sig-prename descclassname">checklisten.views.</code><code class="sig-name descname">get_funktionen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.views.get_funktionen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view is responsible for getting all Funktionen associated to a Mitglied that was selected in the create checklist modal.
+First, it checks if the user is allowed to get a list of Funktionen for a Mitglied in this context (i.e. the user is authenticated and superuser).
+Next, all Funktionen for the specified mitglied_id are determined and returned through a rendered template of select options to populate the dropdown in the create checklist modal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view, including the mitglied_id to get the Funktionen for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An HttpResponse indicating the error if an error occured.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The rendered select options to populate the dropdown with if everything was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="checklisten.views.loeschen">
+<code class="sig-prename descclassname">checklisten.views.</code><code class="sig-name descname">loeschen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.views.loeschen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view is responsible for deleting an existing checklist.
+First, it checks whether the user is allowed to delete the checklist (i.e. is authenticated and superuser).
+Next, the checkliste specified in the request’s parameter checkliste_id is deleted. 
+Since all ForeignKey relations in other models are set to cascade if the checklist is deleted (i.e. in ChecklisteRecht and AufgabeRecht), only the checklist itself needs to be deleted explicitly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view, including parameter checkliste_id.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An empty HttpResponse if deleting the checklist was successful.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An HttpResponse indicating an error if one occured or a user is not allowed to to delete a checklist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="checklisten.views.main_screen">
+<code class="sig-prename descclassname">checklisten.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.views.main_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view renders all existing checklists. Furthermore, it provides the 20 latest Mitglieder to the modal used for creating a new checklist.
+If the user is not authenticated, an error message will be displayed and the user is redirected to the login page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The rendered main_screen view, or a redirect to the login page if the user is not authenticated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>All templates can be found under <code class="docutils literal notranslate"><span class="pre">checklisten/templates/checklisten</span></code>.</p>
+<div class="section" id="main-screen-html">
+<h3>main_screen.html<a class="headerlink" href="#main-screen-html" title="Permalink to this headline">¶</a></h3>
+<p>This template contains the main page of the app. Each Checkliste is represented by a card and consists of three main elements:</p>
+<ul class="simple">
+<li><p>The header contains the name of the Mitglied and, if specified, the Funktion that the Checkliste was created for.</p></li>
+<li><p>The general tasks section only exists if specified while creating the Checkliste and displays all ChecklisteAufgabe objects associated with the Checkliste.</p></li>
+<li><p>The permissions section only exists if a Funktion was selected for this Checkliste and displays all CheckllisteRecht objects associated with the Checkliste.</p></li>
+</ul>
+<p>Tasks can only be checked if the user is administrator; otherwise, the checkboxes are disabled. The same goes for creating a new Checkliste; otherwise, the create button is not visible.
+The template also contains JavaScript methods used to make AJAX requests to the server, e.g. to complete task or delete a Checkliste. Refer to the source code comments for more information.</p>
+</div>
+<div class="section" id="createmodal-html">
+<h3>_createModal.html<a class="headerlink" href="#createmodal-html" title="Permalink to this headline">¶</a></h3>
+<p>This template contains the modal that is shown when creating a new Checkliste. The modal includes:</p>
+<ul class="simple">
+<li><p>A dropdown to select the Mitglied that the Checkliste shall be created for. Please not that only the latest 20 Mitglieder are shown to improve performance.</p></li>
+<li><p>A dropdown to select the Funktion that the Checkliste shall be created for. It only contains Funktionen belonging to the Mitglied selected beforehand.</p></li>
+<li><p>A checkbox to determine whether the set of general tasks (Aufgaben) shall be included in the Checkliste. Will be force-checked and disabled if no Funktion is selected to prevent empty checklists from being created.</p></li>
+</ul>
+<p>The template also contains JavaScript methods to populate the Funktionen dropdown via an AJAX request to the server, as well as to correctly disable and check the general tasks checkbox if no Funktion was selected. Refer to the source code comments for more information.</p>
+</div>
+<div class="section" id="deletemodal-html">
+<h3>_deleteModal.html<a class="headerlink" href="#deletemodal-html" title="Permalink to this headline">¶</a></h3>
+<p>This template only contains a confirmation modal if the user is trying to delete a Checkliste to prevent accidental deletions.</p>
+</div>
+<div class="section" id="funktionselectoptions-html">
+<h3>_funktionSelectOptions.html<a class="headerlink" href="#funktionselectoptions-html" title="Permalink to this headline">¶</a></h3>
+<p>This template is used to generate the Funktion dropdown options for the create modal. It is only used by the <code class="docutils literal notranslate"><span class="pre">get_funktionen</span></code> view and is not referenced directly in other templates.</p>
+</div>
+</div>
+<div class="section" id="module-checklisten.templatetags.t_checklisten.get_perms">
+<span id="template-tags"></span><h2>Template Tags<a class="headerlink" href="#module-checklisten.templatetags.t_checklisten.get_perms" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="checklisten.templatetags.t_checklisten.get_perms.get_perms">
+<code class="sig-prename descclassname">checklisten.templatetags.t_checklisten.get_perms.</code><code class="sig-name descname">get_perms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">checklist_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.templatetags.t_checklisten.get_perms.get_perms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all ChecklisteRecht objects that belong to the Checkliste identified by checklist_id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checklist_id</strong> (<em>int</em>) – The ID of the Checkliste to fetch the ChecklisteRecht objects for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A QuerySet containing all ChecklisteRecht objects for the specified Checkliste.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>QuerySet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-checklisten.templatetags.t_checklisten.get_tasks"></span><dl class="py function">
+<dt id="checklisten.templatetags.t_checklisten.get_tasks.get_tasks">
+<code class="sig-prename descclassname">checklisten.templatetags.t_checklisten.get_tasks.</code><code class="sig-name descname">get_tasks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">checklist_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#checklisten.templatetags.t_checklisten.get_tasks.get_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all ChecklisteAufgabe objects that belong to the Checkliste identified by checklist_id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checklist_id</strong> (<em>int</em>) – The ID of the Checkliste to fetch the ChecklisteAufgabe objects for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A QuerySet containing all ChecklisteAufgabe objects for the specified Checkliste.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>QuerySet</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Team T8
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

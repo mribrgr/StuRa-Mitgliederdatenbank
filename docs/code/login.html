@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Login &mdash; StuRa - Mitgliederdatenbank  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterAdminDoc.html">Admin Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterDeveloperDoc.html">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterCodeDoc.html">Code Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">StuRa - Mitgliederdatenbank</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Login</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/login.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="login">
+<h1>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h1>
+<p>This app is responsible for authenticating users.</p>
+<div class="section" id="module-login.views">
+<span id="views"></span><h2>Views<a class="headerlink" href="#module-login.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="login.views.logout_request">
+<code class="sig-prename descclassname">login.views.</code><code class="sig-name descname">logout_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#login.views.logout_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view processes all logout requests made by navigating to /logout. It logs the user out and displays a goodbye message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A redirect to the app’s root URL (i.e. the login form).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="login.views.main_screen">
+<code class="sig-prename descclassname">login.views.</code><code class="sig-name descname">main_screen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#login.views.main_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This view processes all login requests made via the form found at the app’s root URL.
+If a user who is already logged in tries to access the page, they will automatically be redirected to /mitglieder.
+If the form was submitted, the view gets all data from the submitted form and tries to authenticate the user using that data. 
+If authentication is sucessful, the user will be logged in and shown an appropriate welcome message. Otherwise, or if the submitted form is invalid, the user will be shown an error message.
+If the user navigates to the login form (i.e. is not submitting any data), the AuthenticationForm provided by Django will be rendered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – The HTTP request that triggered the view.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The rendered AuthenticationForm if no data was submitted, or a redirect to /mitglieder if the user was logged in successfully.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>All templates can be found under <code class="docutils literal notranslate"><span class="pre">/login/templates/login.</span></code></p>
+<div class="section" id="login-html">
+<h3>login.html<a class="headerlink" href="#login-html" title="Permalink to this headline">¶</a></h3>
+<p>Contains the login form using Materialize’s form components. Variables are defined by the AuthenticationForm supplied by Django.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Team T8
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

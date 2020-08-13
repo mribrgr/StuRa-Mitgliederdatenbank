@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Commands &mdash; StuRa - Mitgliederdatenbank  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> StuRa - Mitgliederdatenbank
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../masterUserDoc.html">User Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterAdminDoc.html">Admin Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterDeveloperDoc.html">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../masterCodeDoc.html">Code Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">StuRa - Mitgliederdatenbank</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/code/commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-bin.management.commands.delete_old_historie">
+<span id="delete-old-historie"></span><h2>delete_old_historie<a class="headerlink" href="#module-bin.management.commands.delete_old_historie" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="bin.management.commands.delete_old_historie.Command">
+<em class="property">class </em><code class="sig-prename descclassname">bin.management.commands.delete_old_historie.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stdout</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stderr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">no_color</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">force_color</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="bin.management.commands.delete_old_historie.Command.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command deletes all entries from the Historie of Mitglied, MitgliedAmt and MitgliedMail that</p>
+<ul class="simple">
+<li><p>are at least 1 year old if the referenced Mitglied does not exist in the database anymore</p></li>
+<li><p>are at least 5 years old otherwise</p></li>
+</ul>
+<p>Please note that 1 year is equivalent to 365 days, so leap years are not accounted for.</p>
+<p>It can be called using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">delete_old_historie</span></code> and can thus be automated, for example by setting up a cronjob.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bin.management.commands.delete_old_historie.Command.help">
+<code class="sig-name descname">help</code><em class="property"> = 'Deletes all entries concerning Mitglieder from the Historie older than 5 years. If the associated Mitglied is not in the database anymore, the entry will be deleted if it is older than 1 year.'</em><a class="headerlink" href="#bin.management.commands.delete_old_historie.Command.help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="clean-duplicate-history">
+<h2>clean_duplicate_history<a class="headerlink" href="#clean-duplicate-history" title="Permalink to this headline">¶</a></h2>
+<p>django-simple-history includes a command that can be used to remove all duplicate entries in the Historie.
+For example, an entry is created in MitgliedMail and MitgliedAmt when the associated Mitglied is changed, even though no changes
+have been made to MitgliedMail and MitgliedAmt. To get rid of these entries, you can use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">clean_duplicate_history</span> <span class="pre">[-m</span> <span class="pre">...]</span> <span class="pre">--auto</span></code></p>
+<p>The -m flag is optional and is used to specify the amount of minutes to go back when searching for duplicate entries. This command can
+be automated, e.g. by running a cronjob.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Team T8
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
