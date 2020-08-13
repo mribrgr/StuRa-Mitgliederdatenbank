@@ -12,7 +12,7 @@ A generic Example:
 
 A example for the *mitglieder/views.py*:
 
-.. image:: developer/img/diagramm_activity_django_views_example.svg
+.. image:: developer/img/diagramm_activity_django_view_example.svg
   :target: _images/diagramm_activity_django_views_example.svg
 
 
