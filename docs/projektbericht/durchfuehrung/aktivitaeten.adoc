@@ -2,7 +2,7 @@
 //  Projektphasen oder Iterationen, dabei Berücksichtigung des Zusammenspiels
 //  zwischen den einzelnen Rollen
 
-# Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Phasen
+# Beschreibung der Ziele, Aktivitäten und Ergebnisse in den einzelnen Phasen (MBe)
 
 ## Erstes Semester: Der Beginn
 
