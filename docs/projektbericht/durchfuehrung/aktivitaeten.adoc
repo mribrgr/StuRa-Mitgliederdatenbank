@@ -29,7 +29,7 @@ Da der Tester Tests vorbereitet hatte, konnten die Entwickler kontinuirlich Bugf
 All diese Punkte führten dazu, dass der Auftraggeber zufrieden war und ist und die Implementation bis zu diesem Zeitpunkt als final anzusehen war.
 
 
-### Die Inbetriebnahme (läuft noch)
+### Die Inbetriebnahme
 
 Das Ziel der Inbetriebnahme ist, dass der Kunde mit dem nun fertigen Produkt einen Mehrwert hat und dieses produktiv und regelmäßig nutzen kann. Bei Fragen hilft dem Kunden die geschriebenen Dokumentationen. Durch die umfangreiche und intensive Zusammenarbeit auch mit dem Auftragsteller kann dieser nun auch selbstständig kleinere Veränderungen vornehmen, wobei wir uns bereitgestellt haben einer folgender Gruppe kleine Erklärungen zu bieten, falls diese nicht durch die Dokumentation allein weiter kommen. +
 Die eigentliche Inbetriebnahme erfolgt in unserem Projekt durch den Kunden selbst, wir haben diesen eine Testinstanz inklusive Anleitung zur Verfügung gestellt und stehen bei Fragen hierzu zur Verfügung.
