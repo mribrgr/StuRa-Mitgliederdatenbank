@@ -10,7 +10,7 @@
 
 Unser Projekt begann mit der Anforderungsanalyse und Systemspezifikation, in welcher unser Ziel war, die Anforderungen zu ermitteln. Diese werden im nächsten Schritt konkretisiert, strukturiert und geprüft. +
 Um diese Ziele zu erreichen mussten wir uns zuerst kennenlernen. Dies war vor allem notwendig, da wir in dieser Phase besonders intensiv zusammenarbeiten mussten. +
-Wir haben jeder für sich uns in unsere Rollen hineingearbeitet und haben dieses Wissen genutzt um unsere Aufgaben zu verstehen. Es folgten erste Modellierungen und konnten somit schnell einschätzen, wie weit das Projekt machbar ist. Dies haben wir in Kommunikation mit den Auftraggebern abgestimmt. +
+Wir haben jeder für sich uns in unsere Rollen hineingearbeitet und haben dieses Wissen genutzt um unsere Aufgaben zu verstehen. Es folgten erste Modellierungen und wir konnten somit schnell einschätzen, wie weit das Projekt machbar ist. Dies haben wir in Kommunikation mit den Auftraggebern abgestimmt. +
 Als Ergebnis dieser ersten Phase hatten wir unser Projekt durch Wireframes veranschaulicht. Die Anforderungsanalyse hat uns ebenfalls dazu gebracht, die Anforderungen, welche wir erhalten haben zu sammeln, niederzuschreiben aber auch zu durchdenken. Dies gilt als gutes Fundament für spätere Entscheidungen und half uns sehr die Sicht der Stakeholder gezeigt zu bekommen. +
 All dies gezeigten Schritte konnten nicht einzeln durchgeführt werden, sodass viele Aktivitäten rollenübergreifend erledigt wurden. +
 Für eine bessere Qualität nutzten wir das 4-Augen-Prinzip, sodass mindestens 2 Personen über einen Commit drübergeschaut haben.
