@@ -17,7 +17,7 @@ include::csv/team.csv[]
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 * Wir arbeiten in Iterationen, welche 2 Wochen andauern.
-* Aus dem ersten Treffen hat sich herausgestellt, dass wir folgende Tools nutzen wollen:
+* Folgende Tools nutzen wir:
 
 ** Protokollierung:
 *** link:https://pentapad.c3d2.de/[Pentapad]
@@ -29,7 +29,10 @@ include::csv/team.csv[]
 ** Tickets aka. WorkItemList:
 *** link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues[Github Issues]
 *** Trello
-// TODO: Link zum Trelloboard
+** Testen
+*** Selenium
+*** Sphinx
+*** Asciidoc
 
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
@@ -75,58 +78,80 @@ include::csv/team.csv[]
 | -
 
 |link:iteration-plans/iteration_4_plan.adoc[Iteration 4]
-| -
+|
+* Beginn Implementierung durch Prototypenbau
+* Bau des Login Screens
 | 16.03.2020 - 29.03.2020
 | -
 
 
 |link:iteration-plans/iteration_5_plan.adoc[Iteration 5]
-| -
+|
+* Beginn Mitgliedscreen
+* Erstellung Permission System
+* Erste Tests schreiben
+* Neues Mitglied: Marc
 | 30.03.2020 - 12.04.2020
 | -
 
 |link:iteration-plans/iteration_6_plan.adoc[Iteration 6]
-| -
+|
+* Ämterübersicht
+* Historie bauen
 | 13.04.2020 - 26.04.2020
 | -
 
 |link:iteration-plans/iteration_7_plan.adoc[Iteration 7]
-| -
+|
+* Ergänzung der Suchfunktion in der Historie
 | 27.04.2020 - 10.05.2020
 | -
 
 |link:iteration-plans/iteration_8_plan.adoc[Iteration 8]
-| -
+|
+* Weiterführen automatisierter Tests
+* Bugfixing
+* Dokumentation weiterführen
 | 11.05.2020 - 24.05.2020
 | -
 
 |link:iteration-plans/iteration_9_plan.adoc[Iteration 9]
-| -
+|
+* Erstellung Pagination
+* Mitgliedermodul Unittests
 | 25.05.2020 - 07.06.2020
 | -
 
 |link:iteration-plans/iteration_10_plan.adoc[Iteration 10]
-| -
+|
+* Aufbau Raspberry Umgebung für erstes eigenes Deployment
 | 08.06.2020 - 21.06.2020
 | -
 
 |link:iteration-plans/iteration_11_plan.adoc[Iteration 11]
-| -
+|
+* Umbenennung Ämter -> Funktion
+* Ergänzung Date Picker
 | 22.06.2020 - 05.07.2020
 | -
 
 |link:iteration-plans/iteration_12_plan.adoc[Iteration 12]
-| -
+|
+* Optimierung für mobile Geräte
 | 06.07.2020 - 19.07.2020
 | -
 
 |link:iteration-plans/iteration_13_plan.adoc[Iteration 13]
-| -
+|
+* Präsentation
+* Deployment an Kunden
 | 20.07.2020 - 02.08.2020
 | -
 
 |link:iteration-plans/iteration_14_plan.adoc[Iteration 14]
-| -
+|
+* Finale Abgabe
+* Nachgespräche mit Kunden
 | 03.08.2020 - 14.08.2020
 | -
 

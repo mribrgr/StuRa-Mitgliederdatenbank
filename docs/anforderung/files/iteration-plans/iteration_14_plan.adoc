@@ -1,0 +1,105 @@
+= Iterationsplan Iteration 14
+Mauritius Berger <mauritius.berger@htw-dresden.de>
+0.1, 29.07.2020
+:toc: 
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:icons: font
+
+== Meilensteine
+//Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
+
+[%header, cols="3,1"]
+|===
+|Meilenstein
+|Datum
+|Beginn der Iteration |03.08.2020
+|Fertigstellen der Aufgaben|-
+|Ende der Iteration	|14.08.2020
+|===
+
+
+== Wesentliche Ziele
+//Nennen Sie 1-5 wesentliche Ziele für die Iteration.
+
+* Essence Navigator weiterhin auf dem Laufenden halten
+* Abgabe vollenden
+
+
+== Aufgabenzuordnung
+//Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
+
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues).
+
+_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
+[%header, cols="3,1,1,1,2,1,1,1"]
+|===
+|Aufgabe bzw. Beschreibung	|Priorität  	|Schätzung der Größe (Punkte) | Status | Referenzen | Zugewiesen (Name) |	Gearbeite Stunden | Schätzung der verbleibenden Stunden
+
+// wie immer
+| Essence Navigator | niedrig | 2 | erledigt | link:../../img/essenceNavigator[Essence Navigator Bilder], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/25[Issue #25], link:https://github.com/mribrgr/StuRa-Mitgliederdatenbank/issues/26[Issue #26] | mribrgr | 2 | 0
+
+// alte Aufgaben
+
+// neue Aufgaben
+// thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, redifity
+| Aufgabenstellung, Auftraggeber, Ausgangssituation | sehr hoch | 1 | erledigt | x | mribrgr | 2 | 0
+| Eingesetzte Techniken und Praktiken | sehr hoch | 3 | erledigt | x | redifity | 5 | 0
+| Ziele, Aktivitäten, Ergebnisse der Iterationen | sehr hoch | 2 | erledigt | x | mribrgr | 3 | 0
+| Anforderungserhebung und -analyse | sehr hoch | 3 | erledigt | x | thrs79136 | 5 | 0
+| Entwurf | sehr hoch | 2 | erledigt | x | redifity | 3 | 0
+| Test | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Übergabe | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Dokumentation | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Probleme und Umgang mit diesen | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
+| Projektergebnisse | sehr hoch | 3 | erledigt | x | thrs79136 | 5 | 0
+| Projektorganisation | sehr hoch | 2 | erledigt | x | benjamin-hempel | 3 | 0
+| Implementierung | sehr hoch | 3 | erledigt | x | benjamin-hempel | 5 | 0
+| Wesentliche Entscheidungen | sehr hoch | 1 | erledigt | x | benjamin-hempel | 2 | 0
+| Iterationspläne erneut überprüfen | sehr hoch | 3 | erledigt | x | redifity | 5 | 0
+| Reflexion pro Teammitglied | sehr hoch | 2 | erledigt | x | alle | 3 | 0
+
+|===
+								
+								
+== Probleme (optional)
+//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
+
+[%header, cols="2,1,3"]
+|===
+|Problem	| Status |	Notizen
+|Corona	| unlösbar | Treffen nicht mehr möglich
+| Erhöhtes Stresslevel | unlösbar |
+|===
+		
+
+== Bewertungskriterien
+//Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
+* Aufgaben wurden erfüllt oder nicht
+
+== Assessment
+//In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommunziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage,die eigene Arbeitsweise ("Way of Working") zu verbessern.
+
+[%header, cols="1,3"]
+|===
+|Assessment Ziel	| Projekt fertigstellen
+|Assessment Datum | 14.08.2020
+|Teilnehmer	| alle
+|Projektstatus	| grün
+|===
+
+* Beurteilung im Vergleich zu den Zielen +
+//Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
+Aufgaben sind in Arbeit.
+
+* Geplante vs. erledigte Aufgaben +
+//Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
+Derzeit liegen wir gut in der Zeit.
+
+* Beurteilung im Vergleich zu den Bewertungskriterien +
+//Document whether you met the evaluation criteria as specified in the Iteration Plan. 
+//Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
+Bisher 100% erfüllt.
+
+// * Andere Belange und Abweichungen
+//Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
