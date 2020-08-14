@@ -38,22 +38,19 @@ Leider wurde es jedoch nicht so intensiv genutzt, wie wir uns es erhofft hatten.
 
 ## Dokumentation von Fehler
 
-Entdeckte Fehler wurden auf unterschiedlichste weise vom Tester dokumentiert.
-Dabei war der Zeitpunkt, wo der Fehler gefunden wurde entscheidend.
-Wenn ein Fehler während des merge Prozesses gefunden wurde, wurden die Fehler über die
+Entdeckte Fehler wurden auf unterschiedlichste Weise vom Tester dokumentiert.
+Dabei war der Zeitpunkt, wo der Fehler gefunden wurde, entscheidend.
+Wenn ein Fehler während des Merge-Prozesses gefunden wurde, wurden die Fehler über die
 Pullrequest dokumentiert und direkt an den Ersteller der Pullrequest weitergeleitet.
 Wenn ein Fehler im Masterbranch gefunden wurde (also nach einer Pullrequest),
 z.B. durch Erweiterung des Testsets um einen neuen Test, wurde dem gefundenen Fehler
-eine Kachel im Trello-Board gegeben. Dadurch wurde der Fehler ein WorkItem und
-war in der nächsten oder der laufenden Iteration zu bearbeiten.
+eine Kachel im Trello-Board gegeben. Dadurch wurde aus dem Fehler ein Workitem und
+dieses war in der nächsten oder der laufenden Iteration zu bearbeiten.
 Generell galt:
 
-* Jeden Fehler zu kategorisieren in GUI oder Funktionaler Fehler
-* Ein Screenshot des Fehlers
-* und eine Beschreibung zur reproduktion des Fehlers
-
-war anzugeben.
-
+* jeden Fehler zu kategorisieren in GUI oder funktionalen Fehler
+* ein Screenshot des Fehlers anzufertigen
+* eine Beschreibung zur Reproduktion des Fehlers war anzugeben
 
 ## Schwierigkeiten
 
