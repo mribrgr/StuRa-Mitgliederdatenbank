@@ -4,25 +4,9 @@
 // Was habe ich gelernt? Worauf bin ich stolz? Was hat gut
 //  funktioniert? Was würde ich beim nächsten Projekt anders machen?
 
-## Einstieg
-
-Ich hatte schon am Anfang des Semesters große Begeisterung für das Projekt bekommen, da ich die Auftraggeber schon vorher kannte und allgemein sehr aktiv im StuRa war. Als ich das Team kennengelernt hatte (manche kannte ich schon) stieg meine Begeisterung, da ich mich persönlich auch sehr gut mit den Leuten verstanden habe.
-
-## Was habe ich gelernt?
-
+Ich hatte schon am Anfang des Semesters große Begeisterung für das Projekt bekommen, da ich die Auftraggeber schon vorher kannte und allgemein sehr aktiv im StuRa war. Als ich das Team kennengelernt hatte (manche kannte ich schon) stieg meine Begeisterung, da ich mich persönlich auch sehr gut mit den Leuten verstanden habe. +
 Da ich vor dem Projekt schon einen Nebenjob hatte, waren mir die Grundprinzipien des Zusammenarbeiten schon bewusst und ich konnte dieses Wissen anwenden. Ich stand auf Arbeit viel im Kontakt mit der Projektleiterin und konnte so vieles für meine Rolle als Projekt Manager erfahren und mich dementsprechend darauf vorbereiten. Dieses Wissen habe ich exponentiell verbessern können, da zuhören und machen nochmal ein riesiger Unterschied ist. Ich habe gelernt, wie man mit größeren Problemen umgeht, da wir dies (meiner Meinung nach) im Team ziemlich gut gelöst haben. Es war wie eine Selbstverständlichkeit, dass wir Discord nutzen und somit "ganz normal" unseren Alltag im Projekt durchleben konnten. +
 Als weiteren Punkt würde ich ergänzen, dass ich gelernt habe meine Gedanken vor anderen zu präsentieren und somit die Qualität meines Geschriebenes zu verbessern. Dies war vor allem notwendig, da wir (fast) jeden Commit gegengeprüft haben. +
-Als letzten Gedanken würde ich noch ergänzen, dass ich lernte wie ein Webframework funktioniert und wie man Datenbanken auch mal in einem richtigen Projekt anwenden kann.
-
-## Was hat gut funktioniert?
-
-Mir ist besonders im Kopf geblieben, dass wir das Management aufgrund von Corona schnell und ohne weitere Streitereien anwenden und verbessern konnten. Mir ist schnell bewusst geworden, dass wir als Team gut funktionieren und wir eine offene Kommunikation innerhalb des Teams führen konnten. Wir haben uns immer besser verstanden und ein Treffen innerhalb des Teams endete zuletzt immer mit einer lustigen Runde aus Alltagsgesprächen verbunden mit effektiver Arbeit bzw. Planung.
-
-
-## Was würde ich beim nächsten Projekt anders machen?
-
-
-
-## Zusammenfassung
-
-* überraschendes Projekt
+Als letzten Gedanken würde ich noch ergänzen, dass ich lernte wie ein Webframework funktioniert und wie man Datenbanken auch mal in einem richtigen Projekt anwenden kann. +
+Mir ist besonders im Kopf geblieben, dass wir das Management aufgrund von Corona schnell und ohne weitere Streitereien anwenden und verbessern konnten. Mir ist schnell bewusst geworden, dass wir als Team gut funktionieren und wir eine offene Kommunikation innerhalb des Teams führen konnten. Wir haben uns immer besser verstanden und ein Treffen innerhalb des Teams endete zuletzt immer mit einer lustigen Runde aus Alltagsgesprächen verbunden mit effektiver Arbeit bzw. Planung. +
+All-in-all würde ich als Fazit sagen, dass es mir viel Spaß bereitet hat und ich hoffe, dass auch die anderen Teams so viel Spaß hatten und dennoch produktiv sein konnten.
