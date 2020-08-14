@@ -30,10 +30,10 @@
     <!--Aemter-->
     <div class="row">
       <div class="col s12">
-        <h5>Ämter</h5>
+        <h5>Funktionen </h5>
         <br />
         <div id="div_aemter">
-        {% if mitglied.mitgliedamt_set.count %}
+        {% if mitglied %}
           {% for mitgliedamt in mitglied.mitgliedamt_set.all %}
           {% with mitgliedamt.funktion as funktion %}
           {% with forloop.counter as amtid %}
@@ -46,10 +46,11 @@
           {% include 'mitglieder/aemter.html' %}
           {% endwith %}
         {% endif %}
+        
       </div>
         <!-- Button (weiteres Amt hinzufuegen) -->
           <div class="col s12">
-            <a id="addAmt" data-url="{% url 'mitglieder:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Amt hinzufügen</a>
+            <a id="addAmt" data-url="{% url 'mitglieder:aemter_html_laden' %}" class="waves-effect waves-light btn amber black-text"><i class="material-icons left">add</i>Funktion hinzufügen</a>
           </div>
       </div>
     </div>
@@ -60,7 +61,7 @@
         <h5>E-Mail-Adressen</h5>
         <br />
         <div id="div_emails">
-        {% if mitglied and mitglied.mitgliedmail_set.count %}
+        {% if mitglied %}
           {% for email in mitglied.mitgliedmail_set.all %}
             {% include 'mitglieder/email.html' %}
           {% endfor %}
@@ -123,6 +124,30 @@
 </div>
 </form>
 
+<!-- Modal für Löschbestätigung von Ämtern-->
+<div id="modal-delete-amt" class="modal">
+  <div class="modal-content">
+    <h4>Hinweis</h4>
+    <p>Die Löschfunktion dient nur zum Entfernen fehlerhaft gespeicherter Funktionen und entfernt diese endgülitg.<br>Fortfahren?</p>
+  </div>
+  <div class="modal-footer">
+    <a id="delamtconfirm" data-url="{% url 'mitglieder:amt_loeschen' %}" class="left modal-action modal-close waves-effect waves-green btn-flat ">Ja</a>
+    <a class="left modal-action modal-close waves-effect waves-red btn-flat ">Abbrechen</a>
+  </div>
+</div>
+
+<!-- Modal für Max-Members in einer Funktion erreicht-->
+<div id="modal-max-members" class="modal">
+  <div class="modal-content">
+      <h4>Hinweis</h4>
+      <p>Die folgende/n Funktion/en hat/ben das Limit für die maximale Mitgliederanzahl erreicht.</p>
+      <ul id="list-max-members"></ul>
+  </div>
+  <div class="modal-footer">
+    <a id="confirm-max-members" class="left modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+  </div>
+</div>
+
 <style>
   a.space{
     margin-right:20px;
@@ -138,15 +163,31 @@
     border-bottom-color: red !important;
   }
 
+  /* gelber Date Picker */
+  .datepicker-date-display, .datepicker-table td.is-selected, .month-next:focus, .month-prev:focus{
+    color: rgba(0, 0, 0, 0.87) !important;
+    background-color: #ffc107;
+  }
+  .year-text{
+    color: rgba(0,0,0,0.7) !important;
+  }
+  .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .datepicker-table td.is-today {
+    color: #be5500;
+  }
+
+  .datepicker-day-button:focus{
+    background-color: rgba(255, 193, 7, 0.5);
+  }
 </style>
 
 <script>
   var referat_bez;
-  var amt_num = {{mitglied.mitgliedamt_set.count|default:1}};
-  var email_num = {{mitglied.mitgliedmail_set.count|default:1}};
+    var amt_num = {% if mitglied %}{{mitglied.mitgliedamt_set.count}}{% else %}1{% endif %};
+    var email_num = {% if mitglied %}{{mitglied.mitgliedmail_set.count}}{% else %}1{% endif %};
   $(document).ready(function(){
-  // Selects initialisieren, Event Listener fuer Dropdowns hinzufuegen
+  // Selects und Date Picker initialisieren, Event Listener fuer Dropdowns hinzufuegen
   initSelect();
+  for (var i=1; i<=amt_num; i++) initDatePicker(i);
   addReferatEventListener();
   addBereichEventListener();
 
@@ -167,6 +208,7 @@
       valid_input = false;
     }
     // Pruefen, ob alle E-Mail- und Amtfelder ausgefuellt sind
+    console.log("anzahl emails: " + email_num.toString());
     for (var i=1; i<=email_num; i++){
       var email = $("#email"+i.toString()).val();
       if (isEmail(email)==false) {
@@ -203,8 +245,40 @@
 
     }
     // bei gueltigen Eingaben Daten an Server schicken
-    if (valid_input) $('#mitgliedForm').submit();
-    else window.scrollTo(0,0);
+    if (valid_input) {
+        // check if MaxMembers is reached
+        $.ajax({
+            type: "POST",
+            {% if mitglied %}
+                url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=mitglied.id %}",
+                {% else %}
+                url: "{% url 'mitglieder:funktionen-max-member-ueberpruefen' mitglied_id=0 %}",
+            {% endif %}
+            data: $('#mitgliedForm').serialize(),
+
+        success: function(data){
+          var ret = data['isValid'];
+          if(ret == true) {
+              $('#mitgliedForm').submit();
+          }
+          else {
+              window.scrollTo(0,0);
+              var modal = $("#modal-max-members");
+              var instance = M.Modal.getInstance(modal);
+              $("#list-max-members").html("");
+              var funktionen = data['funktion'];
+              console.log(funktionen);
+              funktionen.forEach(function appendtolist(currval) {
+                  $("#list-max-members").append("<li>" + currval + "</li>");
+              });
+              instance.open();
+          }
+        }
+        });
+    }
+    else {
+        window.scrollTo(0,0);
+    }
   });
 
     // Amt hinzufuegen
@@ -218,6 +292,7 @@
           // Einfuegen des HTML-Codes
           $("#div_aemter").append(data);
           initSelect();
+          initDatePicker(amt_num);
           addReferatEventListener();
         }
       });
@@ -323,8 +398,28 @@
 
     // Amt loeschen Button
     $(document).on("click", '.amtdelbtn', function(){
-      var url = $("#" + this.id).attr("data-url");
       amtid = this.id.substr(10);
+      // pruefen, ob Funktion bereits in DB gespeichert wurde, wenn ja Modal oeffnen
+      var saved = parseInt($("#" + this.id).attr("data-saved"));
+      if (saved==1){
+        //Modal oeffnen 
+        var modal = $("#modal-delete-amt");
+        var instance = M.Modal.getInstance(modal);
+        $("#delamtconfirm").attr("data-amtid", amtid);
+        instance.open();
+      } else {
+        amt_loeschen(amtid);
+      }
+    });
+
+    // Loeschen im Modal bestaetigt
+    $('#delamtconfirm').click(function(){
+      var amtid = $('#delamtconfirm').attr("data-amtid");
+      amt_loeschen(amtid);
+    });
+
+    function amt_loeschen(amtid){
+      var url = "{% url 'mitglieder:amt_loeschen' %}";
       $("#funktion" + amtid).remove();
 
       // Veraendern von ids, for- und label-Attributen
@@ -352,7 +447,7 @@
       $.ajax({
           url: url,
       });
-    });
+    };
 
     // E-Mail loeschen
     $(document).on("click", '.emaildelbtn', function(){
@@ -382,6 +477,46 @@
     var options;
     var instances = M.FormSelect.init(elems, options);
   }
+    // Date Picker initialisieren
+  function initDatePicker(amtid){
+    var beginn_datepicker = document.querySelectorAll('#beginn_kandidatur' + amtid);
+    var ende_datepicker = document.querySelectorAll('#ende_kandidatur' + amtid);
+    var init_settings = {formatSubmit: 'yyyy/mm/dd', dateFormat: 'dd.mm.yyyy', format: 'dd.mm.yyyy', showClearBtn: true, i18n: {
+                months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+                monthsShort: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
+                weekdays: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+                weekdaysShort: ["Mo","Di", "Mi", "Do", "Fr", "Sa", "So"],
+                weekdaysAbbrev: ["M","D", "M", "D", "F", "S", "S"],
+                today: 'heute',
+                clear: 'löschen',
+                cancel: 'abbrechen',
+            },
+            onSelect: function(selectedDate) {
+              var instance = M.Datepicker.getInstance($('#ende_kandidatur' + amtid));
+              instance.options.minDate = new Date(selectedDate);
+            }
+    };
+    M.Datepicker.init(beginn_datepicker, init_settings);
+    delete init_settings['onSelect'];
+    init_settings['onSelect'] = function(selectedDate){
+      var instance = M.Datepicker.getInstance($('#beginn_kandidatur' + amtid));
+      instance.options.maxDate = new Date(selectedDate);
+    };
+    // wenn Datepicker fuer Beginn Datum enthalt, dieses Datum als Minimum fuer das Ende der Amtszeit festlegen
+    var datum_beginn = $("#beginn_kandidatur" + amtid).val();
+    // dd.mm.yyyy -> mm/dd/yyyy
+    var dd = datum_beginn.substr(0,2);
+    var mm = datum_beginn.substr(3,2);
+    var yyyy = datum_beginn.substr(6,4);
+    datum_beginn = mm + '\/' + dd + '\/' + yyyy;
+    init_settings['minDate'] = new Date(datum_beginn);
+    M.Datepicker.init(ende_datepicker, init_settings);
+  }
+
+  // Initialisieren des Modals
+  var elems = document.querySelectorAll('.modal');
+  var instance = M.Modal.init(elems, {dismissible: true});
 </script>
+
 
 {% endblock %}

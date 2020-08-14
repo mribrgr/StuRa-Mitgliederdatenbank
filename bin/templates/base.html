@@ -10,6 +10,12 @@
     <!--Global style sheet-->
     <link rel="stylesheet" type="text/css" href="{% static "materialize.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+
+    <!-- Correct scaling on hiDPI mobile screens-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'favicon.svg' %}"/>
 </head>
 
 <body>
@@ -37,7 +43,7 @@
                     {% if request.user.is_authenticated %}
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/mitglieder">Mitglieder</a></li>
-                        <li><a href="/aemter">Ämter</a></li>
+                        <li><a href="/aemter">Funktionen</a></li>
                         <li><a href="/checklisten">Checklisten</a></li>
                         {% if request.user.is_superuser %}
                         <li><a href="/admin/historie"><i class="material-icons">history</i></a></li>
@@ -53,7 +59,7 @@
       {% if request.user.is_authenticated %}
       <ul class="sidenav" id="mobile-demo">
         <li><a href="/mitglieder"><i class="material-icons">people</i>Mitglieder</a></li>
-        <li><a href="/aemter"><i class="material-icons">school</i>Ämter</a></li>
+        <li><a href="/aemter"><i class="material-icons">school</i>Funktionen</a></li>
         <li><a href="/checklisten"><i class="material-icons">done_all</i>Checklisten</a></li>
         {% if request.user.is_superuser %}
         <li><a href="/admin/historie"><i class="material-icons">history</i>Historie</a></li>
@@ -75,7 +81,9 @@
       <div class="footer-copyright grey lighten-2">
         <div class="container black-text">
           © 2020 StuRa HTW Dresden
-          <a class="black-text right" href="https://stura.htw-dresden.de/impressum">Datenschutz/Impressum</a>
+          <a class="right" target="_blank" rel="noopener noreferrer" href="https://mribrgr.github.io/StuRa-Mitgliederdatenbank/"><i class="material-icons right black-text">description</i></a>
+          <a class="right" target="_blank" rel="noopener noreferrer" href="https://github.com/mribrgr/StuRa-Mitgliederdatenbank" style="margin-left: 12px"><img src="{% static 'GitHub-Mark-32px.png'%}" width="22px" height="22px"></a>
+          <a class="black-text right" target="_blank" rel="noopener noreferrer" href="https://stura.htw-dresden.de/impressum">Datenschutz/Impressum</a>       
         </div>
       </div>
     </footer>

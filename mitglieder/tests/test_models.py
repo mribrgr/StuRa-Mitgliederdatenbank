@@ -25,7 +25,7 @@ class TestModels(TestCase):
             organisationseinheit = self.referat1
         )
 
-        self.amt1 = Funktion.objects.create(
+        self.funktion1 = Funktion.objects.create(
             bezeichnung = "myamt",
             workload = 4,
             max_members = 5,
@@ -33,9 +33,9 @@ class TestModels(TestCase):
             unterbereich = self.unterbereich1
         )
 
-        self.mitgliedamt1 = MitgliedAmt.objects.create(
+        self.mitgliedfunktion1 = MitgliedAmt.objects.create(
             mitglied = self.mitglied1,
-            funktion = self.amt1
+            funktion = self.funktion1
         )
 
         self.mitgliedmail1 = MitgliedMail.objects.create(
@@ -50,8 +50,8 @@ class TestModels(TestCase):
 
     def test_mitgliedAmt_toString(self):
         self.assertEqual(
-            self.mitgliedamt1.__str__(),
-            "Hans Peter, myamt myunterbereich (Organisationseinheit myreferat)")
+            self.mitgliedfunktion1.__str__(),
+            "Hans Peter, myamt myunterbereich (myreferat)")
 
     def test_mitgliedMail_toString(self):
         self.assertEqual(

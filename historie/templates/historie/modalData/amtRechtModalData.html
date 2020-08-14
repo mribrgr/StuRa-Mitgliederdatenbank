@@ -1,4 +1,4 @@
-<p><b>Funktion: </b> {{entry.amt_id}}
+<p><b>Funktion: </b> {{entry.funktion_id}}
 (aktuell {{latestAmt.bezeichnung}} 
         {% if latestUnterbereich %}{{latestUnterbereich.bezeichnung}} {% endif %}
         {{latestReferat.bezeichnung}}, damals {{historicalAmt.bezeichnung}} 
@@ -10,7 +10,7 @@
 {% if entry.history_type == "~" %}
     <br />
     <h5>Alter Datensatz</h5>
-    <p><b>Funktion: </b> {{entry.prev_record.amt_id}}
+    <p><b>Funktion: </b> {{entry.prev_record.funktion_id}}
     (aktuell {{latestAmtAlt.bezeichnung}} 
             {% if latestUnterbereichAlt %}{{latestUnterbereichAlt.bezeichnung}} {% endif %}
             {{latestReferatAlt.bezeichnung}}, damals {{historicalAmtAlt.bezeichnung}} 

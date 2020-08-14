@@ -40,7 +40,7 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |AE|Aufwandsentschädigung|Bei besonders hohem Zeitaufwand als Vergütung
 |UP|Unified Process|Vorgehensmodell für die Softwareentwicklung
 |Plone|--|Website des STURA
-|LXC |xx |xx
+|LXC |Linux Containers |Virtualisierung auf Betriebssystemebene, indem mehrere Systeme isoliert gleichzeitig laufen sich aber denselben Kernel teilen.
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -48,5 +48,6 @@ Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitione
 |===
 |Bezeichnung|	Definition |	Format | Gültigkeitsregeln | Aliase
 |Anmeldedaten|Zusammensetzung von Benutzername und Passwort.|String|Emailadresse muss @-Zeichen und Punkt enthalten.|Login
-|Mitgliedsdaten |xx |xx |xx |xx 
+|Mitgliedsdaten |Zusammensetung von Name, Vorname, Legislatur(Funktion), Adresse |Klasse | belegte Funktion muss vorhanden sein |xx
+|Daten (funktionsspezifisch) |Referenzierung der Organisationseinheit und des Unterbereiches, der die Funktion untergeordnet ist. Zusammensetung von Bezeichnung, Workload, Maximalmitgliedern |Klasse |xx |xx
 |===

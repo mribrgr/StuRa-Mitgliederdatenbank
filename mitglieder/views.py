@@ -1,22 +1,29 @@
+from datetime import date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.views import generic
+from django.core import serializers
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 from django.db.models.functions import Lower
 from .models import Mitglied, MitgliedAmt, MitgliedMail
 from aemter.models import Funktion, Organisationseinheit, Unterbereich
+from mitglieder.forms import MitgliedForm
+import datetime
 import simplejson, json
 # string splitting
 import re
 from django.template import RequestContext
 from django.db.models import Q
+from .forms import MitgliedForm
+from .funktions import *
 
 # Anzahl der Aemter bzw. E-Mails die gespeichert werden muessen
 aemternum = 0
 emailnum = 0
+
 
 def main_screen(request):
     """
@@ -35,60 +42,19 @@ def main_screen(request):
     if not request.user.is_authenticated:
         messages.error(request, "Du musst angemeldet sein, um diese Seite sehen zu können.")
         return redirect("/")
+
     # Paginate data
     queryset = Mitglied.objects.order_by(Lower('vorname'), Lower('name'))
+
     paginator = Paginator(queryset, 15) # Show 15 entries per page
     queryset_page = paginator.get_page(1) # Get entries for the first page
 
-    return render(request=request,
-                  template_name="mitglieder/mitglieder.html",
-                  context = {"data": queryset_page})
+    return render(
+        request=request,
+        template_name="mitglieder/mitglieder.html",
+        context={"data": queryset_page
+                 })
 
-def mitglied_laden(request):
-    """
-    Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.
-
-    Aufgaben:
-
-    * Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
-    * Rendern des Templates
-    * Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.
-    :return: Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-    # Extrahieren der Mitglied-Id aus der GET-Request
-    mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
-    # Daten zum Mitglied mit dieser Id an Frontend senden
-    mitglied = Mitglied.objects.get(pk=mitglied_id)
-    return render(request, 'mitglieder/modal.html', {'mitglied': mitglied})
-
-# Entfernen von Mitgliedern aus der Datenbank
-def mitglieder_loeschen(request):
-    """
-    Löscht ausgewählte Mitglieder aus der Datenbank.
-
-    Aufgaben:
-
-    * Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
-    * Rendern des Templates
-    * Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen
-    :return: HTTP Response
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-    if not request.user.is_superuser:
-        return HttpResponse("Permission denied")
-    # Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank
-    mitgliederids = request.POST.get('mitglieder')
-    mitgliederids = json.loads(mitgliederids)
-    for mitgliedid in mitgliederids:
-        Mitglied.objects.get(pk=mitgliedid).delete()
-    return HttpResponse()
 
 @user_passes_test(lambda u: u.is_superuser)
 def mitgliedErstellenView(request):
@@ -98,7 +64,7 @@ def mitgliedErstellenView(request):
     Stellt Textfelder, Dropwdowns und Buttons zum Hinzufügen der Attribute bereit. Anfangs steht jeweils genau ein Eingabebereich für ein Amt und eine E-Mail-Adresse zur Verfügung. Über Buttons können weitere dieser hinzugefügt oder bereits bestehende entfernt werden.
 
     Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
-    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert. 
+    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.
 
     Aufgaben:
 
@@ -118,153 +84,16 @@ def mitgliedErstellenView(request):
     # Laden aller Referate
     referate = Organisationseinheit.objects.order_by('bezeichnung')
     # Anzahl von E-Mails, Aemtern sowie Referate werden an Frontend gesendet
-    return render(request=request,
+    return render(
+        request=request,
         template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-        context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum})
+        context={'referate':referate, 'amtid': aemternum, 'emailid': emailnum
+                 })
 
-# Unterbereiche eines Referats an das Frontend senden
-def bereiche_laden(request):
-    """
-    Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
-
-    Aufgaben:
-
-    * Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
-    * Rendern des Templates
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.
-    :return: Das gerenderte Dropdown.
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-
-    global aemternum
-    referat_id = request.GET.get('organisationseinheit')
-    amtnum = request.GET.get('amtnum')
-    bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
-    return render(request, 'mitglieder/bereich_dropdown_list_options.html', {'bereiche': bereiche, 'amtid': amtnum})
-
-# Aemter eines Bereichs an das Frontend senden
-def aemter_laden(request):
-    """
-    Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
-
-    Aufgaben:
-
-    * Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
-    * Rendern des Templates
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.
-    :return: Das gerenderte Dropdown.
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-
-    global aemternum
-    bereich_id = request.GET.get('bereich')
-    amtnum = request.GET.get('amtnum')
-    # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
-    if bereich_id == "-1":
-        referat_id = request.GET.get('organisationseinheit')
-        aemter = Organisationseinheit.objects.get(pk=referat_id).funktion_set.all()
-        aemter = aemter.filter(unterbereich__isnull=True)
-    # Laden aller Aemter fuer gewaehlten Unterbereich
-    else:
-        aemter = Unterbereich.objects.get(pk=bereich_id).funktion_set.all()
-    return render(request, 'mitglieder/amt_dropdown_list_options.html', {'aemter': aemter, 'amtid': amtnum})
-
-# Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
-def aemter_html_laden(request):
-    """
-    Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.
-
-    Aufgaben:
-
-    * Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
-    * Rendern des Templates
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
-    :return: Das gerenderte Formular.
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-    
-    global aemternum
-    aemternum += 1
-    referate = Organisationseinheit.objects.order_by('bezeichnung')
-    # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
-    return render(request, 'mitglieder/aemter.html', {'referate': referate, 'amtid': aemternum})
-
-# Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
-def amt_loeschen(request):
-    """
-    Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
-
-    Aufgaben:
-
-    * Erfassen der Anzahl der Ämter
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
-    :return: HTTP Response
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-    if not request.user.is_superuser:
-        return HttpResponse("Permission denied")
-
-    global aemternum
-    aemternum-=1
-    return HttpResponse()
-
-# Formular fur eine E-Mail hinzufuegen (Mitglied erstellen/bearbeiten)
-def email_html_laden(request):
-    """
-    Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.
-
-    Aufgaben:
-
-    * Rendern des Formulars
-    * Erfassen der Anzahl der E-Mails eines Mitglieds
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
-    :return: HTTP Response
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-
-    global emailnum
-    emailnum +=1
-    return render(request, 'mitglieder/email.html', {'emailid': emailnum})
-
-# Formular fur eine E-Mail loeschen (Mitglied erstellen/bearbeiten)
-def email_loeschen(request):
-    """
-    Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
-
-    Aufgaben:
-
-    * Erfassen der Anzahl der E-Mails
-    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
-
-    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
-    :return: HTTP Response
-    """
-    if not request.user.is_authenticated:
-        return HttpResponse("Permission denied")
-    if not request.user.is_superuser:
-        return HttpResponse("Permission denied")
-
-    global emailnum
-    emailnum-=1
-    return HttpResponse()
 
 # Mitglied erstellen
 def erstellen(request):
+
     """
     Speichert ein neues Mitglied in der Datenbank.
 
@@ -307,20 +136,24 @@ def erstellen(request):
         for i in range(1, aemternum+1):
             amt_id = request.POST['selectamt'+str(i)]
             funktion = Funktion.objects.get(pk=amt_id)
+            amtszeit_beginn_str = request.POST['beginn_kandidatur'+str(i)]
+            if amtszeit_beginn_str:
+                amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+            else:
+                amtszeit_beginn = None
+            amtszeit_ende_str = request.POST['ende_kandidatur'+str(i)]
+            if amtszeit_ende_str:
+                amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+            else:
+                amtszeit_ende = None
 
-            # Check Max Members
-            if funktion.max_members != (0 or None):
-                # Maximale Member der Funktion sind begrenzt
-                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
-                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
-                    return mitgliedBearbeitenView(request, mitglied.id)
-
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn, amtszeit_ende=amtszeit_ende)
             mitgliedamt.save()
 
         return HttpResponseRedirect(reverse('mitglieder:homepage'))
     else:
         return HttpResponseRedirect('/mitglieder/erstellen')
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def mitgliedBearbeitenView(request, mitglied_id):
@@ -330,7 +163,7 @@ def mitgliedBearbeitenView(request, mitglied_id):
     Stellt Textfelder, Dropwdowns und Buttons zum Bearbeiten der Attribute bereit, welche mit derzeitigen Attributen des Mitglieds befüllt sind. Über Buttons können weitere Ämter und E-Mail-Adressen hinzugefügt oder bereits bestehende entfernt werden.
 
     Mit Betätigung des Speichern-Buttons wird überprüft, ob Name, Vorname, Ämter und E-Mail-Adressen ausgefüllt wurden und ob alle E-Mail-Adressen gültig sind. Bei erfolgreicher Prüfung wird das Mitglied gespeichert und der
-    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert. 
+    Nutzer zu main_screen umgeleitet, ansonsten werden Felder mit fehlenden oder fehlerhaften Eingaben rot markiert.
 
     Aufgaben:
 
@@ -349,37 +182,21 @@ def mitgliedBearbeitenView(request, mitglied_id):
     global aemternum, emailnum
 
     mitglied = Mitglied.objects.get(pk=mitglied_id)
-    aemternum = max(1, mitglied.mitgliedamt_set.all().count())
-    emailnum = max(1, mitglied.mitgliedmail_set.all().count())
+    aemternum = mitglied.mitgliedamt_set.all().count()
+    emailnum = mitglied.mitgliedmail_set.all().count()
     referate = Organisationseinheit.objects.order_by('bezeichnung')
+    curr_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=True)
+    prev_funktionen = mitglied.mitgliedamt_set.filter(amtszeit_ende__isnull=False)
 
-    return render(request=request,
-                  template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
-                  context = {'mitglied': mitglied, 'referate': referate})
-
-# Attribut attr (string) wird aus request (POST-Request) entnommen und zurueckgegeben
-# bei einem KeyError oder leerem String wird None zurueckgegeben
-def getValue(request, attr):
-    """
-    Entnimmt das Attribut attr aus request und verwendet dieses als Rückgabewert.
-
-    Aufgaben:
-
-    * Entnehmen des Attributs
-    * Ausnahmebehandlung und Gültigkeitsüberprüfung: Existiert das Attribut nicht oder ist dieses ein leerer String, so wird None zurückgegeben
-
-    :param request: Eine POST-Request.
-    :param attr: Das Attribut, das aus Request entnommen werden soll.
-    :return: Der Wert des Attributs attr aus request oder None, falls dieses nicht vorhanden oder ein leerer String ist
-    """
-    try:
-        val = request.POST[attr]
-        if val=="":
-            val=None
-    except KeyError:
-        print("KeyError for attribute " + attr)
-        val = None
-    return val
+    return render(
+        request=request,
+        template_name="mitglieder/mitglied_erstellen_bearbeiten.html",
+        context={
+            'mitglied': mitglied,
+            'curr_funktionen': curr_funktionen,
+            'prev_funktionen': prev_funktionen,
+            'referate': referate
+                 })
 
 
 # bearbeitetes Mitglied speichern
@@ -402,7 +219,7 @@ def speichern(request, mitglied_id):
         return HttpResponse("Permission denied")
     if not request.user.is_superuser:
         return HttpResponse("Permission denied")
-      
+
     if request.method == 'POST':
         mitglied = Mitglied.objects.get(id=mitglied_id)
         mitglied.vorname = getValue(request, 'vorname')
@@ -415,27 +232,331 @@ def speichern(request, mitglied_id):
         mitglied.tel_mobil = getValue(request, 'telefon_mobil')
         mitglied.save()
 
+        # alle Aemter des Mitglieds loeschen
+        mitglied.mitgliedamt_set.all().delete()
+
+        for i in range(1, aemternum + 1):
+            amt_id = request.POST['selectamt' + str(i)]
+            # print(amt_id)
+            funktion = Funktion.objects.get(pk=amt_id)
+            # print(funktion)
+            # Beginn und Ende Amtszeit
+            amtszeit_beginn_str = request.POST['beginn_kandidatur' + str(i)]
+            if amtszeit_beginn_str:
+                amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+            else:
+                amtszeit_beginn = None
+            amtszeit_ende_str = request.POST['ende_kandidatur' + str(i)]
+            if amtszeit_ende_str:
+                amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+            else:
+                amtszeit_ende = None
+
+            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied, amtszeit_beginn=amtszeit_beginn,
+                                      amtszeit_ende=amtszeit_ende)
+            mitgliedamt.save()
+
+        # alle Mails loeschen und im Formular angegebene Mails angeben
         mitglied.mitgliedmail_set.all().delete()
-        for i in range(1, emailnum+1):
-            email = request.POST['email'+str(i)]
+        for i in range(1, emailnum + 1):
+            email = request.POST['email' + str(i)]
             mitgliedmail = MitgliedMail(email=email, mitglied=mitglied)
             mitgliedmail.save()
 
-        mitglied.mitgliedamt_set.all().delete()
-        for i in range(1, aemternum+1):
-            amt_id = request.POST['selectamt'+str(i)]
-            funktion = Funktion.objects.get(pk=amt_id)
-
-            # Check Max Members
-            if funktion.max_members != (0 or None):
-                # Maximale Member der Funktion sind begrenzt
-                if funktion.max_members <= MitgliedAmt.objects.filter(funktion=funktion).count():
-                    messages.error(request, "Maximale Anzahl in dem Amt/der Funktion ist erreicht.")
-                    return mitgliedBearbeitenView(request, mitglied.id)
-
-            mitgliedamt = MitgliedAmt(funktion=funktion, mitglied=mitglied)
-            mitgliedamt.save()
     return HttpResponseRedirect(reverse('mitglieder:homepage'))
+
+
+def mitglied_laden(request):
+    """
+    Rendert ein Modal mit allen Daten eines aus der Tabelle gewählten Mitlieds.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Die Mitglied-Id wird aus request gelesen und extrahieren aller Daten zum Mitglied mit dieser Id
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können das gerenderte Template anfordern.
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Id des Mitglieds, dessen Daten angezeigt werden sollen.
+    :return: Das gerenderte Modal, das mit Daten des angeforderten Mitglieds ausgefüllt wurde
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    # Extrahieren der Mitglied-Id aus der GET-Request
+    mitglied_id = simplejson.loads(request.GET.get('mitgliedid'))
+    # Daten zum Mitglied mit dieser Id an Frontend senden
+    mitglied = Mitglied.objects.get(pk=mitglied_id)
+    curr_funktionen = mitglied.mitgliedamt_set\
+        .filter(Q(amtszeit_ende__isnull=True) | Q(amtszeit_ende__gte=date.today()))
+    prev_funktionen = mitglied.mitgliedamt_set\
+        .filter(Q(amtszeit_ende__isnull=False) & Q(amtszeit_ende__lt=date.today()))
+    return render(
+        request=request,
+        template_name='mitglieder/modal.html',
+        context={
+            'mitglied': mitglied,
+            'curr_funktionen': curr_funktionen,
+            'prev_funktionen': prev_funktionen
+        })
+
+
+# Entfernen von Mitgliedern aus der Datenbank
+def mitglieder_loeschen(request):
+    """
+    Löscht ausgewählte Mitglieder aus der Datenbank.
+
+    Aufgaben:
+
+    * Entfernen der Daten: Alle Daten der Mitglieder werden aus der Datenbank entfernt.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können Löschvorgänge auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält die Ids der Mitglieder, die entfernt werden sollen
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+    # Extrahieren der Liste aller Mitglied-Ids und Entfernen der Mitglieder aus Datenbank
+    mitgliederids = request.POST.get('mitglieder')
+    mitgliederids = json.loads(mitgliederids)
+    for mitgliedid in mitgliederids:
+        Mitglied.objects.get(pk=mitgliedid).delete()
+    return HttpResponse()
+
+
+# Unterbereiche eines Referats an das Frontend senden
+def bereiche_laden(request):
+    """
+    Rendert ein Dropdown mit allen Bereichen eines bestimmten Referats beim dazugehörigen Amt, nachdem ein Referat bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Bereiche eines Referats werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Referats sowie die Nummer des Amts eines Mitglieds.
+    :return: Das gerenderte Dropdown.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    global aemternum
+    referat_id = request.GET.get('organisationseinheit')
+    amtnum = request.GET.get('amtnum')
+    bereiche = Organisationseinheit.objects.get(pk=referat_id).unterbereich_set.all()
+    funktionen_ohne_unterbereich_count = Organisationseinheit.objects.get(pk=referat_id).funktionen_ohne_unterbereich_count
+
+    return render(
+        request=request,
+        template_name='mitglieder/bereich_dropdown_list_options.html',
+        context={
+            'bereiche': bereiche,
+            'amtid': amtnum,
+            'funktionen_ohne_unterbereich_count': funktionen_ohne_unterbereich_count
+        })
+
+
+# Aemter eines Bereichs an das Frontend senden
+def funktionen_laden(request):
+    """
+    Rendert ein Dropdown mit allen Ämtern eines bestimmten Bereich beim dazugehörigen Amt, nachdem ein Bereich bei der Mitgliedererstellung oder -bearbeitung ausgewählt wurde.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Ämter eines Bereichs werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat. Enthält den Namen des ausgewählten Bereichs sowie die dazugehörige Nummer des Amts eines Mitglieds.
+    :return: Das gerenderte Dropdown.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    global aemternum
+    bereich_id = request.GET.get('bereich')
+    amtnum = request.GET.get('amtnum')
+    # als Bereich wurde "keiner" gewaehlt => nur Aemter des Referats ohne Bereich werden geladen
+    if bereich_id == "-1":
+        referat_id = request.GET.get('organisationseinheit')
+        aemter = Organisationseinheit.objects.get(pk=referat_id).funktion_set.all()
+        aemter = aemter.filter(unterbereich__isnull=True)
+    # Laden aller Aemter fuer gewaehlten Unterbereich
+    else:
+        aemter = Unterbereich.objects.get(pk=bereich_id).funktion_set.all()
+        # print(bereich_id)
+        # print(aemter)
+    return render(
+        request=request,
+        template_name='mitglieder/amt_dropdown_list_options.html',
+        context={
+            'aemter': aemter,
+            'amtid': amtnum
+        })
+
+
+# Formular fuer ein Funktion hinzufuegen (Mitglied erstellen/bearbeiten)
+def funktionen_html_laden(request):
+    """
+    Rendert ein Formular für ein weiteres Amt, nachdem dieses angefordert wurde und inkrementiert die Anzahl der Formulare für ein Amt in der View.
+
+    Aufgaben:
+
+    * Bereitstellung der Daten: Alle Referate werden aus der Datenbank entnommen.
+    * Rendern des Templates
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: Das gerenderte Formular.
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    global aemternum
+    aemternum += 1
+    referate = Organisationseinheit.objects.order_by('bezeichnung')
+    # Senden von aemternum an Frontend, um HTML-Elementen richtige Id zuzuordnen
+    return render(
+        request=request,
+        template_name='mitglieder/aemter.html',
+        context={
+            'referate': referate,
+            'amtid': aemternum
+        })
+
+
+# Überprüfen ob Max-Members in einer Funktion schon erreicht ist
+def funktionen_max_member_ueberpruefen(request, mitglied_id):
+    """
+
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    funktion = None
+    list_funktion = []
+    amtszeit_beginn = None
+    amtszeit_ende = None
+    retbool = False
+
+
+    # Funktion
+    for i in range(1, aemternum + 1):
+        amt_id = request.POST['selectamt' + str(i)]
+        funktion = Funktion.objects.get(pk=amt_id)
+        amtszeit_beginn_str = request.POST['beginn_kandidatur' + str(i)]
+        if amtszeit_beginn_str:
+            amtszeit_beginn = datetime.datetime.strptime(amtszeit_beginn_str, "%d.%m.%Y").date()
+        else:
+            amtszeit_beginn = None
+        amtszeit_ende_str = request.POST['ende_kandidatur' + str(i)]
+        if amtszeit_ende_str:
+            amtszeit_ende = datetime.datetime.strptime(amtszeit_ende_str, "%d.%m.%Y").date()
+        else:
+            amtszeit_ende = None
+
+        # Check Max Members
+        if funktion.max_members != (0 or None):
+            # Maximale Member der Funktion sind begrenzt
+            mitglieder_count = 0
+            for ma in MitgliedAmt.objects.filter(funktion=funktion):
+                # Kein selbstzählen
+                if (mitglied_id != 0):
+                    if ma.mitglied == Mitglied.objects.get(pk=mitglied_id):
+                        continue
+                # Mitglieder ohne Datum zählen mit rein
+                elif (ma.amtszeit_beginn is None) & (ma.amtszeit_ende is None):
+                    mitglieder_count += 1
+                # Mitglieder ohne Enddatum, aber Anfangsdatum <= derzeitiges Datum zählen mit rein
+                elif (ma.amtszeit_beginn <= date.today()) & (ma.amtszeit_ende is None):
+                    mitglieder_count += 1
+                elif (is_past_due(ma.amtszeit_beginn, amtszeit_beginn) or is_past_due(ma.amtszeit_beginn, amtszeit_ende)) \
+                        and (
+                        is_past_due(amtszeit_beginn, ma.amtszeit_ende) or is_past_due(amtszeit_ende, ma.amtszeit_ende)):
+                    mitglieder_count += 1
+            if funktion.max_members <= mitglieder_count:
+                list_funktion.append(funktion.__str__())
+
+    if not list_funktion:
+        return JsonResponse({'isValid': True})
+    else:
+        return JsonResponse({'isValid': False, 'funktion': list_funktion})
+
+
+# Formular fur ein Funktion loeschen (Mitglied erstellen/bearbeiten)
+def funktion_loeschen(request):
+    """
+    Dekrementiert die Anzahl der Formulare für ein Amt in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
+
+    Aufgaben:
+
+    * Erfassen der Anzahl der Ämter
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
+    global aemternum
+    aemternum-=1
+    return HttpResponse()
+
+
+# Formular fur eine E-Mail hinzufuegen (Mitglied erstellen/bearbeiten)
+def email_html_laden(request):
+    """
+    Rendert ein Formular für eine weitere E-Mail, nachdem diese angefordert wurde und inkrementiert die Anzahl der Formulare für eine E-Mail in der View.
+
+    Aufgaben:
+
+    * Rendern des Formulars
+    * Erfassen der Anzahl der E-Mails eines Mitglieds
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+
+    global emailnum
+    emailnum +=1
+    return render(
+        request=request,
+        template_name='mitglieder/email.html',
+        context={
+            'emailid': emailnum
+        })
+
+
+# Formular fur eine E-Mail loeschen (Mitglied erstellen/bearbeiten)
+def email_loeschen(request):
+    """
+    Dekrementiert die Anzahl der Formulare für eine E-Mail in der mitgliedBearbeitenView oder mitgliedErstellenView nach Löschen eines Formulars.
+
+    Aufgaben:
+
+    * Erfassen der Anzahl der E-Mails
+    * Rechteeinschränkung: Nur angemeldete Nutzer können den Vorgang auslösen
+
+    :param request: Die Ajax-Request, welche den Aufruf der Funktion ausgelöst hat.
+    :return: HTTP Response
+    """
+    if not request.user.is_authenticated:
+        return HttpResponse("Permission denied")
+    if not request.user.is_superuser:
+        return HttpResponse("Permission denied")
+
+    global emailnum
+    emailnum-=1
+    return HttpResponse()
+
 
 # Suche in der Mitgliederanzeige
 def suchen(request):
@@ -492,8 +613,8 @@ def suchen(request):
     mitglieder_matches = []
     mitglied = lambda pk : Mitglied.objects.get(id=pk)
     for mitid in matches_sorted :
-        print(str(mitid) + " " + str(matches[mitid]))
-        print(mitglied(mitid))
+        # print(str(mitid) + " " + str(matches[mitid]))
+        # print(mitglied(mitid))
         mitglieder_matches.insert(0, mitglied(mitid))
 
     # Paginate data
@@ -502,4 +623,6 @@ def suchen(request):
 
     return render(request=request,
                   template_name="mitglieder/row.html",
-                  context = {"data": mitglieder_matches_page})
+                  context={
+                      "data": mitglieder_matches_page
+                  })

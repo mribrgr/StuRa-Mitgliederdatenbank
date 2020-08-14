@@ -28,3 +28,10 @@ include::usecases/historie_einsehen.adoc[Historie einsehen]
 image::img/activityDiagrams/historieEinsehen/activityDiagram.png[]
 
 
+== Nach Wichtigkeit sortierte Usecase-Liste
+
+. Mitglied hinzufügen/löschen/ändern
+. Funktion hinzufügen/löschen/ändern
+. Systemnutzer hinzufügen/löschen/ändern
+. Historie
+. Arbeitsleitfaden

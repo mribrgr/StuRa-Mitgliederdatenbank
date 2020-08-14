@@ -1,0 +1,55 @@
+# Wesentliche Entscheidungen (BHe)
+
+## Python als Skript-/Programmiersprache
+
+Wir haben uns für Python als Skript-/Programmiersprache entschieden. Hierfür gibt es mehrere Gründe: Zu einen wurde Python vom Kunden für eine eventuelle Weiterentwicklung bevorzugt, und zum anderen hatten einige Teammitglieder bereits Erfahrung mit Python. Weiterhin ist Python relativ leicht erlernbar, wenn man bereits mit anderen prozeduralen Programmiersprachen Erfahrung hat. Die im Vergleich zu anderen Sprachen geringere Performance war hierbei vernachlässigbar, da das Softwaresystem nur wenige gleichzeitige Nutzer bedienen muss.
+
+## Django als Web-Framework
+
+https://www.djangoproject.com/[Zur offiziellen Webseite]
+
+Wir haben uns für Django als Web-Framework entschieden. Hauptgrund für diese Entscheidung war die Popularität von Django, wodurch die Wahrscheinlichkeit hoch ist, dass bei einer Weiterentwicklung der Software bereits Erfahrung mit dem Framework besteht. Außerdem ist Django sehr gut dokumentiert und es existieren viele Anleitungen und eine große Community rund um das Framework.
+
+## Materialize als UI-Framework
+
+https://materializecss.com/[Zur offiziellen Webseite]
+
+Wir haben uns für Materialize als Frontend-Framework entschieden. Der Hauptgrund hierfür ist, dass einige Teammitglieder bereits Erfahrungen mit Materialize haben. Außerdem ermöglicht das Material-Design ein modernes User Interface und lässt sich leicht auf eigene Bedürfnisse anpassen, z.B. was die eingesetzten Farben angeht. Es werden zahlreiche UI-Elemente, wie Formulare, Karten, Buttons und viele mehr mitgeliefert, die einfach eingesetzt werden können. Weiterhin ist Materialize gut dokumentiert und unabhängig von anderen Bibliotheken.
+
+## SQLite als Datenbanksystem
+
+Wir haben uns für SQLite als Datenbanksystem entschieden. SQLite wird von Django standardmäßig als Datenbanksystem eingesetzt und ist für die Zwecke unseres Softwaresystems ausreichend, da zum einen die Daten aktuell nicht von anderen Systemen verwendet werden sollen und zum anderen die Performance-Einbußen bei wenigen gleichzeitigen Nutzern vernachlässigbar sind. SQLite hat den Vorteil, dass kein zusätzlicher Datenbank-Server aufgesetzt werden muss und die Daten durch die Ablage als Datei einfach zu portieren und zu sichern sind. Weiterhin fällt durch den nicht vorhandenen Server ein potenzieller Angriffsvektor weg. Sollten die Daten später auch in anderen Systemen benötigt werden, ist eine Portierung von SQLite zu anderen SQL-Datenbanksystemen einfach umzusetzen.
+
+## Verwendung der integrierten Admin-Oberfläche
+
+Wir haben uns dazu entschieden, die in Django integrierte Admin-Oberfläche für einige Funktionalitäten unserer Anwendung zu benutzen. Bei diesen Funktionalitäten handelt es sich um Verwaltungsaufgaben, wie z.B. dem Hinzufügen neuer Systemnutzer, oder um Daten, die sich nur selten ändern und für die eine einfache CRUD-Funktionalität ausreicht. Dies betrifft z.B. die Organisationseinheiten, Unterbereiche und Funktionen des StuRa. Ein weiteres Kriterium war, dass die in der Admin-Oberfläche verwalteten Daten logischerweise nur von Administratoren bearbeitet werden müssen und können. Dadurch konnte unnötiger Implementierungsaufwand vermieden und somit mehr Zeit auf die Kernfunktionalitäten der Anwendung gelegt werden.
+
+## Sphinx zur Code- und Test-Dokumentation
+
+https://www.sphinx-doc.org/en/master/[Zur offiziellen Webseite]
+
+Wir haben uns für Sphinx zur Code- und Test-Dokumentation entschieden. Ein wichtiger Grund hierfür ist, dass man die Dokumentation sowohl als PDF- als auch als HTML-Dateien exportieren kann. Durch den Einsatz von reStructured Text (RST) sind außerdem zahlreiche Formatierungsoptionen gegeben und es ist möglich, die im Code eingebauten Docstrings in den Master-Dokumenten durch weitere Informationen zu ergänzen. Außerdem ist Sphinx sehr gut dokumentiert und wurde uns von unserem Coach empfohlen.
+
+.Ausschnitt aus der mit Sphinx und reStructured Text erstellten Code-Dokumentation
+....
+Views
+~~~~~
+
+.. automodule:: historie.views
+    :members:
+    :undoc-members:
+
+Templates
+~~~~~~~~~
+
+Alle Templates sind unter `historie/templates/historie` zu finden.
+
+list.html
+"""""""""
+
+Enthält den Grundaufbau der Historie. Die Historie wird hier in die 3 Tabs "Mitglieder", "Ämter" und "Nutzer" unterteilt.
+....
+
+## Verwendung von Asciidoc zur Dokumentation
+
+Für die Dokumentation abseits von Code und Tests haben wir uns für Asciidoc entschieden. Wir haben uns explizit gegen das weiter verbreitete Markdown entschieden, da hier ohne weiteres keine "Hierarchie" an Dateien realisiert werden kann, d.h. man kann keine Markdown-Dateien in andere Markdown-Dateien inkludieren. Darüber hinaus haben wir Asciidoc bereits ausgiebig im Praktikum und in Software Engineering I verwendet, wodurch alle Teammitglieder damit Erfahrung hatten. Auch sonst erfüllt Asciidoc unsere Anforderungen, da das Formatieren von Text und das Einfügen von Bildern einfach umsetzbar ist.

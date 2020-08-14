@@ -1,10 +1,11 @@
+{% load mitglieder_extras %}
 <div class="col s12">
     <table class="highlight">
         <thead>
             <tr>
             <th></th>
             <th>Name</th>
-            <th>Ämter</th>
+            <th>Funktionen</th>
             <th class="hide-on-small-only">E-Mails</th>
             <th class="hide-on-med-and-down">Telefon</th>
             <th></th>
@@ -20,18 +21,19 @@
                         {% if request.user.is_superuser %}
                         <form method="post" style="margin-bottom: 0px; margin-top: 4px; padding-left: 7px; padding-right: 7px;">
                             {% csrf_token %}
-                            <label for="chk-{{entry.id}}"/>
-                            <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
-                            <span style="padding-left: 7px; padding-right: 7px;"></span>
+                            <label for="chk-{{entry.id}}">
+                                <input type="checkbox" class="filled-in checkbox-amber" id="chk-{{entry.id}}"/>
+                                <span style="padding-left: 7px; padding-right: 7px;"></span>
+                            </label>
                         </form>
                         {% endif %}
                     </td>
                     <td id="mitgliedname-{{entry.id}}" class="mitglied-{{entry.id}}">{{entry.vorname}} {{entry.name}}</td>
                     <td class="mitglied-{{entry.id}}">
-                        {% if entry.mitgliedamt_set.all %}
+                        {% if entry.curr_funktion_first %}
                         <ul style="margin-bottom: 0px">
-                            <li>{{entry.mitgliedamt_set.first.funktion}}</li>
-                            {% if entry.mitgliedamt_set.all.count > 1 %}
+                            <li>{{entry.curr_funktion_first}}</li>
+                            {% if entry.curr_funktion_count > 1 %}
                                 <li>...</li>
                             {% endif %}
                         </ul>
