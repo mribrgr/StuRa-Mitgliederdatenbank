@@ -31,7 +31,7 @@ Bei den ersten Gesprächen hat sich herausgestellt, dass zwischen Nutzern
 #### Technische und organisatorische Rahmenbedingungen
 
 * als Webanwendung und anwenderfreundlich
-* kein Java und möglichst kein PHP
+* kein Java und möglichst kein PHP, am besten Python
 * freie Lizenz benutzen (z.B GPL, MIT, Apache)
 * muss auf Linux/Unix laufen
 * Gern auch in einem bekannten Webframework
