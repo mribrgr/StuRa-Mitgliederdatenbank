@@ -6,7 +6,7 @@ Lukas Hirsch <s79199@htw-dresden.de>
 //include::usecases/template_usecase_spec.adoc[]
 include::usecases/mitglieder_verwalten.adoc[Mitglieder verwalten]
 === Activity Diagramm
-image::img/activityDiagrams/mitgliederVerwalten/mitgliederVerwalten.png[]
+image::img/activityDiagrams/mitgliederVerwalten/diagramm_activity_mitglieder_verwalten..svg[]
 
 include::usecases/aemter_verwalten.adoc[Ämter verwalten]
 === Activity Diagramm
@@ -17,7 +17,7 @@ image::img/activityDiagrams/aemterVerwalten/amtBearbeiten.png[]
 
 include::usecases/nutzer_verwalten.adoc[Nutzer verwalten]
 === Activity Diagramm
-image::img/activityDiagrams/nutzerVerwalten/nutzerVerwalten.jpg[]
+image::img/activityDiagrams/nutzerVerwalten/diagramm_activity_nutzer_verwalten..svg[]
 
 include::usecases/arbeitsleitfaden_abarbeiten.adoc[Arbeitsleitfaden abarbeiten]
 === Activity Diagramm

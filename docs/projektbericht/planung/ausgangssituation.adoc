@@ -39,7 +39,7 @@ Bei den ersten Gesprächen hat sich herausgestellt, dass zwischen Nutzern
 #### Dokumentation
 Für die Entwicklung sind entsprechende Dokumente anzufertigen.
 
-* Entwickler‐ und Benutzerdokumentation
+* Entwickler- und Benutzerdokumentation
 * Testdokumentation
 * Projektdokumentation
 * Änderungen der Anforderungen
