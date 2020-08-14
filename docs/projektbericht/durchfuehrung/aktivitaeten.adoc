@@ -31,28 +31,4 @@ All diese Punkte führten dazu, dass der Auftraggeber zufrieden war und ist und 
 
 ### Die Inbetriebnahme (läuft noch)
 
-
-Ziel:
-* Zukünftige Nutzer werden eingearbeitet
-* Kunde testet im laufenden Betrieb
-
-Aktivitäten:
-* Kunde nutzt die Applikation regelmäßig
-
-Ergebnisse:
-* Kunde hat Mehrwert durch die gebaute Applikation
-
-Zusammenspiel:
-* Dokumentation hilft dem Kunden bei Problemen
-
-
-
-
-
-## Jetzt: Das Ende
-// Drama pur
-
-
-### Das haben wir gelernt:
-
-// Reflexionen verlinken?
+Das Ziel der Inbetriebnahme ist, dass der Kunde mit dem nun fertigen Produkt einen Mehrwert hat und dieses produktiv und regelmäßig nutzen kann. Bei Fragen hilft dem Kunden die geschriebenen Dokumentationen. Durch die umfangreiche und intensive Zusammenarbeit auch mit dem Auftragsteller kann dieser nun auch selbstständig kleinere Veränderungen vornehmen, wobei wir uns bereitgestellt haben einer folgender Gruppe kleine Erklärungen zu bieten, falls diese nicht durch die Dokumentation allein weiter kommen.
