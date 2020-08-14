@@ -10,7 +10,7 @@ Zeitraum von 30 Tagen nach der Abnahme bei einem Deployment auf Ihrem Server hel
 Außerdem haben wir uns dafür entschlossen, in einem Zeitraum von 90 Tagen
 einen Administrator und/oder Entwickler tiefergehend in die Software
 einzuarbeiten. Schlussendlich konnten wir während der offiziellen Übergabe
-des Systems auch auf einem test Server des StuRa's unsere Software aufspielen.
-Dabei konnten wir einem Administrator zeigen, wie er mit unserer 
+des Systems auch auf einem Testserver des StuRa's unsere Software aufspielen.
+Dabei konnten wir einen Administrator zeigen, wie er mit unserer 
 Dokumentation zu einem späteren Zeitpunkt auf einem offiziellen Server
 die Software einrichten kann.
