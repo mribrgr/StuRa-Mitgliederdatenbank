@@ -6,17 +6,15 @@ from tests.MyFuncAemter import createAmt, createReferat, createUnterbereich
 
 class TestAemtAendern(MyTestCase):
     """
-        Hier wird getestet:
-
-        * Ob man alle Eigenschaften zu Referaten ändern kann
-        * Ob man alle Eigenschaften zu Unterbereichen ändern kann
-        * Ob man alle Eigenschaften zu Ämtern ändern kann
-
+        Setup and Teardown functions are specified in
+        MyTestCase
     """
 
-    def test_1ReferatBezeichnungAendern(self):
+    def test_1OrganisationseinheitBezeichnungAendern(self):
         """
-            Die Bezeichnung eines Referates wird geändert indem eine _1 angehängt wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a "organisationseinheit" as Admin.
+            We change the name of the "organisationseinheit" by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -42,7 +40,9 @@ class TestAemtAendern(MyTestCase):
 
     def test_1UnterbereichBezeichnungAendern(self):
         """
-            Die Bezeichnung eines Unterbereiches wird geändert indem eine _1 angehängt wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a "unterbereich" as Admin.
+            We change the name of the "unterbereich" by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -54,7 +54,7 @@ class TestAemtAendern(MyTestCase):
 
         # ändern der Bezeichnung für test_unterbereich
         suffix = "_1"
-        text = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
@@ -62,7 +62,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = unterbereich + suffix + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + suffix + " (" + organisationseinheit + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -71,7 +71,8 @@ class TestAemtAendern(MyTestCase):
 
     def test_1UnterbereichReferatAendern(self):
         """
-            Ändern des Referates, dem der Unterbereich zugeordnet ist
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the "organisationseinheit" of a "unterbereich" as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -87,7 +88,7 @@ class TestAemtAendern(MyTestCase):
         createUnterbereich(self, organisationseinheit, unterbereich)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
-        text = unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         select_referat = Select(
@@ -96,7 +97,7 @@ class TestAemtAendern(MyTestCase):
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = unterbereich + " (Organisationseinheit " + referat2 + ")"
+        text = unterbereich + " (" + referat2 + ")"
         self.assertTrue(self.browser.find_element_by_xpath(
             "//li[@class='success']"))
         self.assertTrue(self.browser.find_element_by_xpath(
@@ -105,8 +106,9 @@ class TestAemtAendern(MyTestCase):
 
     def test_1AmtBezeichnungAendern(self):
         """
-            Hier wird die Bezeichnung eines Amtes geändert indem eine _1 angehängt
-            wird
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change information of a funktion as Admin.
+            We change the name of the funktion by appending a "_1".
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -119,24 +121,25 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         suffix = "_1"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
-            "//input[@id='id_bezeichnung']").send_keys(suffix)
+            "//tr/td[@class='original']/p[contains(text(), '%s')]/../../td[@class='field-bezeichnung']/input"%(funktion + " " + text)).send_keys(suffix)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
-        # Überprüfen ob alles geklappt hat
-        text = funktion + suffix + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        """
+            Überprüfung ob Funktion hinzugefügt wurde
+            TODO: Testen ob das Amt jetzt wirklich existiert
+        """
         self.assertTrue(self.browser.find_element_by_xpath(
-            "//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % text))
+            "//li[@class='success']/a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtWorkloadAendern(self):
         """
-            Hier wird der Workload eines Amtes geändert
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the workload of a funktion as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -149,68 +152,26 @@ class TestAemtAendern(MyTestCase):
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
         self.browser.find_element_by_xpath(
-            "//input[@id='id_workload']").send_keys(workload)
+            "//tr/td[@class='original']/p[contains(text(), '%s')]/../../td[@class='field-workload']/input"%(funktion + " " + text)).send_keys(workload)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
+        """
+            Überprüfung ob Workload geändert wurde
+            TODO: Testen ob Workload tatsächlich geändert wurde
+        """
         self.assertTrue(self.browser.find_element_by_xpath(
-            "//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % text))
+            "//li[@class='success']/a[contains(text(), '%s')]" % text))
         pass
 
     def test_1AmtReferatAendern(self):
         """
-            Hier wird das Organisationseinheit geändert, dem das Funktion zugeordnet ist
-        """
-        # Login as Admin
-        loginAsLukasAdmin(self)
-
-        # Hinzufügen eines organisationseinheit
-        referat2 = "test_referat"
-        createReferat(self, referat2)
-        self.browser.find_element_by_xpath("//a[@href='/']").click()
-
-        # Hinzufügen eines Unterbereichs
-        unterbereich2 = "test_unterbereich"
-        createUnterbereich(self, referat2, unterbereich2)
-        self.browser.find_element_by_xpath("//a[@href='/']").click()
-
-        # Hinzufügen eines Amtes
-        funktion = "test_amt"
-        organisationseinheit = "Referat Finanzen"
-        unterbereich = "Bereich Buchhaltung"
-        createAmt(self, organisationseinheit, unterbereich, funktion)
-
-        # ändern des Referates, dem der Bereich zugeordnet wurde
-        workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
-        text_ub = unterbereich2 + " (Organisationseinheit " + referat2 + ")"
-        self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % text).click()
-        select_referat = Select(
-            self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
-        select_referat.select_by_visible_text(referat2)
-        select_unterbereich = Select(
-            self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
-        select_unterbereich.select_by_visible_text(text_ub)
-        self.browser.find_element_by_xpath("//input[@name='_save']").click()
-
-        # Überprüfen ob alles geklappt hat
-        text = funktion + " " + unterbereich2 + " (Organisationseinheit " + referat2 + ")"
-        self.assertTrue(self.browser.find_element_by_xpath(
-            "//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % text))
-        pass
-
-    def test_1AmtUnterbereichAendern(self):
-        """
-            Hier wird der Unterbereich geändert, dem das Funktion zugeordnet ist
+            This is a "positive" Systemtest as Blackboxtest.
+            Here we want to check if you can change the "organisationseinheit" of a funktion as Admin.
         """
         # Login as Admin
         loginAsLukasAdmin(self)
@@ -220,34 +181,31 @@ class TestAemtAendern(MyTestCase):
         createReferat(self, organisationseinheit)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        # Hinzufügen zwei Unterbereichs
+        # Hinzufügen eines Unterbereichs
         unterbereich = "test_unterbereich"
         createUnterbereich(self, organisationseinheit, unterbereich)
         self.browser.find_element_by_xpath("//a[@href='/']").click()
 
-        unterbereich2 = "test_unterbereich2"
-        createUnterbereich(self, organisationseinheit, unterbereich2)
-        self.browser.find_element_by_xpath("//a[@href='/']").click()
-
         # Hinzufügen eines Amtes
         funktion = "test_amt"
+        organisationseinheit2 = "Referat Finanzen"
         createAmt(self, organisationseinheit, unterbereich, funktion)
 
         # ändern des Referates, dem der Bereich zugeordnet wurde
         workload = "5"
-        text = funktion + " " + unterbereich + " (Organisationseinheit " + organisationseinheit + ")"
-        text_ub = unterbereich2 + " (Organisationseinheit " + organisationseinheit + ")"
+        text = unterbereich + " (" + organisationseinheit + ")"
         self.browser.find_element_by_xpath(
             "//a[contains(text(), '%s')]" % text).click()
-        select_unterbereich = Select(
-            self.browser.find_element_by_xpath("//select[@id='id_unterbereich']"))
-        select_unterbereich.select_by_visible_text(text_ub)
+        select_referat = Select(
+            self.browser.find_element_by_xpath("//select[@id='id_organisationseinheit']"))
+        select_referat.select_by_visible_text(organisationseinheit2)
         self.browser.find_element_by_xpath("//input[@name='_save']").click()
 
         # Überprüfen ob alles geklappt hat
-        text = funktion + " " + unterbereich2 + " (Organisationseinheit " + organisationseinheit + ")"
+        """
+            Überprüfung ob Funktion verschoben wurde
+            TODO: Testen ob das Amt jetzt wirklich verschoben ist
+        """
         self.assertTrue(self.browser.find_element_by_xpath(
-            "//li[@class='success']"))
-        self.assertTrue(self.browser.find_element_by_xpath(
-            "//a[contains(text(), '%s')]" % text))
+            "//li[@class='success']/a[contains(text(), '%s')]" % (unterbereich + " (" + organisationseinheit2 + ")")))
         pass

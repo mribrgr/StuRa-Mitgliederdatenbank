@@ -1,0 +1,27 @@
+= Aufgetretene Probleme und Umgang mit diesen (TSc)
+
+== Kommunikationsprobleme mit dem Auftragsgeber
+
+Die bereitgestellte Testversion wurde nicht vom Auftraggeber verwendet, so dass keine Garantie für dessen Zufriedenstellung gegeben ist. Potentielle Unzufriedenheit des Auftraggebers liegt daher in seiner Eigenverantwortung und kann, falls vorhanden, durch selbst eingeleitete Weiterentwicklung der Software beseitigt werden.
+
+Ein weiteres Problem stellten lange Wartezeiten auf Antworten des Auftraggebers dar, welche die Weiterarbeit am Projekt blockierten. Vorteil war dabei, dass es im Projekt keine festgelegten Arbeitszeiten gab und so zu Zeitpunkten nach Absprachen mehr Zeit in das Projekt investiert werden konnte, um den Fortschrittsverlust auszugleichen.
+
+== Datenbankänderungen
+
+Während der Softwareentwicklung kam es mehrfach zur Änderungen der Datenbank, die meist Folgen von Anforderungsveränderungen waren. Für Entwickler und Tester bedeutete dies die Aufnahme zusätzlichen, nicht unerheblichen Aufwands, da daraus auch zahlreiche Änderungen am Quellcode folgten.
+
+== Kurzfristiger Ausfall eines Mitglieds durch fehlende Internetanbindung
+
+Ein Mitglied, das der Rolle Entwickler zugeordnet war, konnte durch die nicht vorhandene Internetanbindung über einen längeren Zeitraum nichts zum Projekt beitragen und nicht alle Informationen zum aktuellen Stand der Software erhalten. Andere Team-Mitglieder mussten so für dieses einspringen, sich in den bereits erarbeiteten Quellcode einarbeiten und zusätzlich dessen Aufgaben übernehmen.
+
+== Fehlende Kenntnisse
+
+Nicht alle Kenntnisse zu Themen und Technologien, welche für die Durchführung des Projekts benötigt wurden, waren von Anfang an im Team vorhanden. Die Problematik konnte leicht durch eigenständiges Erwerben der Kenntnisse behoben werden, verursachte aber eine Erhöhung des für das Projekt aufgebrachten Zeitaufwands und führte wohl zu einer Verminderung der Softwarequalität, da, begründet durch die ausbaubaren Kenntnisse, bei der Entwicklung vermutlich nicht an allen Stellen die beste Lösung für ein Problem eingesetzt wurde.
+
+== Austausch eines Team-Mitglieds
+
+Der ursprüngliche Architekt musste das Team unumgänglich verlassen, so dass die Rolle durch ein neu hinzugekommenes Team-Mitglied besetzt wurde. Dieses musste zunächst in die gesamte Thematik eingearbeitet werden.
+
+== Keine persönlichen Treffen durch Corona-Einschränkungen
+
+Da persönliche Treffen durch Corona-Einschränkungen nicht mehr möglich waren, wurden Audiokonferenzen über Discord als Ersatz verwendet. Zu Anfang des Projekts verliefen diese Konferenzen auf Discord durch Internetprobleme für einige Team-Mitglieder oftmals problematisch. Mit Trello, verwendet zur Auflistung von Aufgaben der aktuellen Iterationen, konnten dennoch alle Mitglieder auf dem aktuellen Stand gehalten werden.

@@ -7,7 +7,7 @@
 {% endif %}
 <p><b>Name: </b> {{entry.name}}</p>
 <p><b>Vorname: </b> {{entry.vorname}}</p>
-<p><b>Spitzname: </b> {{entry.spitzname}}</p>
+{% if entry.spitzname %}<p><b>Spitzname: </b> {{entry.spitzname}}</p>{% endif %}
 {% if entry.tel_mobil %}<p><b>Telefon:</b> {{entry.tel_mobil}}</p>{% endif %}
 
 
@@ -23,6 +23,6 @@
   {% endif %}
   <p><b>Name: </b> {{entry.prev_record.name}}</p>
   <p><b>Vorname: </b> {{entry.prev_record.vorname}}</p>
-  <p><b>Spitzname: </b> {{entry.prev_record.spitzname}}</p>
+  {% if entry.prev_record.spitzname %}<p><b>Spitzname: </b> {{entry.prev_record.spitzname}}</p>{% endif %}
   {% if entry.prev_record.tel_mobil %}<p><b>Telefon:</b> {{entry.prev_record.tel_mobil}}</p>{% endif %}
 {% endif %}

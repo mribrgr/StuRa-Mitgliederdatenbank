@@ -6,7 +6,7 @@ möchte ich Systemnutzer hinzufügen, bearbeiten und löschen können.
 
 ===	Kurzbeschreibung der Akteure
 ==== Administrator des Systems
-Der/die Administrator/in/en haben Vollzugriff auf das System und sind für die Verwaltung der Nutzerzugänge verantwortlich.
+Der/die Administrator/inn/en haben Vollzugriff auf das System und sind für die Verwaltung der Nutzerzugänge verantwortlich.
 
 ==== Interne Verwaltung des StuRas
 Eines oder mehrere Mitglieder der internen Verwaltung sind für die Administration des Systems verantwortlich.
@@ -63,5 +63,3 @@ Eines oder mehrere Mitglieder der internen Verwaltung sind für die Administrati
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 . Gespeicherte Anmeldedaten, insbesondere Passwörter, sollten niemals im Klartext in der Nutzerdatenbank vorliegen und es sollte niemals mit Klartextdaten gearbeitet werden.
 . Vor dem Löschen eines Systemnutzers hat eine Sicherheitsabfrage zu erfolgen.
-
-

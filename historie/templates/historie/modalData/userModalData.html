@@ -1,8 +1,8 @@
 <p><b>Nutzer-ID: </b> {{entry.id}}</p>
 <p><b>Nutzername: </b> {{entry.username}}</p>
-<p><b>Nachname: </b> {{entry.last_name}}</p>
-<p><b>Vorname: </b> {{entry.first_name}}</p>
-<p><b>E-Mail-Adresse: </b> {{entry.email}}</p>
+{% if entry.last_name %}<p><b>Nachname: </b> {{entry.last_name}}</p>{% endif %}
+{% if entry.first_name %}<p><b>Vorname: </b> {{entry.first_name}}</p>{% endif %}
+{% if entry.email %}<p><b>E-Mail-Adresse: </b> {{entry.email}}</p>{% endif %}
 
 <p>
   <b>Aktiv: </b>
@@ -35,9 +35,9 @@
   <h5>Alter Datensatz</h5>
   <p><b>Nutzer-ID: </b> {{entry.prev_record.id}}</p>
   <p><b>Nutzername: </b> {{entry.prev_record.username}}</p>
-  <p><b>Nachname: </b> {{entry.prev_record.last_name}}</p>
-  <p><b>Vorname: </b> {{entry.prev_record.first_name}}</p>
-  <p><b>E-Mail-Adresse: </b> {{entry.prev_record.email}}</p>
+  {% if entry.prev_record.last_name %}<p><b>Nachname: </b> {{entry.prev_record.last_name}}</p>{% endif %}
+  {% if entry.prev_record.first_name %}<p><b>Vorname: </b> {{entry.prev_record.first_name}}</p>{% endif %}
+  {% if entry.prev_record.email %}<p><b>E-Mail-Adresse: </b> {{entry.prev_record.email}}</p>{% endif %}
 
   <p>
     <b>Aktiv: </b>

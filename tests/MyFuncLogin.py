@@ -3,14 +3,13 @@ from django.urls import reverse
 
 def loginAsLukasAdmin(self):
     """
-        Öffnen eines Browsers und
-        Login als User testlukasadmin mit Adminrechten
+        Opens a Browser instance and login as admin with the account testlukasadmin.
 
         :param self:
         :type self:
         :return: No return Value
-        :rtype: None
     """
+
     # Öffnen eines Browsers
     try:
         self.browser.get(self.live_server_url)
@@ -41,14 +40,13 @@ def loginAsLukasAdmin(self):
 
 def loginAsLukasUser(self):
     """
-        Öffnen eines Browsers und
-        Login als User testlukas mit Userrechten
+        Opens a Browser instance and login as user with the account testlukas.
 
         :param self:
         :type self:
         :return: No return Value
-        :rtype: None
     """
+
     # Öffnen eines Browsers
     try:
         self.browser.get(self.live_server_url)

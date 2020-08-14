@@ -1,0 +1,21 @@
+
+Entuwrf (MMi)
+=============
+
+Der Entwurf befasste sich hauptsächlich damit, eine Architektur zu modellieren um aktuelle und zukünftige Entwickler unterstützen zu können. Zusätzlich musste darauf geachtet werden, dass die Diagramme und der Quellcode sich nicht zu weit unterscheiden. Aufgrund der Tatsache, dass keine Analysten zum Semesterwechsel mehr im Team waren, wurden die Diagramme der Analyse mit vom Architekten überarbeitet.
+
+Workflow
+--------
+Im Team bestand der Konsens grafische Modelle textuellen vorzuziehen, wobei sich für die Unified Modelling Language (kurz: UML) entschieden wurde, da jeder im Team durch das Studium und/oder der Arbeit damit in Berührung gekommen ist. Dadurch kann gewährleistet werden, dass die Diagramme sich selbst beschreiben können.
+
+Aufgrund des Einarbeitungsaufwandes des neuen Architekten und der Größe des Projekts wurde beschlossen, dass die Diagramme parallel oder hinterher an den Stand des Quellcodes angepasst werden, wodurch die Developer ungebremst arbeiten konnten. Das half dabei alle Aufgaben in der vorgegebenen Zeit abschließen zu können.
+
+Die Diagramme selbst wurden mit dem Programm *draw.io* erstellt. Es ist vielseitig, kostenlos und bietet UML-Bausteine an. Um alle Diagramme auf einen Blick haben zu können befindet sich jedes Diagramm in der selben Projektdatei. Wenn die Aufgaben zu den Diagrammen abgeschlossen waren, wurden diese im nächsten Teammeeting vorgestellt sowie eine Pull Request erstellt. Mehr dazu weiter unten im Feedback. Um auch die Diagramme für diejenigen einsehbar zu machen, die *draw.io* nicht benutzen wollen, wurden alle Diagramme als einzelne Vektorgrafiken (SVG-Format) exportiert.
+
+Feedback
+--------
+Rückmeldungen wurden hauptsätzlich über zwei Wege erhalten. Zum einen über den Coach zum anderen während der Gruppenmeetings. Wenn die Diagramme bis zum nächsten Gruppenmeeting fertig oder auf der Zielgeraden waren wurde diesen allen Teilnehmenden vorgestellt um von möglichst vielen grobes Feedback erhalten zu können. Falls dabei Vorschläge aufkamen wurden diese diskutiert und gegebenenfalls umgesetzt.
+
+Regelmäßig fanden auch Meetings mit dem Coach statt. In diesen wurden die geänderten und neuen Diagramme vorgestellt. Dabei gab es von Seiten des Coaches Hinweise und Vorschläge zur Verbesserung dieser, wie zum Beispiel eine Legende oder wie diese Diagramme in der Dokumentation angeordnet werden könnten. Alle Vorschläge wurden disukutiert und gegebenenfalls umgesetzt.
+
+Ein weiterer Weg für Feedback sind die Pull Requests über GitHub. Diese wurde in der Regel nach der Vorstellung in der Gruppe erstellt und von einem Gruppenmitglied noch einmal genauer angeschaut. Durch das Feedback über alle Wege konnte sichergestellt werden, dass jeder über die Diagramme reden konnte und Diskussionen mit dem Coach von mehreren Seiten geführt werden konnten.

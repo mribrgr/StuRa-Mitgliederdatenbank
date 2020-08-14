@@ -6,12 +6,6 @@
 Welcome to StuRa - Mitgliederdatenbank's documentation!
 =======================================================
 
-Requirements:
--------------
-
-* Django
-* ...
-
 
 .. look for files like <file>.rst
 
@@ -19,13 +13,10 @@ Requirements:
    :maxdepth: 3
    :caption: Contents:
 
-   aemter
-   historie
-   mitglieder
-   tests
-
-
-
+   masterUserDoc
+   masterAdminDoc
+   masterDeveloperDoc
+   masterCodeDoc
 
 
 
