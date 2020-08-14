@@ -31,8 +31,8 @@ include::csv/team.csv[]
 *** Trello
 ** Testen
 *** Selenium
-
-// TODO: Link zum Trelloboard
+*** Sphinx
+*** Asciidoc
 
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
