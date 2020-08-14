@@ -43,21 +43,21 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
 // neue Aufgaben
 // thrs79136, yoshinonxkun, mribrgr, benjamin-hempel, redifity
-| Aufgabenstellung, Auftraggeber, Ausgangssituation | sehr hoch | 3 | erledigt | x | mribrgr | 5 | 0
-| Eingesetzte Techniken und Praktiken | sehr hoch | 5 | erledigt | x | redifity | 8 | 0
-| Ziele, Aktivitäten, Ergebnisse der Iterationen | sehr hoch | 5 | erledigt | x | mribrgr | 8 | 0
-| Anforderungserhebung und -analyse | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
-| Entwurf | sehr hoch | 5 | erledigt | x | redifity | 8 | 0
-| Test | sehr hoch | 5 | erledigt | x | yoshinonxkun | 8 | 0
-| Übergabe | sehr hoch | 5 | erledigt | x | yoshinonxkun | 8 | 0
-| Dokumentation | sehr hoch | 5 | erledigt | x | yoshinonxkun | 8 | 0
+| Aufgabenstellung, Auftraggeber, Ausgangssituation | sehr hoch | 1 | erledigt | x | mribrgr | 2 | 0
+| Eingesetzte Techniken und Praktiken | sehr hoch | 3 | erledigt | x | redifity | 5 | 0
+| Ziele, Aktivitäten, Ergebnisse der Iterationen | sehr hoch | 2 | erledigt | x | mribrgr | 3 | 0
+| Anforderungserhebung und -analyse | sehr hoch | 3 | erledigt | x | thrs79136 | 5 | 0
+| Entwurf | sehr hoch | 2 | erledigt | x | redifity | 3 | 0
+| Test | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Übergabe | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
+| Dokumentation | sehr hoch | 3 | erledigt | x | yoshinonxkun | 5 | 0
 | Probleme und Umgang mit diesen | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
-| Projektergebnisse | sehr hoch | 5 | erledigt | x | thrs79136 | 8 | 0
-| Projektorganisation | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
-| Implementierung | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
-| Wesentliche Entscheidungen | sehr hoch | 5 | erledigt | x | benjamin-hempel | 8 | 0
+| Projektergebnisse | sehr hoch | 3 | erledigt | x | thrs79136 | 5 | 0
+| Projektorganisation | sehr hoch | 2 | erledigt | x | benjamin-hempel | 3 | 0
+| Implementierung | sehr hoch | 3 | erledigt | x | benjamin-hempel | 5 | 0
+| Wesentliche Entscheidungen | sehr hoch | 1 | erledigt | x | benjamin-hempel | 2 | 0
 | Iterationspläne erneut überprüfen | sehr hoch | 3 | erledigt | x | redifity | 5 | 0
-| Reflexion pro Teammitglied | sehr hoch | 5 | erledigt | x | alle | 8 | 0
+| Reflexion pro Teammitglied | sehr hoch | 2 | erledigt | x | alle | 3 | 0
 
 |===
 								
