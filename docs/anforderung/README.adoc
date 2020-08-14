@@ -54,7 +54,7 @@ image::klassendiagramm/KlassendiagrammEntwurf.png[]
 = Projektdokumentation
 * Projektplan
 * Risikoliste
-* Iteration Plan (für zwei ausgewählte Iterationen)
+* Iteration Plans
 
 // Projektplan
 include::files/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
