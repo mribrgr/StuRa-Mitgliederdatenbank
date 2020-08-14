@@ -8,6 +8,6 @@ Zudem konnten die in der Anforderungsanalyse aufgeführten Qualitätsanforderung
 
 == Ausgewählte Screenshots vom User Interface
 
-image::screenshot1.png[]
-image::screenshot2.png[]
-image::screenshot3.png[]
+image::ergebnisse/screenshot1.png[]
+image::ergebnisse/screenshot2.png[]
+image::ergebnisse/screenshot3.png[]
