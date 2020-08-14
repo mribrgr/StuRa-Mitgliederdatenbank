@@ -1,5 +1,5 @@
 
-Entuwrf (MMi)
+Entwurf (MMi)
 =============
 
 Der Entwurf befasste sich hauptsächlich damit, eine Architektur zu modellieren um aktuelle und zukünftige Entwickler unterstützen zu können. Zusätzlich musste darauf geachtet werden, dass die Diagramme und der Quellcode sich nicht zu weit unterscheiden. Aufgrund der Tatsache, dass keine Analysten zum Semesterwechsel mehr im Team waren, wurden die Diagramme der Analyse mit vom Architekten überarbeitet.

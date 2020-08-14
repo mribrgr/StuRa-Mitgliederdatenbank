@@ -1,4 +1,4 @@
-include::durchfuehrung/aktivitäten.adoc[leveloffset=+1]
+include::durchfuehrung/aktivitaeten.adoc[leveloffset=+1]
 <<<
 include::durchfuehrung/anforderungserhebung_und_-analyse.adoc[leveloffset=+1]
 <<<

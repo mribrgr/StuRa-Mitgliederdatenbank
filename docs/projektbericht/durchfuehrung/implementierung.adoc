@@ -2,12 +2,12 @@
 
 ## Organisation und Scope der Work Items
 
-Alle zu erledigenden Work Items wurden in unserem Trello-Board organisiert und zunächst der Spalte "Backlog" zugeordnet. Beim Hinzufügen eines neuen Work Items wurde diesem in der Regel bereits eine grobe Beschreibung der zu erfüllenden Kriterien hinzugefügt. 
+Alle zu erledigenden Work Items wurden in unserem Trello-Board organisiert und zunächst der Spalte "Backlog" zugeordnet. Beim Hinzufügen eines neuen Work Items wurde diesem in der Regel bereits eine grobe Beschreibung der zu erfüllenden Kriterien hinzugefügt.
 
 .Beispiel eines Work-Items im Trello-Board
-image::images/work_item_beispiel.png[]
+image::durchfuehrung/images/work_item_beispiel.png[]
 
-Zu Beginn umfasste ein Work Item in der Regel einen Use Case. Da ein Use Case in unserem Fall üblicherweise eine komplette CRUD-Funktionalität (hinzufügen, bearbeiten, ansehen, löschen) beinhaltet, waren die Work Items zu Beginn sehr aufwändig und zogen sich über 2-3 Iterationen bzw. 4-6 Wochen. Der Vorteil wiederum ist, dass es somit für jeden Use Case einen Experten gab, welcher bei Fragen zu diesem Use Case den anderen Teammitgliedern zur Verfügung stand.  Dies wurde dadurch verstärkt, dass die Developer zuvor noch nicht mit Django gearbeitet haben und sich infolgedessen zunächst in das Framework einarbeiten mussten. Eine explizite Aufwandsschätzung, etwa in Form von Punkten oder Arbeitsstunden, wurde jedoch aufgrund des vergleichsweise kleinen Umfangs des Projekts nicht durchgeführt. 
+Zu Beginn umfasste ein Work Item in der Regel einen Use Case. Da ein Use Case in unserem Fall üblicherweise eine komplette CRUD-Funktionalität (hinzufügen, bearbeiten, ansehen, löschen) beinhaltet, waren die Work Items zu Beginn sehr aufwändig und zogen sich über 2-3 Iterationen bzw. 4-6 Wochen. Der Vorteil wiederum ist, dass es somit für jeden Use Case einen Experten gab, welcher bei Fragen zu diesem Use Case den anderen Teammitgliedern zur Verfügung stand.  Dies wurde dadurch verstärkt, dass die Developer zuvor noch nicht mit Django gearbeitet haben und sich infolgedessen zunächst in das Framework einarbeiten mussten. Eine explizite Aufwandsschätzung, etwa in Form von Punkten oder Arbeitsstunden, wurde jedoch aufgrund des vergleichsweise kleinen Umfangs des Projekts nicht durchgeführt.
 
 Der Umfang (Scope) der Work Items nahm im Verlauf der Implementierung stetig ab. Das liegt daran, dass nach Implementierung der Use Cases schon ein Großteil der Funktionalität vorhanden war. Später hinzugestoßene Work Items bezogen sich in der Regel auf gewünschte Verbesserungen seitens der Stakeholder, kleinere Anpassungen oder Bugfixes. Somit wurden zu Beginn 0,33-0,5 Work Items pro Iteration und Teammitglied bearbeitet, während es am Ende aufgrund des geringeren Scopes pro Item 2-3 waren.
 
@@ -40,7 +40,7 @@ Vor allem in späteren Iterationen wurde darauf geachtet, den Code direkt währe
 Nachdem die Implementierung fertiggestellt und vom bearbeitenden Developer händisch auf ihre Grundfunktionalität geprüft wurde, erstellte dieser eine Pull Request für den zuvor angelegten Branch. Diese wurde anschließend mit dem jeweiligen Work Item im Trello-Board verknüpft und die anderen Mitglieder beispielsweise per WhatsApp über das Anlegen der Pull Request informiert. Ein Reviewer wurde in dieser nicht festgelegt, da Pull Requests in der Regel von einem beliebigen Teammitglied mit freien Kapazitäten bearbeiten wurden. Außerdem wird das Work Item in Trello in die Spalte "Review benötigt" verschoben.
 
 .Beispiel für eine Pull-Request
-image::images/pull_request_beispiel.png[]
+image::durchfuehrung/images/pull_request_beispiel.png[]
 
 Der Reviewer checkt nun den Branch, für welchen die Pull Request gestellt wurde, aus und startet den Entwicklungsserver. Anschließend werden die im Work Item umgesetzten Bestandteile gründlich händisch überprüft, um bereits eventuelle Bugs oder Verbesserungsvorschläge einzubringen. Es wird außerdem darauf geachtet, dass die Umsetzung der Designsprache entspricht und der Quellcode ordentlich geschrieben und organisiert ist. Besteht Nachbesserungsbedarf, so wird dies in der Pull Request vermerkt und der bearbeitende Developer darüber informiert. In späteren Iterationen war es außerdem Pflicht, dass die Pull Request alle Tests, welche im Rahmen einer Continuous Integration mittels GitHub Actions automatisch ausgeführt wurden, besteht. Sollte es hier zu Abweichungen kommen, wurde der Tester informiert und mit diesem gemeinsam die Ursache für das Fehlschlagen der Tests ermittelt.
 
