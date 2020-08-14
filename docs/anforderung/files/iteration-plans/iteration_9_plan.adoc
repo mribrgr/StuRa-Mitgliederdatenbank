@@ -23,7 +23,8 @@ Mauritius Berger <mauritius.berger@htw-dresden.de>
 //Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
 * Essence Navigator weiterhin auf dem Laufenden halten
-
+* Test Coverage erhöhen
+* Ergänzung Pagination
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
