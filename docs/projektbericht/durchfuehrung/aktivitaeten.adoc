@@ -11,50 +11,22 @@
 Unser Projekt begann mit der Anforderungsanalyse und Systemspezifikation, in welcher unser Ziel war, die Anforderungen zu ermitteln. Diese werden im nächsten Schritt konkretisiert, strukturiert und prüft. +
 Um diese Ziele zu erreichen mussten wir uns zuerst kennenlernen. Dies war vor allem notwendig, da wir in dieser Phase besonders intensiv zusammenarbeiten mussten. +
 Wir haben jeder für sich uns in unsere Rollen hineingearbeitet und haben dieses Wissen genutzt um unsere Aufgaben zu verstehen. Es folgten erste Modellierungen und konnten somit schnell einschätzen, wie weit das Projekt machbar ist. Dies haben wir in Kommunikation mit den Auftraggebern abgestimmt. +
-Die Ergebnisse, welche wir erforscht haben waren:
-*
-
-Aktivitäten:
-* Informationen gesammelt, durchdacht aber auch niedergeschrieben
-
-Ergebnisse:
-* Veranschaulichung durch Wireframes
-* Fundament für spätere Entscheidungen gelegt
-* Grundhintergedanken des Projektes aus Sicht der Stakeholder bekommen
-
-Zusammenspiel:
-* Viele Aktivitäten Rollenübergreifend
-* 4-Augen-Prinzip für Commits
-
+Als Ergebnis dieser ersten Phase hatten wir unser Projekt durch Wireframes veranschaulicht. Die Anforderungsanalyse hat uns ebenfalls dazu gebracht, die Anforderungen, welche wir erhalten haben zu sammeln, niederzuschreiben aber auch zu durchdenken. Dies gilt als gutes Fundament für spätere Entscheidungen und half uns sehr die Sicht der Stakeholder gezeigt zu bekommen. +
+All dies gezeigten Schritte konnten nicht einzeln durchgeführt werden, sodass viele Aktivitäten rollenübergreifend erledigt wurden. +
+Für eine bessere Qualität nutzten wir das 4-Augen-Prinzip, sodass mindestens 2 Personen über einen Commit drübergeschaut haben.
 
 ## Zweites Semester: Die Realisierungsphase
 
-### Die Implementierung in Verbindung mit der Integration- und Test-Phase
+### Die Implementierung in Verbindung mit der Integrations- und Test-Phase
 
-Ziel:
-* Umsetzung des zuvor geplanten Projektes mit dynamischer, iterativer Veränderung
-* Akzeptanz der Auftraggeber
-
-Aktivitäten:
-* Prototypenbau
-* Implementation und testen der einzelnen Teile
-* Zusammenführen und testen des Gesamtbildes
-* Auslieferung an Auftraggeber
-* Herstellung der Betriebstauglichkeit
-* Kontinuierliches Bugfixing
-* Schreiben der Dokumentation
-
-Ergebnisse:
-* Auftraggeber sind zufrieden
-* Implementation fertiggestellt
-
-Zusammenspiel:
-* weiterhin 4-Augen-Prinzip
-* Developer wenden sich bei strukturellen Fragen an Architekten
-* Tester steht im engen Kontakt mit Developern
-* Architekt überprüft Aktivitäten des Projekt Managers
-* Verantwortliche auf Seite der Kunden stehen im engen Kontakt mit den Entwicklern bei Problemen.
-
+Nachdem wir im ersten Semester uns einen Überblick verschafft haben und uns ein gutes Fundament geschaffen, waren unsere Ziele im zweiten Semester, dass wir diese Modelle in eine für den Kunden nutzbare Form bringen und gleichzeitig unser Fundament dynamisch und iterativ anzupassen, gleichzeitig war uns jedoch auch wichtig, dass eine Akzeptanz des Auftraggebers erfolgt und dieser nicht nur die Abnahme bestimmt, sondern auch teilweise mitbestimmen kann und unseren Fortschritt mitbekommt. +
+Um diese Ziele zu erreichen begannen wir damit zu testen, wie das fertige Produkt aussehen könnte. Dazu nutzten wir einen horizontale Prototypen. Dieser Prototyp brachte uns ebenfalls ein Stück näher in die Köpfe des Auftraggebers, da wir so weiteren Input bekamen. +
+Im nächsten Schritt implementierten wir die einzelnen Teile, wobei als Zusammenspiel der Rollen zu sagen ist, dass die Developer sich bei Fragen an den Architekten wendeten. Der Tester steht im engen Kontakt zu den Developern, um erste Tests zu schreiben und später eine höhere Test Coverage zu erzielen. Die Dokumentationen wurden parallel schon angefangen, da uns wichtig war, dass unsere Gedanken, weshalb wir etwas gemacht haben und besonders wie wir das gemacht haben, nicht verloren gehen, sondern in eine Form geraten, welche für den Kunden später einen Nutzen hat. +
+Alle einzelnen Schritte innerhalb der Entwicklung wurden wieder vom 4-Augen-Prinzip überprüft um so erneut die Qualität hoch zu halten. +
+Während der Entwicklung der einzelnen Schritte wurden schon die Vorbereitungen getätigt, dass die Teile ein Gesamtbild ergeben. Wir hatten weiterhin engen Kontakt zum Auftraggeber und holten uns von diesem Rat, wenn wir uns unsicher waren, ob wir manches richtig interpretiert hatten. +
+Im Sinne der Auslieferung hatten wir uns schon mittendrin Gedanken gemacht, wie wir dies tun könnten und haben angefangen eine Dokumentation bzw. eine step-by-step-Anleitung hierfür zu schreiben. +
+Da der Tester Tests vorbereitet hatten, konnten die Entwickler kontinuirlich Bugfixing betreiben und somit erneut die Qualität des Codes erhöhen. Der Kunde erhielt ebenfalls eine Testumgebung und hat so iterativ unser Ergebnis reviewen können. +
+All diese Punkte führten dazu, dass der Auftraggeber zufrieden war und ist und die Implementation bis zu diesem Zeitpunkt als final anzusehen war.
 
 
 ### Die Inbetriebnahme (läuft noch)
