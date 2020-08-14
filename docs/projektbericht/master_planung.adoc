@@ -1,3 +1,5 @@
+include::planung/ausgangssituation.adoc[leveloffset=+1]
+<<<
 include::planung/projektorganisation.adoc[leveloffset=+1]
 <<<
 include::planung/way_of_working.adoc[leveloffset=+1]
