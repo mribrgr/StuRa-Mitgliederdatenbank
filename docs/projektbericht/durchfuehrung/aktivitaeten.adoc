@@ -25,7 +25,7 @@ Im nächsten Schritt implementierten wir die einzelnen Teile, wobei als Zusammen
 Alle einzelnen Schritte innerhalb der Entwicklung wurden wieder vom 4-Augen-Prinzip überprüft um so erneut die Qualität hoch zu halten. +
 Während der Entwicklung der einzelnen Schritte wurden schon die Vorbereitungen getätigt, dass die Teile ein Gesamtbild ergeben. Wir hatten weiterhin engen Kontakt zum Auftraggeber und holten uns von diesem Rat, wenn wir uns unsicher waren, ob wir manches richtig interpretiert hatten. +
 Im Sinne der Auslieferung hatten wir uns schon mittendrin Gedanken gemacht, wie wir dies tun könnten und haben angefangen eine Dokumentation bzw. eine step-by-step-Anleitung hierfür zu schreiben. +
-Da der Tester Tests vorbereitet hatten, konnten die Entwickler kontinuirlich Bugfixing betreiben und somit erneut die Qualität des Codes erhöhen. Der Kunde erhielt ebenfalls eine Testumgebung und hat so iterativ unser Ergebnis reviewen können. +
+Da der Tester Tests vorbereitet hatte, konnten die Entwickler kontinuirlich Bugfixing betreiben und somit erneut die Qualität des Codes erhöhen. Der Kunde erhielt ebenfalls eine Testumgebung und hat so iterativ unser Ergebnis reviewen können. +
 All diese Punkte führten dazu, dass der Auftraggeber zufrieden war und ist und die Implementation bis zu diesem Zeitpunkt als final anzusehen war.
 
 
