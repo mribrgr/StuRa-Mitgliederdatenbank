@@ -3,7 +3,7 @@
 ## Aufgabenstellung
 
 Es soll eine Datenbank erstellt werden, in der die relevanten Informationen
- (Personen, Ämter, Amtszeiten,…) gespeichert sind. +
+ (Personen, Funktionen, Amtszeiten,…) gespeichert sind. +
 Die Verwaltungsoberfläche sollte webbasierte und anwendungsfreundlich sein.
 Bei den ersten Gesprächen hat sich herausgestellt, dass zwischen Nutzern
  unterschieden werden muss, da nicht jeder Nutzer alles bearbeiten oder sehen
