@@ -16,7 +16,7 @@ Theresa Schüttig <s79136@htw-dresden.de>; Lucie Jill Urbons <luciejill.urbons@h
 :rouge-style: github
 :xrefstyle: full
 :experimental:
-:chapter-label: 
+:chapter-label:
 :figure-caption: Abbildung
 :table-caption: Tabelle
 :listing-caption: Listing
@@ -85,9 +85,23 @@ include::files/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
 image::img/essenceNavigator/2019-12-16.PNG[]
 image::img/essenceNavigator/2020-01-05.jpg[]
 image::img/essenceNavigator/2020-01-20.jpg[]
-== neuste:
 image::img/essenceNavigator/2020-01-30.jpg[]
+image::img/essenceNavigator/2020-02-15.png[]
+image::img/essenceNavigator/2020-03-01.png[]
+image::img/essenceNavigator/2020-03-16.png[]
+image::img/essenceNavigator/2020-04-01.png[]
+image::img/essenceNavigator/2020-04-16.png[]
+image::img/essenceNavigator/2020-05-01.png[]
+image::img/essenceNavigator/2020-05-16.png[]
+image::img/essenceNavigator/2020-06-01.png[]
+image::img/essenceNavigator/2020-06-15.png[]
+image::img/essenceNavigator/2020-07-13.png[]
+image::img/essenceNavigator/2020-07-20.png[]
+image::img/essenceNavigator/2020-07-27.png[]
+image::img/essenceNavigator/2020-08-01.png[]
 
+== neuste:
+image::img/essenceNavigator/2020-08-02.png[]
 
 // ---------------------------------------------
 // Vorlage Belegabgabe
