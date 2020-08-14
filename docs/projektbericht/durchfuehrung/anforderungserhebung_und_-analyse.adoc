@@ -1,0 +1,6 @@
+= Anforderungserhebung und -analyse (TSc)
+
+Im Verlauf des Sommersemesters 2019/20 bekamen wir von den Stakeholdern eine pdf-Datei zu Verfügung gestellt, welche alle wesentlichen Anforderungen enthielt. Die Anforderungserhebung wurde organisiert, indem wir wöchentliche Treffen organisierten, in denen allen Teammitgliedern Aufgaben zugeteilt wurden, die bis zu einem bestimmten Datum erledigt werden sein sollten. Dabei gefundene Unklarheiten und fehlende Informationen wurden, ebenfalls durch persönliche Treffen, mit den Stakeholdern geklärt.
+
+Während der Entwicklung der Software entstanden zusätzlich Anforderungsveränderungen. Oftmals enstanden diese, wenn der Auftraggeber genauere Vorstellungen entwickelte, wie die Software auszusehen und zu funktionieren hatte. Beispielsweise verlangte der Auftraggeber zusätzlich die Zuordnung einer beliebigen Anzahl von Telefonnummern und E-Mail-Adressen zu jedem StuRa-Mitglied, sowie die Änderung einzelner domänenspezifischer Begriffe.
+Die Veränderung einiger Use Case Spezifikationen wurde durch das Team selbst eingeleitet, weil sich diese während der Implementierung als praktischer herausstellten. Dazu gehörte zum Beispiel das gleichzeitige Löschen mehrerer Mitglieder statt des mehrfachen Löschens einzelner Mitglieder, was durch die vorherige Auswahl aller zu löschenden Mitglieder bewerkstelligt wurde.
